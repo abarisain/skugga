@@ -154,6 +154,7 @@
 				TargetAttributes = {
 					51B34E5B1A7558BB00732395 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5GB4T7ETDY;
 					};
 					51B34E6B1A7558BB00732395 = {
 						CreatedOnToolsVersion = 6.1;
@@ -322,6 +323,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -333,6 +335,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -392,6 +395,7 @@
 				51B34E781A7558BB00732395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51B34E791A7558BB00732395 /* Build configuration list for PBXNativeTarget "skuggaTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +404,7 @@
 				51B34E7B1A7558BB00732395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
