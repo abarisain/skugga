@@ -13,7 +13,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="skugga" customModuleProvider="target">
             <connections>
-                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+                <outlet property="popover" destination="0o8-rk-KXt" id="TZ1-Uu-zDA"/>
+                <outlet property="statusItemMenu" destination="ymb-ia-pVE" id="NeV-17-8sW"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -666,15 +667,48 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="skugga" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </view>
-        </window>
+        <viewController id="4dY-cR-i46" userLabel="Popover View Controller">
+            <connections>
+                <outlet property="view" destination="Itu-ES-1d3" id="wdU-gr-Vhb"/>
+            </connections>
+        </viewController>
+        <popover id="0o8-rk-KXt">
+            <connections>
+                <outlet property="contentViewController" destination="4dY-cR-i46" id="k8n-PR-eD1"/>
+            </connections>
+        </popover>
+        <customView id="Itu-ES-1d3">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="212"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sK8-Uq-CFU">
+                    <rect key="frame" x="152" y="39" width="82" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uoH-87-QWs">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HdQ-Kt-MnL">
+                    <rect key="frame" x="124" y="152" width="35" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Falut" id="Sew-mp-nqJ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <point key="canvasLocation" x="312" y="469"/>
+        </customView>
+        <menu id="ymb-ia-pVE">
+            <items>
+                <menuItem title="Quit" id="3OG-Y0-0wt">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quitApp:" target="Voe-Tx-rLC" id="YXq-IO-xlN"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="252" y="135.5"/>
+        </menu>
     </objects>
 </document>
