@@ -667,8 +667,9 @@
                 </menuItem>
             </items>
         </menu>
-        <viewController id="4dY-cR-i46" userLabel="Popover View Controller">
+        <viewController id="4dY-cR-i46" userLabel="Popover View Controller" customClass="PopoverViewController" customModule="skugga" customModuleProvider="target">
             <connections>
+                <outlet property="menuButton" destination="yRK-zs-Nyx" id="DbZ-4G-A3I"/>
                 <outlet property="view" destination="Itu-ES-1d3" id="wdU-gr-Vhb"/>
             </connections>
         </viewController>
@@ -678,37 +679,63 @@
             </connections>
         </popover>
         <customView id="Itu-ES-1d3">
-            <rect key="frame" x="0.0" y="0.0" width="370" height="212"/>
+            <rect key="frame" x="0.0" y="0.0" width="372" height="377"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sK8-Uq-CFU">
-                    <rect key="frame" x="152" y="39" width="82" height="32"/>
-                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uoH-87-QWs">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HdQ-Kt-MnL">
-                    <rect key="frame" x="124" y="152" width="35" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Falut" id="Sew-mp-nqJ">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HdQ-Kt-MnL">
+                    <rect key="frame" x="161" y="349" width="51" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="47" id="etJ-pD-ZX1"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Skugga" id="Sew-mp-nqJ">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="yRK-zs-Nyx">
+                    <rect key="frame" x="337" y="347" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="dfj-IK-rDH"/>
+                        <constraint firstAttribute="width" constant="20" id="wsv-CG-JI6"/>
+                    </constraints>
+                    <buttonCell key="cell" type="bevel" bezelStyle="circular" image="Cog" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="I1o-Uq-OvJ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="menuButtonClick:" target="4dY-cR-i46" id="pPG-Iw-udf"/>
+                    </connections>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="312" y="469"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="HdQ-Kt-MnL" secondAttribute="centerX" id="WnH-WW-1mt"/>
+                <constraint firstItem="HdQ-Kt-MnL" firstAttribute="top" secondItem="Itu-ES-1d3" secondAttribute="top" constant="11" id="gAU-eN-4uJ"/>
+                <constraint firstItem="yRK-zs-Nyx" firstAttribute="top" secondItem="Itu-ES-1d3" secondAttribute="top" constant="10" id="opa-tB-uPO"/>
+                <constraint firstAttribute="trailing" secondItem="yRK-zs-Nyx" secondAttribute="trailing" constant="15" id="wpa-07-J9t"/>
+            </constraints>
+            <point key="canvasLocation" x="313" y="551.5"/>
         </customView>
         <menu id="ymb-ia-pVE">
             <items>
-                <menuItem title="Quit" id="3OG-Y0-0wt">
+                <menuItem title="Upload From Disk..." id="JWw-nR-fGM">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="ZwS-Fe-cAQ"/>
+                <menuItem title="Preferences" id="3OG-Y0-0wt">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Quit Skugga" id="chC-tC-1du">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitApp:" target="Voe-Tx-rLC" id="YXq-IO-xlN"/>
+                        <action selector="quitApp:" target="Voe-Tx-rLC" id="UdF-Y8-X5d"/>
                     </connections>
                 </menuItem>
             </items>
             <point key="canvasLocation" x="252" y="135.5"/>
         </menu>
     </objects>
+    <resources>
+        <image name="Cog" width="9.4814815521240234" height="9.4814815521240234"/>
+    </resources>
 </document>

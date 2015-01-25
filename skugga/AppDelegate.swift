@@ -60,10 +60,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             //statusItem.menu = statusItemMenu;
             var button = statusItem.button;
             button?.target = self;
-            button?.action = "toggleMainPopover";
+            button?.action = "statusButtonPressed";
             button?.sendActionOn((Int)(NSEventMask.LeftMouseUpMask.rawValue | NSEventMask.RightMouseUpMask.rawValue));
             button?.window?.registerForDraggedTypes([NSURLPboardType]);
             button?.window?.delegate = self;
+        }
+    }
+    
+    func statusButtonPressed()
+    {
+        // Check if Alt (option) is pressed
+        if (((NSApp.currentEvent??.modifierFlags)! & NSEventModifierFlags.AlternateKeyMask) != nil)
+        {
+            showMenuFromView(statusItem.button!, window: (statusItem.button?.window)!);
+        }
+        else
+        {
+            toggleMainPopover();
         }
     }
     
@@ -81,8 +94,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         }
     }
     
+    // MARK: Menu Actions
+    
+    func showMenuFromView(view: NSView, window: NSWindow)
+    {
+        var origin = view.superview?.convertPoint(NSMakePoint(view.frame.origin.x, view.frame.origin.y), toView: nil);
+        
+        var event = NSEvent.mouseEventWithType(NSEventType.LeftMouseUp, location:origin!, modifierFlags: NSEventModifierFlags.allZeros, timestamp: NSTimeIntervalSince1970, windowNumber: window.windowNumber, context: nil, eventNumber: 0, clickCount: 0, pressure: 0.1);
+        NSMenu.popUpContextMenu(statusItemMenu, withEvent: event!, forView: statusItem.button!);
+    }
+    
     @IBAction func quitApp(sender: AnyObject)
     {
+        NSApplication.sharedApplication().terminate(nil);
     }
 }
 
