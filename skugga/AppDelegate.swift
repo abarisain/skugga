@@ -10,7 +10,7 @@ import Cocoa
 
 public struct ClientConsts
 {
-    static let DEBUG_URL = "http://localhost:9000/"
+    static let DEBUG_URL = "http://c.arnaud.moe:9000/"
     static let CLIENT_ERROR_DOMAIN = "SkuggaClientError"
 }
 
@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         {
             var file = NSURL(fromPasteboard: pasteboard);
             UploadClient().uploadFile(file!, progress: { (bytesSent, bytesToSend) -> Void in
-                    NSLog("%l / %l", bytesSent, bytesToSend);
+                    NSLog("%lli/%lli", bytesSent, bytesToSend);
                 }, success: { ([NSObject : AnyObject]) -> Void in
                     NSLog("success");
                 }, failure: { (error: NSError) -> Void in
