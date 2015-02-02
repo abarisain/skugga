@@ -51,6 +51,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func performDragOperation(sender: NSDraggingInfo) -> Bool
     {
+        var pasteboard = sender.draggingPasteboard();
+        if (pasteboard.types?.filter({$0 as NSString == NSURLPboardType}).count > 0)
+        {
+            var file = NSURL(fromPasteboard: pasteboard);
+            UploadClient().uploadFile(file!, progress: { (bytesSent, bytesToSend) -> Void in
+                    NSLog("%l / %l", bytesSent, bytesToSend);
+                }, success: { ([NSObject : AnyObject]) -> Void in
+                    NSLog("success");
+                }, failure: { (error: NSError) -> Void in
+                    NSLog("failure %@", error);
+                }
+            );
+        }
+        
         return true;
     }
     
