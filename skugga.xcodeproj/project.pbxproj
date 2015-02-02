@@ -12,6 +12,7 @@
 		51B34E641A7558BB00732395 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* Images.xcassets */; };
 		51B34E671A7558BB00732395 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E651A7558BB00732395 /* MainMenu.xib */; };
 		51B34E731A7558BB00732395 /* skuggaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B34E721A7558BB00732395 /* skuggaTests.swift */; };
+		51D963F81A801293008F876E /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D963F71A801293008F876E /* UploadClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		51B34E6C1A7558BB00732395 /* skuggaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = skuggaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B34E711A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51B34E721A7558BB00732395 /* skuggaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skuggaTests.swift; sourceTree = "<group>"; };
+		51D963F71A801293008F876E /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = Client/UploadClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		513C3E401A7D48E300E20F50 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				51D963F71A801293008F876E /* UploadClient.swift */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
 		51B34E531A7558BB00732395 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		51B34E5E1A7558BB00732395 /* skugga */ = {
 			isa = PBXGroup;
 			children = (
+				513C3E401A7D48E300E20F50 /* Client */,
 				51B34E611A7558BB00732395 /* AppDelegate.swift */,
 				510311BE1A75859000C60298 /* PopoverViewController.swift */,
 				51B34E631A7558BB00732395 /* Images.xcassets */,
@@ -210,6 +221,7 @@
 			files = (
 				510311BF1A75859000C60298 /* PopoverViewController.swift in Sources */,
 				51B34E621A7558BB00732395 /* AppDelegate.swift in Sources */,
+				51D963F81A801293008F876E /* UploadClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
