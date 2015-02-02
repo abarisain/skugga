@@ -6,9 +6,7 @@
 //
 //
 
-let DEBUG_URL = "http://localhost:9000/"
-
-let ROUTE_SEND = "/1.0/send"
+let ROUTE_SEND = "1.0/send"
 
 import Foundation
 
@@ -28,11 +26,15 @@ class UploadClient
         var error :NSError?;
         
         var request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST",
-            URLString: DEBUG_URL + ROUTE_SEND,
+            URLString: ClientConsts.DEBUG_URL + ROUTE_SEND,
             parameters: nil,
             constructingBodyWithBlock: { (data: AFMultipartFormData!) -> Void in
                 var error :NSError?;
-                data.appendPartWithFileURL(file, name: file.lastPathComponent, error: &error);
+                var pouet = file.lastPathComponent;
+                data.appendPartWithFileURL(file, name: "data", error: &error);
+                if (error != nil) {
+                    NSLog("errerz");
+                }
             },
             error: &error)
         
