@@ -8,9 +8,15 @@
 
 import Cocoa
 
+public struct ClientConsts
+{
+    static let DEBUG_URL = "http://localhost:9000/"
+    static let CLIENT_ERROR_DOMAIN = "SkuggaClientError"
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination {
-
+    
     @IBOutlet weak var window: NSWindow!
 
     @IBOutlet weak var popover: NSPopover!
@@ -21,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
+        
         // Insert code here to initialize your application
         initStatusItem();
         
