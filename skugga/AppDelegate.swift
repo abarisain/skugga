@@ -63,16 +63,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     
                     var url = data["name"] as NSString;
                     url = ClientConsts.DEBUG_URL + url;
-                    NSLog("success");
+                    
+                    var pasteboard = NSPasteboard.generalPasteboard();
+                    pasteboard.clearContents();
+                    pasteboard.setString(url, forType: NSStringPboardType);
+
+                    
                     var notification = NSUserNotification();
                     notification.title = "Skugga";
                     notification.subtitle = "File uploaded : \(url)";
                     notification.deliveryDate = NSDate();
+                    notification.soundName = "Glass.aiff";
+                    
                     var center = NSUserNotificationCenter.defaultUserNotificationCenter();
                     center.scheduleNotification(notification);
                     
                 }, failure: { (error: NSError) -> Void in
-                    NSLog("failure %@", error);
+                    var notification = NSUserNotification();
+                    notification.title = "Skugga";
+                    notification.subtitle = "Error while uploading file";
+                    notification.deliveryDate = NSDate();
+                    notification.soundName = "Glass.aiff";
+                    
+                    var center = NSUserNotificationCenter.defaultUserNotificationCenter();
+                    center.scheduleNotification(notification);
                 }
             );
         }
