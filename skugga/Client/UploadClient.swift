@@ -44,7 +44,7 @@ class UploadClient
                 let httpResponse = response as NSHTTPURLResponse;
                 if (httpResponse.statusCode == 200)
                 {
-                    success(responseObject as [NSObject:AnyObject]);
+                    success(responseObject as Dictionary);
                 }
                 else
                 {

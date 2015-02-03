@@ -56,9 +56,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         {
             var file = NSURL(fromPasteboard: pasteboard);
             UploadClient().uploadFile(file!, progress: { (bytesSent, bytesToSend) -> Void in
+                
                     NSLog("%lli/%lli", bytesSent, bytesToSend);
-                }, success: { ([NSObject : AnyObject]) -> Void in
+                
+                }, success: { (data: [NSObject: AnyObject]) -> Void in
+                    
+                    var url = data["name"] as NSString;
+                    url = ClientConsts.DEBUG_URL + url;
                     NSLog("success");
+                    var notification = NSUserNotification();
+                    notification.title = "Skugga";
+                    notification.subtitle = "File uploaded : \(url)";
+                    notification.deliveryDate = NSDate();
+                    var center = NSUserNotificationCenter.defaultUserNotificationCenter();
+                    center.scheduleNotification(notification);
+                    
                 }, failure: { (error: NSError) -> Void in
                     NSLog("failure %@", error);
                 }
