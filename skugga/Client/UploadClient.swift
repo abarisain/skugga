@@ -28,7 +28,7 @@ class UploadClient
         var error :NSError?;
         
         var request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST",
-            URLString: ClientConsts.DEBUG_URL + ROUTE_SEND,
+            URLString: ClientConsts.DEBUG_URL + ROUTE_SEND + "?name=" + file.lastPathComponent.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!,
             parameters: nil,
             constructingBodyWithBlock: { (data: AFMultipartFormData!) -> Void in
                 var error :NSError?;
