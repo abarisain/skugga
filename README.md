@@ -2,7 +2,7 @@
 
 ---  
 
-A modular cloud file manager
+A cloud uploader for remeh/upd
 
 
 #License
