@@ -79,9 +79,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     center.scheduleNotification(notification);
                     
                 }, failure: { (error: NSError) -> Void in
+                    
+                    var statusCode = error.userInfo?["statusCode"] as Int;
+                    
                     var notification = NSUserNotification();
                     notification.title = "Skugga";
-                    notification.subtitle = "Error while uploading file";
+                    notification.subtitle = "Error while uploading file (\(statusCode))";
                     notification.deliveryDate = NSDate();
                     notification.soundName = "Glass.aiff";
                     
