@@ -8,6 +8,8 @@
 
 let ROUTE_SEND = "1.0/send"
 
+let HEADER_FILENAME = "X-Upd-Orig-Filename"
+
 import Foundation
 
 class UploadClient
@@ -30,10 +32,11 @@ class UploadClient
             parameters: nil,
             constructingBodyWithBlock: { (data: AFMultipartFormData!) -> Void in
                 var error :NSError?;
-                var pouet = file.lastPathComponent;
                 data.appendPartWithFileURL(file, name: "data", error: &error);
             },
             error: &error)
+        
+        request.addValue(file.lastPathComponent, forHTTPHeaderField: HEADER_FILENAME);
         
         var uploadTask = manager.uploadTaskWithStreamedRequest(request,
             progress: nil,
