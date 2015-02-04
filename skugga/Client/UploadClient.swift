@@ -38,6 +38,12 @@ class UploadClient
         
         request.addValue(file.lastPathComponent, forHTTPHeaderField: HEADER_FILENAME);
         
+        // Todo : make this more generic. Maybe.
+        if (!ClientConsts.SECRET_KEY.isEmpty)
+        {
+            request.addValue(ClientConsts.SECRET_KEY, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER);
+        }
+        
         var uploadTask = manager.uploadTaskWithStreamedRequest(request,
             progress: nil,
             completionHandler: { (response: NSURLResponse!, responseObject: AnyObject!, error: NSError!) -> Void in

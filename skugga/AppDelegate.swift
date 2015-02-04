@@ -12,6 +12,8 @@ public struct ClientConsts
 {
     static let DEBUG_URL = "http://c.arnaud.moe:9000/"
     static let CLIENT_ERROR_DOMAIN = "SkuggaClientError"
+    static let SECRET_KEY = "foobar"
+    static let SECRET_KEY_HEADER = "X-Upd-Key"
 }
 
 @NSApplicationMain
@@ -65,14 +67,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     NSLog("%lli/%lli", bytesSent, bytesToSend);
                 
                 }, success: { (data: [NSObject: AnyObject]) -> Void in
-                    
                     var url = data["name"] as NSString;
                     url = ClientConsts.DEBUG_URL + url;
                     
                     var pasteboard = NSPasteboard.generalPasteboard();
                     pasteboard.clearContents();
                     pasteboard.setString(url, forType: NSStringPboardType);
-
+                    
+                    NSLog("Upload succeeded ! \(url)");
                     
                     var notification = NSUserNotification();
                     notification.title = "Skugga";
@@ -83,6 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     self.notificationCenter.scheduleNotification(notification);
                     
                 }, failure: { (error: NSError) -> Void in
+                    NSLog("Upload failed ! \(error)");
                     
                     var statusCode = error.userInfo?["statusCode"] as Int;
                     
