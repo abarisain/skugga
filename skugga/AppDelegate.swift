@@ -81,6 +81,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     notification.subtitle = "File uploaded : \(url)";
                     notification.deliveryDate = NSDate();
                     notification.soundName = "Glass.aiff";
+                    notification.userInfo = ["url": url];
+                    
+                    // Private API to have buttons on non-alert notifications
+                    // I don't get why Apple doesn't want us to have buttons on notifications that go away, but keeps
+                    // that for iTunes and Mail.app
+                    notification.setValue(true, forKey: "_showsButtons");
+                    
+                    notification.actionButtonTitle = "Open";
                     
                     self.notificationCenter.scheduleNotification(notification);
                     
@@ -170,6 +178,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool
     {
         return true;
+    }
+    
+    func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification)
+    {
+        if (notification.activationType == .ActionButtonClicked)
+        {
+            NSWorkspace.sharedWorkspace().openURL(NSURL(string: (notification.userInfo!["url"] as NSString))!);
+        }
     }
 }
 
