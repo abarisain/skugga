@@ -16,6 +16,9 @@ public struct ClientConsts
     static let SECRET_KEY_HEADER = "X-Upd-Key"
 }
 
+let statusIconHeight: CGFloat = 18.0;
+let statusIconWidth: CGFloat = 24.0;
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination, NSUserNotificationCenterDelegate {
     
@@ -25,7 +28,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     @IBOutlet weak var statusItemMenu: NSMenu!
     
+    // TODO : Maybe make a class that controls the statusbar icon
     var statusItem: NSStatusItem!
+    
+    var statusNormalImage: NSImage! // The smiling one ! Yeah it could be "I'm finished !" but I like it smiling all the time
+
+    var statusEmptyImage: NSImage!
+    
+    var statusFinishedImage: NSImage!
+    
+    var statusProgressImage: NSImage! //Programatically drawn
     
     var notificationCenter: NSUserNotificationCenter!;
 
@@ -62,10 +74,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         if (pasteboard.types?.filter({$0 as NSString == NSURLPboardType}).count > 0)
         {
             var file = NSURL(fromPasteboard: pasteboard);
-            UploadClient().uploadFile(file!, progress: { (bytesSent, bytesToSend) -> Void in
-                
-                    NSLog("%lli/%lli", bytesSent, bytesToSend);
-                
+            UploadClient().uploadFile(file!, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
+                    self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)));
                 }, success: { (data: [NSObject: AnyObject]) -> Void in
                     var url = data["name"] as NSString;
                     url = ClientConsts.DEBUG_URL + url;
@@ -92,6 +102,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     
                     self.notificationCenter.scheduleNotification(notification);
                     
+                    self.setNormalStatusIcon();
+                    
                 }, failure: { (error: NSError) -> Void in
                     NSLog("Upload failed ! \(error)");
                     
@@ -104,6 +116,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     notification.soundName = "Glass.aiff";
                     
                     self.notificationCenter.scheduleNotification(notification);
+                    
+                    self.setNormalStatusIcon();
                 }
             );
         }
@@ -116,11 +130,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     {
         if (statusItem == nil)
         {
+            statusNormalImage = NSImage(named: "Menubar_Idle");
+            statusEmptyImage = NSImage(named: "Menubar_Empty");
+            statusFinishedImage = NSImage(named: "Menubar_Finished");
+            statusProgressImage = NSImage(size: NSSize(width: 24.0, height: 18.0));
+            
+            // Using templates lets OS X show them properly in light and dark mode !
+            
+            statusNormalImage.setTemplate(true);
+            statusEmptyImage.setTemplate(true);
+            statusFinishedImage.setTemplate(true);
+            statusProgressImage.setTemplate(true);
+            
+            
             statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1); // Linker error : Use -1 instead of NSVariableStatusItemLength
-            var iconImage: NSImage! = NSImage(named: "Menubar_Idle");
-            // Using a template lets Mac OS X show it properly in light and dark mode !
-            iconImage.setTemplate(true);
-            statusItem.image = iconImage;
+            statusItem.image = statusNormalImage;
             //statusItem.menu = statusItemMenu;
             var button = statusItem.button;
             button?.target = self;
@@ -129,6 +153,57 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             button?.window?.registerForDraggedTypes([NSURLPboardType]);
             button?.window?.delegate = self;
         }
+    }
+    
+    // Progress should be between 0 and 1
+    func drawStatusIconForProgress(progress: Float)
+    {
+        // FIXME : Use GCD ?
+        objc_sync_enter(statusProgressImage);
+        
+        // Clean the progress image, draw the two clipped images (normal and progress) according to percentage
+        // then, set that as menubar icon.
+        statusProgressImage.lockFocus();
+        
+        // Round progress to the first decimal, otherwise the drawing gets funky
+        var roundedProgress = round(progress * 10)/10;
+        
+        NSGraphicsContext.saveGraphicsState();
+        NSColor.clearColor().set();
+        NSGraphicsContext.currentContext()?.compositingOperation = .CompositeClear;
+        NSBezierPath.fillRect(NSRect(x: 0, y: 0, width: statusIconWidth, height: statusIconHeight));
+        NSGraphicsContext.restoreGraphicsState();
+        
+        var progressPath = NSBezierPath(rect: NSRect(x: 0, y: 0, width: (statusIconWidth * CGFloat(roundedProgress)), height: statusIconHeight));
+        
+        var emptyPath = NSBezierPath(rect: NSRect(x: (statusIconWidth * CGFloat(roundedProgress)), y: 0, width: statusIconWidth - (statusIconWidth * CGFloat(roundedProgress)), height: statusIconHeight));
+
+        NSGraphicsContext.saveGraphicsState();
+        progressPath.addClip();
+        statusFinishedImage.drawInRect(NSRect(x: 0, y: 0, width: statusIconWidth, height: statusIconHeight),
+            fromRect: NSZeroRect,
+            operation: .CompositeSourceOver,
+            fraction: 1.0);
+        NSGraphicsContext.restoreGraphicsState();
+        
+        NSGraphicsContext.saveGraphicsState();
+        emptyPath.addClip();
+        statusEmptyImage.drawInRect(NSRect(x: 0, y: 0, width: statusIconWidth, height: statusIconHeight),
+            fromRect: NSZeroRect,
+            operation: .CompositeSourceOver,
+            fraction: 1.0);
+        NSGraphicsContext.restoreGraphicsState();
+        
+        statusProgressImage.unlockFocus();
+        
+        statusItem.image = statusProgressImage;
+        
+        objc_sync_exit(statusProgressImage);
+    }
+    
+    func setNormalStatusIcon()
+    {
+        statusItem.image = statusNormalImage;
     }
     
     func statusButtonPressed()
