@@ -32,9 +32,6 @@ class UploadClient
                 var error :NSError?;
                 var pouet = file.lastPathComponent;
                 data.appendPartWithFileURL(file, name: "data", error: &error);
-                if (error != nil) {
-                    NSLog("errerz");
-                }
             },
             error: &error)
         
