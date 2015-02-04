@@ -15,7 +15,7 @@ public struct ClientConsts
 }
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination, NSUserNotificationCenterDelegate {
     
     @IBOutlet weak var window: NSWindow!
 
@@ -24,6 +24,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     @IBOutlet weak var statusItemMenu: NSMenu!
     
     var statusItem: NSStatusItem!
+    
+    var notificationCenter: NSUserNotificationCenter!;
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
@@ -36,6 +38,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         
         // Set this if we want to force a light popover appearance
         //popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight);
+        
+        notificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter();
+        notificationCenter.delegate = self;
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
@@ -75,8 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     notification.deliveryDate = NSDate();
                     notification.soundName = "Glass.aiff";
                     
-                    var center = NSUserNotificationCenter.defaultUserNotificationCenter();
-                    center.scheduleNotification(notification);
+                    self.notificationCenter.scheduleNotification(notification);
                     
                 }, failure: { (error: NSError) -> Void in
                     
@@ -88,8 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     notification.deliveryDate = NSDate();
                     notification.soundName = "Glass.aiff";
                     
-                    var center = NSUserNotificationCenter.defaultUserNotificationCenter();
-                    center.scheduleNotification(notification);
+                    self.notificationCenter.scheduleNotification(notification);
                 }
             );
         }
@@ -157,6 +160,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     @IBAction func quitApp(sender: AnyObject)
     {
         NSApplication.sharedApplication().terminate(nil);
+    }
+    
+    // MARK : NSUserNotificationSenderDelegate methods
+    
+    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool
+    {
+        return true;
     }
 }
 
