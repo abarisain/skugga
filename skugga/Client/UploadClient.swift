@@ -28,7 +28,7 @@ class UploadClient
         var error :NSError?;
         
         var request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST",
-            URLString: ClientConsts.DEBUG_URL + ROUTE_SEND + "?name=" + file.lastPathComponent!.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!,
+            URLString: Configuration.endpoint + ROUTE_SEND + "?name=" + file.lastPathComponent!.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!,
             parameters: nil,
             constructingBodyWithBlock: { (data: AFMultipartFormData!) -> Void in
                 var error :NSError?;
@@ -38,10 +38,10 @@ class UploadClient
         
         request.addValue(file.lastPathComponent, forHTTPHeaderField: HEADER_FILENAME);
         
-        // Todo : make this more generic. Maybe.
-        if (!ClientConsts.SECRET_KEY.isEmpty)
+        let secret = Configuration.secret;
+        if (!secret.isEmpty)
         {
-            request.addValue(ClientConsts.SECRET_KEY, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER);
+            request.addValue(secret, forHTTPHeaderField: Consts.SECRET_KEY_HEADER);
         }
         
         var uploadTask = manager.uploadTaskWithStreamedRequest(request,
@@ -54,7 +54,7 @@ class UploadClient
                 }
                 else
                 {
-                    failure(NSError(domain: ClientConsts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while uploading file", "statusCode": httpResponse.statusCode]));
+                    failure(NSError(domain: Consts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while uploading file", "statusCode": httpResponse.statusCode]));
                 }
 
             }

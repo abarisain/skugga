@@ -8,11 +8,9 @@
 
 import Cocoa
 
-public struct ClientConsts
+public struct Consts
 {
-    static let DEBUG_URL = "http://c.arnaud.moe:9000/"
-    static let CLIENT_ERROR_DOMAIN = "SkuggaClientError"
-    static let SECRET_KEY = "foobar"
+    static let CLIENT_ERROR_DOMAIN = "SkuggaClientError" 
     static let SECRET_KEY_HEADER = "X-Upd-Key"
 }
 
@@ -27,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     @IBOutlet weak var popover: NSPopover!
     
     @IBOutlet weak var statusItemMenu: NSMenu!
+    
+    @IBOutlet weak var settingsWindow: SettingsWindow!
     
     // TODO : Maybe make a class that controls the statusbar icon
     var statusItem: NSStatusItem!
@@ -78,7 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)));
                 }, success: { (data: [NSObject: AnyObject]) -> Void in
                     var url = data["name"] as NSString;
-                    url = ClientConsts.DEBUG_URL + url;
+                    url = Configuration.endpoint + url;
                     
                     var pasteboard = NSPasteboard.generalPasteboard();
                     pasteboard.clearContents();
@@ -262,5 +262,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             NSWorkspace.sharedWorkspace().openURL(NSURL(string: (notification.userInfo!["url"] as NSString))!);
         }
     }
+    
+    // MARK : Menu methods
+    
+    @IBAction func menuUploadFromDisk(sender: AnyObject)
+    {
+    }
+    
+    @IBAction func menuPreferences(sender: AnyObject)
+    {
+        if (!settingsWindow.visible)
+        {
+            settingsWindow.refreshFields();
+        }
+        settingsWindow.makeKeyAndOrderFront(nil);
+    }
+    
+    
 }
 
