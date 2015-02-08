@@ -24,6 +24,9 @@ class UploadClient
                 safeProgress(bytesSent: totalBytesSent, bytesToSend: totalBytesExpectedToSend);
             }
         });
+        var securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None);
+        securityPolicy.allowInvalidCertificates = true;
+        manager.securityPolicy = securityPolicy;
         
         var error :NSError?;
         
