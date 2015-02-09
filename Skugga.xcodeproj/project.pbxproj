@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		510311BF1A75859000C60298 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510311BE1A75859000C60298 /* PopoverViewController.swift */; };
+		514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0051A880F2E0008F2CE /* SettingsWindow.swift */; };
+		514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0071A8812AB0008F2CE /* Configuration.swift */; };
+		51B34E621A7558BB00732395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B34E611A7558BB00732395 /* AppDelegate.swift */; };
+		51B34E641A7558BB00732395 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
+		51B34E671A7558BB00732395 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E651A7558BB00732395 /* MainMenu.xib */; };
+		51B34E731A7558BB00732395 /* skuggaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B34E721A7558BB00732395 /* skuggaTests.swift */; };
+		51D963F81A801293008F876E /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D963F71A801293008F876E /* UploadClient.swift */; };
+		A0E329238C028CAF496C0136 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B4497F954924F7AE0295 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		51B34E6D1A7558BB00732395 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51B34E541A7558BB00732395 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 51B34E5B1A7558BB00732395;
+			remoteInfo = skugga;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		510311BE1A75859000C60298 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		514CA0051A880F2E0008F2CE /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		514CA0071A8812AB0008F2CE /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		518365E21A801835005A0A54 /* skugga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skugga-Bridging-Header.h"; sourceTree = "<group>"; };
+		51B34E5C1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B34E601A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51B34E611A7558BB00732395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		51B34E631A7558BB00732395 /* M.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = M.xcassets; sourceTree = "<group>"; };
+		51B34E661A7558BB00732395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		51B34E6C1A7558BB00732395 /* Skugga.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Skugga.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B34E711A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51B34E721A7558BB00732395 /* skuggaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skuggaTests.swift; sourceTree = "<group>"; };
+		51D963F71A801293008F876E /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = Client/UploadClient.swift; sourceTree = "<group>"; };
+		5DA1B4497F954924F7AE0295 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB993F6751274FA4EA9E8BF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FB43E6DF78E4D15A340D7EF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		51B34E591A7558BB00732395 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0E329238C028CAF496C0136 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51B34E691A7558BB00732395 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4210816BDE7A863697F4548E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DA1B4497F954924F7AE0295 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		513C3E401A7D48E300E20F50 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				51D963F71A801293008F876E /* UploadClient.swift */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		51B34E531A7558BB00732395 = {
+			isa = PBXGroup;
+			children = (
+				51B34E5E1A7558BB00732395 /* skugga */,
+				51B34E6F1A7558BB00732395 /* skuggaTests */,
+				51B34E5D1A7558BB00732395 /* Products */,
+				982DEC05982950B7C372E60B /* Pods */,
+				4210816BDE7A863697F4548E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		51B34E5D1A7558BB00732395 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51B34E5C1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename.app */,
+				51B34E6C1A7558BB00732395 /* Skugga.temp_caseinsensitive_renameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		51B34E5E1A7558BB00732395 /* skugga */ = {
+			isa = PBXGroup;
+			children = (
+				513C3E401A7D48E300E20F50 /* Client */,
+				51B34E611A7558BB00732395 /* AppDelegate.swift */,
+				514CA0071A8812AB0008F2CE /* Configuration.swift */,
+				510311BE1A75859000C60298 /* PopoverViewController.swift */,
+				514CA0051A880F2E0008F2CE /* SettingsWindow.swift */,
+				51B34E631A7558BB00732395 /* M.xcassets */,
+				51B34E651A7558BB00732395 /* MainMenu.xib */,
+				51B34E5F1A7558BB00732395 /* Supporting Files */,
+			);
+			path = skugga;
+			sourceTree = "<group>";
+		};
+		51B34E5F1A7558BB00732395 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				518365E21A801835005A0A54 /* skugga-Bridging-Header.h */,
+				51B34E601A7558BB00732395 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51B34E6F1A7558BB00732395 /* skuggaTests */ = {
+			isa = PBXGroup;
+			children = (
+				51B34E721A7558BB00732395 /* skuggaTests.swift */,
+				51B34E701A7558BB00732395 /* Supporting Files */,
+			);
+			path = skuggaTests;
+			sourceTree = "<group>";
+		};
+		51B34E701A7558BB00732395 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				51B34E711A7558BB00732395 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		982DEC05982950B7C372E60B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FB43E6DF78E4D15A340D7EF1 /* Pods.debug.xcconfig */,
+				CB993F6751274FA4EA9E8BF7 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		51B34E5B1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51B34E761A7558BB00732395 /* Build configuration list for PBXNativeTarget "Skugga.temp_caseinsensitive_rename" */;
+			buildPhases = (
+				85BDF98FBD41EB0F6F29CEE9 /* Check Pods Manifest.lock */,
+				51B34E581A7558BB00732395 /* Sources */,
+				51B34E591A7558BB00732395 /* Frameworks */,
+				51B34E5A1A7558BB00732395 /* Resources */,
+				C86A742565EF63042499F46C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Skugga.temp_caseinsensitive_rename;
+			productName = skugga;
+			productReference = 51B34E5C1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename.app */;
+			productType = "com.apple.product-type.application";
+		};
+		51B34E6B1A7558BB00732395 /* Skugga.temp_caseinsensitive_renameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51B34E791A7558BB00732395 /* Build configuration list for PBXNativeTarget "Skugga.temp_caseinsensitive_renameTests" */;
+			buildPhases = (
+				51B34E681A7558BB00732395 /* Sources */,
+				51B34E691A7558BB00732395 /* Frameworks */,
+				51B34E6A1A7558BB00732395 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				51B34E6E1A7558BB00732395 /* PBXTargetDependency */,
+			);
+			name = Skugga.temp_caseinsensitive_renameTests;
+			productName = skuggaTests;
+			productReference = 51B34E6C1A7558BB00732395 /* Skugga.temp_caseinsensitive_renameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		51B34E541A7558BB00732395 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					51B34E5B1A7558BB00732395 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5GB4T7ETDY;
+					};
+					51B34E6B1A7558BB00732395 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 51B34E5B1A7558BB00732395;
+					};
+				};
+			};
+			buildConfigurationList = 51B34E571A7558BB00732395 /* Build configuration list for PBXProject "Skugga" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 51B34E531A7558BB00732395;
+			productRefGroup = 51B34E5D1A7558BB00732395 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				51B34E5B1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename */,
+				51B34E6B1A7558BB00732395 /* Skugga.temp_caseinsensitive_renameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		51B34E5A1A7558BB00732395 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B34E641A7558BB00732395 /* M.xcassets in Resources */,
+				51B34E671A7558BB00732395 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51B34E6A1A7558BB00732395 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		85BDF98FBD41EB0F6F29CEE9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C86A742565EF63042499F46C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		51B34E581A7558BB00732395 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */,
+				514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */,
+				510311BF1A75859000C60298 /* PopoverViewController.swift in Sources */,
+				51B34E621A7558BB00732395 /* AppDelegate.swift in Sources */,
+				51D963F81A801293008F876E /* UploadClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51B34E681A7558BB00732395 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51B34E731A7558BB00732395 /* skuggaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		51B34E6E1A7558BB00732395 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 51B34E5B1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename */;
+			targetProxy = 51B34E6D1A7558BB00732395 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		51B34E651A7558BB00732395 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				51B34E661A7558BB00732395 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		51B34E741A7558BB00732395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		51B34E751A7558BB00732395 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		51B34E771A7558BB00732395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB43E6DF78E4D15A340D7EF1 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = skugga/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = Skugga.temp_caseinsensitive_rename;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "skugga/skugga-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		51B34E781A7558BB00732395 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB993F6751274FA4EA9E8BF7 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = skugga/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = Skugga.temp_caseinsensitive_rename;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "skugga/skugga-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		51B34E7A1A7558BB00732395 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = skuggaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = Skugga.temp_caseinsensitive_renameTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/skugga.app/Contents/MacOS/skugga";
+			};
+			name = Debug;
+		};
+		51B34E7B1A7558BB00732395 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = skuggaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = Skugga.temp_caseinsensitive_renameTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/skugga.app/Contents/MacOS/skugga";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		51B34E571A7558BB00732395 /* Build configuration list for PBXProject "Skugga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51B34E741A7558BB00732395 /* Debug */,
+				51B34E751A7558BB00732395 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		51B34E761A7558BB00732395 /* Build configuration list for PBXNativeTarget "Skugga.temp_caseinsensitive_rename" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51B34E771A7558BB00732395 /* Debug */,
+				51B34E781A7558BB00732395 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		51B34E791A7558BB00732395 /* Build configuration list for PBXNativeTarget "Skugga.temp_caseinsensitive_renameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51B34E7A1A7558BB00732395 /* Debug */,
+				51B34E7B1A7558BB00732395 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 51B34E541A7558BB00732395 /* Project object */;
+}
