@@ -74,55 +74,65 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         if (pasteboard.types?.filter({$0 as NSString == NSURLPboardType}).count > 0)
         {
             var file = NSURL(fromPasteboard: pasteboard);
-            UploadClient().uploadFile(file!, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
-                    self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)));
-                }, success: { (data: [NSObject: AnyObject]) -> Void in
-                    var url = data["name"] as NSString;
-                    url = Configuration.endpoint + url;
-                    
-                    var pasteboard = NSPasteboard.generalPasteboard();
-                    pasteboard.clearContents();
-                    pasteboard.setString(url, forType: NSStringPboardType);
-                    
-                    NSLog("Upload succeeded ! \(url)");
-                    
-                    var notification = NSUserNotification();
-                    notification.title = "Skugga";
-                    notification.subtitle = "File uploaded : \(url)";
-                    notification.deliveryDate = NSDate();
-                    notification.soundName = "Glass.aiff";
-                    notification.userInfo = ["url": url];
-                    
-                    // Private API to have buttons on non-alert notifications
-                    // I don't get why Apple doesn't want us to have buttons on notifications that go away, but keeps
-                    // that for iTunes and Mail.app
-                    notification.setValue(true, forKey: "_showsButtons");
-                    
-                    notification.actionButtonTitle = "Open";
-                    
-                    self.notificationCenter.scheduleNotification(notification);
-                    
-                    self.setNormalStatusIcon();
-                    
-                }, failure: { (error: NSError) -> Void in
-                    NSLog("Upload failed ! \(error)");
-                    
-                    var statusCode = error.userInfo?["statusCode"] as Int;
-                    
-                    var notification = NSUserNotification();
-                    notification.title = "Skugga";
-                    notification.subtitle = "Error while uploading file (\(statusCode))";
-                    notification.deliveryDate = NSDate();
-                    notification.soundName = "Glass.aiff";
-                    
-                    self.notificationCenter.scheduleNotification(notification);
-                    
-                    self.setNormalStatusIcon();
-                }
-            );
+            uploadURL(file!);
         }
         
         return true;
+    }
+    
+    private func uploadURL(url: NSURL)
+    {
+        UploadClient().uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
+            self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)));
+            }, success: { (data: [NSObject: AnyObject]) -> Void in
+                var url = data["name"] as NSString;
+                url = Configuration.endpoint + url;
+                
+                var pasteboard = NSPasteboard.generalPasteboard();
+                pasteboard.clearContents();
+                pasteboard.setString(url, forType: NSStringPboardType);
+                
+                NSLog("Upload succeeded ! \(url)");
+                
+                var notification = NSUserNotification();
+                notification.title = "Skugga";
+                notification.subtitle = "File uploaded : \(url)";
+                notification.deliveryDate = NSDate();
+                notification.soundName = "Glass.aiff";
+                notification.userInfo = ["url": url];
+                
+                // Private API to have buttons on non-alert notifications
+                // I don't get why Apple doesn't want us to have buttons on notifications that go away, but keeps
+                // that for iTunes and Mail.app
+                notification.setValue(true, forKey: "_showsButtons");
+                
+                notification.actionButtonTitle = "Open";
+                
+                self.notificationCenter.scheduleNotification(notification);
+                
+                self.setNormalStatusIcon();
+                
+            }, failure: { (error: NSError) -> Void in
+                NSLog("Upload failed ! \(error)");
+                
+                var errorSubtitle = "Error while uploading file";
+                
+                if let statusCode = error.userInfo?["statusCode"] as? Int
+                {
+                    errorSubtitle += " (\(statusCode))";
+                }
+                
+                var notification = NSUserNotification();
+                notification.title = "Skugga";
+                notification.subtitle = errorSubtitle;
+                notification.deliveryDate = NSDate();
+                notification.soundName = "Glass.aiff";
+                
+                self.notificationCenter.scheduleNotification(notification);
+                
+                self.setNormalStatusIcon();
+            }
+        );
     }
     
     // MARK: Statusbar Icon
@@ -267,6 +277,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     @IBAction func menuUploadFromDisk(sender: AnyObject)
     {
+        var openPanel = NSOpenPanel();
+        openPanel.canChooseDirectories = false;
+        openPanel.canChooseFiles = true;
+        openPanel.allowsMultipleSelection = false;
+        
+        var clickedButton = openPanel.runModal();
+        
+        if (clickedButton == NSFileHandlingPanelOKButton)
+        {
+            if let url = openPanel.URLs.first as? NSURL
+            {
+                uploadURL(url);
+            }
+            else
+            {
+                NSLog("No url found from NSOpenPanel, aborting.");
+            }
+        }
     }
     
     @IBAction func menuPreferences(sender: AnyObject)
