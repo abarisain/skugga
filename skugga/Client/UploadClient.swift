@@ -50,14 +50,21 @@ class UploadClient
         var uploadTask = manager.uploadTaskWithStreamedRequest(request,
             progress: nil,
             completionHandler: { (response: NSURLResponse!, responseObject: AnyObject!, error: NSError!) -> Void in
-                let httpResponse = response as NSHTTPURLResponse;
-                if (httpResponse.statusCode == 200)
+                if let error = error
                 {
-                    success(responseObject as Dictionary);
+                    failure(error);
                 }
                 else
                 {
-                    failure(NSError(domain: Consts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while uploading file", "statusCode": httpResponse.statusCode]));
+                    let httpResponse = response as NSHTTPURLResponse;
+                    if (httpResponse.statusCode == 200)
+                    {
+                        success(responseObject as Dictionary);
+                    }
+                    else
+                    {
+                        failure(NSError(domain: Consts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while uploading file", "statusCode": httpResponse.statusCode]));
+                    }
                 }
 
             }
