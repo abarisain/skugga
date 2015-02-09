@@ -55,6 +55,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         
         notificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter();
         notificationCenter.delegate = self;
+        
+        FileListClient().getFileList({ (files: [RemoteFile]) -> () in
+            
+            }, failure: { (error: NSError) -> () in
+            
+        })
     }
 
     func applicationWillTerminate(aNotification: NSNotification)

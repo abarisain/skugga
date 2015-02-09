@@ -14,6 +14,8 @@
 		51B34E641A7558BB00732395 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
 		51B34E671A7558BB00732395 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E651A7558BB00732395 /* MainMenu.xib */; };
 		51D963F81A801293008F876E /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D963F71A801293008F876E /* UploadClient.swift */; };
+		51F917781A8963AC0082D9AF /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917771A8963AC0082D9AF /* FileListClient.swift */; };
+		51F9177A1A89674F0082D9AF /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917791A89674F0082D9AF /* RemoteFile.swift */; };
 		A0E329238C028CAF496C0136 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B4497F954924F7AE0295 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		51B34E711A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51B34E721A7558BB00732395 /* skuggaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skuggaTests.swift; sourceTree = "<group>"; };
 		51D963F71A801293008F876E /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = Client/UploadClient.swift; sourceTree = "<group>"; };
+		51F917771A8963AC0082D9AF /* FileListClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileListClient.swift; path = Client/FileListClient.swift; sourceTree = "<group>"; };
+		51F917791A89674F0082D9AF /* RemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFile.swift; path = Models/RemoteFile.swift; sourceTree = "<group>"; };
 		5DA1B4497F954924F7AE0295 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB993F6751274FA4EA9E8BF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FB43E6DF78E4D15A340D7EF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				51D963F71A801293008F876E /* UploadClient.swift */,
+				51F917771A8963AC0082D9AF /* FileListClient.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 		51B34E5E1A7558BB00732395 /* skugga */ = {
 			isa = PBXGroup;
 			children = (
+				51F9177B1A8967540082D9AF /* Model */,
 				513C3E401A7D48E300E20F50 /* Client */,
 				51B34E611A7558BB00732395 /* AppDelegate.swift */,
 				514CA0071A8812AB0008F2CE /* Configuration.swift */,
@@ -121,6 +127,14 @@
 				51B34E711A7558BB00732395 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51F9177B1A8967540082D9AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				51F917791A89674F0082D9AF /* RemoteFile.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		982DEC05982950B7C372E60B /* Pods */ = {
@@ -238,6 +252,8 @@
 			files = (
 				514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */,
 				514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */,
+				51F917781A8963AC0082D9AF /* FileListClient.swift in Sources */,
+				51F9177A1A89674F0082D9AF /* RemoteFile.swift in Sources */,
 				510311BF1A75859000C60298 /* PopoverViewController.swift in Sources */,
 				51B34E621A7558BB00732395 /* AppDelegate.swift in Sources */,
 				51D963F81A801293008F876E /* UploadClient.swift in Sources */,

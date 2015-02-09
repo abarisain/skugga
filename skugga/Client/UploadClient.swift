@@ -6,13 +6,13 @@
 //
 //
 
-let ROUTE_SEND = "1.0/send"
+private let ROUTE_SEND = "1.0/send"
 
-let HEADER_FILENAME = "X-Upd-Orig-Filename"
+private let HEADER_FILENAME = "X-Upd-Orig-Filename"
 
 import Foundation
 
-class UploadClient
+struct UploadClient
 {
     func uploadFile(file: NSURL, progress:((bytesSent:Int64, bytesToSend:Int64) -> Void)?, success:([NSObject:AnyObject]) -> Void, failure:(NSError) -> Void) -> (success: Bool, error: NSError?)
     {
