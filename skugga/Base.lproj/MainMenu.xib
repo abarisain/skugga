@@ -11,7 +11,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="skugga" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Skugga" customModuleProvider="target">
             <connections>
                 <outlet property="popover" destination="0o8-rk-KXt" id="TZ1-Uu-zDA"/>
                 <outlet property="settingsWindow" destination="GVh-i8-fmm" id="fSC-tu-EZi"/>
@@ -668,8 +668,9 @@
                 </menuItem>
             </items>
         </menu>
-        <viewController id="4dY-cR-i46" userLabel="Popover View Controller" customClass="PopoverViewController" customModule="skugga" customModuleProvider="target">
+        <viewController id="4dY-cR-i46" userLabel="Popover View Controller" customClass="PopoverViewController" customModule="Skugga" customModuleProvider="target">
             <connections>
+                <outlet property="filesTableView" destination="Q2S-00-E8d" id="oIk-pU-6tb"/>
                 <outlet property="menuButton" destination="yRK-zs-Nyx" id="DbZ-4G-A3I"/>
                 <outlet property="view" destination="Itu-ES-1d3" id="wdU-gr-Vhb"/>
             </connections>
@@ -733,7 +734,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView id="vrc-66-536">
+                                            <tableCellView identifier="remoteFileCell" id="vrc-66-536" customClass="RemoteFileTableCell" customModule="Skugga" customModuleProvider="target">
                                                 <rect key="frame" x="1" y="1" width="369" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -779,12 +780,17 @@
                                                     <constraint firstAttribute="bottom" secondItem="3Sk-eX-5g1" secondAttribute="bottom" constant="15" id="oUb-nP-r2a"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="textField" destination="HuI-oF-DHg" id="lv4-9P-baI"/>
+                                                    <outlet property="filename" destination="HuI-oF-DHg" id="TEw-XQ-E3a"/>
+                                                    <outlet property="uploadDate" destination="3Sk-eX-5g1" id="SCW-fS-fKQ"/>
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
                                 </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="4dY-cR-i46" id="CFA-DF-Jbi"/>
+                                    <outlet property="delegate" destination="4dY-cR-i46" id="4iC-Cd-AaX"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -835,10 +841,10 @@
             </items>
             <point key="canvasLocation" x="252" y="135.5"/>
         </menu>
-        <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="GVh-i8-fmm" customClass="SettingsWindow" customModule="skugga" customModuleProvider="target">
+        <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="GVh-i8-fmm" customClass="SettingsWindow" customModule="Skugga" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
             <rect key="contentRect" x="131" y="158" width="413" height="182"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <value key="minSize" type="size" width="413" height="182"/>
             <value key="maxSize" type="size" width="413" height="182"/>
             <view key="contentView" id="rh2-yD-1b5">

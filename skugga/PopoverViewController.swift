@@ -26,6 +26,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     func refreshWithRemoteFiles(files: [RemoteFile])
     {
         remoteFiles = files;
+        filesTableView.reloadData();
     }
     
     // MARK : NSTableViewDataSource methods

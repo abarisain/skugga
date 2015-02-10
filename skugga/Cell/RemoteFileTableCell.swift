@@ -17,7 +17,7 @@ class RemoteFileTableCell: NSTableCellView
     
     func updateWithRemoteFile(file: RemoteFile)
     {
-        filename.stringValue = file.filename;
+        filename.stringValue = file.url;
         uploadDate.stringValue = file.uploadDate.description;
     }
 }
