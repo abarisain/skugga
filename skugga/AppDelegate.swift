@@ -56,15 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         notificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter();
         notificationCenter.delegate = self;
         
-        FileListClient().getFileList({ (files: [RemoteFile]) -> () in
-            NSLog("%@", "test");
-            if let controller = self.popover.contentViewController as? PopoverViewController
-            {
-                controller.refreshWithRemoteFiles(files);
-            }
-            }, failure: { (error: NSError) -> () in
-            
-        })
+        refreshFileList();
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
@@ -88,6 +80,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         }
         
         return true;
+    }
+    
+    func refreshFileList()
+    {
+        FileListClient().getFileList({ (files: [RemoteFile]) -> () in
+            if let controller = self.popover.contentViewController as? PopoverViewController
+            {
+                controller.refreshWithRemoteFiles(files);
+            }
+        }, failure: { (error: NSError) -> () in
+            NSLog("Error while refreshing file list %@", error);
+        });
     }
     
     private func uploadURL(url: NSURL)
@@ -121,6 +125,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                 self.notificationCenter.scheduleNotification(notification);
                 
                 self.setNormalStatusIcon();
+                
+                self.refreshFileList();
                 
             }, failure: { (error: NSError) -> Void in
                 NSLog("Upload failed ! \(error)");
@@ -316,6 +322,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         settingsWindow.makeKeyAndOrderFront(nil);
     }
     
-    
+    @IBAction func menuRefreshFileList(sender: AnyObject)
+    {
+        refreshFileList();
+    }
 }
 

@@ -827,6 +827,12 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="ZwS-Fe-cAQ"/>
+                <menuItem title="Refresh File List" id="BwJ-GB-B40">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="menuRefreshFileList:" target="Voe-Tx-rLC" id="MIx-JN-E6k"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Preferences" id="3OG-Y0-0wt">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
