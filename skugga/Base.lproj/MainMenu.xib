@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
@@ -709,13 +709,13 @@
                         <action selector="menuButtonClick:" target="4dY-cR-i46" id="pPG-Iw-udf"/>
                     </connections>
                 </button>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="82" horizontalPageScroll="10" verticalLineScroll="82" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dF-un-OTd">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="61" horizontalPageScroll="10" verticalLineScroll="61" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dF-un-OTd">
                     <rect key="frame" x="0.0" y="0.0" width="372" height="336"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="4U6-Mc-mzW">
                         <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="80" rowSizeStyle="automatic" viewBased="YES" id="Q2S-00-E8d">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="59" rowSizeStyle="automatic" viewBased="YES" id="Q2S-00-E8d">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -735,52 +735,53 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView identifier="remoteFileCell" id="vrc-66-536" customClass="RemoteFileTableCell" customModule="Skugga" customModuleProvider="target">
-                                                <rect key="frame" x="1" y="1" width="369" height="80"/>
+                                                <rect key="frame" x="1" y="1" width="369" height="59"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="HuI-oF-DHg">
-                                                        <rect key="frame" x="82" y="47" width="249" height="17"/>
+                                                        <rect key="frame" x="70" y="31" width="249" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="vs5-9i-qSn"/>
                                                         </constraints>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Filename" id="ygh-lL-xUz">
-                                                            <font key="font" metaFont="systemBold" size="14"/>
+                                                            <font key="font" metaFont="systemBold"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="3Sk-eX-5g1">
+                                                        <rect key="frame" x="70" y="5" width="249" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="18" id="e3j-JK-dcW"/>
+                                                        </constraints>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Upload Date" id="4dS-pn-mtS">
+                                                            <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pZb-MW-qEA">
-                                                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                                        <rect key="frame" x="10" y="5" width="48" height="48"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="Dce-XG-WAZ"/>
+                                                            <constraint firstAttribute="width" constant="48" id="Dce-XG-WAZ"/>
                                                         </constraints>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="S8M-qa-iTh"/>
                                                     </imageView>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="3Sk-eX-5g1">
-                                                        <rect key="frame" x="82" y="15" width="249" height="18"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="18" id="e3j-JK-dcW"/>
-                                                        </constraints>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Upload Date" id="4dS-pn-mtS">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="pZb-MW-qEA" firstAttribute="top" secondItem="vrc-66-536" secondAttribute="top" constant="10" id="7B3-wM-2Nv"/>
-                                                    <constraint firstItem="HuI-oF-DHg" firstAttribute="top" secondItem="vrc-66-536" secondAttribute="top" constant="16" id="7fW-Oa-5an"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HuI-oF-DHg" secondAttribute="trailing" constant="40" id="BrR-Uh-j29"/>
+                                                    <constraint firstItem="pZb-MW-qEA" firstAttribute="top" secondItem="vrc-66-536" secondAttribute="top" constant="6" id="7B3-wM-2Nv"/>
+                                                    <constraint firstItem="HuI-oF-DHg" firstAttribute="top" secondItem="vrc-66-536" secondAttribute="top" constant="11" id="7fW-Oa-5an"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HuI-oF-DHg" secondAttribute="trailing" constant="52" id="BrR-Uh-j29"/>
                                                     <constraint firstItem="pZb-MW-qEA" firstAttribute="leading" secondItem="vrc-66-536" secondAttribute="leading" constant="10" id="QIV-ba-QfV"/>
                                                     <constraint firstItem="HuI-oF-DHg" firstAttribute="leading" secondItem="pZb-MW-qEA" secondAttribute="trailing" constant="14" id="RiR-85-obh"/>
-                                                    <constraint firstAttribute="trailing" secondItem="3Sk-eX-5g1" secondAttribute="trailing" constant="40" id="Uuc-Jo-UQQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3Sk-eX-5g1" secondAttribute="trailing" constant="52" id="Uuc-Jo-UQQ"/>
                                                     <constraint firstItem="3Sk-eX-5g1" firstAttribute="leading" secondItem="pZb-MW-qEA" secondAttribute="trailing" constant="14" id="mt0-Za-m62"/>
-                                                    <constraint firstAttribute="bottom" secondItem="pZb-MW-qEA" secondAttribute="bottom" constant="10" id="nZu-gd-kb9"/>
-                                                    <constraint firstAttribute="bottom" secondItem="3Sk-eX-5g1" secondAttribute="bottom" constant="15" id="oUb-nP-r2a"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pZb-MW-qEA" secondAttribute="bottom" constant="5" id="nZu-gd-kb9"/>
+                                                    <constraint firstAttribute="bottom" secondItem="3Sk-eX-5g1" secondAttribute="bottom" constant="5" id="oUb-nP-r2a"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="filename" destination="HuI-oF-DHg" id="TEw-XQ-E3a"/>
+                                                    <outlet property="icon" destination="pZb-MW-qEA" id="8y6-W9-xiV"/>
                                                     <outlet property="uploadDate" destination="3Sk-eX-5g1" id="SCW-fS-fKQ"/>
                                                 </connections>
                                             </tableCellView>
@@ -844,7 +845,7 @@
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="GVh-i8-fmm" customClass="SettingsWindow" customModule="Skugga" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
             <rect key="contentRect" x="131" y="158" width="413" height="182"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <value key="minSize" type="size" width="413" height="182"/>
             <value key="maxSize" type="size" width="413" height="182"/>
             <view key="contentView" id="rh2-yD-1b5">
