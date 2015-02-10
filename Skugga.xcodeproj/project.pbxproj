@@ -24,7 +24,7 @@
 		514CA0051A880F2E0008F2CE /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		514CA0071A8812AB0008F2CE /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		518365E21A801835005A0A54 /* skugga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skugga-Bridging-Header.h"; sourceTree = "<group>"; };
-		51B34E5C1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B34E5C1A7558BB00732395 /* Skugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B34E601A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51B34E611A7558BB00732395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51B34E631A7558BB00732395 /* M.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = M.xcassets; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		51B34E5D1A7558BB00732395 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				51B34E5C1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename.app */,
+				51B34E5C1A7558BB00732395 /* Skugga.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 			);
 			name = Skugga;
 			productName = skugga;
-			productReference = 51B34E5C1A7558BB00732395 /* Skugga.temp_caseinsensitive_rename.app */;
+			productReference = 51B34E5C1A7558BB00732395 /* Skugga.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -361,7 +361,7 @@
 				INFOPLIST_FILE = skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = Skugga.temp_caseinsensitive_rename;
+				PRODUCT_NAME = Skugga;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "skugga/skugga-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -378,7 +378,7 @@
 				INFOPLIST_FILE = skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = Skugga.temp_caseinsensitive_rename;
+				PRODUCT_NAME = Skugga;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "skugga/skugga-Bridging-Header.h";
 			};

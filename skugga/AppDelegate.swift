@@ -57,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         notificationCenter.delegate = self;
         
         FileListClient().getFileList({ (files: [RemoteFile]) -> () in
-            
+            NSLog("%@", "test");
             }, failure: { (error: NSError) -> () in
             
         })

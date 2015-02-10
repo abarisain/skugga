@@ -38,7 +38,16 @@ struct FileListClient
         var getTask = manager.GET(Configuration.endpoint + ROUTE_LIST,
             parameters: nil,
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-                NSLog("%@", responseObject as NSDictionary);
+                NSLog("%@", (responseObject as NSArray).description);
+                if let clientFiles = responseObject as? [AnyObject]
+                {
+                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))});
+                    success(files);
+                }
+                else
+                {
+                    failure(NSError(domain: Consts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while parsing JSON answer"]));
+                }
             }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
                 failure(error);
             });
