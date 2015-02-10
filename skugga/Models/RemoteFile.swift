@@ -18,6 +18,7 @@ struct RemoteFile
     init(fromNSDict dict: [NSObject: AnyObject])
     {
         filename = dict["original"] as? String ?? "<unknown original name>";
+        
         uploadDate = NSDate(); // FIXME : Really parse the date
         url = dict["name"] as String;
         deleteKey = dict["delete_key"] as String;

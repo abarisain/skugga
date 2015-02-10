@@ -58,6 +58,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         
         FileListClient().getFileList({ (files: [RemoteFile]) -> () in
             NSLog("%@", "test");
+            if let controller = self.popover.contentViewController as? PopoverViewController
+            {
+                //controller.refreshWithRemoteFiles(files);
+            }
             }, failure: { (error: NSError) -> () in
             
         })
