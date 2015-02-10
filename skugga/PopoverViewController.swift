@@ -17,6 +17,12 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     var remoteFiles = [RemoteFile]();
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        filesTableView.target = self;
+        filesTableView.doubleAction = "tableDoubleClick";
+    }
+    
     @IBAction func menuButtonClick(sender: AnyObject)
     {
         let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate;
@@ -27,6 +33,13 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     {
         remoteFiles = files;
         filesTableView.reloadData();
+    }
+    
+    func tableDoubleClick()
+    {
+        var row = filesTableView.clickedRow;
+        var file = remoteFiles[row];
+        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url)!);
     }
     
     // MARK : NSTableViewDataSource methods
@@ -45,13 +58,4 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         }
         return nil;
     }
-    /*- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return tableData.count;
-    }
-    
-    - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    ArticleSummaryTableCellView *result = [tableView makeViewWithIdentifier:@"Cell" owner:self];
-    [result refreshWithArticle:[tableData objectAtIndex:row]];
-    return result;
-    }*/
 }
