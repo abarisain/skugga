@@ -56,6 +56,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         notificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter();
         notificationCenter.delegate = self;
         
+        var distributedNotificationCenter = NSDistributedNotificationCenter.defaultCenter();
+        distributedNotificationCenter.addObserver(self,
+            selector: "uploadFromNotification",
+            name: "fr.nlss.skugga.uploadFromExtension",
+            object: nil);
+        
         refreshFileList();
     }
 
@@ -92,6 +98,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         }, failure: { (error: NSError) -> () in
             NSLog("Error while refreshing file list %@", error);
         });
+    }
+    
+    func uploadFromNotification(notification: NSNotification)
+    {
+        
     }
     
     private func uploadURL(url: NSURL)
