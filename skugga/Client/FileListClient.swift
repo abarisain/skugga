@@ -38,7 +38,6 @@ struct FileListClient
         var getTask = manager.GET(Configuration.endpoint + ROUTE_LIST,
             parameters: nil,
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
-                NSLog("%@", (responseObject as NSArray).description);
                 if let clientFiles = responseObject as? [AnyObject]
                 {
                     var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))});
