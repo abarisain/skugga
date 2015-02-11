@@ -10,11 +10,7 @@
 		510311BF1A75859000C60298 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510311BE1A75859000C60298 /* PopoverViewController.swift */; };
 		514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0051A880F2E0008F2CE /* SettingsWindow.swift */; };
 		514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0071A8812AB0008F2CE /* Configuration.swift */; };
-		517870E81A8BF79E00C4DA04 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 517870E71A8BF79E00C4DA04 /* icon.icns */; };
-		517870EB1A8BF79E00C4DA04 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517870EA1A8BF79E00C4DA04 /* ShareViewController.swift */; };
-		517870ED1A8BF79E00C4DA04 /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */; };
-		517870F01A8BF79E00C4DA04 /* Skugga.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 517870E31A8BF79E00C4DA04 /* Skugga.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		518293531A8C059E006531B0 /* Share.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518293521A8C059E006531B0 /* Share.xcassets */; };
+		5182938B1A8C0AA8006531B0 /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 518293801A8C0AA8006531B0 /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		51B34E621A7558BB00732395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B34E611A7558BB00732395 /* AppDelegate.swift */; };
 		51B34E641A7558BB00732395 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
 		51B34E671A7558BB00732395 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E651A7558BB00732395 /* MainMenu.xib */; };
@@ -26,11 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		517870EE1A8BF79E00C4DA04 /* PBXContainerItemProxy */ = {
+		518293891A8C0AA8006531B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 51B34E541A7558BB00732395 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 517870E21A8BF79E00C4DA04;
+			remoteGlobalIDString = 5182937F1A8C0AA8006531B0;
 			remoteInfo = Share;
 		};
 /* End PBXContainerItemProxy section */
@@ -42,7 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				517870F01A8BF79E00C4DA04 /* Skugga.appex in Embed App Extensions */,
+				5182938B1A8C0AA8006531B0 /* Share.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +49,6 @@
 		510311BE1A75859000C60298 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		514CA0051A880F2E0008F2CE /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		514CA0071A8812AB0008F2CE /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		517870E31A8BF79E00C4DA04 /* Skugga.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Skugga.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		517870E61A8BF79E00C4DA04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		517870E71A8BF79E00C4DA04 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		517870E91A8BF79E00C4DA04 /* SkuggaShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SkuggaShare.entitlements; sourceTree = "<group>"; };
@@ -61,6 +56,7 @@
 		517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
 		517870F51A8BFC7600C4DA04 /* Skugga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Skugga.entitlements; path = Skugga/Skugga.entitlements; sourceTree = "<group>"; };
 		518293521A8C059E006531B0 /* Share.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Share.xcassets; sourceTree = "<group>"; };
+		518293801A8C0AA8006531B0 /* Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		518365E21A801835005A0A54 /* skugga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skugga-Bridging-Header.h"; sourceTree = "<group>"; };
 		51B34E5C1A7558BB00732395 /* Skugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B34E601A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +75,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		517870E01A8BF79E00C4DA04 /* Frameworks */ = {
+		5182937D1A8C0AA8006531B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -152,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				51B34E5C1A7558BB00732395 /* Skugga.app */,
-				517870E31A8BF79E00C4DA04 /* Skugga.appex */,
+				518293801A8C0AA8006531B0 /* Share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,13 +224,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		517870E21A8BF79E00C4DA04 /* Share */ = {
+		5182937F1A8C0AA8006531B0 /* Share */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 517870F31A8BF79E00C4DA04 /* Build configuration list for PBXNativeTarget "Share" */;
+			buildConfigurationList = 5182938C1A8C0AA8006531B0 /* Build configuration list for PBXNativeTarget "Share" */;
 			buildPhases = (
-				517870DF1A8BF79E00C4DA04 /* Sources */,
-				517870E01A8BF79E00C4DA04 /* Frameworks */,
-				517870E11A8BF79E00C4DA04 /* Resources */,
+				5182937C1A8C0AA8006531B0 /* Sources */,
+				5182937D1A8C0AA8006531B0 /* Frameworks */,
+				5182937E1A8C0AA8006531B0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -242,7 +238,7 @@
 			);
 			name = Share;
 			productName = Share;
-			productReference = 517870E31A8BF79E00C4DA04 /* Skugga.appex */;
+			productReference = 518293801A8C0AA8006531B0 /* Share.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		51B34E5B1A7558BB00732395 /* Skugga */ = {
@@ -259,7 +255,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				517870EF1A8BF79E00C4DA04 /* PBXTargetDependency */,
+				5182938A1A8C0AA8006531B0 /* PBXTargetDependency */,
 			);
 			name = Skugga;
 			productName = skugga;
@@ -274,11 +270,14 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				TargetAttributes = {
-					517870E21A8BF79E00C4DA04 = {
+					5182937F1A8C0AA8006531B0 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 5GB4T7ETDY;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
 								enabled = 1;
 							};
 						};
@@ -311,19 +310,16 @@
 			projectRoot = "";
 			targets = (
 				51B34E5B1A7558BB00732395 /* Skugga */,
-				517870E21A8BF79E00C4DA04 /* Share */,
+				5182937F1A8C0AA8006531B0 /* Share */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		517870E11A8BF79E00C4DA04 /* Resources */ = {
+		5182937E1A8C0AA8006531B0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				517870ED1A8BF79E00C4DA04 /* ShareViewController.xib in Resources */,
-				517870E81A8BF79E00C4DA04 /* icon.icns in Resources */,
-				518293531A8C059E006531B0 /* Share.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,11 +368,10 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		517870DF1A8BF79E00C4DA04 /* Sources */ = {
+		5182937C1A8C0AA8006531B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				517870EB1A8BF79E00C4DA04 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,10 +393,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		517870EF1A8BF79E00C4DA04 /* PBXTargetDependency */ = {
+		5182938A1A8C0AA8006531B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 517870E21A8BF79E00C4DA04 /* Share */;
-			targetProxy = 517870EE1A8BF79E00C4DA04 /* PBXContainerItemProxy */;
+			target = 5182937F1A8C0AA8006531B0 /* Share */;
+			targetProxy = 518293891A8C0AA8006531B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -417,10 +412,10 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		517870F11A8BF79E00C4DA04 /* Debug */ = {
+		5182938D1A8C0AA8006531B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Share/SkuggaShare.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -429,20 +424,20 @@
 				);
 				INFOPLIST_FILE = Share/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				PRODUCT_NAME = Skugga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		517870F21A8BF79E00C4DA04 /* Release */ = {
+		5182938E1A8C0AA8006531B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Share/SkuggaShare.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Share/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
-				PRODUCT_NAME = Skugga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -564,14 +559,13 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		517870F31A8BF79E00C4DA04 /* Build configuration list for PBXNativeTarget "Share" */ = {
+		5182938C1A8C0AA8006531B0 /* Build configuration list for PBXNativeTarget "Share" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				517870F11A8BF79E00C4DA04 /* Debug */,
-				517870F21A8BF79E00C4DA04 /* Release */,
+				5182938D1A8C0AA8006531B0 /* Debug */,
+				5182938E1A8C0AA8006531B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		51B34E571A7558BB00732395 /* Build configuration list for PBXProject "Skugga" */ = {
 			isa = XCConfigurationList;

@@ -40,6 +40,7 @@ class ShareViewController: NSViewController {
         } else {
             NSLog("No Attachments")
         }
+        self.extensionContext!.completeRequestReturningItems(outputItems, completionHandler: nil)
     }
 
     @IBAction func send(sender: AnyObject?) {

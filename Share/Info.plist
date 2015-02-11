@@ -7,15 +7,15 @@
 	<key>CFBundleDisplayName</key>
 	<string>Skugga</string>
 	<key>CFBundleExecutable</key>
-	<string>Skugga</string>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
 	<string>icon</string>
 	<key>CFBundleIdentifier</key>
-	<string>fr.nlss.Skugga.Share</string>
+	<string>fr.nlss.Skugga.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Skugga</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
