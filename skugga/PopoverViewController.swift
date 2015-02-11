@@ -21,6 +21,13 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         super.awakeFromNib()
         filesTableView.target = self;
         filesTableView.doubleAction = "tableDoubleClick";
+        var image = menuButton.image;
+        if let image = image
+        {
+            image.setTemplate(true);
+            menuButton.image = image;
+        }
+        
     }
     
     @IBAction func menuButtonClick(sender: AnyObject)
