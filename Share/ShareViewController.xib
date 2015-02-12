@@ -15,32 +15,28 @@
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="1">
             <rect key="frame" x="0.0" y="0.0" width="387" height="202"/>
             <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4M6-D5-WIf">
+                    <rect key="frame" x="170" y="118" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="NyB-l2-T0T"/>
+                        <constraint firstAttribute="width" constant="48" id="uJt-fQ-wDV"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ShareIcon" id="q3u-Am-ZIA"/>
+                </imageView>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aNc-0i-CWK">
                     <rect key="frame" x="130" y="93" width="128" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="17" id="6Wx-fE-E2t"/>
-                        <constraint firstAttribute="width" constant="124" id="N1e-wS-bkZ"/>
-                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Sending to Skugga" id="0xp-rC-2gr">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4M6-D5-WIf">
-                    <rect key="frame" x="170" y="118" width="48" height="48"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="48" id="2bN-Q0-1iA"/>
-                        <constraint firstAttribute="height" constant="48" id="FVa-gZ-jGQ"/>
-                    </constraints>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ShareIcon" id="q3u-Am-ZIA"/>
-                </imageView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="4M6-D5-WIf" secondAttribute="centerX" id="8zq-Mz-ctX"/>
-                <constraint firstAttribute="centerX" secondItem="aNc-0i-CWK" secondAttribute="centerX" id="9t8-pb-saY"/>
-                <constraint firstAttribute="centerY" secondItem="aNc-0i-CWK" secondAttribute="centerY" id="Zhm-GD-I6o"/>
-                <constraint firstItem="aNc-0i-CWK" firstAttribute="top" secondItem="4M6-D5-WIf" secondAttribute="bottom" constant="8" id="g2B-06-4Ou"/>
+                <constraint firstAttribute="centerX" secondItem="aNc-0i-CWK" secondAttribute="centerX" id="8dY-Uj-p3M"/>
+                <constraint firstAttribute="centerX" secondItem="4M6-D5-WIf" secondAttribute="centerX" id="V6v-gG-re9"/>
+                <constraint firstAttribute="centerY" secondItem="aNc-0i-CWK" secondAttribute="centerY" id="a8o-Ht-Qaf"/>
+                <constraint firstItem="aNc-0i-CWK" firstAttribute="top" secondItem="4M6-D5-WIf" secondAttribute="bottom" constant="8" id="cqD-D9-dgj"/>
             </constraints>
         </customView>
     </objects>

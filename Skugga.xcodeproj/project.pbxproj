@@ -10,15 +10,15 @@
 		510311BF1A75859000C60298 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510311BE1A75859000C60298 /* PopoverViewController.swift */; };
 		514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0051A880F2E0008F2CE /* SettingsWindow.swift */; };
 		514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0071A8812AB0008F2CE /* Configuration.swift */; };
-		5182938B1A8C0AA8006531B0 /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 518293801A8C0AA8006531B0 /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		518293C41A8D388A006531B0 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 518293C31A8D388A006531B0 /* icon.icns */; };
+		518293C71A8D388A006531B0 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518293C61A8D388A006531B0 /* ShareViewController.swift */; };
+		518293C91A8D388A006531B0 /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 518293C81A8D388A006531B0 /* ShareViewController.xib */; };
+		518293CC1A8D388A006531B0 /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 518293BF1A8D388A006531B0 /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		51B34E621A7558BB00732395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B34E611A7558BB00732395 /* AppDelegate.swift */; };
 		51B34E641A7558BB00732395 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
 		51B34E671A7558BB00732395 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E651A7558BB00732395 /* MainMenu.xib */; };
 		51B4CCBD1A8A834D009DDA7A /* RemoteFileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4CCBC1A8A834D009DDA7A /* RemoteFileTableCell.swift */; };
-		51CF9E171A8C9803003C270E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517870EA1A8BF79E00C4DA04 /* ShareViewController.swift */; };
-		51CF9E181A8C9810003C270E /* Share.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518293521A8C059E006531B0 /* Share.xcassets */; };
-		51CF9E191A8C9812003C270E /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */; };
-		51CF9E1A1A8C986C003C270E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 517870E71A8BF79E00C4DA04 /* icon.icns */; };
+		51CC38FF1A8D393400328D89 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
 		51D963F81A801293008F876E /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D963F71A801293008F876E /* UploadClient.swift */; };
 		51F917781A8963AC0082D9AF /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917771A8963AC0082D9AF /* FileListClient.swift */; };
 		51F9177A1A89674F0082D9AF /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917791A89674F0082D9AF /* RemoteFile.swift */; };
@@ -26,11 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		518293891A8C0AA8006531B0 /* PBXContainerItemProxy */ = {
+		518293CA1A8D388A006531B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 51B34E541A7558BB00732395 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5182937F1A8C0AA8006531B0;
+			remoteGlobalIDString = 518293BE1A8D388A006531B0;
 			remoteInfo = Share;
 		};
 /* End PBXContainerItemProxy section */
@@ -42,7 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5182938B1A8C0AA8006531B0 /* Share.appex in Embed App Extensions */,
+				518293CC1A8D388A006531B0 /* Share.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,14 +53,13 @@
 		510311BE1A75859000C60298 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		514CA0051A880F2E0008F2CE /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		514CA0071A8812AB0008F2CE /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		517870E61A8BF79E00C4DA04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		517870E71A8BF79E00C4DA04 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
-		517870EA1A8BF79E00C4DA04 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
 		517870F51A8BFC7600C4DA04 /* Skugga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Skugga.entitlements; path = Skugga/Skugga.entitlements; sourceTree = "<group>"; };
-		518293521A8C059E006531B0 /* Share.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Share.xcassets; sourceTree = "<group>"; };
-		518293801A8C0AA8006531B0 /* Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		5182938F1A8D3330006531B0 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Share.entitlements; sourceTree = "<group>"; };
+		518293BF1A8D388A006531B0 /* Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		518293C21A8D388A006531B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		518293C31A8D388A006531B0 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		518293C51A8D388A006531B0 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Share.entitlements; sourceTree = "<group>"; };
+		518293C61A8D388A006531B0 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		518293C81A8D388A006531B0 /* ShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
 		518365E21A801835005A0A54 /* skugga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skugga-Bridging-Header.h"; sourceTree = "<group>"; };
 		51B34E5C1A7558BB00732395 /* Skugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B34E601A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +78,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5182937D1A8C0AA8006531B0 /* Frameworks */ = {
+		518293BC1A8D388A006531B0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -114,23 +113,22 @@
 			name = Client;
 			sourceTree = "<group>";
 		};
-		517870E41A8BF79E00C4DA04 /* Share */ = {
+		518293C01A8D388A006531B0 /* Share */ = {
 			isa = PBXGroup;
 			children = (
-				5182938F1A8D3330006531B0 /* Share.entitlements */,
-				517870EA1A8BF79E00C4DA04 /* ShareViewController.swift */,
-				517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */,
-				517870E51A8BF79E00C4DA04 /* Supporting Files */,
+				518293C61A8D388A006531B0 /* ShareViewController.swift */,
+				518293C81A8D388A006531B0 /* ShareViewController.xib */,
+				518293C11A8D388A006531B0 /* Supporting Files */,
 			);
 			path = Share;
 			sourceTree = "<group>";
 		};
-		517870E51A8BF79E00C4DA04 /* Supporting Files */ = {
+		518293C11A8D388A006531B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				517870E61A8BF79E00C4DA04 /* Info.plist */,
-				517870E71A8BF79E00C4DA04 /* icon.icns */,
-				518293521A8C059E006531B0 /* Share.xcassets */,
+				518293C21A8D388A006531B0 /* Info.plist */,
+				518293C31A8D388A006531B0 /* icon.icns */,
+				518293C51A8D388A006531B0 /* Share.entitlements */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -141,7 +139,7 @@
 				517870F51A8BFC7600C4DA04 /* Skugga.entitlements */,
 				51B34E5E1A7558BB00732395 /* skugga */,
 				51B34E6F1A7558BB00732395 /* skuggaTests */,
-				517870E41A8BF79E00C4DA04 /* Share */,
+				518293C01A8D388A006531B0 /* Share */,
 				51B34E5D1A7558BB00732395 /* Products */,
 				982DEC05982950B7C372E60B /* Pods */,
 				4210816BDE7A863697F4548E /* Frameworks */,
@@ -152,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				51B34E5C1A7558BB00732395 /* Skugga.app */,
-				518293801A8C0AA8006531B0 /* Share.appex */,
+				518293BF1A8D388A006531B0 /* Share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,13 +226,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5182937F1A8C0AA8006531B0 /* Share */ = {
+		518293BE1A8D388A006531B0 /* Share */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5182938C1A8C0AA8006531B0 /* Build configuration list for PBXNativeTarget "Share" */;
+			buildConfigurationList = 518293CD1A8D388A006531B0 /* Build configuration list for PBXNativeTarget "Share" */;
 			buildPhases = (
-				5182937C1A8C0AA8006531B0 /* Sources */,
-				5182937D1A8C0AA8006531B0 /* Frameworks */,
-				5182937E1A8C0AA8006531B0 /* Resources */,
+				518293BB1A8D388A006531B0 /* Sources */,
+				518293BC1A8D388A006531B0 /* Frameworks */,
+				518293BD1A8D388A006531B0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -242,7 +240,7 @@
 			);
 			name = Share;
 			productName = Share;
-			productReference = 518293801A8C0AA8006531B0 /* Share.appex */;
+			productReference = 518293BF1A8D388A006531B0 /* Share.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		51B34E5B1A7558BB00732395 /* Skugga */ = {
@@ -259,7 +257,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				5182938A1A8C0AA8006531B0 /* PBXTargetDependency */,
+				518293CB1A8D388A006531B0 /* PBXTargetDependency */,
 			);
 			name = Skugga;
 			productName = skugga;
@@ -274,14 +272,11 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				TargetAttributes = {
-					5182937F1A8C0AA8006531B0 = {
+					518293BE1A8D388A006531B0 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 5GB4T7ETDY;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
-								enabled = 1;
-							};
-							com.apple.Sandbox = {
 								enabled = 1;
 							};
 						};
@@ -314,19 +309,19 @@
 			projectRoot = "";
 			targets = (
 				51B34E5B1A7558BB00732395 /* Skugga */,
-				5182937F1A8C0AA8006531B0 /* Share */,
+				518293BE1A8D388A006531B0 /* Share */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5182937E1A8C0AA8006531B0 /* Resources */ = {
+		518293BD1A8D388A006531B0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51CF9E181A8C9810003C270E /* Share.xcassets in Resources */,
-				51CF9E191A8C9812003C270E /* ShareViewController.xib in Resources */,
-				51CF9E1A1A8C986C003C270E /* icon.icns in Resources */,
+				518293C91A8D388A006531B0 /* ShareViewController.xib in Resources */,
+				518293C41A8D388A006531B0 /* icon.icns in Resources */,
+				51CC38FF1A8D393400328D89 /* M.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,11 +370,11 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5182937C1A8C0AA8006531B0 /* Sources */ = {
+		518293BB1A8D388A006531B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51CF9E171A8C9803003C270E /* ShareViewController.swift in Sources */,
+				518293C71A8D388A006531B0 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,10 +396,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5182938A1A8C0AA8006531B0 /* PBXTargetDependency */ = {
+		518293CB1A8D388A006531B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5182937F1A8C0AA8006531B0 /* Share */;
-			targetProxy = 518293891A8C0AA8006531B0 /* PBXContainerItemProxy */;
+			target = 518293BE1A8D388A006531B0 /* Share */;
+			targetProxy = 518293CA1A8D388A006531B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -420,7 +415,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5182938D1A8C0AA8006531B0 /* Debug */ = {
+		518293CE1A8D388A006531B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
@@ -437,7 +432,7 @@
 			};
 			name = Debug;
 		};
-		5182938E1A8C0AA8006531B0 /* Release */ = {
+		518293CF1A8D388A006531B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
@@ -567,11 +562,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5182938C1A8C0AA8006531B0 /* Build configuration list for PBXNativeTarget "Share" */ = {
+		518293CD1A8D388A006531B0 /* Build configuration list for PBXNativeTarget "Share" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5182938D1A8C0AA8006531B0 /* Debug */,
-				5182938E1A8C0AA8006531B0 /* Release */,
+				518293CE1A8D388A006531B0 /* Debug */,
+				518293CF1A8D388A006531B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
