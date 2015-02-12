@@ -17,6 +17,7 @@
 		510A03651A8D63EE009FB815 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A03641A8D63EE009FB815 /* ShareViewController.swift */; };
 		510A03671A8D63EE009FB815 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510A03661A8D63EE009FB815 /* MainInterface.storyboard */; };
 		510A036A1A8D63EE009FB815 /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 510A03601A8D63EE009FB815 /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		512B1A881A8D69DA00C63186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510A03431A8D61B1009FB815 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				510A03671A8D63EE009FB815 /* MainInterface.storyboard in Resources */,
+				512B1A881A8D69DA00C63186 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +445,7 @@
 		510A036B1A8D63EE009FB815 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -457,6 +460,7 @@
 		510A036C1A8D63EE009FB815 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Share/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,6 +496,7 @@
 				510A036C1A8D63EE009FB815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
