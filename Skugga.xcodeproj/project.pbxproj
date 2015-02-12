@@ -15,6 +15,10 @@
 		51B34E641A7558BB00732395 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
 		51B34E671A7558BB00732395 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E651A7558BB00732395 /* MainMenu.xib */; };
 		51B4CCBD1A8A834D009DDA7A /* RemoteFileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4CCBC1A8A834D009DDA7A /* RemoteFileTableCell.swift */; };
+		51CF9E171A8C9803003C270E /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517870EA1A8BF79E00C4DA04 /* ShareViewController.swift */; };
+		51CF9E181A8C9810003C270E /* Share.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518293521A8C059E006531B0 /* Share.xcassets */; };
+		51CF9E191A8C9812003C270E /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */; };
+		51CF9E1A1A8C986C003C270E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 517870E71A8BF79E00C4DA04 /* icon.icns */; };
 		51D963F81A801293008F876E /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D963F71A801293008F876E /* UploadClient.swift */; };
 		51F917781A8963AC0082D9AF /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917771A8963AC0082D9AF /* FileListClient.swift */; };
 		51F9177A1A89674F0082D9AF /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917791A89674F0082D9AF /* RemoteFile.swift */; };
@@ -320,6 +324,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51CF9E181A8C9810003C270E /* Share.xcassets in Resources */,
+				51CF9E191A8C9812003C270E /* ShareViewController.xib in Resources */,
+				51CF9E1A1A8C986C003C270E /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51CF9E171A8C9803003C270E /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +574,7 @@
 				5182938E1A8C0AA8006531B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		51B34E571A7558BB00732395 /* Build configuration list for PBXProject "Skugga" */ = {
 			isa = XCConfigurationList;

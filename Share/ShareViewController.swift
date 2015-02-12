@@ -34,26 +34,15 @@ class ShareViewController: NSViewController {
                                 object: nil)
                         }
                     );
+                    self.extensionContext!.completeRequestReturningItems([item], completionHandler: nil);
+                    return;
                 }
             }
-            
         } else {
             NSLog("No Attachments")
         }
-        self.extensionContext!.completeRequestReturningItems(outputItems, completionHandler: nil)
-    }
-
-    @IBAction func send(sender: AnyObject?) {
-        let outputItem = NSExtensionItem()
-        // Complete implementation by setting the appropriate value on the output item
-    
-        let outputItems = [outputItem]
-        self.extensionContext!.completeRequestReturningItems(outputItems, completionHandler: nil)
-}
-
-    @IBAction func cancel(sender: AnyObject?) {
-        let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
-        self.extensionContext!.cancelRequestWithError(cancelError)
+        let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil);
+        self.extensionContext!.cancelRequestWithError(cancelError);
     }
 
 }
