@@ -29,9 +29,13 @@ class ShareViewController: NSViewController {
                         options: nil,
                         completionHandler:
                         { (item: NSSecureCoding!, error: NSError!) -> Void in
-                            NSLog("Found URL : %@", item as NSURL);
-                            NSDistributedNotificationCenter.defaultCenter().postNotificationName("fr.nlss.skugga.uploadFromExtension",
-                                object: nil)
+                            if let urlItem = item as? NSURL
+                            {
+                                var groupUserDefaults = NSUserDefaults(suiteName: "group.fr.nlss.skugga");
+                                groupUserDefaults?.setURL(item as NSURL, forKey: "shareExtensionURL");
+                                NSDistributedNotificationCenter.defaultCenter().postNotificationName("fr.nlss.skugga.uploadFromExtension",
+                                    object: nil);
+                            }
                         }
                     );
                     self.extensionContext!.completeRequestReturningItems([item], completionHandler: nil);

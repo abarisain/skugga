@@ -40,6 +40,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     var statusProgressImage: NSImage! //Programatically drawn
     
     var notificationCenter: NSUserNotificationCenter!;
+    
+    var groupUserDefaults: NSUserDefaults!;
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
@@ -61,6 +63,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             selector: "uploadFromNotification",
             name: "fr.nlss.skugga.uploadFromExtension",
             object: nil);
+        
+        groupUserDefaults = NSUserDefaults(suiteName: "group.fr.nlss.skugga");
         
         refreshFileList();
     }
@@ -102,7 +106,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func uploadFromNotification(notification: NSNotification)
     {
-        
+        if let targetURL = groupUserDefaults.URLForKey("shareExtensionURL")
+        {
+            uploadURL(targetURL);
+        }
+        else
+        {
+            NSLog("Called from extension, but no URL found");
+        }
     }
     
     private func uploadURL(url: NSURL)
