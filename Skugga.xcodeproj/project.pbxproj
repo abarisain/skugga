@@ -55,12 +55,12 @@
 		514CA0071A8812AB0008F2CE /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		517870E61A8BF79E00C4DA04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		517870E71A8BF79E00C4DA04 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
-		517870E91A8BF79E00C4DA04 /* SkuggaShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SkuggaShare.entitlements; sourceTree = "<group>"; };
 		517870EA1A8BF79E00C4DA04 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
 		517870F51A8BFC7600C4DA04 /* Skugga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Skugga.entitlements; path = Skugga/Skugga.entitlements; sourceTree = "<group>"; };
 		518293521A8C059E006531B0 /* Share.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Share.xcassets; sourceTree = "<group>"; };
 		518293801A8C0AA8006531B0 /* Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5182938F1A8D3330006531B0 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Share.entitlements; sourceTree = "<group>"; };
 		518365E21A801835005A0A54 /* skugga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skugga-Bridging-Header.h"; sourceTree = "<group>"; };
 		51B34E5C1A7558BB00732395 /* Skugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B34E601A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +117,7 @@
 		517870E41A8BF79E00C4DA04 /* Share */ = {
 			isa = PBXGroup;
 			children = (
+				5182938F1A8D3330006531B0 /* Share.entitlements */,
 				517870EA1A8BF79E00C4DA04 /* ShareViewController.swift */,
 				517870EC1A8BF79E00C4DA04 /* ShareViewController.xib */,
 				517870E51A8BF79E00C4DA04 /* Supporting Files */,
@@ -129,7 +130,6 @@
 			children = (
 				517870E61A8BF79E00C4DA04 /* Info.plist */,
 				517870E71A8BF79E00C4DA04 /* icon.icns */,
-				517870E91A8BF79E00C4DA04 /* SkuggaShare.entitlements */,
 				518293521A8C059E006531B0 /* Share.xcassets */,
 			);
 			name = "Supporting Files";
