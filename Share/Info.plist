@@ -31,15 +31,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
-			<string>SUBQUERY (
-    extensionItems,
-    $extensionItem,
-    SUBQUERY (
-        $extensionItem.attachments,
-        $attachment,
-        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.file-url&quot;
-    ).@count == $extensionItem.attachments.@count
-).@count == 1</string>
+			<string>TRUEPREDICATE</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>

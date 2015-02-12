@@ -18,6 +18,9 @@
 		51B34E641A7558BB00732395 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
 		51B34E671A7558BB00732395 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E651A7558BB00732395 /* MainMenu.xib */; };
 		51B4CCBD1A8A834D009DDA7A /* RemoteFileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B4CCBC1A8A834D009DDA7A /* RemoteFileTableCell.swift */; };
+		51B7E4731A8D42C0009B17E9 /* RMSharedPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7E4711A8D42C0009B17E9 /* RMSharedPreferences.framework */; };
+		51B7E4771A8D4505009B17E9 /* RMSharedPreferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7E4711A8D42C0009B17E9 /* RMSharedPreferences.framework */; };
+		51B7E4781A8D4505009B17E9 /* RMSharedPreferences.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7E4711A8D42C0009B17E9 /* RMSharedPreferences.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		51CC38FF1A8D393400328D89 /* M.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B34E631A7558BB00732395 /* M.xcassets */; };
 		51D963F81A801293008F876E /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D963F71A801293008F876E /* UploadClient.swift */; };
 		51F917781A8963AC0082D9AF /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917771A8963AC0082D9AF /* FileListClient.swift */; };
@@ -47,6 +50,17 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		51B7E4791A8D4505009B17E9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				51B7E4781A8D4505009B17E9 /* RMSharedPreferences.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +83,8 @@
 		51B34E711A7558BB00732395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51B34E721A7558BB00732395 /* skuggaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skuggaTests.swift; sourceTree = "<group>"; };
 		51B4CCBC1A8A834D009DDA7A /* RemoteFileTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFileTableCell.swift; path = Cell/RemoteFileTableCell.swift; sourceTree = "<group>"; };
+		51B7E4711A8D42C0009B17E9 /* RMSharedPreferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RMSharedPreferences.framework; path = skugga/RMSharedPreferences.framework; sourceTree = "<group>"; };
+		51B7E4741A8D4330009B17E9 /* share-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "share-Bridging-Header.h"; sourceTree = "<group>"; };
 		51D963F71A801293008F876E /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = Client/UploadClient.swift; sourceTree = "<group>"; };
 		51F917771A8963AC0082D9AF /* FileListClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileListClient.swift; path = Client/FileListClient.swift; sourceTree = "<group>"; };
 		51F917791A89674F0082D9AF /* RemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFile.swift; path = Models/RemoteFile.swift; sourceTree = "<group>"; };
@@ -82,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51B7E4731A8D42C0009B17E9 /* RMSharedPreferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0E329238C028CAF496C0136 /* libPods.a in Frameworks */,
+				51B7E4771A8D4505009B17E9 /* RMSharedPreferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +137,7 @@
 				518293C61A8D388A006531B0 /* ShareViewController.swift */,
 				518293C81A8D388A006531B0 /* ShareViewController.xib */,
 				518293C11A8D388A006531B0 /* Supporting Files */,
+				51B7E4741A8D4330009B17E9 /* share-Bridging-Header.h */,
 			);
 			path = Share;
 			sourceTree = "<group>";
@@ -137,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				517870F51A8BFC7600C4DA04 /* Skugga.entitlements */,
+				51B7E4711A8D42C0009B17E9 /* RMSharedPreferences.framework */,
 				51B34E5E1A7558BB00732395 /* skugga */,
 				51B34E6F1A7558BB00732395 /* skuggaTests */,
 				518293C01A8D388A006531B0 /* Share */,
@@ -253,6 +273,7 @@
 				51B34E5A1A7558BB00732395 /* Resources */,
 				C86A742565EF63042499F46C /* Copy Pods Resources */,
 				517870F41A8BF79E00C4DA04 /* Embed App Extensions */,
+				51B7E4791A8D4505009B17E9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,6 +300,9 @@
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
 							};
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
 						};
 					};
 					51B34E5B1A7558BB00732395 = {
@@ -289,7 +313,7 @@
 								enabled = 1;
 							};
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -421,6 +445,10 @@
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/skugga",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -429,6 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Share/share-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -438,10 +467,15 @@
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/skugga",
+				);
 				INFOPLIST_FILE = Share/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Share/share-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -531,6 +565,10 @@
 				CODE_SIGN_ENTITLEMENTS = Skugga/Skugga.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/skugga",
+				);
 				INFOPLIST_FILE = skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -550,6 +588,10 @@
 				CODE_SIGN_ENTITLEMENTS = Skugga/Skugga.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/skugga",
+				);
 				INFOPLIST_FILE = skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;

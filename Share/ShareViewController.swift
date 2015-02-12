@@ -31,10 +31,7 @@ class ShareViewController: NSViewController {
                         { (item: NSSecureCoding!, error: NSError!) -> Void in
                             if let urlItem = item as? NSURL
                             {
-                                var groupUserDefaults = NSUserDefaults(suiteName: "group.fr.nlss.skugga");
-                                groupUserDefaults?.setURL(item as NSURL, forKey: "shareExtensionURL");
-                                NSDistributedNotificationCenter.defaultCenter().postNotificationName("fr.nlss.skugga.uploadFromExtension",
-                                    object: nil);
+                                RMSharedUserDefaults.standardUserDefaults().setURL(item as NSURL, forKey: "shareExtensionURL");
                             }
                         }
                     );

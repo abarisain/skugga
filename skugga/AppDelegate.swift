@@ -40,8 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     var statusProgressImage: NSImage! //Programatically drawn
     
     var notificationCenter: NSUserNotificationCenter!;
-    
-    var groupUserDefaults: NSUserDefaults!;
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
@@ -58,13 +56,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         notificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter();
         notificationCenter.delegate = self;
         
-        var distributedNotificationCenter = NSDistributedNotificationCenter.defaultCenter();
-        distributedNotificationCenter.addObserver(self,
+        NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "uploadFromNotification",
-            name: "fr.nlss.skugga.uploadFromExtension",
-            object: nil);
-        
-        groupUserDefaults = NSUserDefaults(suiteName: "group.fr.nlss.skugga");
+            name: NSUserDefaultsDidChangeNotification,
+            object: RMSharedUserDefaults.standardUserDefaults());
         
         refreshFileList();
     }
@@ -104,15 +99,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         });
     }
     
-    func uploadFromNotification(notification: NSNotification)
+    func uploadFromNotification()
     {
-        if let targetURL = groupUserDefaults.URLForKey("shareExtensionURL")
+        var defaults = RMSharedUserDefaults.standardUserDefaults();
+        if let targetURL = defaults.URLForKey("shareExtensionURL")
         {
+            defaults.removeObjectForKey("shareExtensionURL");
             uploadURL(targetURL);
-        }
-        else
-        {
-            NSLog("Called from extension, but no URL found");
         }
     }
     
