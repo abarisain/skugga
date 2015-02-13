@@ -1,2 +1,3 @@
 iOS/Pods/* linguist-vendored
 OSX/Pods/* linguist-vendored
+OSX/skugga/RMSharedPreferences.framework/* linguist-vendored
