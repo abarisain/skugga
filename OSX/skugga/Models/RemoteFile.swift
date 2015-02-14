@@ -9,8 +9,17 @@
 import Foundation
 import CoreData
 
+private struct LocalCoreDataKeys
+{
+    static let Filename = "filename";
+    static let UploadDate = "uploadDate";
+    static let Url = "url";
+    static let DeleteKey = "deleteKey";
+}
+
 struct RemoteFile
 {
+    
     static let dateFormatter: NSDateFormatter =
     {
         var formatter = NSDateFormatter();
@@ -34,9 +43,21 @@ struct RemoteFile
     
     init(fromNSManagedObject managedObject: NSManagedObject)
     {
-        filename = managedObject.valueForKey("filename") as? String ?? "<unknown original name>";
-        uploadDate = managedObject.valueForKey("uploadDate") as NSDate;
-        url = managedObject.valueForKey("url") as String;
-        deleteKey = managedObject.valueForKey("deleteKey") as String;
+        filename = managedObject.valueForKey(LocalCoreDataKeys.Filename) as String;
+        uploadDate = managedObject.valueForKey(LocalCoreDataKeys.UploadDate) as NSDate;
+        url = managedObject.valueForKey(LocalCoreDataKeys.Url) as String;
+        deleteKey = managedObject.valueForKey(LocalCoreDataKeys.DeleteKey) as String;
+    }
+    
+    func toNSManagedObject(context: NSManagedObjectContext, entity: NSEntityDescription) -> NSManagedObject
+    {
+        let managedObject = NSManagedObject(entity: entity, insertIntoManagedObjectContext: context);
+        
+        managedObject.setValue(filename, forKey: LocalCoreDataKeys.Filename);
+        managedObject.setValue(uploadDate, forKey: LocalCoreDataKeys.UploadDate);
+        managedObject.setValue(url, forKey: LocalCoreDataKeys.Url);
+        managedObject.setValue(deleteKey, forKey: LocalCoreDataKeys.DeleteKey);
+        
+        return managedObject;
     }
 }
