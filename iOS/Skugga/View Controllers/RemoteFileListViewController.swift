@@ -45,11 +45,17 @@ class RemoteFileListViewController : UITableViewController
     {
         files = RemoteFileDatabaseHelper.cachedFiles;
         tableView.reloadData();
+        refreshControl?.endRefreshing();
     }
     
     func dataRefreshFailed()
     {
-        
+        refreshControl?.endRefreshing();
+    }
+    
+    @IBAction func refreshControlPulled(sender: AnyObject)
+    {
+        refreshData();
     }
     
     // MARK : Table delegate/datasource Methods
