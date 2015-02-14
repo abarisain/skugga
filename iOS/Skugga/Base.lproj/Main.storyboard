@@ -228,7 +228,7 @@
         <!--Uploading...-->
         <scene sceneID="nnT-EH-a3c">
             <objects>
-                <viewController id="7EU-Sf-1fv" sceneMemberID="viewController">
+                <viewController id="7EU-Sf-1fv" customClass="UploadViewController" customModule="Skugga" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0em-vR-S7Q"/>
                         <viewControllerLayoutGuide type="bottom" id="5dW-dL-PRc"/>
@@ -237,7 +237,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B5m-r4-cZo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B5m-r4-cZo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbl-Ft-1TC">
@@ -251,10 +251,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="wtZ-cx-7ye"/>
                                             </constraints>
-                                            <color key="progressTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="trackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </progressView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Z28-Tf-OEb">
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Z28-Tf-OEb">
                                             <rect key="frame" x="8" y="77" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="1Ya-zz-N7q"/>
@@ -267,7 +265,6 @@
                                                 <constraint firstAttribute="height" constant="21" id="hCb-nx-TV1"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -285,7 +282,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="107" id="TBE-IT-gsg"/>
                                 </constraints>
-                                <blurEffect style="dark"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -300,6 +297,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Uploading..." id="gQx-xS-zer"/>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="B5m-r4-cZo" id="Wua-ib-YzR"/>
+                        <outlet property="filenameLabel" destination="fNI-Go-C7y" id="Kow-II-d07"/>
+                        <outlet property="progressView" destination="LB9-Xe-BAI" id="VMe-xD-K5q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQ8-LZ-AXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

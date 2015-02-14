@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RemoteFileListViewController : UITableViewController
+class RemoteFileListViewController : UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
 
     private var files = [RemoteFile]();
@@ -39,6 +39,12 @@ class RemoteFileListViewController : UITableViewController
 
     @IBAction func uploadAction(sender: AnyObject)
     {
+        //FIXME : Implement iOS 8's document provider
+        var imagePicker = FixedStatusBarImagePickerController();
+        imagePicker.delegate = self;
+        imagePicker.sourceType = .PhotoLibrary;
+        //FIXME : Add popover support for iPads
+        presentViewController(imagePicker, animated: true, completion: nil);
     }
 
     func refreshData()
@@ -51,6 +57,18 @@ class RemoteFileListViewController : UITableViewController
     func dataRefreshFailed()
     {
         refreshControl?.endRefreshing();
+    }
+    
+    private func uploadImage(image: UIImage)
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let uploadNavigationController = storyboard.instantiateViewControllerWithIdentifier("UploadScene") as UINavigationController;
+        let uploadController = uploadNavigationController.viewControllers[0] as UploadViewController;
+        uploadController.targetImage = image;
+        presentViewController(uploadNavigationController, animated: true)
+        { () -> Void in
+            uploadController.startUpload();
+        }
     }
     
     @IBAction func refreshControlPulled(sender: AnyObject)
@@ -73,6 +91,14 @@ class RemoteFileListViewController : UITableViewController
         return cell;
     }
     
+    // MARK : UIImagePickerController Methods
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    {
+        var image = info["UIImagePickerControllerOriginalImage"] as UIImage;
+        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+            self.uploadImage(image);
+        });
+    }
 }
 
 class RemoteFileTableViewCell : UITableViewCell
@@ -86,5 +112,18 @@ class RemoteFileTableViewCell : UITableViewCell
     {
         filenameLabel.text = remoteFile.filename;
         dateLabel.text = remoteFile.uploadDate.description;
+    }
+}
+
+class FixedStatusBarImagePickerController : UIImagePickerController
+{
+    override func prefersStatusBarHidden() -> Bool
+    {
+        return false;
+    }
+    
+    override func childViewControllerForStatusBarHidden() -> UIViewController?
+    {
+        return nil;
     }
 }
