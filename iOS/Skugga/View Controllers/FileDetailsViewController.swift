@@ -11,6 +11,8 @@ import Foundation
 class FileDetailsViewController : UITableViewController
 {
     
+    @IBOutlet weak var webView: UIWebView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -24,4 +26,7 @@ class FileDetailsViewController : UITableViewController
     }
     
     
+    @IBAction func shareAction(sender: AnyObject)
+    {
+    }
 }

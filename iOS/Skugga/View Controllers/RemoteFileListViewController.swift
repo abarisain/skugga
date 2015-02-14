@@ -23,6 +23,17 @@ class RemoteFileListViewController : UITableViewController
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func uploadAction(sender: AnyObject)
+    {
+    }
 
 }
 
+class RemoteFileTableViewCell : UITableViewCell
+{
+    
+    @IBOutlet weak var filenameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var fileImageView: UIImageView!
+    
+}
