@@ -31,8 +31,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Endpoint with trailing /" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9xT-dp-1L4">
-                                                    <rect key="frame" x="85" y="7" width="307" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Endpoint with trailing /" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9xT-dp-1L4">
+                                                    <rect key="frame" x="5" y="7" width="307" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="307" id="MA5-nZ-1Dt"/>
                                                         <constraint firstAttribute="height" constant="30" id="wl4-dH-yvc"/>
@@ -64,8 +64,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional secret key" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzS-eT-Jew">
-                                                    <rect key="frame" x="66" y="7" width="326" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional secret key" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzS-eT-Jew">
+                                                    <rect key="frame" x="-14" y="7" width="326" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="326" id="D0R-JL-TDg"/>
                                                         <constraint firstAttribute="height" constant="30" id="ylc-ys-f7t"/>
@@ -91,7 +91,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="LFl-Uc-RPL">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="done" id="uZX-2s-i8o">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uZX-2s-i8o">
                             <connections>
                                 <action selector="doneAction:" destination="rsc-5l-3EA" id="P5B-j1-Ewu"/>
                             </connections>
@@ -131,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="64" id="c7F-o2-ct9" customClass="RemoteFileTableViewCell" customModule="Skugga" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FileCell" rowHeight="64" id="c7F-o2-ct9" customClass="RemoteFileTableViewCell" customModule="Skugga" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c7F-o2-ct9" id="nAW-iQ-rhi">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -143,8 +143,8 @@
                                                 <constraint firstAttribute="height" constant="48" id="oSg-CA-Qn0"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Filename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95H-pl-pmB">
-                                            <rect key="frame" x="64" y="8" width="328" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filename" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95H-pl-pmB">
+                                            <rect key="frame" x="64" y="8" width="215" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="cJt-Up-gDt"/>
                                             </constraints>
@@ -152,8 +152,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnF-Wk-LhR">
-                                            <rect key="frame" x="64" y="34" width="328" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnF-Wk-LhR">
+                                            <rect key="frame" x="64" y="34" width="215" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="wtl-aG-yOJ"/>
                                             </constraints>
@@ -206,7 +206,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7Yf-OY-jK9">
             <objects>
-                <navigationController id="FwG-zn-uA4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UploadScene" id="FwG-zn-uA4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vTU-Mk-I7p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
