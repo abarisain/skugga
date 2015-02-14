@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AssetsLibrary
 
 class RemoteFileListViewController : UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
@@ -59,12 +60,14 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         refreshControl?.endRefreshing();
     }
     
-    private func uploadImage(image: UIImage)
+    private func uploadImage(image: UIImage, url: NSURL, filename: String)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         let uploadNavigationController = storyboard.instantiateViewControllerWithIdentifier("UploadScene") as UINavigationController;
         let uploadController = uploadNavigationController.viewControllers[0] as UploadViewController;
         uploadController.targetImage = image;
+        uploadController.targetURL = url;
+        uploadController.targetFilename = filename;
         presentViewController(uploadNavigationController, animated: true)
         { () -> Void in
             uploadController.startUpload();
@@ -94,9 +97,17 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     // MARK : UIImagePickerController Methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
-        var image = info["UIImagePickerControllerOriginalImage"] as UIImage;
+        var image = info[UIImagePickerControllerOriginalImage] as UIImage;
+        var url = info[UIImagePickerControllerReferenceURL] as NSURL;
+        
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
-            self.uploadImage(image);
+            ALAssetsLibrary().assetForURL(url, resultBlock: { (asset: ALAsset!) -> Void in
+                self.uploadImage(image, url: url, filename: asset.defaultRepresentation().filename());
+            }, failureBlock: { (error: NSError!) -> Void in
+                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error?.userInfo)", preferredStyle: .Alert);
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil));
+                self.presentViewController(alert, animated: true, completion: nil);
+            });
         });
     }
 }

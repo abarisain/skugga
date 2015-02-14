@@ -16,6 +16,8 @@ class UploadViewController : UIViewController
     @IBOutlet weak var filenameLabel: UILabel!
     
     var targetImage: UIImage?;
+    var targetURL: NSURL?;
+    var targetFilename: String?;
     
     override func viewDidLoad()
     {
@@ -25,6 +27,8 @@ class UploadViewController : UIViewController
     
     override func viewWillAppear(animated: Bool) {
         backgroundImageView.image = targetImage;
+        filenameLabel.text = targetFilename;
+        progressView.progress = 0;
     }
     
     override func didReceiveMemoryWarning()
