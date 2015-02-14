@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FileDetailsViewController : UITableViewController
+class FileDetailsViewController : UIViewController
 {
     
     @IBOutlet weak var webView: UIWebView!
