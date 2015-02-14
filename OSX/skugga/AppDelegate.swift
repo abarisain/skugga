@@ -8,12 +8,6 @@
 
 import Cocoa
 
-public struct Consts
-{
-    static let CLIENT_ERROR_DOMAIN = "SkuggaClientError" 
-    static let SECRET_KEY_HEADER = "X-Upd-Key"
-}
-
 let statusIconHeight: CGFloat = 18.0;
 let statusIconWidth: CGFloat = 24.0;
 

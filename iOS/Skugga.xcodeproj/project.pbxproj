@@ -10,7 +10,6 @@
 		0B0F1CCE6A71141FFD9C6AB9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A4153D573289BB82C1C4CA /* libPods.a */; };
 		510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A03391A8D61B1009FB815 /* AppDelegate.swift */; };
 		510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 510A033B1A8D61B1009FB815 /* Skugga.xcdatamodeld */; };
-		510A033F1A8D61B1009FB815 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A033E1A8D61B1009FB815 /* ViewController.swift */; };
 		510A03421A8D61B1009FB815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510A03401A8D61B1009FB815 /* Main.storyboard */; };
 		510A03441A8D61B1009FB815 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510A03431A8D61B1009FB815 /* Images.xcassets */; };
 		510A03471A8D61B1009FB815 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510A03451A8D61B1009FB815 /* LaunchScreen.xib */; };
@@ -18,6 +17,12 @@
 		510A03671A8D63EE009FB815 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510A03661A8D63EE009FB815 /* MainInterface.storyboard */; };
 		510A036A1A8D63EE009FB815 /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 510A03601A8D63EE009FB815 /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		512B1A881A8D69DA00C63186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510A03431A8D61B1009FB815 /* Images.xcassets */; };
+		5184765E1A8F690F00EAB1F6 /* RemoteFileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */; };
+		518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476601A8F692E00EAB1F6 /* FileListClient.swift */; };
+		518476631A8F692E00EAB1F6 /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476611A8F692E00EAB1F6 /* UploadClient.swift */; };
+		518476661A8F694000EAB1F6 /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476651A8F694000EAB1F6 /* RemoteFile.swift */; };
+		518476691A8F698C00EAB1F6 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476681A8F698C00EAB1F6 /* Configuration.swift */; };
+		5184766D1A8F6A0D00EAB1F6 /* ClientConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +54,6 @@
 		510A03381A8D61B1009FB815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		510A03391A8D61B1009FB815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		510A033C1A8D61B1009FB815 /* Skugga.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Skugga.xcdatamodel; sourceTree = "<group>"; };
-		510A033E1A8D61B1009FB815 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		510A03411A8D61B1009FB815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		510A03431A8D61B1009FB815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		510A03461A8D61B1009FB815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -57,6 +61,13 @@
 		510A03631A8D63EE009FB815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		510A03641A8D63EE009FB815 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		510A03661A8D63EE009FB815 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFileListViewController.swift; path = "View Controllers/RemoteFileListViewController.swift"; sourceTree = "<group>"; };
+		518476601A8F692E00EAB1F6 /* FileListClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileListClient.swift; path = ../../OSX/skugga/Client/FileListClient.swift; sourceTree = "<group>"; };
+		518476611A8F692E00EAB1F6 /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = ../../OSX/skugga/Client/UploadClient.swift; sourceTree = "<group>"; };
+		518476651A8F694000EAB1F6 /* RemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFile.swift; path = ../../OSX/skugga/Models/RemoteFile.swift; sourceTree = "<group>"; };
+		518476671A8F695E00EAB1F6 /* skugga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skugga-Bridging-Header.h"; sourceTree = "<group>"; };
+		518476681A8F698C00EAB1F6 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = ../../OSX/skugga/Configuration.swift; sourceTree = "<group>"; };
+		5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientConsts.swift; path = ../../OSX/skugga/Client/ClientConsts.swift; sourceTree = "<group>"; };
 		871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A3A4153D573289BB82C1C4CA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF14AF1925826C2F81E1A0E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,8 +123,11 @@
 		510A03361A8D61B1009FB815 /* Skugga */ = {
 			isa = PBXGroup;
 			children = (
+				518476641A8F693A00EAB1F6 /* Models */,
+				5184765F1A8F691700EAB1F6 /* Clients */,
+				5184765C1A8F68B600EAB1F6 /* View Controllers */,
 				510A03391A8D61B1009FB815 /* AppDelegate.swift */,
-				510A033E1A8D61B1009FB815 /* ViewController.swift */,
+				518476681A8F698C00EAB1F6 /* Configuration.swift */,
 				510A03401A8D61B1009FB815 /* Main.storyboard */,
 				510A03431A8D61B1009FB815 /* Images.xcassets */,
 				510A03451A8D61B1009FB815 /* LaunchScreen.xib */,
@@ -126,6 +140,7 @@
 		510A03371A8D61B1009FB815 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				518476671A8F695E00EAB1F6 /* skugga-Bridging-Header.h */,
 				510A03381A8D61B1009FB815 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -147,6 +162,32 @@
 				510A03631A8D63EE009FB815 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5184765C1A8F68B600EAB1F6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5184765F1A8F691700EAB1F6 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */,
+				518476601A8F692E00EAB1F6 /* FileListClient.swift */,
+				518476611A8F692E00EAB1F6 /* UploadClient.swift */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		518476641A8F693A00EAB1F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				518476651A8F694000EAB1F6 /* RemoteFile.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		E276732787CE2AAA42CA0724 /* Pods */ = {
@@ -295,8 +336,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				510A033F1A8D61B1009FB815 /* ViewController.swift in Sources */,
+				5184765E1A8F690F00EAB1F6 /* RemoteFileListViewController.swift in Sources */,
+				518476661A8F694000EAB1F6 /* RemoteFile.swift in Sources */,
+				518476691A8F698C00EAB1F6 /* Configuration.swift in Sources */,
+				518476631A8F692E00EAB1F6 /* UploadClient.swift in Sources */,
 				510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */,
+				518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */,
+				5184766D1A8F6A0D00EAB1F6 /* ClientConsts.swift in Sources */,
 				510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +473,7 @@
 				INFOPLIST_FILE = Skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Skugga/skugga-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -439,6 +486,7 @@
 				INFOPLIST_FILE = Skugga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Skugga/skugga-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -44,7 +44,7 @@ struct UploadClient
         let secret = Configuration.secret;
         if (!secret.isEmpty)
         {
-            request.addValue(secret, forHTTPHeaderField: Consts.SECRET_KEY_HEADER);
+            request.addValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER);
         }
         
         var uploadTask = manager.uploadTaskWithStreamedRequest(request,
@@ -63,7 +63,7 @@ struct UploadClient
                     }
                     else
                     {
-                        failure(NSError(domain: Consts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while uploading file", "statusCode": httpResponse.statusCode]));
+                        failure(NSError(domain: ClientConsts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while uploading file", "statusCode": httpResponse.statusCode]));
                     }
                 }
 

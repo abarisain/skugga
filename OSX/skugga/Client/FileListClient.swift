@@ -24,11 +24,11 @@ struct FileListClient
         let secret = Configuration.secret;
         if (!secret.isEmpty)
         {
-            manager.requestSerializer.setValue(secret, forHTTPHeaderField: Consts.SECRET_KEY_HEADER)
+            manager.requestSerializer.setValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
         }
         else
         {
-            manager.requestSerializer.setValue(nil, forHTTPHeaderField: Consts.SECRET_KEY_HEADER)
+            manager.requestSerializer.setValue(nil, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
         }
         
         var http =  AFJSONResponseSerializer();
@@ -45,7 +45,7 @@ struct FileListClient
                 }
                 else
                 {
-                    failure(NSError(domain: Consts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while parsing JSON answer"]));
+                    failure(NSError(domain: ClientConsts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while parsing JSON answer"]));
                 }
             }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
                 failure(error);
