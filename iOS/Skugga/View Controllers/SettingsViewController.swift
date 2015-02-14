@@ -30,5 +30,9 @@ class SettingsViewController : UITableViewController
     
     @IBAction func doneAction(sender: AnyObject)
     {
+        Configuration.endpoint = endpointTextField.text;
+        Configuration.secret = secretTextField.text;
+        
+        dismissViewControllerAnimated(true, completion: nil);
     }
 }

@@ -11,12 +11,26 @@ import UIKit
 class RemoteFileListViewController : UITableViewController
 {
 
+    private var files = [RemoteFile]();
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        RemoteFileDatabaseHelper.refreshFromServer();
     }
 
+    override func viewWillAppear(animated: Bool)
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshData", name: RemoteFilesChangedNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataRefreshFailed", name: RemoteFilesRefreshFailureNotification, object: nil);
+        refreshData();
+    }
+    
+    override func viewWillDisappear(animated: Bool)
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -27,6 +41,32 @@ class RemoteFileListViewController : UITableViewController
     {
     }
 
+    func refreshData()
+    {
+        files = RemoteFileDatabaseHelper.cachedFiles;
+        tableView.reloadData();
+    }
+    
+    func dataRefreshFailed()
+    {
+        
+    }
+    
+    // MARK : Table delegate/datasource Methods
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return files.count;
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FileCell") as RemoteFileTableViewCell;
+        
+        cell.update(files[indexPath.row]);
+        
+        return cell;
+    }
+    
 }
 
 class RemoteFileTableViewCell : UITableViewCell
@@ -36,4 +76,9 @@ class RemoteFileTableViewCell : UITableViewCell
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var fileImageView: UIImageView!
     
+    func update(remoteFile : RemoteFile)
+    {
+        filenameLabel.text = remoteFile.filename;
+        dateLabel.text = remoteFile.uploadDate.description;
+    }
 }
