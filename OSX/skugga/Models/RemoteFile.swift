@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct RemoteFile
 {
@@ -29,5 +30,13 @@ struct RemoteFile
         uploadDate = RemoteFile.dateFormatter.dateFromString(dict["creation_time"] as? String ?? "") ?? NSDate();
         url = dict["name"] as String;
         deleteKey = dict["delete_key"] as String;
+    }
+    
+    init(fromNSManagedObject managedObject: NSManagedObject)
+    {
+        filename = managedObject.valueForKey("filename") as? String ?? "<unknown original name>";
+        uploadDate = managedObject.valueForKey("uploadDate") as NSDate;
+        url = managedObject.valueForKey("url") as String;
+        deleteKey = managedObject.valueForKey("deleteKey") as String;
     }
 }
