@@ -79,6 +79,15 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         RemoteFileDatabaseHelper.refreshFromServer();
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "FileDetails"
+        {
+            let detailsViewController = segue.destinationViewController as FileDetailsViewController;
+            detailsViewController.remoteFile = files[tableView.indexPathForSelectedRow()?.row ?? 0];
+        }
+    }
+    
     // MARK : Table delegate/datasource Methods
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {

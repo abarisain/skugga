@@ -177,7 +177,7 @@
                                     <outlet property="dateLabel" destination="pnF-Wk-LhR" id="RaO-Zc-QRF"/>
                                     <outlet property="fileImageView" destination="Tgp-UV-IoN" id="lqT-2b-0FR"/>
                                     <outlet property="filenameLabel" destination="95H-pl-pmB" id="3f8-66-50f"/>
-                                    <segue destination="fpg-85-lTc" kind="push" id="xg7-m1-OvX"/>
+                                    <segue destination="fpg-85-lTc" kind="push" identifier="FileDetails" id="xg7-m1-OvX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

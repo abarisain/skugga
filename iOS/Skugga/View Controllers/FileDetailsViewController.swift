@@ -13,6 +13,8 @@ class FileDetailsViewController : UIViewController
     
     @IBOutlet weak var webView: UIWebView!
     
+    var remoteFile: RemoteFile?;
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -25,6 +27,14 @@ class FileDetailsViewController : UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool)
+    {
+        if let remoteFile = remoteFile
+        {
+            navigationItem.title = remoteFile.filename;
+            webView.loadRequest(NSURLRequest(URL: NSURL(string: Configuration.endpoint + remoteFile.url)!));
+        }
+    }
     
     @IBAction func shareAction(sender: AnyObject)
     {
