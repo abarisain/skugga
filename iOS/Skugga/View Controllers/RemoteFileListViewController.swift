@@ -76,7 +76,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     
     @IBAction func refreshControlPulled(sender: AnyObject)
     {
-        refreshData();
+        RemoteFileDatabaseHelper.refreshFromServer();
     }
     
     // MARK : Table delegate/datasource Methods
