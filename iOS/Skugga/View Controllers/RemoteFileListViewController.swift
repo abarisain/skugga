@@ -60,13 +60,13 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         refreshControl?.endRefreshing();
     }
     
-    private func uploadImage(image: UIImage, url: NSURL, filename: String)
+    private func uploadImage(image: UIImage, data: NSData, filename: String)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil);
         let uploadNavigationController = storyboard.instantiateViewControllerWithIdentifier("UploadScene") as UINavigationController;
         let uploadController = uploadNavigationController.viewControllers[0] as UploadViewController;
         uploadController.targetImage = image;
-        uploadController.targetURL = url;
+        uploadController.targetData = data;
         uploadController.targetFilename = filename;
         presentViewController(uploadNavigationController, animated: true)
         { () -> Void in
@@ -102,7 +102,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
             ALAssetsLibrary().assetForURL(url, resultBlock: { (asset: ALAsset!) -> Void in
-                self.uploadImage(image, url: url, filename: asset.defaultRepresentation().filename());
+                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1), filename: asset.defaultRepresentation().filename().stringByDeletingPathExtension);
             }, failureBlock: { (error: NSError!) -> Void in
                 let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error?.userInfo)", preferredStyle: .Alert);
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil));
