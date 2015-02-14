@@ -36,7 +36,7 @@ struct RemoteFileDatabaseHelper
             
             if let results = fetchedResults
             {
-                return results.map({RemoteFile(fromNSManagedObject: $0)});
+                return results.map({RemoteFile(fromNSManagedObject: $0)}).sorted({$0.uploadDate > $1.uploadDate});
             }
             else
             {
