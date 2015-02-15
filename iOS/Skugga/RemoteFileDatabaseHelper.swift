@@ -103,7 +103,10 @@ struct RemoteFileDatabaseHelper
         
         var error: NSError?
         managedContext.save(&error)
-        NSLog("Could not save remote files \(error), cause : \(error?.userInfo)")
+        if let error = error
+        {
+            NSLog("Could not save remote files \(error), cause : \(error.userInfo)")
+        }
         
         NSNotificationCenter.defaultCenter().postNotificationName(RemoteFilesChangedNotification, object: nil)
     }
