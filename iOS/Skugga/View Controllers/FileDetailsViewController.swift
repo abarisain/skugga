@@ -18,7 +18,7 @@ class FileDetailsViewController : UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        webView.scalesPageToFit = true
     }
     
     override func didReceiveMemoryWarning()
@@ -38,5 +38,22 @@ class FileDetailsViewController : UIViewController
     
     @IBAction func shareAction(sender: AnyObject)
     {
+        if let remoteFile = remoteFile
+        {
+            let popup = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            popup.addAction(UIAlertAction(title: "Open in Safari",
+                style: .Default,
+                handler: { (_) -> Void in
+                    // Eat the return value, otherwise it won't compile. Yay swift :)
+                    _ = UIApplication.sharedApplication().openURL(NSURL(string: Configuration.endpoint + remoteFile.url)!)
+            }))
+            popup.addAction(UIAlertAction(title: "Copy URL",
+                style: .Default,
+                handler: { (_) -> Void in
+                    UIPasteboard.generalPasteboard().string = Configuration.endpoint + remoteFile.url
+            }))
+            popup.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            presentViewController(popup, animated: true, completion: nil)
+        }
     }
 }
