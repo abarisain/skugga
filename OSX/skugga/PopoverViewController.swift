@@ -36,6 +36,11 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         appDelegate.showMenuFromView(menuButton, window: menuButton.window!)
     }
     
+    func reloadData()
+    {
+        filesTableView.reloadData()
+    }
+    
     func refreshWithRemoteFiles(files: [RemoteFile])
     {
         remoteFiles = files

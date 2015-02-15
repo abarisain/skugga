@@ -155,7 +155,7 @@ class RemoteFileTableViewCell : UITableViewCell
     func update(remoteFile : RemoteFile)
     {
         filenameLabel.text = remoteFile.filename
-        dateLabel.text = remoteFile.uploadDate.description
+        dateLabel.text = remoteFile.uploadDate.timeAgoSinceNow()
         //FIXME : Terrible, terrible method. FIX IT DAMNIT
         fileImageView.sd_setImageWithURL(NSURL(string: Configuration.endpoint + remoteFile.url + "?w=96&h=96")!)
     }

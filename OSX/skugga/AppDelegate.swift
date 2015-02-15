@@ -262,6 +262,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         }
         else
         {
+            (popover.contentViewController as PopoverViewController).reloadData()
             popover.showRelativeToRect((statusItem.button?.bounds)!,
                 ofView: statusItem.button!,
                 preferredEdge: NSMaxYEdge)

@@ -34,7 +34,7 @@ class RemoteFileTableCell: NSTableCellView, NSImageViewWebCacheDelegate
         fileIcon = NSWorkspace.sharedWorkspace().iconForFileType(fileType)
         fileIcon?.size = NSSize(width: 40, height: 40)
         filename.stringValue = file.filename
-        uploadDate.stringValue = file.uploadDate.description
+        uploadDate.stringValue = file.uploadDate.timeAgoSinceNow()
         icon.image = fileIcon
         
         icon.imageURL = NSURL(string: NSString(format: "%@%@?w=%.0f&h=%.0f", Configuration.endpoint, file.url, icon.bounds.width, icon.bounds.height))!
