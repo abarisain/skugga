@@ -12,24 +12,24 @@ import AssetsLibrary
 class RemoteFileListViewController : UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
 
-    private var files = [RemoteFile]();
+    private var files = [RemoteFile]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        RemoteFileDatabaseHelper.refreshFromServer();
+        RemoteFileDatabaseHelper.refreshFromServer()
     }
 
     override func viewWillAppear(animated: Bool)
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshData", name: RemoteFilesChangedNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataRefreshFailed", name: RemoteFilesRefreshFailureNotification, object: nil);
-        refreshData();
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshData", name: RemoteFilesChangedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataRefreshFailed", name: RemoteFilesRefreshFailureNotification, object: nil)
+        refreshData()
     }
     
     override func viewWillDisappear(animated: Bool)
     {
-        NSNotificationCenter.defaultCenter().removeObserver(self);
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func didReceiveMemoryWarning()
@@ -41,83 +41,83 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     @IBAction func uploadAction(sender: AnyObject)
     {
         //FIXME : Implement iOS 8's document provider
-        var imagePicker = FixedStatusBarImagePickerController();
-        imagePicker.delegate = self;
-        imagePicker.sourceType = .PhotoLibrary;
+        var imagePicker = FixedStatusBarImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .PhotoLibrary
         //FIXME : Add popover support for iPads
-        presentViewController(imagePicker, animated: true, completion: nil);
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
     func refreshData()
     {
-        files = RemoteFileDatabaseHelper.cachedFiles;
-        tableView.reloadData();
-        refreshControl?.endRefreshing();
+        files = RemoteFileDatabaseHelper.cachedFiles
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
     
     func dataRefreshFailed()
     {
-        refreshControl?.endRefreshing();
+        refreshControl?.endRefreshing()
     }
     
     private func uploadImage(image: UIImage, data: NSData, filename: String)
     {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        let uploadNavigationController = storyboard.instantiateViewControllerWithIdentifier("UploadScene") as UINavigationController;
-        let uploadController = uploadNavigationController.viewControllers[0] as UploadViewController;
-        uploadController.targetImage = image;
-        uploadController.targetData = data;
-        uploadController.targetFilename = filename;
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let uploadNavigationController = storyboard.instantiateViewControllerWithIdentifier("UploadScene") as UINavigationController
+        let uploadController = uploadNavigationController.viewControllers[0] as UploadViewController
+        uploadController.targetImage = image
+        uploadController.targetData = data
+        uploadController.targetFilename = filename
         presentViewController(uploadNavigationController, animated: true)
         { () -> Void in
-            uploadController.startUpload();
+            uploadController.startUpload()
         }
     }
     
     @IBAction func refreshControlPulled(sender: AnyObject)
     {
-        RemoteFileDatabaseHelper.refreshFromServer();
+        RemoteFileDatabaseHelper.refreshFromServer()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "FileDetails"
         {
-            let detailsViewController = segue.destinationViewController as FileDetailsViewController;
-            detailsViewController.remoteFile = files[tableView.indexPathForSelectedRow()?.row ?? 0];
+            let detailsViewController = segue.destinationViewController as FileDetailsViewController
+            detailsViewController.remoteFile = files[tableView.indexPathForSelectedRow()?.row ?? 0]
         }
     }
     
     // MARK : Table delegate/datasource Methods
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return files.count;
+        return files.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FileCell") as RemoteFileTableViewCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("FileCell") as RemoteFileTableViewCell
         
-        cell.update(files[indexPath.row]);
+        cell.update(files[indexPath.row])
         
-        return cell;
+        return cell
     }
     
     // MARK : UIImagePickerController Methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
-        var image = info[UIImagePickerControllerOriginalImage] as UIImage;
-        var url = info[UIImagePickerControllerReferenceURL] as NSURL;
+        var image = info[UIImagePickerControllerOriginalImage] as UIImage
+        var url = info[UIImagePickerControllerReferenceURL] as NSURL
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
             ALAssetsLibrary().assetForURL(url, resultBlock: { (asset: ALAsset!) -> Void in
-                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1), filename: asset.defaultRepresentation().filename().stringByDeletingPathExtension);
+                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1), filename: asset.defaultRepresentation().filename().stringByDeletingPathExtension)
             }, failureBlock: { (error: NSError!) -> Void in
-                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error?.userInfo)", preferredStyle: .Alert);
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil));
-                self.presentViewController(alert, animated: true, completion: nil);
-            });
-        });
+                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error?.userInfo)", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            })
+        })
     }
 }
 
@@ -130,8 +130,8 @@ class RemoteFileTableViewCell : UITableViewCell
     
     func update(remoteFile : RemoteFile)
     {
-        filenameLabel.text = remoteFile.filename;
-        dateLabel.text = remoteFile.uploadDate.description;
+        filenameLabel.text = remoteFile.filename
+        dateLabel.text = remoteFile.uploadDate.description
     }
 }
 
@@ -139,11 +139,11 @@ class FixedStatusBarImagePickerController : UIImagePickerController
 {
     override func prefersStatusBarHidden() -> Bool
     {
-        return false;
+        return false
     }
     
     override func childViewControllerForStatusBarHidden() -> UIViewController?
     {
-        return nil;
+        return nil
     }
 }

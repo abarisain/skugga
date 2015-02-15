@@ -18,8 +18,8 @@ class SettingsViewController : UITableViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        endpointTextField.text = Configuration.endpoint;
-        secretTextField.text = Configuration.secret;
+        endpointTextField.text = Configuration.endpoint
+        secretTextField.text = Configuration.secret
     }
     
     override func didReceiveMemoryWarning()
@@ -30,10 +30,10 @@ class SettingsViewController : UITableViewController
     
     @IBAction func doneAction(sender: AnyObject)
     {
-        Configuration.endpoint = endpointTextField.text;
-        Configuration.secret = secretTextField.text;
-        Configuration.synchronize();
+        Configuration.endpoint = endpointTextField.text
+        Configuration.secret = secretTextField.text
+        Configuration.synchronize()
         
-        dismissViewControllerAnimated(true, completion: nil);
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }

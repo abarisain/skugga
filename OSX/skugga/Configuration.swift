@@ -10,8 +10,8 @@ import Foundation
 
 private struct LocalConsts
 {
-    static let EndpointKey = "user.endpoint";
-    static let SecretKey = "user.secret";
+    static let EndpointKey = "user.endpoint"
+    static let SecretKey = "user.secret"
 }
 
 struct Configuration
@@ -20,12 +20,12 @@ struct Configuration
     {
         get
         {
-            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.EndpointKey) ?? "";
+            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.EndpointKey) ?? ""
         }
         
         set
         {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.EndpointKey);
+            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.EndpointKey)
         }
     }
     
@@ -33,12 +33,12 @@ struct Configuration
     {
         get
         {
-            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.SecretKey) ?? "";
+            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.SecretKey) ?? ""
         }
         
         set
         {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.SecretKey);
+            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.SecretKey)
         }
     }
 }

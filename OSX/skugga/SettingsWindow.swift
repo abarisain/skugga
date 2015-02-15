@@ -18,25 +18,25 @@ class SettingsWindow : NSWindow
     
     required override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
     {
-        super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer: flag);
-        //refreshFields();
+        super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer: flag)
+        //refreshFields()
     }
 
     // Required, but we don't care
     required init?(coder: NSCoder)
     {
-        super.init(coder: coder);
+        super.init(coder: coder)
     }
     
     func refreshFields()
     {
-        endpointTextField.stringValue = Configuration.endpoint;
-        secretTextField.stringValue = Configuration.secret;
+        endpointTextField.stringValue = Configuration.endpoint
+        secretTextField.stringValue = Configuration.secret
     }
     
     @IBAction func apply(sender: AnyObject)
     {
-        Configuration.endpoint = endpointTextField.stringValue;
-        Configuration.secret = secretTextField.stringValue;
+        Configuration.endpoint = endpointTextField.stringValue
+        Configuration.secret = secretTextField.stringValue
     }
 }

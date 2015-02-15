@@ -15,13 +15,13 @@ struct FileListClient
     func getFileList(success:([RemoteFile]) -> (), failure:(NSError) -> ())
     {
         
-        var manager = AFHTTPSessionManager();
+        var manager = AFHTTPSessionManager()
         
-        var securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None);
-        securityPolicy.allowInvalidCertificates = true;
-        manager.securityPolicy = securityPolicy;
+        var securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
+        securityPolicy.allowInvalidCertificates = true
+        manager.securityPolicy = securityPolicy
         
-        let secret = Configuration.secret;
+        let secret = Configuration.secret
         if (!secret.isEmpty)
         {
             manager.requestSerializer.setValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
@@ -31,24 +31,24 @@ struct FileListClient
             manager.requestSerializer.setValue(nil, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
         }
         
-        var http =  AFJSONResponseSerializer();
-        http.acceptableContentTypes = NSSet(object: ("text/plain"));
-        manager.responseSerializer = http;
+        var http =  AFJSONResponseSerializer()
+        http.acceptableContentTypes = NSSet(object: ("text/plain"))
+        manager.responseSerializer = http
         
         var getTask = manager.GET(Configuration.endpoint + ROUTE_LIST,
             parameters: nil,
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                 if let clientFiles = responseObject as? [AnyObject]
                 {
-                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))});
-                    success(files);
+                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))})
+                    success(files)
                 }
                 else
                 {
-                    failure(NSError(domain: ClientConsts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while parsing JSON answer"]));
+                    failure(NSError(domain: ClientConsts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while parsing JSON answer"]))
                 }
             }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
-                failure(error);
-            });
+                failure(error)
+            })
     }
 }

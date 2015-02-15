@@ -11,7 +11,7 @@ import Cocoa
 
 private struct LocalConsts
 {
-    static let defaultFileType = "html";
+    static let defaultFileType = "html"
 }
 
 class RemoteFileTableCell: NSTableCellView
@@ -24,15 +24,15 @@ class RemoteFileTableCell: NSTableCellView
     
     func updateWithRemoteFile(file: RemoteFile)
     {
-        var fileType = file.filename.pathExtension;
+        var fileType = file.filename.pathExtension
         if (fileType.isEmpty)
         {
-            fileType = LocalConsts.defaultFileType;
+            fileType = LocalConsts.defaultFileType
         }
-        var fileIcon = NSWorkspace.sharedWorkspace().iconForFileType(fileType);
-        fileIcon.size = NSSize(width: 40, height: 40);
-        icon.image = fileIcon;
-        filename.stringValue = file.filename;
-        uploadDate.stringValue = file.uploadDate.description;
+        var fileIcon = NSWorkspace.sharedWorkspace().iconForFileType(fileType)
+        fileIcon.size = NSSize(width: 40, height: 40)
+        icon.image = fileIcon
+        filename.stringValue = file.filename
+        uploadDate.stringValue = file.uploadDate.description
     }
 }

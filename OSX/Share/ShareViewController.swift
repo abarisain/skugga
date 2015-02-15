@@ -22,7 +22,7 @@ class ShareViewController: NSViewController {
         if let attachments = item.attachments {
             if attachments.count > 0
             {
-                let attachment = attachments.first as NSItemProvider;
+                let attachment = attachments.first as NSItemProvider
                 if attachment.hasItemConformingToTypeIdentifier(kUTTypeFileURL)
                 {
                     attachment.loadItemForTypeIdentifier(kUTTypeFileURL,
@@ -31,12 +31,12 @@ class ShareViewController: NSViewController {
                         { (item: NSSecureCoding!, error: NSError!) -> Void in
                             if let urlItem = item as? NSURL
                             {
-                                RMSharedUserDefaults.standardUserDefaults().setURL(item as NSURL, forKey: "shareExtensionURL");
+                                RMSharedUserDefaults.standardUserDefaults().setURL(item as NSURL, forKey: "shareExtensionURL")
                             }
                         }
-                    );
-                    self.extensionContext!.completeRequestReturningItems([item], completionHandler: nil);
-                    return;
+                    )
+                    self.extensionContext!.completeRequestReturningItems([item], completionHandler: nil)
+                    return
                 }
             }
         }
@@ -44,8 +44,8 @@ class ShareViewController: NSViewController {
         {
             NSLog("No Attachments")
         }
-        let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil);
-        self.extensionContext!.cancelRequestWithError(cancelError);
+        let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil)
+        self.extensionContext!.cancelRequestWithError(cancelError)
     }
 
 }

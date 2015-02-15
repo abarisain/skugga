@@ -15,9 +15,9 @@ class UploadViewController : UIViewController
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var filenameLabel: UILabel!
     
-    var targetImage: UIImage?;
-    var targetData: NSData?;
-    var targetFilename: String?;
+    var targetImage: UIImage?
+    var targetData: NSData?
+    var targetFilename: String?
     
     override func viewDidLoad()
     {
@@ -26,9 +26,9 @@ class UploadViewController : UIViewController
     }
     
     override func viewWillAppear(animated: Bool) {
-        backgroundImageView.image = targetImage;
-        filenameLabel.text = targetFilename;
-        progressView.progress = 0;
+        backgroundImageView.image = targetImage
+        filenameLabel.text = targetFilename
+        progressView.progress = 0
     }
     
     override func didReceiveMemoryWarning()
@@ -45,29 +45,29 @@ class UploadViewController : UIViewController
             progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
                 dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                     
-                    self.progressView.progress = Float(Double(bytesSent) / Double(bytesToSend));
-                });
+                    self.progressView.progress = Float(Double(bytesSent) / Double(bytesToSend))
+                })
             }, success: { (data: [NSObject : AnyObject]) -> Void in
                 
-                var url = data["name"] as NSString;
-                url = Configuration.endpoint + url;
+                var url = data["name"] as NSString
+                url = Configuration.endpoint + url
                 
-                let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .Alert);
+                let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
                     handler: { (action: UIAlertAction!) -> () in
-                        UIPasteboard.generalPasteboard().string = url;
+                        UIPasteboard.generalPasteboard().string = url
                         self.dismissViewControllerAnimated(true, completion: nil)
-                }));
-                self.presentViewController(alert, animated: true, completion: nil);
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
                 
                 // Start refreshing the file list, and hope it will be fresh for the RemoteFile list view
-                RemoteFileDatabaseHelper.refreshFromServer();
+                RemoteFileDatabaseHelper.refreshFromServer()
                 
             }, failure: { (error: NSError) -> Void in
                 
-                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert);
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.dismissViewControllerAnimated(true, completion: nil) }));
-                self.presentViewController(alert, animated: true, completion: nil);
-        });
+                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.dismissViewControllerAnimated(true, completion: nil) }))
+                self.presentViewController(alert, animated: true, completion: nil)
+        })
     }
 }

@@ -13,7 +13,7 @@ class FileDetailsViewController : UIViewController
     
     @IBOutlet weak var webView: UIWebView!
     
-    var remoteFile: RemoteFile?;
+    var remoteFile: RemoteFile?
     
     override func viewDidLoad()
     {
@@ -31,8 +31,8 @@ class FileDetailsViewController : UIViewController
     {
         if let remoteFile = remoteFile
         {
-            navigationItem.title = remoteFile.filename;
-            webView.loadRequest(NSURLRequest(URL: NSURL(string: Configuration.endpoint + remoteFile.url)!));
+            navigationItem.title = remoteFile.filename
+            webView.loadRequest(NSURLRequest(URL: NSURL(string: Configuration.endpoint + remoteFile.url)!))
         }
     }
     
