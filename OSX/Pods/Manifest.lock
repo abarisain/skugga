@@ -17,11 +17,23 @@ PODS:
   - AFNetworking/Reachability (2.5.0)
   - AFNetworking/Security (2.5.0)
   - AFNetworking/Serialization (2.5.0)
+  - OTWebImage (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - OTWebImage (from `https://github.com/OpenFibers/OTWebImage.git`)
+
+EXTERNAL SOURCES:
+  OTWebImage:
+    :git: https://github.com/OpenFibers/OTWebImage.git
+
+CHECKOUT OPTIONS:
+  OTWebImage:
+    :commit: cdfa36f37ee4578ec4d2f277911af60a46db14f3
+    :git: https://github.com/OpenFibers/OTWebImage.git
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  OTWebImage: 6c9ef3562611baf98bc812feef67946bebc84816
 
 COCOAPODS: 0.35.0

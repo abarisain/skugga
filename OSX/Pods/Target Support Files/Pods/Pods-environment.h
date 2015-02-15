@@ -42,3 +42,9 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_Serialization 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_Serialization 0
 
+// OTWebImage
+#define COCOAPODS_POD_AVAILABLE_OTWebImage
+#define COCOAPODS_VERSION_MAJOR_OTWebImage 1
+#define COCOAPODS_VERSION_MINOR_OTWebImage 0
+#define COCOAPODS_VERSION_PATCH_OTWebImage 0
+

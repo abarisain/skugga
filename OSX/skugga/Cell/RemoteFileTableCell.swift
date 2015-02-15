@@ -14,13 +14,15 @@ private struct LocalConsts
     static let defaultFileType = "html"
 }
 
-class RemoteFileTableCell: NSTableCellView
+class RemoteFileTableCell: NSTableCellView, NSImageViewWebCacheDelegate
 {
     @IBOutlet weak var filename: NSTextField!
     
     @IBOutlet weak var uploadDate: NSTextField!
     
     @IBOutlet weak var icon: NSImageView!
+    
+    var fileIcon: NSImage?
     
     func updateWithRemoteFile(file: RemoteFile)
     {
@@ -29,10 +31,21 @@ class RemoteFileTableCell: NSTableCellView
         {
             fileType = LocalConsts.defaultFileType
         }
-        var fileIcon = NSWorkspace.sharedWorkspace().iconForFileType(fileType)
-        fileIcon.size = NSSize(width: 40, height: 40)
-        icon.image = fileIcon
+        fileIcon = NSWorkspace.sharedWorkspace().iconForFileType(fileType)
+        fileIcon?.size = NSSize(width: 40, height: 40)
         filename.stringValue = file.filename
         uploadDate.stringValue = file.uploadDate.description
+        icon.image = fileIcon
+        
+        icon.imageURL = NSURL(string: NSString(format: "%@%@?w=%.0f&h=%.0f", Configuration.endpoint, file.url, icon.bounds.width, icon.bounds.height))!
+    }
+    
+    func imageView(imageView: NSImageView!, downloadImageSuccessed image: NSImage!, data: NSData!)
+    {
+    }
+    
+    func imageViewDownloadImageFailed(imageView: NSImageView!)
+    {
+        icon.image = fileIcon
     }
 }
