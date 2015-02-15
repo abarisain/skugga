@@ -86,7 +86,12 @@ class ShareViewController: SLComposeServiceViewController {
                             UIPasteboard.generalPasteboard().string = url
                             self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
                         }, failure: { (error: NSError) -> Void in
-                            NSLog("failed \(error) \(error.userInfo)")
+                            NSLog("Failed to upload file \(error) \(error.userInfo)")
+                            alert.dismissViewControllerAnimated(true, completion: { () -> Void in
+                                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert)
+                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.extensionContext!.cancelRequestWithError(error) }))
+                                self.presentViewController(alert, animated: true, completion: nil)
+                            })
                     })
                 }
                 else
