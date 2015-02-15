@@ -21,6 +21,7 @@
 		5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476611A8F692E00EAB1F6 /* UploadClient.swift */; };
 		5165AC431A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
 		5165AC441A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
+		5165AC451A90F9300087952D /* ClientConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */; };
 		5184765E1A8F690F00EAB1F6 /* RemoteFileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */; };
 		518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476601A8F692E00EAB1F6 /* FileListClient.swift */; };
 		518476631A8F692E00EAB1F6 /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476611A8F692E00EAB1F6 /* UploadClient.swift */; };
@@ -406,6 +407,7 @@
 			files = (
 				5165AC441A90F83E0087952D /* Configuration.swift in Sources */,
 				5165AC321A90EFF50087952D /* ShareViewController.swift in Sources */,
+				5165AC451A90F9300087952D /* ClientConsts.swift in Sources */,
 				5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

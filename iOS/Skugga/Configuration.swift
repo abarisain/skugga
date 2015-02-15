@@ -21,12 +21,12 @@ struct Configuration
     {
         get
         {
-            return NSUserDefaults(suiteName: "lel")?.stringForKey(LocalConsts.EndpointKey) ?? "";
+            return NSUserDefaults(suiteName: LocalConsts.GroupId)?.stringForKey(LocalConsts.EndpointKey) ?? "";
         }
         
         set
         {
-            NSUserDefaults(suiteName: "lel")?.setObject(newValue, forKey: LocalConsts.EndpointKey);
+            NSUserDefaults(suiteName: LocalConsts.GroupId)?.setObject(newValue, forKey: LocalConsts.EndpointKey);
         }
     }
     
@@ -34,12 +34,17 @@ struct Configuration
     {
         get
         {
-            return NSUserDefaults(suiteName: "lel")?.stringForKey(LocalConsts.SecretKey) ?? "";
+            return NSUserDefaults(suiteName: LocalConsts.GroupId)?.stringForKey(LocalConsts.SecretKey) ?? "";
         }
         
         set
         {
-            NSUserDefaults(suiteName: "lel")?.setObject(newValue, forKey: LocalConsts.SecretKey);
+            NSUserDefaults(suiteName: LocalConsts.GroupId)?.setObject(newValue, forKey: LocalConsts.SecretKey);
         }
+    }
+    
+    static func synchronize()
+    {
+        NSUserDefaults(suiteName: LocalConsts.GroupId)?.synchronize()
     }
 }

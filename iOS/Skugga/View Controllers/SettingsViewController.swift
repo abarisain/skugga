@@ -32,6 +32,7 @@ class SettingsViewController : UITableViewController
     {
         Configuration.endpoint = endpointTextField.text;
         Configuration.secret = secretTextField.text;
+        Configuration.synchronize();
         
         dismissViewControllerAnimated(true, completion: nil);
     }
