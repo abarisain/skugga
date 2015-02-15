@@ -103,6 +103,30 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         return cell
     }
     
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+            FileListClient().deleteFile(files[indexPath.row],
+                success: { () -> () in
+                    self.files.removeAtIndex(indexPath.row)
+                    self.tableView.beginUpdates()
+                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                    self.tableView.endUpdates()
+                    RemoteFileDatabaseHelper.refreshFromServer()
+                }, failure: { (error: NSError) -> () in
+                    let alert = UIAlertController(title: "Error", message: "Couldn't delete file : \(error) \(error.userInfo)", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+            });
+        }
+    }
+    
     // MARK : UIImagePickerController Methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
