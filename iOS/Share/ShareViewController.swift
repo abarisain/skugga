@@ -15,6 +15,10 @@ class ShareViewController: SLComposeServiceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         placeholder = "Ready to upload!"
+    }
+    
+    override func presentationAnimationDidFinish()
+    {
         textView.userInteractionEnabled = false
         textView.editable = false
     }
