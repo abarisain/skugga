@@ -111,13 +111,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                 var url = data["name"] as NSString
                 url = Configuration.endpoint + url
                 
-                var pasteboard = NSPasteboard.generalPasteboard()
+                let pasteboard = NSPasteboard.generalPasteboard()
                 pasteboard.clearContents()
                 pasteboard.setString(url, forType: NSStringPboardType)
                 
                 NSLog("Upload succeeded ! \(url)")
                 
-                var notification = NSUserNotification()
+                let notification = NSUserNotification()
                 notification.title = "Skugga"
                 notification.subtitle = "File uploaded : \(url)"
                 notification.deliveryDate = NSDate()
@@ -147,7 +147,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     errorSubtitle += " (\(statusCode))"
                 }
                 
-                var notification = NSUserNotification()
+                let notification = NSUserNotification()
                 notification.title = "Skugga"
                 notification.subtitle = errorSubtitle
                 notification.deliveryDate = NSDate()
