@@ -672,7 +672,6 @@
             <connections>
                 <outlet property="filesTableView" destination="Q2S-00-E8d" id="oIk-pU-6tb"/>
                 <outlet property="menuButton" destination="yRK-zs-Nyx" id="DbZ-4G-A3I"/>
-                <outlet property="tableOpenInBrowserAction" destination="n4l-jy-Ryg" id="CgC-ib-Zui"/>
                 <outlet property="view" destination="Itu-ES-1d3" id="wdU-gr-Vhb"/>
             </connections>
         </viewController>
