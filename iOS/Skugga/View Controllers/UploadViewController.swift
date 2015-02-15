@@ -52,13 +52,12 @@ class UploadViewController : UIViewController
                 var url = data["name"] as NSString;
                 url = Configuration.endpoint + url;
                 
-                let alert = UIAlertController(title: "Image uploaded!", message: "\(url)", preferredStyle: .Alert);
-                alert.addAction(UIAlertAction(title: "Copy URL", style: UIAlertActionStyle.Default,
+                let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .Alert);
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
                     handler: { (action: UIAlertAction!) -> () in
                         UIPasteboard.generalPasteboard().string = url;
                         self.dismissViewControllerAnimated(true, completion: nil)
                 }));
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction!) -> () in self.dismissViewControllerAnimated(true, completion: nil) }));
                 self.presentViewController(alert, animated: true, completion: nil);
                 
                 // Start refreshing the file list, and hope it will be fresh for the RemoteFile list view
