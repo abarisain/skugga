@@ -40,8 +40,7 @@ struct FileListClient
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                 if let clientFiles = responseObject as? [AnyObject]
                 {
-                    NSLog("%@", clientFiles.description)
-                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))})
+                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))}).sorted({$0.uploadDate > $1.uploadDate})
                     success(files)
                 }
                 else
