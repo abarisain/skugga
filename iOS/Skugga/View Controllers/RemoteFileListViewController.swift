@@ -132,6 +132,7 @@ class RemoteFileTableViewCell : UITableViewCell
     {
         filenameLabel.text = remoteFile.filename
         dateLabel.text = remoteFile.uploadDate.description
+        fileImageView.sd_setImageWithURL(NSURL(string: Configuration.endpoint + remoteFile.url + "?w=96&h=96")!)
     }
 }
 
