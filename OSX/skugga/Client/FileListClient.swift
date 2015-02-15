@@ -40,6 +40,7 @@ struct FileListClient
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                 if let clientFiles = responseObject as? [AnyObject]
                 {
+                    NSLog("%@", clientFiles.description)
                     var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))})
                     success(files)
                 }
@@ -50,5 +51,36 @@ struct FileListClient
             }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
                 failure(error)
             })
+    }
+    
+    func deleteFile(file: RemoteFile, success:() -> (), failure:(NSError) -> ())
+    {
+        var manager = AFHTTPSessionManager()
+        
+        var securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
+        securityPolicy.allowInvalidCertificates = true
+        manager.securityPolicy = securityPolicy
+        
+        let secret = Configuration.secret
+        if (!secret.isEmpty)
+        {
+            manager.requestSerializer.setValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
+        }
+        else
+        {
+            manager.requestSerializer.setValue(nil, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
+        }
+        
+        var http =  AFHTTPResponseSerializer()
+        http.acceptableContentTypes = NSSet(object: ("text/plain"))
+        manager.responseSerializer = http
+        
+        var getTask = manager.GET(Configuration.endpoint + file.url + "/" + file.deleteKey,
+            parameters: nil,
+            success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
+                success()
+            }, failure: { (task: NSURLSessionDataTask!, error: NSError!) -> Void in
+                failure(error)
+        })
     }
 }

@@ -65,4 +65,31 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         }
         return nil
     }
+    
+    // MARK : Table menu methods
+    
+    @IBAction func tableCopyLinkAction(sender: AnyObject)
+    {
+        let file = remoteFiles[filesTableView.clickedRow]
+        let pasteboard = NSPasteboard.generalPasteboard()
+        pasteboard.clearContents()
+        pasteboard.setString(Configuration.endpoint + file.url, forType: NSStringPboardType)
+    }
+    
+    @IBAction func tableOpenInBrowserAction(sender: AnyObject)
+    {
+        let file = remoteFiles[filesTableView.clickedRow]
+        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url)!)
+    }
+    
+    @IBAction func tableDeleteAction(sender: AnyObject)
+    {
+        FileListClient().deleteFile(remoteFiles[filesTableView.clickedRow],
+            success: { () -> () in
+                (NSApplication.sharedApplication().delegate as AppDelegate).refreshFileList()
+            }, failure: { (error: NSError) -> () in
+                NSLog("Failed to delete file")
+        });
+    }
+    
 }

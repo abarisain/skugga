@@ -672,6 +672,7 @@
             <connections>
                 <outlet property="filesTableView" destination="Q2S-00-E8d" id="oIk-pU-6tb"/>
                 <outlet property="menuButton" destination="yRK-zs-Nyx" id="DbZ-4G-A3I"/>
+                <outlet property="tableOpenInBrowserAction" destination="n4l-jy-Ryg" id="CgC-ib-Zui"/>
                 <outlet property="view" destination="Itu-ES-1d3" id="wdU-gr-Vhb"/>
             </connections>
         </viewController>
@@ -791,6 +792,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="4dY-cR-i46" id="CFA-DF-Jbi"/>
                                     <outlet property="delegate" destination="4dY-cR-i46" id="4iC-Cd-AaX"/>
+                                    <outlet property="menu" destination="XFl-F7-Tiu" id="c1B-25-26L"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -851,7 +853,7 @@
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="GVh-i8-fmm" customClass="SettingsWindow" customModule="Skugga" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
             <rect key="contentRect" x="131" y="158" width="413" height="182"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="413" height="182"/>
             <value key="maxSize" type="size" width="413" height="182"/>
             <view key="contentView" id="rh2-yD-1b5">
@@ -953,6 +955,30 @@
             </connections>
             <point key="canvasLocation" x="775.5" y="181"/>
         </window>
+        <menu id="XFl-F7-Tiu">
+            <items>
+                <menuItem title="Copy Link" id="0U0-HC-Qsv">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="tableCopyLinkAction:" target="4dY-cR-i46" id="cwM-FQ-Dup"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Open In Browser" id="n4l-jy-Ryg">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="tableOpenInBrowserAction:" target="4dY-cR-i46" id="OeR-G6-RCN"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="JOQ-tV-e6O"/>
+                <menuItem title="Delete" id="pXg-SL-VIi">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="tableDeleteAction:" target="4dY-cR-i46" id="U9O-m7-dCd"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="688" y="448.5"/>
+        </menu>
     </objects>
     <resources>
         <image name="Cog" width="9.4814815521240234" height="9.4814815521240234"/>
