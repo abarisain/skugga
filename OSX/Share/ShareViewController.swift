@@ -39,7 +39,9 @@ class ShareViewController: NSViewController {
                     return;
                 }
             }
-        } else {
+        }
+        else
+        {
             NSLog("No Attachments")
         }
         let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSUserCancelledError, userInfo: nil);
