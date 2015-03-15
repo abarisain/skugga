@@ -19,6 +19,8 @@ class AdvancedUploadViewController : NSViewController
         }
     }
     
+    internal weak var delegate: AdvancedUploadViewDelegate?
+    
     @IBOutlet weak var filenameTextField: NSTextField!
     @IBOutlet weak var tagsTokenField: NSTokenField!
     @IBOutlet weak var ttlTextField: NSTextField!
@@ -29,10 +31,18 @@ class AdvancedUploadViewController : NSViewController
     
     @IBAction func uploadClicked(sender: AnyObject)
     {
+        delegate?.dismissAdvancedUploadPopover()
     }
     
     @IBAction func cancelClicked(sender: AnyObject)
     {
-        // TODO : Implement this using a delegate
+        delegate?.dismissAdvancedUploadPopover()
     }
+}
+
+protocol AdvancedUploadViewDelegate: class
+{
+    func uploadURL(url: NSURL, filename: String, tags: String, ttl: String?, retina: Bool)
+    
+    func dismissAdvancedUploadPopover()
 }

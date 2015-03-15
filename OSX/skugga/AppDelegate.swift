@@ -12,7 +12,7 @@ let statusIconHeight: CGFloat = 18.0
 let statusIconWidth: CGFloat = 24.0
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination, NSUserNotificationCenterDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination, NSUserNotificationCenterDelegate, AdvancedUploadViewDelegate {
     
     @IBOutlet weak var window: NSWindow!
 
@@ -34,6 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     var statusProgressImage: NSImage! //Programatically drawn
     
     var notificationCenter: NSUserNotificationCenter!
+    
+    var shownAdvancedUploadPopover: NSPopover?
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
@@ -78,6 +80,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             // Check if Alt (option) is pressed
             if (((NSApp.currentEvent??.modifierFlags)! & NSEventModifierFlags.AlternateKeyMask) != nil)
             {
+                shownAdvancedUploadPopover?.performClose(self)
+                shownAdvancedUploadPopover = nil
                 showAdvancedUploadPopoverForURL(file!)
             }
             else
@@ -279,6 +283,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func showAdvancedUploadPopoverForURL(url: NSURL)
     {
+        if shownAdvancedUploadPopover != nil
+        {
+            return
+        }
+        
         var objects : NSArray?
         let nib = NSBundle.mainBundle().loadNibNamed("AdvancedUploadPopover", owner: self, topLevelObjects: &objects)
         if let objects = objects as? [AnyObject]
@@ -287,7 +296,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             {
                 if let popoverController = popover.contentViewController as? AdvancedUploadViewController
                 {
+                    shownAdvancedUploadPopover = popover
+                    
                     popoverController.fileToUpload = url
+                    popoverController.delegate = self
+                    
                     popover.showRelativeToRect((statusItem.button?.bounds)!,
                         ofView: statusItem.button!,
                         preferredEdge: NSMaxYEdge)
@@ -324,6 +337,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         {
             NSWorkspace.sharedWorkspace().openURL(NSURL(string: (notification.userInfo!["url"] as NSString))!)
         }
+    }
+    
+    // MARK : AdvancedUploadViewDelegate methods
+    
+    func uploadURL(url: NSURL, filename: String, tags: String, ttl: String?, retina: Bool)
+    {
+        
+    }
+    
+    func dismissAdvancedUploadPopover()
+    {
+        shownAdvancedUploadPopover?.performClose(self)
+        shownAdvancedUploadPopover = nil
     }
     
     // MARK : Menu methods

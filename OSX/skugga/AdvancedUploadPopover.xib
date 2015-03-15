@@ -16,7 +16,7 @@
                 <outlet property="view" destination="YHR-ah-4OA" id="aSW-aA-xZL"/>
             </connections>
         </viewController>
-        <popover appearance="HUD" behavior="t" id="W0Z-4F-KNO">
+        <popover appearance="HUD" behavior="semitransient" id="W0Z-4F-KNO">
             <connections>
                 <outlet property="contentViewController" destination="gMs-nv-Qno" id="s0D-bv-Fdk"/>
             </connections>
