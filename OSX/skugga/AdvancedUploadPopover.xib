@@ -21,7 +21,7 @@
                 <outlet property="contentViewController" destination="gMs-nv-Qno" id="s0D-bv-Fdk"/>
             </connections>
         </popover>
-        <customView id="YHR-ah-4OA">
+        <customView wantsLayer="YES" id="YHR-ah-4OA">
             <rect key="frame" x="0.0" y="0.0" width="338" height="182"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -30,7 +30,15 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="HVg-SM-bDM"/>
                     </constraints>
-                    <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" id="ipe-4n-5sM">
+                    <backgroundFilters>
+                        <ciFilter name="CIGaussianBlur">
+                            <configuration>
+                                <null key="inputImage"/>
+                                <real key="inputRadius" value="10"/>
+                            </configuration>
+                        </ciFilter>
+                    </backgroundFilters>
+                    <tokenFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" drawsBackground="YES" allowsEditingTextAttributes="YES" tokenStyle="rounded" id="ipe-4n-5sM">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

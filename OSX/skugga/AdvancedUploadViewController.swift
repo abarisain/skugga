@@ -27,6 +27,14 @@ class AdvancedUploadViewController : NSViewController
     
     @IBOutlet weak var retinaCheckbox: NSButton!
     
+    override func awakeFromNib()
+    {
+        super.awakeFromNib()
+        let tokenizingSet = NSMutableCharacterSet.whitespaceAndNewlineCharacterSet()
+        tokenizingSet.formUnionWithCharacterSet(NSCharacterSet.punctuationCharacterSet())
+        tagsTokenField.tokenizingCharacterSet = tokenizingSet
+    }
+    
     // MARK : IBActions
     
     @IBAction func uploadClicked(sender: AnyObject)
