@@ -75,7 +75,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         if (pasteboard.types?.filter({$0 as NSString == NSURLPboardType}).count > 0)
         {
             var file = NSURL(fromPasteboard: pasteboard)
-            uploadURL(file!)
+            // Check if Alt (option) is pressed
+            if (((NSApp.currentEvent??.modifierFlags)! & NSEventModifierFlags.AlternateKeyMask) != nil)
+            {
+                showAdvancedUploadPopoverForURL(file!)
+            }
+            else
+            {
+                uploadURL(file!)
+            }
         }
         
         return true
@@ -266,6 +274,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             popover.showRelativeToRect((statusItem.button?.bounds)!,
                 ofView: statusItem.button!,
                 preferredEdge: NSMaxYEdge)
+        }
+    }
+    
+    func showAdvancedUploadPopoverForURL(url: NSURL)
+    {
+        var objects : NSArray?
+        let nib = NSBundle.mainBundle().loadNibNamed("AdvancedUploadPopover", owner: self, topLevelObjects: &objects)
+        if let objects = objects as? [AnyObject]
+        {
+            if let popover = objects.filter({$0 is NSPopover}).first as? NSPopover
+            {
+                if let popoverController = popover.contentViewController as? AdvancedUploadViewController
+                {
+                    popoverController.fileToUpload = url
+                    popover.showRelativeToRect((statusItem.button?.bounds)!,
+                        ofView: statusItem.button!,
+                        preferredEdge: NSMaxYEdge)
+                }
+            }
         }
     }
     
