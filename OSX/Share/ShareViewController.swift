@@ -18,20 +18,20 @@ class ShareViewController: NSViewController {
         super.loadView()
     
         // Insert code here to customize the view
-        let item = self.extensionContext!.inputItems[0] as NSExtensionItem
+        let item = self.extensionContext!.inputItems[0] as! NSExtensionItem
         if let attachments = item.attachments {
             if attachments.count > 0
             {
-                let attachment = attachments.first as NSItemProvider
-                if attachment.hasItemConformingToTypeIdentifier(kUTTypeFileURL)
+                let attachment = attachments.first as! NSItemProvider
+                if attachment.hasItemConformingToTypeIdentifier(kUTTypeFileURL as String)
                 {
-                    attachment.loadItemForTypeIdentifier(kUTTypeFileURL,
+                    attachment.loadItemForTypeIdentifier(kUTTypeFileURL as String,
                         options: nil,
                         completionHandler:
                         { (item: NSSecureCoding!, error: NSError!) -> Void in
                             if let urlItem = item as? NSURL
                             {
-                                RMSharedUserDefaults.standardUserDefaults().setURL(item as NSURL, forKey: "shareExtensionURL")
+                                RMSharedUserDefaults.standardUserDefaults().setURL(item as! NSURL, forKey: "shareExtensionURL")
                             }
                         }
                     )

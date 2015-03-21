@@ -37,16 +37,16 @@ struct RemoteFile
     {
         filename = dict["original"] as? String ?? "<unknown original name>"
         uploadDate = RemoteFile.dateFormatter.dateFromString(dict["creation_time"] as? String ?? "") ?? NSDate()
-        url = dict["name"] as String
-        deleteKey = dict["delete_key"] as String
+        url = dict["name"] as! String
+        deleteKey = dict["delete_key"] as! String
     }
     
     init(fromNSManagedObject managedObject: NSManagedObject)
     {
-        filename = managedObject.valueForKey(LocalCoreDataKeys.Filename) as String
-        uploadDate = managedObject.valueForKey(LocalCoreDataKeys.UploadDate) as NSDate
-        url = managedObject.valueForKey(LocalCoreDataKeys.Url) as String
-        deleteKey = managedObject.valueForKey(LocalCoreDataKeys.DeleteKey) as String
+        filename = managedObject.valueForKey(LocalCoreDataKeys.Filename) as! String
+        uploadDate = managedObject.valueForKey(LocalCoreDataKeys.UploadDate) as! NSDate
+        url = managedObject.valueForKey(LocalCoreDataKeys.Url) as! String
+        deleteKey = managedObject.valueForKey(LocalCoreDataKeys.DeleteKey) as! String
     }
     
     func toNSManagedObject(context: NSManagedObjectContext, entity: NSEntityDescription) -> NSManagedObject

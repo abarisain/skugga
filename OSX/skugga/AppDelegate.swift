@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     func performDragOperation(sender: NSDraggingInfo) -> Bool
     {
         var pasteboard = sender.draggingPasteboard()
-        if (pasteboard.types?.filter({$0 as NSString == NSURLPboardType}).count > 0)
+        if (pasteboard.types?.filter({$0 as! String == NSURLPboardType}).count > 0)
         {
             var file = NSURL(fromPasteboard: pasteboard)
             // Check if Alt (option) is pressed
@@ -120,7 +120,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         UploadClient().uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
             self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)))
             }, success: { (data: [NSObject: AnyObject]) -> Void in
-                var url = data["name"] as NSString
+                var url = data["name"] as! String
                 url = Configuration.endpoint + url
                 
                 let pasteboard = NSPasteboard.generalPasteboard()
@@ -274,7 +274,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         }
         else
         {
-            (popover.contentViewController as PopoverViewController).reloadData()
+            (popover.contentViewController as! PopoverViewController).reloadData()
             popover.showRelativeToRect((statusItem.button?.bounds)!,
                 ofView: statusItem.button!,
                 preferredEdge: NSMaxYEdge)
@@ -335,7 +335,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     {
         if (notification.activationType == .ActionButtonClicked)
         {
-            NSWorkspace.sharedWorkspace().openURL(NSURL(string: (notification.userInfo!["url"] as NSString))!)
+            NSWorkspace.sharedWorkspace().openURL(NSURL(string: (notification.userInfo!["url"] as! NSString) as String)!)
         }
     }
     

@@ -37,7 +37,7 @@ struct UploadClient
         var manager = AFHTTPSessionManager()
         
         manager.setTaskDidSendBodyDataBlock({ (session: NSURLSession!, task: NSURLSessionTask!, bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) -> Void in
-            if let safeProgress = progress?
+            if let safeProgress = progress
             {
                 safeProgress(bytesSent: totalBytesSent, bytesToSend: totalBytesExpectedToSend)
             }
@@ -71,10 +71,10 @@ struct UploadClient
                 }
                 else
                 {
-                    let httpResponse = response as NSHTTPURLResponse
+                    let httpResponse = response as! NSHTTPURLResponse
                     if (httpResponse.statusCode == 200)
                     {
-                        success(responseObject as Dictionary)
+                        success(responseObject as! Dictionary)
                     }
                     else
                     {

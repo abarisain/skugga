@@ -32,7 +32,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     @IBAction func menuButtonClick(sender: AnyObject)
     {
-        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.showMenuFromView(menuButton, window: menuButton.window!)
     }
     
@@ -91,7 +91,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     {
         FileListClient().deleteFile(remoteFiles[filesTableView.clickedRow],
             success: { () -> () in
-                (NSApplication.sharedApplication().delegate as AppDelegate).refreshFileList()
+                (NSApplication.sharedApplication().delegate as! AppDelegate).refreshFileList()
             }, failure: { (error: NSError) -> () in
                 NSLog("Failed to delete file")
         });
