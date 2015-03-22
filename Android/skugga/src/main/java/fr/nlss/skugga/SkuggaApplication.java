@@ -46,6 +46,7 @@ public class SkuggaApplication extends Application implements SharedPreferences.
     {
         super.onCreate();
         instance = this;
+        PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
         refreshPreferences();
         eventBus = new Bus();

@@ -16,8 +16,11 @@
 
 package fr.nlss.skugga.fragment;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -35,6 +38,7 @@ import com.squareup.otto.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.nlss.skugga.FilesActivity;
 import fr.nlss.skugga.R;
 import fr.nlss.skugga.SkuggaApplication;
 import fr.nlss.skugga.client.ClientHelper;
@@ -98,6 +102,20 @@ public class FileListFragment extends Fragment
             {
                 computedY += dy;
                 toolbarBackgroundOverflowView.setTranslationY(Math.max(-computedY, -toolbarBackgroundOverflowView.getHeight()));
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(SkuggaApplication.getInstance());
+                boolean imageOnly = prefs.getBoolean("ui_restrict_image", true);
+
+                Intent intent = new Intent();
+                intent.setType(imageOnly ? "image/*" : "*/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                getActivity().startActivityForResult(Intent.createChooser(intent, view.getContext().getString(R.string.select_file_to_upload)), FilesActivity.FILE_PICKER_REQUEST);
             }
         });
 

@@ -33,9 +33,8 @@ import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
 
-import java.util.List;
-
 import fr.nlss.skugga.client.ClientHelper;
+import fr.nlss.skugga.client.FileUploadClient;
 import fr.nlss.skugga.event.DeleteRemoteFileEvent;
 import fr.nlss.skugga.event.OpenRemoteFileEvent;
 import fr.nlss.skugga.event.RefreshFileListEvent;
@@ -47,6 +46,8 @@ import retrofit.RetrofitError;
 public class FilesActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks
 {
+
+    public static final int FILE_PICKER_REQUEST = 1;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -147,6 +148,17 @@ public class FilesActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FILE_PICKER_REQUEST && resultCode == RESULT_OK)
+        {
+            final Uri selectedFile = data.getData();
+            new FileUploadClient.UploadUriTask().execute(selectedFile);
+        }
     }
 
     @Subscribe

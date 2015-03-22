@@ -17,4 +17,8 @@
     <string name="action_file_popup_delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
+    <string name="select_file_to_upload">Select A File</string>
+    <string name="settings_restrict_image_summary">If unchecked, the file picker will not be restricted to images</string>
+    <string name="settings_restrict_image_title">Only allow image upload</string>
+    <string name="uploading">Uploading…</string>
 </resources>

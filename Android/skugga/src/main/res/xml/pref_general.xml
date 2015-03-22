@@ -23,16 +23,26 @@
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:title="@string/settings_endpoint_title"
-            android:summary="@string/settings_endpoint_summary"/>
+            android:summary="@string/settings_endpoint_summary"
+            android:title="@string/settings_endpoint_title"/>
 
         <EditTextPreference
             android:key="server_secret"
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:title="@string/settings_secret_title"
-            android:summary="@string/settings_secret_summary"/>
+            android:summary="@string/settings_secret_summary"
+            android:title="@string/settings_secret_title"/>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="User interface">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:enabled="false"
+            android:key="ui_restrict_image"
+            android:summary="@string/settings_restrict_image_summary"
+            android:title="@string/settings_restrict_image_title"/>
     </PreferenceCategory>
 </PreferenceScreen>
