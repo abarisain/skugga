@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/defaults_primary</item>
+        <item name="android:colorPrimaryDark">@color/defaults_secondary</item>
+        <item name="android:colorAccent">@color/defaults_primary</item>
+        <item name="colorPrimary">@color/defaults_primary</item>
+    </style>
+
+    <style name="MainMenu" parent="AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+</resources>

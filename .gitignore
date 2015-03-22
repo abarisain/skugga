@@ -16,3 +16,32 @@ DerivedData
 
 ### Mac OS ###
 .DS_Store
+
+### Android ###
+
+# generated files
+bin/
+gen/
+out/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Recommended ignore from Gradle
+.idea/dataSources.*
+.idea/inspectionProfiles
+.idea/misc.xml
+.idea/tasks.xml
+
+.idea/dictionaries
+.idea/libraries
+
+# Local IDEA workspace
+.idea/workspace.xml
+
+# Gradle cache
+.gradle
+
+# Sandbox stuff
+_sandbox
