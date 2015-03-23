@@ -43,6 +43,7 @@ import fr.nlss.skugga.R;
 import fr.nlss.skugga.SkuggaApplication;
 import fr.nlss.skugga.client.ClientHelper;
 import fr.nlss.skugga.event.RefreshFileListEvent;
+import fr.nlss.skugga.event.UploadFinishedEvent;
 import fr.nlss.skugga.ui.list.FileListAdapter;
 import fr.nlss.skugga.model.RemoteFile;
 import retrofit.RetrofitError;
@@ -140,6 +141,15 @@ public class FileListFragment extends Fragment
     public void refreshFileList(RefreshFileListEvent e)
     {
         refreshFileList();
+    }
+
+    @Subscribe
+    public void uploadFinished(UploadFinishedEvent e)
+    {
+        if (!e.error)
+        {
+            refreshFileList();
+        }
     }
 
     private void refreshFileList()

@@ -57,6 +57,11 @@ public class RemoteFile
 
     public String getFullUrl()
     {
+        return getFullUrlForKey(url);
+    }
+
+    public static String getFullUrlForKey(String url)
+    {
         return SkuggaApplication.getBaseURL() + "/" + url;
     }
 }

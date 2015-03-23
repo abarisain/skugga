@@ -21,4 +21,9 @@
     <string name="settings_restrict_image_summary">If unchecked, the file picker will not be restricted to images</string>
     <string name="settings_restrict_image_title">Only allow image upload</string>
     <string name="uploading">Uploading…</string>
+    <string name="notif_upload_success">"File uploaded:\n"</string>
+    <string name="notif_upload_failed">File upload failed :(</string>
+    <string name="notif_cta_open">Open</string>
+    <string name="notif_cta_copy">Copy</string>
+    <string name="copy_toast">URL copied to clipboard</string>
 </resources>

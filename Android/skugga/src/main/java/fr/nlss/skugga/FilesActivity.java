@@ -157,7 +157,7 @@ public class FilesActivity extends ActionBarActivity
         if (requestCode == FILE_PICKER_REQUEST && resultCode == RESULT_OK)
         {
             final Uri selectedFile = data.getData();
-            new FileUploadClient.UploadUriTask().execute(selectedFile);
+            new FileUploadClient.UploadUriTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, selectedFile);
         }
     }
 

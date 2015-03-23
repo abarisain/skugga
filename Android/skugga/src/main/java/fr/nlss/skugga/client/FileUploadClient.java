@@ -29,6 +29,9 @@ import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.MultipartBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -37,16 +40,17 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
+import fr.nlss.skugga.CopyUrlBrodcastReceiver;
 import fr.nlss.skugga.FilesActivity;
 import fr.nlss.skugga.R;
 import fr.nlss.skugga.SkuggaApplication;
-import fr.nlss.skugga.event.RefreshFileListEvent;
+import fr.nlss.skugga.event.UploadFinishedEvent;
+import fr.nlss.skugga.model.RemoteFile;
 
 public class FileUploadClient
 {
@@ -59,10 +63,12 @@ public class FileUploadClient
 
         ByteArrayOutputStream compressedBitmapOS = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, compressedBitmapOS);
-        return compressedBitmapOS.toByteArray();
+        byte[] compressedBitmap = compressedBitmapOS.toByteArray();
+        bitmap.recycle();
+        return compressedBitmap;
     }
 
-    public void uploadUri(Context context, Uri uri)
+    public String uploadUri(Context context, Uri uri)
     {
         final byte[] imageData;
         try
@@ -72,7 +78,7 @@ public class FileUploadClient
         catch (FileNotFoundException e)
         {
             e.printStackTrace();
-            return;
+            return null;
         }
         RequestBody requestBody = new MultipartBuilder()
                 .type(MultipartBuilder.FORM)
@@ -89,26 +95,27 @@ public class FileUploadClient
             .post(requestBody)
             .build();
 
-        Response response = null;
+        Response response;
         try
         {
             response = new OkHttpClient().newCall(request).execute();
-            /*if (response.isSuccessful())
+
+            if (!response.isSuccessful())
             {
-                SkuggaApplication.getBus().post(new RefreshFileListEvent());
-            }*/
-            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-            System.out.println("ok");
-            return;
+                return null;
+            }
+            return response.body().string();
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     // Async Task that shows a notification and fires a "UploadFinished" event
-    public static class UploadUriTask extends AsyncTask<Uri, Void, Boolean>
+    public static class UploadUriTask extends AsyncTask<Uri, Void, String>
     {
         private int notificationId;
 
@@ -125,7 +132,7 @@ public class FileUploadClient
             NotificationCompat.Builder builder = new NotificationCompat.Builder(c);
 
             builder.setProgress(0, 0, true)
-                    .setSmallIcon(R.drawable.ic_content_add)
+                    .setSmallIcon(R.drawable.ic_notif_upload)
                     .setContentTitle(c.getString(R.string.app_name))
                     .setContentText(c.getString(R.string.uploading))
                     .setOngoing(true)
@@ -140,16 +147,38 @@ public class FileUploadClient
         }
 
         @Override
-        protected Boolean doInBackground(Uri... uris)
+        protected String doInBackground(Uri... uris)
         {
-            new FileUploadClient().uploadUri(SkuggaApplication.getInstance(), uris[0]);
-            return true;
+            return new FileUploadClient().uploadUri(SkuggaApplication.getInstance(), uris[0]);
         }
 
         @Override
-        protected void onPostExecute(Boolean result)
+        protected void onPostExecute(String result)
         {
             super.onPostExecute(result);
+
+            String url = null;
+            if (result != null)
+            {
+               JsonElement urlObject = new Gson().fromJson(result, JsonObject.class).get("name");
+               if (urlObject != null)
+               {
+                   url = urlObject.getAsString();
+               }
+            }
+
+            UploadFinishedEvent event;
+            if (url != null)
+            {
+                event = new UploadFinishedEvent(url);
+            }
+            else
+            {
+                event = new UploadFinishedEvent(true);
+            }
+
+            SkuggaApplication.getBus().post(event);
+
             final Context c = SkuggaApplication.getInstance();
 
             final Intent intent = new Intent(c, FilesActivity.class);
@@ -158,14 +187,33 @@ public class FileUploadClient
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(c);
 
-            builder.setSmallIcon(R.drawable.ic_content_add)
-                    .setContentTitle(c.getString(R.string.app_name))
-                    .setContentText("File uploaded:\n"+"https://c.arnaud.moe/qoskdoqdk")
-                    .setOngoing(false)
-                    .addAction(0, "Open", pendingIntent)
-                    .addAction(0, "Copy", pendingIntent)
-                    .setContentIntent(pendingIntent)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH);
+            if (url != null)
+            {
+                final PendingIntent openIntent = PendingIntent.getActivity(c, 0, new Intent(Intent.ACTION_VIEW, Uri.parse(RemoteFile.getFullUrlForKey(url))), 0);
+
+                Intent copyIntent = new Intent(CopyUrlBrodcastReceiver.ACTION_COPY_URL);
+                copyIntent.putExtra(CopyUrlBrodcastReceiver.EXTRA_URL, RemoteFile.getFullUrlForKey(url));
+                PendingIntent copyPendingIntent = PendingIntent.getBroadcast(c, 0, copyIntent, 0);
+
+                builder.setSmallIcon(R.drawable.ic_notif_upload_done)
+                        .setContentTitle(c.getString(R.string.app_name))
+                        .setContentText(c.getString(R.string.notif_upload_success) + RemoteFile.getFullUrlForKey(url))
+                        .setOngoing(false)
+                        .addAction(R.drawable.ic_notif_cta_open, c.getString(R.string.notif_cta_open), openIntent)
+                        .addAction(R.drawable.ic_notif_cta_share, c.getString(R.string.notif_cta_copy), copyPendingIntent)
+                        .setContentIntent(pendingIntent)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH);
+            }
+            else
+            {
+                builder.setSmallIcon(R.drawable.ic_notif_upload_done)
+                        .setContentTitle(c.getString(R.string.app_name))
+                        .setContentText(c.getString(R.string.notif_upload_failed))
+                        .setOngoing(false)
+                        .setContentIntent(pendingIntent)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH);
+            }
+
 
             Notification notification = builder.build();
 

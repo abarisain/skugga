@@ -18,5 +18,18 @@ package fr.nlss.skugga.event;
 
 public class UploadFinishedEvent
 {
-    // TODO : Add error
+    public String url;
+    public boolean error;
+
+    public UploadFinishedEvent(String url)
+    {
+        error = false;
+        this.url = url;
+    }
+
+    public UploadFinishedEvent(boolean error)
+    {
+        this.error = error;
+        this.url = "";
+    }
 }
