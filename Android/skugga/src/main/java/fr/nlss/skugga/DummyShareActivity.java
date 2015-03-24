@@ -24,6 +24,10 @@ import android.os.Bundle;
 import fr.nlss.skugga.service.UploadService;
 
 
+/**
+ * Android requires that the share intent is sent to an activity, so use a transparent one
+ * which finishes before it is even shown.
+ */
 public class DummyShareActivity extends Activity
 {
 

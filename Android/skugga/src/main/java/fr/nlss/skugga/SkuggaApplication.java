@@ -74,7 +74,7 @@ public class SkuggaApplication extends Application implements SharedPreferences.
 
     public boolean useInsecureSSL()
     {
-        return PreferenceManager.getDefaultSharedPreferences(this).getBoolean("server_allow_insecure_ssl", true);
+        return PreferenceManager.getDefaultSharedPreferences(this).getBoolean("server_allow_insecure_ssl", false);
     }
 
     @Override

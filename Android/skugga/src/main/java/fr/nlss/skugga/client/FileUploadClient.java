@@ -98,7 +98,16 @@ public class FileUploadClient
         Response response;
         try
         {
-            response = new OkHttpClient().newCall(request).execute();
+            OkHttpClient client;
+            if (SkuggaApplication.getInstance().useInsecureSSL())
+            {
+                client = ClientHelper.getUnsafeOkHttpClient();
+            }
+            else
+            {
+                client = new OkHttpClient();
+            }
+            response = client.newCall(request).execute();
 
             if (response.isSuccessful())
             {
