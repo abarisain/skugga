@@ -67,6 +67,16 @@ public class SkuggaApplication extends Application implements SharedPreferences.
         return eventBus;
     }
 
+    public boolean useNotifHighPriority()
+    {
+        return PreferenceManager.getDefaultSharedPreferences(this).getBoolean("ui_notification_high_priority", true);
+    }
+
+    public boolean useInsecureSSL()
+    {
+        return PreferenceManager.getDefaultSharedPreferences(this).getBoolean("server_allow_insecure_ssl", true);
+    }
+
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s)
     {

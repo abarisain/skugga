@@ -153,8 +153,12 @@ public class UploadService extends IntentService
                     .setOngoing(false)
                     .addAction(R.drawable.ic_notif_cta_open, context.getString(R.string.notif_cta_open), openIntent)
                     .addAction(R.drawable.ic_notif_cta_share, context.getString(R.string.notif_cta_copy), copyPendingIntent)
-                    .setContentIntent(pendingIntent)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH);
+                    .setContentIntent(pendingIntent);
+
+            if (SkuggaApplication.getInstance().useNotifHighPriority())
+            {
+                builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+            }
         }
         else
         {
@@ -163,8 +167,12 @@ public class UploadService extends IntentService
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(context.getString(R.string.notif_upload_failed))
                     .setOngoing(false)
-                    .setContentIntent(pendingIntent)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH);
+                    .setContentIntent(pendingIntent);
+
+            if (SkuggaApplication.getInstance().useNotifHighPriority())
+            {
+                builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+            }
         }
 
         Notification notification = builder.build();
