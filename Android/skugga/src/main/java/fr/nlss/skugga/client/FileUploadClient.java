@@ -196,17 +196,19 @@ public class FileUploadClient
                 PendingIntent copyPendingIntent = PendingIntent.getBroadcast(c, 0, copyIntent, 0);
 
                 builder.setSmallIcon(R.drawable.ic_notif_upload_done)
+                        .setDefaults(NotificationCompat.DEFAULT_ALL)
                         .setContentTitle(c.getString(R.string.app_name))
                         .setContentText(c.getString(R.string.notif_upload_success) + RemoteFile.getFullUrlForKey(url))
                         .setOngoing(false)
                         .addAction(R.drawable.ic_notif_cta_open, c.getString(R.string.notif_cta_open), openIntent)
                         .addAction(R.drawable.ic_notif_cta_share, c.getString(R.string.notif_cta_copy), copyPendingIntent)
                         .setContentIntent(pendingIntent)
-                        .setPriority(NotificationCompat.PRIORITY_HIGH);
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
             }
             else
             {
-                builder.setSmallIcon(R.drawable.ic_notif_upload_done)
+                builder.setSmallIcon(R.drawable.ic_notif_upload_fail)
+                        .setDefaults(NotificationCompat.DEFAULT_ALL)
                         .setContentTitle(c.getString(R.string.app_name))
                         .setContentText(c.getString(R.string.notif_upload_failed))
                         .setOngoing(false)
