@@ -27,32 +27,37 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dip">
 
-        <TextView
-            android:id="@+id/extensionTextView"
+        <FrameLayout
+            android:id="@+id/thumbnailFrameView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/titleView"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="16dip"
-            android:layout_marginStart="16dip"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:singleLine="true"
-            android:textColor="#ffc9c9c9"
-            android:textSize="30sp"
-            tools:text="GIF"/>
+            android:layout_height="wrap_content">
 
-        <fr.nlss.skugga.ui.view.SquareImageView
-            android:id="@+id/thumbnailView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"/>
+            <TextView
+                android:id="@+id/extensionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dip"
+                android:layout_marginStart="16dip"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#ffc9c9c9"
+                android:textSize="30sp"
+                tools:text="GIF"/>
+
+            <fr.nlss.skugga.ui.view.SquareImageView
+                android:id="@+id/thumbnailView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"/>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/titleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/thumbnailView"
+            android:layout_below="@id/thumbnailFrameView"
             android:layout_marginEnd="16dip"
             android:layout_marginStart="16dip"
             android:layout_marginTop="16dip"
