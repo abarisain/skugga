@@ -123,6 +123,7 @@ public class UploadService extends IntentService
                 .setSmallIcon(R.drawable.ic_notif_upload)
                 .setContentTitle(context.getString(R.string.app_name))
                 .setContentText(context.getString(R.string.uploading))
+                .setTicker(context.getString(R.string.uploading))
                 .setOngoing(true)
                 .setContentIntent(pendingIntent);
 
@@ -150,6 +151,7 @@ public class UploadService extends IntentService
                     .setDefaults(NotificationCompat.DEFAULT_ALL)
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(context.getString(R.string.notif_upload_success) + url)
+                    .setTicker(context.getString(R.string.notif_upload_success) + url)
                     .setOngoing(false)
                     .addAction(R.drawable.ic_notif_cta_open, context.getString(R.string.notif_cta_open), openIntent)
                     .addAction(R.drawable.ic_notif_cta_share, context.getString(R.string.notif_cta_copy), copyPendingIntent)
@@ -166,6 +168,7 @@ public class UploadService extends IntentService
                     .setDefaults(NotificationCompat.DEFAULT_ALL)
                     .setContentTitle(context.getString(R.string.app_name))
                     .setContentText(context.getString(R.string.notif_upload_failed))
+                    .setTicker(context.getString(R.string.notif_upload_failed))
                     .setOngoing(false)
                     .setContentIntent(pendingIntent);
 
