@@ -34,6 +34,11 @@
                 <action android:name="fr.nlss.skugga.ACTION_COPY_URL" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".service.UploadService"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>

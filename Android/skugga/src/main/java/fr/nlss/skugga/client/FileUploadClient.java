@@ -92,134 +92,25 @@ public class FileUploadClient
             builder.addHeader(ClientRequestInterceptor.SECRET_KEY_HEADER, secret);
         }
         Request request = builder.url(SkuggaApplication.getBaseURL() + "/1.0/send?name=android_upload.jpg")
-            .post(requestBody)
-            .build();
+                .post(requestBody)
+                .build();
 
         Response response;
         try
         {
             response = new OkHttpClient().newCall(request).execute();
 
-            if (!response.isSuccessful())
+            if (response.isSuccessful())
             {
-                return null;
+                final String body = response.body().string();
+                return new Gson().fromJson(body, JsonObject.class).get("name").getAsString();
             }
-            return response.body().string();
         }
-        catch (IOException e)
+        catch (IOException | NullPointerException e)
         {
             e.printStackTrace();
         }
 
         return null;
-    }
-
-    // Async Task that shows a notification and fires a "UploadFinished" event
-    public static class UploadUriTask extends AsyncTask<Uri, Void, String>
-    {
-        private int notificationId;
-
-        @Override
-        protected void onPreExecute()
-        {
-            super.onPreExecute();
-            final Context c = SkuggaApplication.getInstance();
-
-            final Intent intent = new Intent(c, FilesActivity.class);
-            final PendingIntent pendingIntent = PendingIntent.getActivity(c, 0, intent,
-                            PendingIntent.FLAG_UPDATE_CURRENT);
-
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(c);
-
-            builder.setProgress(0, 0, true)
-                    .setSmallIcon(R.drawable.ic_notif_upload)
-                    .setContentTitle(c.getString(R.string.app_name))
-                    .setContentText(c.getString(R.string.uploading))
-                    .setOngoing(true)
-                    .setContentIntent(pendingIntent);
-
-            Notification notification = builder.build();
-
-            // Build a notification ID based on the date
-            notificationId = (int) (new Date().getTime() / 100000);
-
-            NotificationManagerCompat.from(c).notify(notificationId, notification);
-        }
-
-        @Override
-        protected String doInBackground(Uri... uris)
-        {
-            return new FileUploadClient().uploadUri(SkuggaApplication.getInstance(), uris[0]);
-        }
-
-        @Override
-        protected void onPostExecute(String result)
-        {
-            super.onPostExecute(result);
-
-            String url = null;
-            if (result != null)
-            {
-               JsonElement urlObject = new Gson().fromJson(result, JsonObject.class).get("name");
-               if (urlObject != null)
-               {
-                   url = urlObject.getAsString();
-               }
-            }
-
-            UploadFinishedEvent event;
-            if (url != null)
-            {
-                event = new UploadFinishedEvent(url);
-            }
-            else
-            {
-                event = new UploadFinishedEvent(true);
-            }
-
-            SkuggaApplication.getBus().post(event);
-
-            final Context c = SkuggaApplication.getInstance();
-
-            final Intent intent = new Intent(c, FilesActivity.class);
-            final PendingIntent pendingIntent = PendingIntent.getActivity(c, 0, intent,
-                    PendingIntent.FLAG_UPDATE_CURRENT);
-
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(c);
-
-            if (url != null)
-            {
-                final PendingIntent openIntent = PendingIntent.getActivity(c, 0, new Intent(Intent.ACTION_VIEW, Uri.parse(RemoteFile.getFullUrlForKey(url))), 0);
-
-                Intent copyIntent = new Intent(CopyUrlBrodcastReceiver.ACTION_COPY_URL);
-                copyIntent.putExtra(CopyUrlBrodcastReceiver.EXTRA_URL, RemoteFile.getFullUrlForKey(url));
-                PendingIntent copyPendingIntent = PendingIntent.getBroadcast(c, 0, copyIntent, 0);
-
-                builder.setSmallIcon(R.drawable.ic_notif_upload_done)
-                        .setDefaults(NotificationCompat.DEFAULT_ALL)
-                        .setContentTitle(c.getString(R.string.app_name))
-                        .setContentText(c.getString(R.string.notif_upload_success) + RemoteFile.getFullUrlForKey(url))
-                        .setOngoing(false)
-                        .addAction(R.drawable.ic_notif_cta_open, c.getString(R.string.notif_cta_open), openIntent)
-                        .addAction(R.drawable.ic_notif_cta_share, c.getString(R.string.notif_cta_copy), copyPendingIntent)
-                        .setContentIntent(pendingIntent)
-                        .setPriority(NotificationCompat.PRIORITY_HIGH);
-            }
-            else
-            {
-                builder.setSmallIcon(R.drawable.ic_notif_upload_fail)
-                        .setDefaults(NotificationCompat.DEFAULT_ALL)
-                        .setContentTitle(c.getString(R.string.app_name))
-                        .setContentText(c.getString(R.string.notif_upload_failed))
-                        .setOngoing(false)
-                        .setContentIntent(pendingIntent)
-                        .setPriority(NotificationCompat.PRIORITY_HIGH);
-            }
-
-
-            Notification notification = builder.build();
-
-            NotificationManagerCompat.from(c).notify(notificationId, notification);
-        }
     }
 }

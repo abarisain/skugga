@@ -40,6 +40,7 @@ import fr.nlss.skugga.event.OpenRemoteFileEvent;
 import fr.nlss.skugga.event.RefreshFileListEvent;
 import fr.nlss.skugga.fragment.NavigationDrawerFragment;
 import fr.nlss.skugga.model.RemoteFile;
+import fr.nlss.skugga.service.UploadService;
 import retrofit.RetrofitError;
 
 
@@ -157,7 +158,7 @@ public class FilesActivity extends ActionBarActivity
         if (requestCode == FILE_PICKER_REQUEST && resultCode == RESULT_OK)
         {
             final Uri selectedFile = data.getData();
-            new FileUploadClient.UploadUriTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, selectedFile);
+            UploadService.startUploadAction(this, selectedFile);
         }
     }
 
