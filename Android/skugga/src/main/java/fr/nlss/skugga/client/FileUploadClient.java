@@ -203,7 +203,7 @@ public class FileUploadClient
                         .addAction(R.drawable.ic_notif_cta_open, c.getString(R.string.notif_cta_open), openIntent)
                         .addAction(R.drawable.ic_notif_cta_share, c.getString(R.string.notif_cta_copy), copyPendingIntent)
                         .setContentIntent(pendingIntent)
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setPriority(NotificationCompat.PRIORITY_HIGH);
             }
             else
             {
