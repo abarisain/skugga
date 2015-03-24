@@ -34,15 +34,20 @@
             android:summary="@string/settings_secret_summary"
             android:title="@string/settings_secret_title"/>
 
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="server_allow_insecure_ssl"
+            android:summary="@string/settings_insecure_ssl_summary"
+            android:title="@string/settings_insecure_ssl_title"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
         android:title="User interface">
         <CheckBoxPreference
             android:defaultValue="true"
-            android:enabled="false"
-            android:key="ui_restrict_image"
-            android:summary="@string/settings_restrict_image_summary"
-            android:title="@string/settings_restrict_image_title"/>
+            android:key="ui_notification_high_priority"
+            android:summary="@string/settings_high_priority_summary"
+            android:title="@string/settings_high_priority_title"/>
     </PreferenceCategory>
 </PreferenceScreen>

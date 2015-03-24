@@ -18,8 +18,10 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="select_file_to_upload">Select A File</string>
-    <string name="settings_restrict_image_summary">If unchecked, the file picker will not be restricted to images</string>
-    <string name="settings_restrict_image_title">Only allow image upload</string>
+    <string name="settings_high_priority_summary">High priority notification appears as Heads-Up</string>
+    <string name="settings_high_priority_title">Notify with high priority</string>
+    <string name="settings_insecure_ssl_summary">If unchecked, certificate validity will not be enforced</string>
+    <string name="settings_insecure_ssl_title">Allow insecure SSL</string>
     <string name="uploading">Uploading…</string>
     <string name="notif_upload_success">"File uploaded:\n"</string>
     <string name="notif_upload_failed">File upload failed :(</string>
