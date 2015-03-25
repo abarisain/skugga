@@ -28,4 +28,5 @@
     <string name="notif_cta_open">Open</string>
     <string name="notif_cta_copy">Copy</string>
     <string name="copy_toast">URL copied to clipboard</string>
+    <string name="no_filename">No filename</string>
 </resources>

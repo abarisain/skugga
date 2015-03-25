@@ -65,7 +65,8 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.FileLi
     {
         RemoteFile file = data.get(position);
         fileListCardViewHolder.file = file;
-        fileListCardViewHolder.title.setText(file.filename);
+        fileListCardViewHolder.title.setText(file.filename != null ? file.filename :
+                fileListCardViewHolder.title.getContext().getString(R.string.no_filename));
         fileListCardViewHolder.subtitle.setText(file.getHumanReadableTimestamp());
         fileListCardViewHolder.extension.setText(file.getExtension().toUpperCase());
 

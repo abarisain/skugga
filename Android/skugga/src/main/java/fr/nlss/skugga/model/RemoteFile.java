@@ -47,6 +47,10 @@ public class RemoteFile
 
     public String getExtension()
     {
+        if (filename == null)
+        {
+            return "";
+        }
         int i = filename.lastIndexOf('.');
         if (i > 0)
         {
