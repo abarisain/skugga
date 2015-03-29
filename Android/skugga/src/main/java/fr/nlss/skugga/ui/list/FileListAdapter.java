@@ -33,15 +33,19 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import fr.nlss.skugga.R;
 import fr.nlss.skugga.SkuggaApplication;
+import fr.nlss.skugga.client.ClientHelper;
+import fr.nlss.skugga.client.FileListClient;
 import fr.nlss.skugga.event.DeleteRemoteFileEvent;
 import fr.nlss.skugga.event.OpenRemoteFileEvent;
 import fr.nlss.skugga.model.RemoteFile;
+import retrofit.client.OkClient;
 
 public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.FileListCardViewHolder>
 {
@@ -77,8 +81,20 @@ public class FileListAdapter extends RecyclerView.Adapter<FileListAdapter.FileLi
             imageHeight = 256;
         }
 
-        Picasso.with(fileListCardViewHolder.thumbnail.getContext())
-                .load(file.getFullUrl() + "?w=0&h=" + imageHeight)
+        Picasso picasso;
+
+        if (SkuggaApplication.getInstance().useInsecureSSL())
+        {
+            picasso = new Picasso.Builder(SkuggaApplication.getInstance())
+                    .downloader(new OkHttpDownloader(ClientHelper.getUnsafeOkHttpClient()))
+                    .build();
+        }
+        else
+        {
+            picasso = Picasso.with(SkuggaApplication.getInstance());
+        }
+
+        picasso.load(file.getFullUrl() + "?w=0&h=" + imageHeight)
                 .into(fileListCardViewHolder.thumbnail);
     }
 
