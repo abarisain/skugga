@@ -31,20 +31,20 @@ class ShareViewController: SLComposeServiceViewController {
 
     override func didSelectPost()
     {
-        let item = self.extensionContext!.inputItems[0] as NSExtensionItem
+        let item = self.extensionContext!.inputItems[0] as! NSExtensionItem
         if let attachments = item.attachments {
             if attachments.count > 0
             {
-                let attachment = attachments.first as NSItemProvider
-                if attachment.hasItemConformingToTypeIdentifier(kUTTypeFileURL)
+                let attachment = attachments.first as! NSItemProvider
+                if attachment.hasItemConformingToTypeIdentifier(kUTTypeFileURL as String)
                 {
-                    uploadAttachmentForType(attachment, type: kUTTypeFileURL)
+                    uploadAttachmentForType(attachment, type: kUTTypeFileURL as String)
                     return
                 }
-                else if attachment.hasItemConformingToTypeIdentifier(kUTTypeImage)
+                else if attachment.hasItemConformingToTypeIdentifier(kUTTypeImage as String)
 
                 {
-                    uploadAttachmentForType(attachment, type: kUTTypeImage)
+                    uploadAttachmentForType(attachment, type: kUTTypeImage as String)
                     return
                 }
             }
@@ -77,13 +77,13 @@ class ShareViewController: SLComposeServiceViewController {
                     UploadClient().uploadFile(urlItem,
                         progress: { (bytesSent: Int64, bytesToSend: Int64) -> Void in
                             dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                                alert.message = NSString(format: "%d %%", Int((Double(bytesSent) / Double(bytesToSend))*100))
+                                alert.message = NSString(format: "%d %%", Int((Double(bytesSent) / Double(bytesToSend))*100)) as String
                             })
                         }, success: { (data: [NSObject : AnyObject]) -> Void in
-                            var url = data["name"] as NSString
-                            url = Configuration.endpoint + url
+                            var url = data["name"] as! NSString
+                            url = Configuration.endpoint + (url as String)
                             
-                            UIPasteboard.generalPasteboard().string = url
+                            UIPasteboard.generalPasteboard().string = url as String
                             self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
                         }, failure: { (error: NSError) -> Void in
                             NSLog("Failed to upload file \(error) \(error.userInfo)")

@@ -63,8 +63,8 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     private func uploadImage(image: UIImage, data: NSData, filename: String)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let uploadNavigationController = storyboard.instantiateViewControllerWithIdentifier("UploadScene") as UINavigationController
-        let uploadController = uploadNavigationController.viewControllers[0] as UploadViewController
+        let uploadNavigationController = storyboard.instantiateViewControllerWithIdentifier("UploadScene") as! UINavigationController
+        let uploadController = uploadNavigationController.viewControllers[0] as! UploadViewController
         uploadController.targetImage = image
         uploadController.targetData = data
         uploadController.targetFilename = filename
@@ -83,7 +83,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     {
         if segue.identifier == "FileDetails"
         {
-            let detailsViewController = segue.destinationViewController as FileDetailsViewController
+            let detailsViewController = segue.destinationViewController as! FileDetailsViewController
             detailsViewController.remoteFile = files[tableView.indexPathForSelectedRow()?.row ?? 0]
         }
     }
@@ -96,7 +96,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FileCell") as RemoteFileTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("FileCell") as! RemoteFileTableViewCell
         
         cell.update(files[indexPath.row])
         
@@ -130,8 +130,8 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     // MARK : UIImagePickerController Methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
-        var image = info[UIImagePickerControllerOriginalImage] as UIImage
-        var url = info[UIImagePickerControllerReferenceURL] as NSURL
+        var image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        var url = info[UIImagePickerControllerReferenceURL] as! NSURL
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
             ALAssetsLibrary().assetForURL(url, resultBlock: { (asset: ALAsset!) -> Void in

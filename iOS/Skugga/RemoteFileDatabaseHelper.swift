@@ -48,14 +48,14 @@ struct RemoteFileDatabaseHelper
     
     private static func readFilesFromDB() -> ([NSManagedObject]?, NSError?)
     {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         
         let fetchRequest = NSFetchRequest(entityName:"RemoteFile")
         
         var error: NSError?
         
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
         
         return (fetchedResults, error)
     }
@@ -66,7 +66,7 @@ struct RemoteFileDatabaseHelper
         
         if let results = fetchedResults
         {
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let managedContext = appDelegate.managedObjectContext!
             
             var saveError: NSError?
@@ -91,7 +91,7 @@ struct RemoteFileDatabaseHelper
     {
         truncateFilesDB()
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         
         let entity = NSEntityDescription.entityForName("RemoteFile", inManagedObjectContext: managedContext)

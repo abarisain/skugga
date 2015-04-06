@@ -49,13 +49,13 @@ class UploadViewController : UIViewController
                 })
             }, success: { (data: [NSObject : AnyObject]) -> Void in
                 
-                var url = data["name"] as NSString
-                url = Configuration.endpoint + url
+                var url = data["name"] as! NSString
+                url = Configuration.endpoint + (url as String)
                 
                 let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
                     handler: { (action: UIAlertAction!) -> () in
-                        UIPasteboard.generalPasteboard().string = url
+                        UIPasteboard.generalPasteboard().string = url as String
                         self.dismissViewControllerAnimated(true, completion: nil)
                 }))
                 self.presentViewController(alert, animated: true, completion: nil)
