@@ -32,7 +32,7 @@ struct FileListClient
         }
         
         var http =  AFJSONResponseSerializer()
-        http.acceptableContentTypes = NSSet(object: ("text/plain"))
+        http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
         var getTask = manager.GET(Configuration.endpoint + ROUTE_LIST,
@@ -40,7 +40,7 @@ struct FileListClient
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                 if let clientFiles = responseObject as? [AnyObject]
                 {
-                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as [NSObject:AnyObject]))}).sorted({$0.uploadDate > $1.uploadDate})
+                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as! [NSObject:AnyObject]))}).sorted({$0.uploadDate > $1.uploadDate})
                     success(files)
                 }
                 else
@@ -71,7 +71,7 @@ struct FileListClient
         }
         
         var http =  AFHTTPResponseSerializer()
-        http.acceptableContentTypes = NSSet(object: ("text/plain"))
+        http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
         var getTask = manager.GET(Configuration.endpoint + file.url + "/" + file.deleteKey,
