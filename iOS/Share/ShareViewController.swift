@@ -67,32 +67,41 @@ class ShareViewController: SLComposeServiceViewController {
         attachment.loadItemForTypeIdentifier(type,
             options: nil,
             completionHandler:
-            { (item: NSSecureCoding!, error: NSError!) -> Void in
+            { (item: NSSecureCoding?, error: NSError!) -> Void in
                 if let urlItem = item as? NSURL
                 {
-                    let data = NSData(contentsOfURL: urlItem)
                     let alert = UIAlertController(title: "Uploading...", message: "", preferredStyle: .Alert)
                    
                     self.presentViewController(alert, animated: true, completion: nil)
-                    UploadClient().uploadFile(urlItem,
-                        progress: { (bytesSent: Int64, bytesToSend: Int64) -> Void in
-                            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
-                                alert.message = NSString(format: "%d %%", Int((Double(bytesSent) / Double(bytesToSend))*100)) as String
-                            })
-                        }, success: { (data: [NSObject : AnyObject]) -> Void in
-                            var url = data["name"] as! NSString
-                            url = Configuration.endpoint + (url as String)
-                            
-                            UIPasteboard.generalPasteboard().string = url as String
-                            self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
-                        }, failure: { (error: NSError) -> Void in
-                            NSLog("Failed to upload file \(error) \(error.userInfo)")
-                            alert.dismissViewControllerAnimated(true, completion: { () -> Void in
-                                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.extensionContext!.cancelRequestWithError(error) }))
-                                self.presentViewController(alert, animated: true, completion: nil)
-                            })
-                    })
+                    do {
+                        var innerError: NSError?
+                        
+                        try UploadClient().uploadFile(urlItem,
+                            progress: { (bytesSent: Int64, bytesToSend: Int64) -> Void in
+                                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                                    alert.message = NSString(format: "%d %%", Int((Double(bytesSent) / Double(bytesToSend))*100)) as String
+                                })
+                            }, success: { (data: [NSObject : AnyObject]) -> Void in
+                                var url = data["name"] as! NSString
+                                url = Configuration.endpoint + (url as String)
+                                
+                                UIPasteboard.generalPasteboard().string = url as String
+                                self.extensionContext!.completeRequestReturningItems([], completionHandler: nil)
+                            }, failure: { (error: NSError) -> Void in
+                                innerError = error
+                        })
+                        
+                        if let innerError = innerError {
+                            throw innerError
+                        }
+                    } catch let error as NSError {
+                        NSLog("Failed to upload file \(error) \(error.userInfo)")
+                        alert.dismissViewControllerAnimated(true, completion: { () -> Void in
+                            let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.extensionContext!.cancelRequestWithError(error) }))
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        })
+                    } catch {}
                 }
                 else
                 {

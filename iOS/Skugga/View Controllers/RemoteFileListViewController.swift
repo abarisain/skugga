@@ -41,7 +41,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     @IBAction func uploadAction(sender: AnyObject)
     {
         //FIXME : Implement iOS 8's document provider
-        var imagePicker = FixedStatusBarImagePickerController()
+        let imagePicker = FixedStatusBarImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .PhotoLibrary
         //FIXME : Add popover support for iPads
@@ -84,7 +84,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         if segue.identifier == "FileDetails"
         {
             let detailsViewController = segue.destinationViewController as! FileDetailsViewController
-            detailsViewController.remoteFile = files[tableView.indexPathForSelectedRow()?.row ?? 0]
+            detailsViewController.remoteFile = files[tableView.indexPathForSelectedRow?.row ?? 0]
         }
     }
     
@@ -128,14 +128,14 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     }
     
     // MARK : UIImagePickerController Methods
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject])
     {
-        var image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        var url = info[UIImagePickerControllerReferenceURL] as! NSURL
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let url = info[UIImagePickerControllerReferenceURL] as! NSURL
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
             ALAssetsLibrary().assetForURL(url, resultBlock: { (asset: ALAsset!) -> Void in
-                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1), filename: asset.defaultRepresentation().filename().stringByDeletingPathExtension)
+                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1)!, filename: asset.defaultRepresentation().filename().stringByDeletingPathExtension)
             }, failureBlock: { (error: NSError!) -> Void in
                 let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error?.userInfo)", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))

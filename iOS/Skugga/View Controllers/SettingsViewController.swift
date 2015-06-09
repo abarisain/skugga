@@ -30,8 +30,8 @@ class SettingsViewController : UITableViewController
     
     @IBAction func doneAction(sender: AnyObject)
     {
-        Configuration.endpoint = endpointTextField.text
-        Configuration.secret = secretTextField.text
+        Configuration.endpoint = endpointTextField.text ?? ""
+        Configuration.secret = secretTextField.text ?? ""
         Configuration.synchronize()
         
         dismissViewControllerAnimated(true, completion: nil)
