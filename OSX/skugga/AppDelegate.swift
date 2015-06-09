@@ -121,7 +121,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)))
             }, success: { (data: [NSObject: AnyObject]) -> Void in
                 var url = data["name"] as! String
-                url = Configuration.endpoint + url
+                url = Configuration.endpoint + url + Configuration.suffix
                 
                 let pasteboard = NSPasteboard.generalPasteboard()
                 pasteboard.clearContents()

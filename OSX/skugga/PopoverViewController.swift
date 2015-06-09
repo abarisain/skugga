@@ -51,7 +51,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     {
         var row = filesTableView.clickedRow
         var file = remoteFiles[row]
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url)!)
+        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url + Configuration.suffix)!)
     }
     
     // MARK : NSTableViewDataSource methods
@@ -78,13 +78,13 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         let file = remoteFiles[filesTableView.clickedRow]
         let pasteboard = NSPasteboard.generalPasteboard()
         pasteboard.clearContents()
-        pasteboard.setString(Configuration.endpoint + file.url, forType: NSStringPboardType)
+        pasteboard.setString(Configuration.endpoint + file.url + Configuration.suffix, forType: NSStringPboardType)
     }
     
     @IBAction func tableOpenInBrowserAction(sender: AnyObject)
     {
         let file = remoteFiles[filesTableView.clickedRow]
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url)!)
+        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url + Configuration.suffix)!)
     }
     
     @IBAction func tableDeleteAction(sender: AnyObject)

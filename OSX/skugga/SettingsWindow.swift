@@ -15,6 +15,7 @@ class SettingsWindow : NSWindow
     @IBOutlet weak var endpointTextField: NSTextField!
     
     @IBOutlet weak var secretTextField: NSSecureTextField!
+    @IBOutlet weak var suffixTextField: NSTextField!
     
     required override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
     {
@@ -32,11 +33,13 @@ class SettingsWindow : NSWindow
     {
         endpointTextField.stringValue = Configuration.endpoint
         secretTextField.stringValue = Configuration.secret
+        suffixTextField.stringValue = Configuration.suffix
     }
     
     @IBAction func apply(sender: AnyObject)
     {
         Configuration.endpoint = endpointTextField.stringValue
         Configuration.secret = secretTextField.stringValue
+        Configuration.suffix = suffixTextField.stringValue
     }
 }

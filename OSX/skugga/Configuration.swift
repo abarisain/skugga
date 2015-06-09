@@ -12,6 +12,7 @@ private struct LocalConsts
 {
     static let EndpointKey = "user.endpoint"
     static let SecretKey = "user.secret"
+    static let SuffixKey = "user.suffix"
 }
 
 struct Configuration
@@ -39,6 +40,19 @@ struct Configuration
         set
         {
             NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.SecretKey)
+        }
+    }
+    
+    static var suffix: String
+    {
+        get
+        {
+            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.SuffixKey) ?? ""
+        }
+        
+        set
+        {
+            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.SuffixKey)
         }
     }
 }

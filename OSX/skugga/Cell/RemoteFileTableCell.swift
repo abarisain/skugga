@@ -37,7 +37,7 @@ class RemoteFileTableCell: NSTableCellView, NSImageViewWebCacheDelegate
         uploadDate.stringValue = file.uploadDate.timeAgoSinceNow()
         icon.image = fileIcon
         
-        icon.imageURL = NSURL(string: NSString(format: "%@%@?w=%.0f&h=%.0f", Configuration.endpoint, file.url, icon.bounds.width, icon.bounds.height) as! String)!
+        icon.imageURL = NSURL(string: NSString(format: "%@%@?w=0&h=%.0f", Configuration.endpoint, file.url, icon.bounds.height == 0 ? 128 : icon.bounds.height) as! String)!
     }
     
     func imageView(imageView: NSImageView!, downloadImageSuccessed image: NSImage!, data: NSData!)
