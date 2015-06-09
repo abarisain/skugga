@@ -15,9 +15,9 @@ struct FileListClient
     func getFileList(success:([RemoteFile]) -> (), failure:(NSError) -> ())
     {
         
-        var manager = AFHTTPSessionManager()
+        let manager = AFHTTPSessionManager()
         
-        var securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
+        let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
         securityPolicy.allowInvalidCertificates = true
         manager.securityPolicy = securityPolicy
         
@@ -31,7 +31,7 @@ struct FileListClient
             manager.requestSerializer.setValue(nil, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
         }
         
-        var http =  AFJSONResponseSerializer()
+        let http =  AFJSONResponseSerializer()
         http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
@@ -40,7 +40,7 @@ struct FileListClient
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                 if let clientFiles = responseObject as? [AnyObject]
                 {
-                    var files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as! [NSObject:AnyObject]))}).sorted({$0.uploadDate > $1.uploadDate})
+                    let files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as! [NSObject:AnyObject]))}).sort({$0.uploadDate > $1.uploadDate})
                     success(files)
                 }
                 else
@@ -54,9 +54,9 @@ struct FileListClient
     
     func deleteFile(file: RemoteFile, success:() -> (), failure:(NSError) -> ())
     {
-        var manager = AFHTTPSessionManager()
+        let manager = AFHTTPSessionManager()
         
-        var securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
+        let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
         securityPolicy.allowInvalidCertificates = true
         manager.securityPolicy = securityPolicy
         
@@ -70,7 +70,7 @@ struct FileListClient
             manager.requestSerializer.setValue(nil, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
         }
         
-        var http =  AFHTTPResponseSerializer()
+        let http =  AFHTTPResponseSerializer()
         http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
