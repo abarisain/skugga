@@ -17,7 +17,12 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        RemoteFileDatabaseHelper.refreshFromServer()
+        
+        if "" == Configuration.endpoint {
+            performSegueWithIdentifier("settings", sender: self)
+        } else {
+            RemoteFileDatabaseHelper.refreshFromServer()
+        }
     }
 
     override func viewWillAppear(animated: Bool)
