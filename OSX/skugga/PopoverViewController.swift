@@ -11,6 +11,8 @@ import Cocoa
 
 class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate
 {
+    @IBOutlet weak var appTitleLabel: NSTextField!
+    
     @IBOutlet weak var menuButton: NSButton!
     
     @IBOutlet weak var filesTableView: NSTableView!
@@ -21,13 +23,6 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         super.awakeFromNib()
         filesTableView.target = self
         filesTableView.doubleAction = "tableDoubleClick"
-        var image = menuButton.image
-        if let image = image
-        {
-            image.setTemplate(true)
-            menuButton.image = image
-        }
-        
     }
     
     @IBAction func menuButtonClick(sender: AnyObject)
@@ -97,4 +92,45 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         });
     }
     
+}
+
+class PopoverTitleView : NSView, NSDraggingDestination {
+    var appDelegate: AppDelegate
+    {
+        get
+        {
+            return NSApplication.sharedApplication().delegate as! AppDelegate
+        }
+    }
+    
+    override init(frame frameRect: NSRect)
+    {
+        super.init(frame: frameRect)
+        setupDragAndDrop()
+    }
+    
+    required init?(coder: NSCoder)
+    {
+        super.init(coder: coder)
+        setupDragAndDrop()
+    }
+    
+    func setupDragAndDrop()
+    {
+        registerForDraggedTypes([NSURLPboardType])
+    }
+    
+    override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
+    {
+        return appDelegate.draggingEntered(sender)
+    }
+    
+    override func prepareForDragOperation(sender: NSDraggingInfo) -> Bool
+    {
+        return true
+    }
+    
+    override func performDragOperation(sender: NSDraggingInfo) -> Bool {
+        return appDelegate.performDragOperation(sender)
+    }
 }

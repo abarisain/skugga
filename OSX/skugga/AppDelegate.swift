@@ -47,7 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         popover.behavior = NSPopoverBehavior.Transient
         
         // Set this if we want to force a light popover appearance
-        //popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
+        popover.appearance = NSAppearance(named: NSAppearanceNameAqua)
         
         notificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
         notificationCenter.delegate = self
@@ -66,6 +66,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     }
 
     // MARK: NSDraggingDestination protocol methods
+    func prepareForDragOperation(sender: NSDraggingInfo) -> Bool {
+        return true
+    }
+    
     func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
     {
         return NSDragOperation.Copy
