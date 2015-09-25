@@ -39,35 +39,44 @@ class UploadViewController : UIViewController
     
     func startUpload()
     {
-        UploadClient().uploadFile(targetData!,
-            filename: targetFilename ?? "iOS Image " + NSDate().description,
-            mimetype: "image/jpeg",
-            progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
-                dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+        do {
+            try UploadClient().uploadFile(targetData!,
+                filename: targetFilename ?? "iOS Image " + NSDate().description,
+                mimetype: "image/jpeg",
+                progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                        
+                        self.progressView.progress = Float(Double(bytesSent) / Double(bytesToSend))
+                    })
+                }, success: { (data: [NSObject : AnyObject]) -> Void in
                     
-                    self.progressView.progress = Float(Double(bytesSent) / Double(bytesToSend))
-                })
-            }, success: { (data: [NSObject : AnyObject]) -> Void in
-                
-                var url = data["name"] as! NSString
-                url = Configuration.endpoint + (url as String)
-                
-                let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
-                    handler: { (action: UIAlertAction!) -> () in
-                        UIPasteboard.generalPasteboard().string = url as String
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
-                
-                // Start refreshing the file list, and hope it will be fresh for the RemoteFile list view
-                RemoteFileDatabaseHelper.refreshFromServer()
-                
-            }, failure: { (error: NSError) -> Void in
-                
-                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.dismissViewControllerAnimated(true, completion: nil) }))
-                self.presentViewController(alert, animated: true, completion: nil)
-        })
+                    var url = data["name"] as! NSString
+                    url = Configuration.endpoint + (url as String)
+                    
+                    let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
+                        handler: { (action: UIAlertAction!) -> () in
+                            UIPasteboard.generalPasteboard().string = url as String
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    // Start refreshing the file list, and hope it will be fresh for the RemoteFile list view
+                    RemoteFileDatabaseHelper.refreshFromServer()
+                    
+                }, failure: { (error: NSError) -> Void in
+                    self.onFailure(error)
+            })
+        } catch let error as NSError {
+            self.onFailure(error)
+        }
+    }
+    
+    func onFailure(error: NSError)
+    {
+        
+        let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.dismissViewControllerAnimated(true, completion: nil) }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }

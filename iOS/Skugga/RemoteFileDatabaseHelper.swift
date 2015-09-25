@@ -20,7 +20,6 @@ struct RemoteFileDatabaseHelper
     
     static func refreshFromServer()
     {
-        let notificationCenter = NSNotificationCenter.defaultCenter()
         
         FileListClient().getFileList(saveFilesToDB, failure: { (error: NSError) -> () in
             NSLog("Error while refreshing files from server \(error), cause : \(error.userInfo)")
@@ -36,7 +35,7 @@ struct RemoteFileDatabaseHelper
             
             if let results = fetchedResults
             {
-                return results.map({RemoteFile(fromNSManagedObject: $0)}).sorted({$0.uploadDate > $1.uploadDate})
+                return results.map({RemoteFile(fromNSManagedObject: $0)}).sort({$0.uploadDate > $1.uploadDate})
             }
             else
             {
@@ -53,11 +52,12 @@ struct RemoteFileDatabaseHelper
         
         let fetchRequest = NSFetchRequest(entityName:"RemoteFile")
         
-        var error: NSError?
-        
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
-        
-        return (fetchedResults, error)
+        do {
+            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            return (fetchedResults, nil)
+        } catch let error as NSError {
+            return (nil, error)
+        }
     }
     
     private static func truncateFilesDB()
@@ -69,15 +69,14 @@ struct RemoteFileDatabaseHelper
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let managedContext = appDelegate.managedObjectContext!
             
-            var saveError: NSError?
             for result in results
             {
                 managedContext.deleteObject(result)
             }
             
-            managedContext.save(&saveError)
-            if let saveError = saveError
-            {
+            do {
+                try managedContext.save()
+            } catch let saveError as NSError {
                 NSLog("Could not truncate cached files \(saveError), cause : \(saveError.userInfo)")
             }
         }
@@ -101,10 +100,9 @@ struct RemoteFileDatabaseHelper
             file.toNSManagedObject(managedContext, entity: entity!)
         }
         
-        var error: NSError?
-        managedContext.save(&error)
-        if let error = error
-        {
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
             NSLog("Could not save remote files \(error), cause : \(error.userInfo)")
         }
         

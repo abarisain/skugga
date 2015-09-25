@@ -14,27 +14,27 @@ import Foundation
 
 struct UploadClient
 {
-    func uploadFile(data: NSData, filename: String, mimetype: String, progress:((bytesSent:Int64, bytesToSend:Int64) -> Void)?, success:([NSObject:AnyObject]) -> Void, failure:(NSError) -> Void) -> (success: Bool, error: NSError?)
+    func uploadFile(data: NSData, filename: String, mimetype: String, progress:((bytesSent:Int64, bytesToSend:Int64) -> Void)?, success:([NSObject:AnyObject]) -> Void, failure:(NSError) -> Void) throws -> Bool
     {
-        return uploadFile({ (formData: AFMultipartFormData!) -> Void in
-            var error :NSError?
+        return try uploadFile({ (formData: AFMultipartFormData!) -> Void in
             formData.appendPartWithFileData(data, name: "data", fileName: filename, mimeType: mimetype)
             },
             filename: filename, progress: progress, success: success, failure: failure)
     }
     
-    func uploadFile(file: NSURL, progress:((bytesSent:Int64, bytesToSend:Int64) -> Void)?, success:([NSObject:AnyObject]) -> Void, failure:(NSError) -> Void) -> (success: Bool, error: NSError?)
+    func uploadFile(file: NSURL, progress:((bytesSent:Int64, bytesToSend:Int64) -> Void)?, success:([NSObject:AnyObject]) -> Void, failure:(NSError) -> Void) throws -> Bool
     {
-        return uploadFile({ (data: AFMultipartFormData!) -> Void in
-            var error :NSError?
-            data.appendPartWithFileURL(file, name: "data", error: &error)
+        return try uploadFile({ (data: AFMultipartFormData!) -> Void in
+                do {
+                    try data.appendPartWithFileURL(file, name: "data")
+                } catch {}
             },
             filename: file.lastPathComponent!, progress: progress, success: success, failure: failure)
     }
     
-    private func uploadFile(bodyBlock:(data: AFMultipartFormData!) -> Void, filename: String, progress:((bytesSent:Int64, bytesToSend:Int64) -> Void)?, success:([NSObject:AnyObject]) -> Void, failure:(NSError) -> Void) -> (success: Bool, error: NSError?)
+    private func uploadFile(bodyBlock:(data: AFMultipartFormData!) -> Void, filename: String, progress:((bytesSent:Int64, bytesToSend:Int64) -> Void)?, success:([NSObject:AnyObject]) -> Void, failure:(NSError) -> Void) throws -> Bool
     {
-        var manager = AFHTTPSessionManager()
+        let manager = AFHTTPSessionManager()
         
         manager.setTaskDidSendBodyDataBlock({ (session: NSURLSession!, task: NSURLSessionTask!, bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) -> Void in
             if let safeProgress = progress
@@ -42,17 +42,16 @@ struct UploadClient
                 safeProgress(bytesSent: totalBytesSent, bytesToSend: totalBytesExpectedToSend)
             }
         })
-        var securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
+        let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
         securityPolicy.allowInvalidCertificates = true
         manager.securityPolicy = securityPolicy
         
-        var error :NSError?
         
-        var request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST",
+        var request: NSMutableURLRequest!
+        request = AFHTTPRequestSerializer().multipartFormRequestWithMethod("POST",
             URLString: Configuration.endpoint + ROUTE_SEND + "?name=" + filename.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!,
             parameters: nil,
-            constructingBodyWithBlock: bodyBlock,
-            error: &error)
+            constructingBodyWithBlock: bodyBlock)
         
         request.addValue(filename, forHTTPHeaderField: HEADER_FILENAME)
         
@@ -62,7 +61,7 @@ struct UploadClient
             request.addValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
         }
         
-        var uploadTask = manager.uploadTaskWithStreamedRequest(request,
+        let uploadTask = manager.uploadTaskWithStreamedRequest(request,
             progress: nil,
             completionHandler: { (response: NSURLResponse!, responseObject: AnyObject!, error: NSError!) -> Void in
                 if let error = error
@@ -85,13 +84,8 @@ struct UploadClient
             }
         )
         
-        if (error != nil)
-        {
-            return (false, error)
-        }
-        
         uploadTask.resume()
         
-        return (true, nil)
+        return true
     }
 }
