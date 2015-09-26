@@ -9,7 +9,7 @@
 import UIKit
 import AssetsLibrary
 
-class RemoteFileListViewController : UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class RemoteFileListViewController : UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIViewControllerPreviewingDelegate
 {
 
     private var files = [RemoteFile]()
@@ -23,13 +23,32 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         } else {
             RemoteFileDatabaseHelper.refreshFromServer()
         }
+        
+        if #available(iOS 9, *) {
+            if traitCollection.forceTouchCapability == .Available {
+                /*
+                Register for `UIViewControllerPreviewingDelegate` to enable
+                "Peek" and "Pop".
+                
+                The view controller will be automatically unregistered when it is
+                deallocated.
+                */
+                registerForPreviewingWithDelegate(self, sourceView: view)
+            }
+        }
     }
 
     override func viewWillAppear(animated: Bool)
     {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshData", name: RemoteFilesChangedNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "dataRefreshFailed", name: RemoteFilesRefreshFailureNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "uploadShortcut", name: UploadActionNotification, object: nil)
         refreshData()
+        
+        if let app = UIApplication.sharedApplication().delegate as? AppDelegate where app.doUploadAction {
+            app.doUploadAction = false
+            uploadShortcut()
+        }
     }
     
     override func viewWillDisappear(animated: Bool)
@@ -43,6 +62,11 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         // Dispose of any resources that can be recreated.
     }
 
+    func uploadShortcut()
+    {
+        uploadAction(self)
+    }
+    
     @IBAction func uploadAction(sender: AnyObject)
     {
         //FIXME : Implement iOS 8's document provider
@@ -140,13 +164,36 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
             ALAssetsLibrary().assetForURL(url, resultBlock: { (asset: ALAsset!) -> Void in
-                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1)!, filename: asset.defaultRepresentation().filename().stringByDeletingPathExtension)
+                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1)!, filename: (asset.defaultRepresentation().filename() as NSString).stringByDeletingPathExtension)
             }, failureBlock: { (error: NSError!) -> Void in
                 let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error?.userInfo)", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             })
         })
+    }
+    
+    // MARK : UIViewControllerPreviewingDelegate
+    @available(iOS 9.0, *)
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController?
+    {
+        // Obtain the index path and the cell that was pressed.
+        guard let indexPath = tableView.indexPathForRowAtPoint(location),
+            cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
+        
+        guard let detailViewController = storyboard?.instantiateViewControllerWithIdentifier("FileDetailsViewController") as? FileDetailsViewController else { return nil }
+        
+        previewingContext.sourceRect = cell.frame
+        
+        detailViewController.remoteFile = files[indexPath.row ?? 0]
+        
+        return detailViewController
+    }
+    
+    @available(iOS 9.0, *)
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController)
+    {
+        showViewController(viewControllerToCommit, sender: self)
     }
 }
 

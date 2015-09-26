@@ -9,15 +9,32 @@
 import UIKit
 import CoreData
 
+let UploadActionNotification = "fr.nlss.skugga.uploadaction"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
+    
+    var doUploadAction = false
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        var shouldPerformAdditionalDelegateHandling = true
+        
+        
+        if #available(iOS 9, *) {
+            // If a shortcut was launched, display its information and take the appropriate action
+            if let _ = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+                
+                doUploadAction = true
+                
+                // This will block "performActionForShortcutItem:completionHandler" from being called.
+                shouldPerformAdditionalDelegateHandling = false
+            }
+        }
+        
+        return shouldPerformAdditionalDelegateHandling
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -42,6 +59,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    /*
+    Called when the user activates your application by selecting a shortcut on the home screen, except when
+    application(_:,willFinishLaunchingWithOptions:) or application(_:didFinishLaunchingWithOptions) returns `false`.
+    You should handle the shortcut in those callbacks and return `false` if possible. In that case, this
+    callback is used if your application is already launched in the background.
+    */
+    @available(iOS 9.0, *)
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: Bool -> Void) {
+        // For now, this will only work if RemoteFileListViewController is visible.
+        NSNotificationCenter.defaultCenter().postNotificationName(UploadActionNotification, object: nil)
+        
+        completionHandler(true)
     }
 
     // MARK: - Core Data stack
