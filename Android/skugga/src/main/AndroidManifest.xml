@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="fr.nlss.skugga"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fr.nlss.skugga">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".SkuggaApplication"
@@ -17,40 +16,45 @@
             android:label="@string/app_name"
             android:theme="@style/MainMenu">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings">
-        </activity>
+            android:label="@string/title_activity_settings"></activity>
 
         <receiver
             android:name=".CopyUrlBrodcastReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="fr.nlss.skugga.ACTION_COPY_URL"/>
+                <action android:name="fr.nlss.skugga.ACTION_COPY_URL" />
             </intent-filter>
         </receiver>
 
         <service
             android:name=".service.UploadService"
-            android:exported="false">
-        </service>
+            android:exported="false"></service>
 
         <activity
             android:name=".DummyShareActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="image/*"/>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PowerSaveUploadActivity"
+            android:label="@string/title_activity_power_save_upload"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

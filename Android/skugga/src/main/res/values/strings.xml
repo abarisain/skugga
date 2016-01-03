@@ -29,4 +29,6 @@
     <string name="notif_cta_copy">Copy</string>
     <string name="copy_toast">URL copied to clipboard</string>
     <string name="no_filename">No filename</string>
+    <string name="title_activity_power_save_upload">PowerSaveUploadActivity</string>
+    <string name="power_save_warning_text">Uploading...\n\nNote: You\'re seeing this because your device is in power saving mode.\nPlease wait until the upload is finished before closing this window, progress can be tracked in the notification as usual.</string>
 </resources>

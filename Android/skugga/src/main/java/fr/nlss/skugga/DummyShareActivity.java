@@ -19,7 +19,9 @@ package fr.nlss.skugga;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
 
 import fr.nlss.skugga.service.UploadService;
 
@@ -46,7 +48,22 @@ public class DummyShareActivity extends Activity
             Uri imageUri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
             if (imageUri != null)
             {
-                UploadService.startUploadAction(this, imageUri);
+                boolean powerSavingMode = false;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                {
+                    powerSavingMode = ((PowerManager)getSystemService(POWER_SERVICE)).isPowerSaveMode();
+                }
+
+                if (powerSavingMode)
+                {
+                    Intent i = new Intent(this, PowerSaveUploadActivity.class);
+                    i.putExtra(Intent.EXTRA_STREAM, imageUri);
+                    startActivity(i);
+                }
+                else
+                {
+                    UploadService.startUploadAction(this, imageUri);
+                }
             }
         }
 
