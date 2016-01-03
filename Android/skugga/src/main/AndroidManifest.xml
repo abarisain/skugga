@@ -54,7 +54,8 @@
         <activity
             android:name=".PowerSaveUploadActivity"
             android:label="@string/title_activity_power_save_upload"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="nosensor" />
     </application>
 
 </manifest>

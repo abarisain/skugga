@@ -100,11 +100,11 @@ public class FilesActivity extends ActionBarActivity
     }
 
     @Override
-    protected void onDestroy()
-    {
-        SkuggaApplication.getBus().unregister(this);
-        super.onDestroy();
-    }
+protected void onDestroy()
+{
+    SkuggaApplication.getBus().unregister(this);
+    super.onDestroy();
+}
 
     @Override
     public void onNavigationDrawerItemSelected(int position)
