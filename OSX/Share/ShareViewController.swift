@@ -28,10 +28,10 @@ class ShareViewController: NSViewController {
                     attachment.loadItemForTypeIdentifier(kUTTypeFileURL as String,
                         options: nil,
                         completionHandler:
-                        { (item: NSSecureCoding!, error: NSError!) -> Void in
+                        { (item: NSSecureCoding?, error: NSError!) -> Void in
                             if let urlItem = item as? NSURL
                             {
-                                RMSharedUserDefaults.standardUserDefaults().setURL(item as! NSURL, forKey: "shareExtensionURL")
+                                RMSharedUserDefaults.standardUserDefaults().setURL(urlItem, forKey: "shareExtensionURL")
                             }
                         }
                     )

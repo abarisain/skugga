@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         notificationCenter.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "uploadFromNotification",
+            selector: #selector(AppDelegate.uploadFromNotification),
             name: NSUserDefaultsDidChangeNotification,
             object: RMSharedUserDefaults.standardUserDefaults())
         
@@ -77,12 +77,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func performDragOperation(sender: NSDraggingInfo) -> Bool
     {
-        var pasteboard = sender.draggingPasteboard()
-        if (pasteboard.types?.filter({$0 as! String == NSURLPboardType}).count > 0)
+        let pasteboard = sender.draggingPasteboard()
+        if (pasteboard.types?.filter({$0 == NSURLPboardType}).count > 0)
         {
-            var file = NSURL(fromPasteboard: pasteboard)
+            let file = NSURL(fromPasteboard: pasteboard)
             // Check if Alt (option) is pressed
-            if (((NSApp.currentEvent??.modifierFlags)! & NSEventModifierFlags.AlternateKeyMask) != nil)
+            if (((NSApp.currentEvent?.modifierFlags)!.intersect(NSEventModifierFlags.AlternateKeyMask)) != [])
             {
                 shownAdvancedUploadPopover?.performClose(self)
                 shownAdvancedUploadPopover = nil
@@ -111,7 +111,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func uploadFromNotification()
     {
-        var defaults = RMSharedUserDefaults.standardUserDefaults()
+        let defaults = RMSharedUserDefaults.standardUserDefaults()
         if let targetURL = defaults.URLForKey("shareExtensionURL")
         {
             defaults.removeObjectForKey("shareExtensionURL")
@@ -121,59 +121,63 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     private func uploadURL(url: NSURL)
     {
-        UploadClient().uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
-            self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)))
-            }, success: { (data: [NSObject: AnyObject]) -> Void in
-                var url = data["name"] as! String
-                url = Configuration.endpoint + url + Configuration.suffix
-                
-                let pasteboard = NSPasteboard.generalPasteboard()
-                pasteboard.clearContents()
-                pasteboard.setString(url, forType: NSStringPboardType)
-                
-                NSLog("Upload succeeded ! \(url)")
-                
-                let notification = NSUserNotification()
-                notification.title = "Skugga"
-                notification.subtitle = "File uploaded : \(url)"
-                notification.deliveryDate = NSDate()
-                notification.soundName = "Glass.aiff"
-                notification.userInfo = ["url": url]
-                
-                // Private API to have buttons on non-alert notifications
-                // I don't get why Apple doesn't want us to have buttons on notifications that go away, but keeps
-                // that for iTunes and Mail.app
-                notification.setValue(true, forKey: "_showsButtons")
-                
-                notification.actionButtonTitle = "Open"
-                
-                self.notificationCenter.scheduleNotification(notification)
-                
-                self.setNormalStatusIcon()
-                
-                self.refreshFileList()
-                
-            }, failure: { (error: NSError) -> Void in
-                NSLog("Upload failed ! \(error)")
-                
-                var errorSubtitle = "Error while uploading file"
-                
-                if let statusCode = error.userInfo?["statusCode"] as? Int
-                {
-                    errorSubtitle += " (\(statusCode))"
+        do {
+            try UploadClient().uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
+                self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)))
+                }, success: { (data: [NSObject: AnyObject]) -> Void in
+                    var url = data["name"] as! String
+                    url = Configuration.endpoint + url + Configuration.suffix
+                    
+                    let pasteboard = NSPasteboard.generalPasteboard()
+                    pasteboard.clearContents()
+                    pasteboard.setString(url, forType: NSStringPboardType)
+                    
+                    NSLog("Upload succeeded ! \(url)")
+                    
+                    let notification = NSUserNotification()
+                    notification.title = "Skugga"
+                    notification.subtitle = "File uploaded : \(url)"
+                    notification.deliveryDate = NSDate()
+                    notification.soundName = "Glass.aiff"
+                    notification.userInfo = ["url": url]
+                    
+                    // Private API to have buttons on non-alert notifications
+                    // I don't get why Apple doesn't want us to have buttons on notifications that go away, but keeps
+                    // that for iTunes and Mail.app
+                    notification.setValue(true, forKey: "_showsButtons")
+                    
+                    notification.actionButtonTitle = "Open"
+                    
+                    self.notificationCenter.scheduleNotification(notification)
+                    
+                    self.setNormalStatusIcon()
+                    
+                    self.refreshFileList()
+                    
+                }, failure: { (error: NSError) -> Void in
+                    NSLog("Upload failed ! \(error)")
+                    
+                    var errorSubtitle = "Error while uploading file"
+                    
+                    if let statusCode = error.userInfo["statusCode"] as? Int
+                    {
+                        errorSubtitle += " (\(statusCode))"
+                    }
+                    
+                    let notification = NSUserNotification()
+                    notification.title = "Skugga"
+                    notification.subtitle = errorSubtitle
+                    notification.deliveryDate = NSDate()
+                    notification.soundName = "Glass.aiff"
+                    
+                    self.notificationCenter.scheduleNotification(notification)
+                    
+                    self.setNormalStatusIcon()
                 }
-                
-                let notification = NSUserNotification()
-                notification.title = "Skugga"
-                notification.subtitle = errorSubtitle
-                notification.deliveryDate = NSDate()
-                notification.soundName = "Glass.aiff"
-                
-                self.notificationCenter.scheduleNotification(notification)
-                
-                self.setNormalStatusIcon()
-            }
-        )
+            )
+        } catch {
+            NSLog("Upload failed! Unknown error.")
+        }
     }
     
     // MARK: Statusbar Icon
@@ -188,18 +192,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             
             // Using templates lets OS X show them properly in light and dark mode !
             
-            statusNormalImage.setTemplate(true)
-            statusEmptyImage.setTemplate(true)
-            statusFinishedImage.setTemplate(true)
-            statusProgressImage.setTemplate(true)
+            statusNormalImage.template = true
+            statusEmptyImage.template = true
+            statusFinishedImage.template = true
+            statusProgressImage.template = true
             
             
             statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1); // Linker error : Use -1 instead of NSVariableStatusItemLength
             statusItem.image = statusNormalImage
             //statusItem.menu = statusItemMenu
-            var button = statusItem.button
+            let button = statusItem.button
             button?.target = self
-            button?.action = "statusButtonPressed"
+            button?.action = #selector(statusButtonPressed)
             button?.sendActionOn((Int)(NSEventMask.LeftMouseUpMask.rawValue | NSEventMask.RightMouseUpMask.rawValue))
             button?.window?.registerForDraggedTypes([NSURLPboardType])
             button?.window?.delegate = self
@@ -217,7 +221,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         statusProgressImage.lockFocus()
         
         // Round progress to the first decimal, otherwise the drawing gets funky
-        var roundedProgress = round(progress * 10)/10
+        let roundedProgress = round(progress * 10)/10
         
         NSGraphicsContext.saveGraphicsState()
         NSColor.clearColor().set()
@@ -225,9 +229,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         NSBezierPath.fillRect(NSRect(x: 0, y: 0, width: statusIconWidth, height: statusIconHeight))
         NSGraphicsContext.restoreGraphicsState()
         
-        var progressPath = NSBezierPath(rect: NSRect(x: 0, y: 0, width: (statusIconWidth * CGFloat(roundedProgress)), height: statusIconHeight))
+        let progressPath = NSBezierPath(rect: NSRect(x: 0, y: 0, width: (statusIconWidth * CGFloat(roundedProgress)), height: statusIconHeight))
         
-        var emptyPath = NSBezierPath(rect: NSRect(x: (statusIconWidth * CGFloat(roundedProgress)), y: 0, width: statusIconWidth - (statusIconWidth * CGFloat(roundedProgress)), height: statusIconHeight))
+        let emptyPath = NSBezierPath(rect: NSRect(x: (statusIconWidth * CGFloat(roundedProgress)), y: 0, width: statusIconWidth - (statusIconWidth * CGFloat(roundedProgress)), height: statusIconHeight))
 
         NSGraphicsContext.saveGraphicsState()
         progressPath.addClip()
@@ -260,7 +264,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     func statusButtonPressed()
     {
         // Check if Alt (option) is pressed
-        if (((NSApp.currentEvent??.modifierFlags)! & NSEventModifierFlags.AlternateKeyMask) != nil)
+        if (((NSApp.currentEvent?.modifierFlags)!.intersect(NSEventModifierFlags.AlternateKeyMask)) != [])
         {
             showMenuFromView(statusItem.button!, window: (statusItem.button?.window)!)
         }
@@ -281,7 +285,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             (popover.contentViewController as! PopoverViewController).reloadData()
             popover.showRelativeToRect((statusItem.button?.bounds)!,
                 ofView: statusItem.button!,
-                preferredEdge: NSMaxYEdge)
+                preferredEdge: NSRectEdge.MaxY)
         }
     }
     
@@ -293,7 +297,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         }
         
         var objects : NSArray?
-        let nib = NSBundle.mainBundle().loadNibNamed("AdvancedUploadPopover", owner: self, topLevelObjects: &objects)
+        NSBundle.mainBundle().loadNibNamed("AdvancedUploadPopover", owner: self, topLevelObjects: &objects)
         if let objects = objects as? [AnyObject]
         {
             if let popover = objects.filter({$0 is NSPopover}).first as? NSPopover
@@ -307,7 +311,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
                     
                     popover.showRelativeToRect((statusItem.button?.bounds)!,
                         ofView: statusItem.button!,
-                        preferredEdge: NSMaxYEdge)
+                        preferredEdge: NSRectEdge.MaxY)
                 }
             }
         }
@@ -317,9 +321,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func showMenuFromView(view: NSView, window: NSWindow)
     {
-        var origin = view.superview?.convertPoint(NSMakePoint(view.frame.origin.x, view.frame.origin.y), toView: nil)
+        let origin = view.superview?.convertPoint(NSMakePoint(view.frame.origin.x, view.frame.origin.y), toView: nil)
         
-        var event = NSEvent.mouseEventWithType(NSEventType.LeftMouseUp, location:origin!, modifierFlags: NSEventModifierFlags.allZeros, timestamp: NSTimeIntervalSince1970, windowNumber: window.windowNumber, context: nil, eventNumber: 0, clickCount: 0, pressure: 0.1)
+        let event = NSEvent.mouseEventWithType(NSEventType.LeftMouseUp, location:origin!, modifierFlags: NSEventModifierFlags(), timestamp: NSTimeIntervalSince1970, windowNumber: window.windowNumber, context: nil, eventNumber: 0, clickCount: 0, pressure: 0.1)
         NSMenu.popUpContextMenu(statusItemMenu, withEvent: event!, forView: statusItem.button!)
     }
     
@@ -360,16 +364,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     @IBAction func menuUploadFromDisk(sender: AnyObject)
     {
-        var openPanel = NSOpenPanel()
+        let openPanel = NSOpenPanel()
         openPanel.canChooseDirectories = false
         openPanel.canChooseFiles = true
         openPanel.allowsMultipleSelection = false
         
-        var clickedButton = openPanel.runModal()
+        let clickedButton = openPanel.runModal()
         
         if (clickedButton == NSFileHandlingPanelOKButton)
         {
-            if let url = openPanel.URLs.first as? NSURL
+            if let url = openPanel.URLs.first
             {
                 uploadURL(url)
             }

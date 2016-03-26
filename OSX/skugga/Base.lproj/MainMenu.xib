@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -688,14 +688,12 @@
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="HrY-6r-5Sb" customClass="PopoverTitleView" customModule="Skugga" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="331" width="372" height="46"/>
-                    <animations/>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HdQ-Kt-MnL">
                     <rect key="frame" x="161" y="346" width="51" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="47" id="etJ-pD-ZX1"/>
                     </constraints>
-                    <animations/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Skugga" id="Sew-mp-nqJ">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" red="0.55294117647058827" green="0.0" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
@@ -708,7 +706,6 @@
                         <constraint firstAttribute="height" constant="20" id="dfj-IK-rDH"/>
                         <constraint firstAttribute="width" constant="20" id="wsv-CG-JI6"/>
                     </constraints>
-                    <animations/>
                     <buttonCell key="cell" type="bevel" bezelStyle="circular" image="Cog" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="I1o-Uq-OvJ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -726,7 +723,6 @@
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="59" rowSizeStyle="automatic" viewBased="YES" id="Q2S-00-E8d">
                                 <rect key="frame" x="0.0" y="0.0" width="372" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <animations/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -753,7 +749,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="vs5-9i-qSn"/>
                                                         </constraints>
-                                                        <animations/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Filename" id="ygh-lL-xUz">
                                                             <font key="font" metaFont="systemBold"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -765,7 +760,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="e3j-JK-dcW"/>
                                                         </constraints>
-                                                        <animations/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Upload Date" id="4dS-pn-mtS">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -777,7 +771,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="48" id="Dce-XG-WAZ"/>
                                                         </constraints>
-                                                        <animations/>
                                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="S8M-qa-iTh"/>
                                                     </imageView>
                                                 </subviews>
@@ -792,7 +785,6 @@
                                                     <constraint firstAttribute="bottom" secondItem="pZb-MW-qEA" secondAttribute="bottom" constant="5" id="nZu-gd-kb9"/>
                                                     <constraint firstAttribute="bottom" secondItem="3Sk-eX-5g1" secondAttribute="bottom" constant="5" id="oUb-nP-r2a"/>
                                                 </constraints>
-                                                <animations/>
                                                 <connections>
                                                     <outlet property="filename" destination="HuI-oF-DHg" id="TEw-XQ-E3a"/>
                                                     <outlet property="icon" destination="pZb-MW-qEA" id="8y6-W9-xiV"/>
@@ -809,19 +801,15 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                     </clipView>
-                    <animations/>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="6qI-We-KxP">
                         <rect key="frame" x="1" y="119" width="223" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="lfF-IC-GwG">
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </scroller>
                 </scrollView>
             </subviews>
@@ -839,7 +827,6 @@
                 <constraint firstItem="0dF-un-OTd" firstAttribute="top" secondItem="HrY-6r-5Sb" secondAttribute="bottom" id="pvp-J7-xwJ"/>
                 <constraint firstAttribute="trailing" secondItem="yRK-zs-Nyx" secondAttribute="trailing" constant="15" id="wpa-07-J9t"/>
             </constraints>
-            <animations/>
             <point key="canvasLocation" x="325" y="468.5"/>
         </customView>
         <menu id="ymb-ia-pVE">
@@ -888,7 +875,6 @@
                             <constraint firstAttribute="height" constant="22" id="C10-hW-xYM"/>
                             <constraint firstAttribute="width" constant="182" id="syT-D2-od5"/>
                         </constraints>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="aCT-4a-1PH">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -901,7 +887,6 @@
                             <constraint firstAttribute="width" constant="182" id="boj-z8-N60"/>
                             <constraint firstAttribute="height" constant="22" id="v0z-BQ-QSu"/>
                         </constraints>
-                        <animations/>
                         <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="bch-W9-QPs">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -913,7 +898,6 @@
                     </secureTextField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9B-Iy-ewA">
                         <rect key="frame" x="92" y="134" width="60" height="17"/>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Endpoint" id="wiZ-yb-Qd9">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -926,7 +910,6 @@
                             <constraint firstAttribute="height" constant="17" id="cg4-Ai-IMr"/>
                             <constraint firstAttribute="width" constant="40" id="mIG-be-bz1"/>
                         </constraints>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Secret" id="JP1-lh-9Db">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -939,7 +922,6 @@
                             <constraint firstAttribute="height" constant="21" id="7qn-ED-Too"/>
                             <constraint firstAttribute="width" constant="64" id="QXk-Lr-3uB"/>
                         </constraints>
-                        <animations/>
                         <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AJZ-Bf-tnJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -954,7 +936,6 @@
                             <constraint firstAttribute="width" constant="227" id="DF0-jr-jkt"/>
                             <constraint firstAttribute="height" constant="17" id="cGD-LJ-feN"/>
                         </constraints>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="The endpoint must end by a trailing /" id="pJg-L9-dCe">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -967,7 +948,6 @@
                             <constraint firstAttribute="width" constant="35" id="coA-PV-6wh"/>
                             <constraint firstAttribute="height" constant="17" id="jbM-L1-pEp"/>
                         </constraints>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Suffix" id="jpP-Kl-3FI">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -980,7 +960,6 @@
                             <constraint firstAttribute="width" constant="182" id="6TN-bf-v3p"/>
                             <constraint firstAttribute="height" constant="22" id="dEg-6Y-pRq"/>
                         </constraints>
-                        <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="nVm-Dq-KiO">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1006,7 +985,6 @@
                     <constraint firstItem="C9B-Iy-ewA" firstAttribute="centerY" secondItem="cUM-qq-sep" secondAttribute="centerY" id="uKh-PR-Vcl"/>
                     <constraint firstItem="cUM-qq-sep" firstAttribute="leading" secondItem="C9B-Iy-ewA" secondAttribute="trailing" constant="8" id="wuh-SV-Z2e"/>
                 </constraints>
-                <animations/>
             </view>
             <connections>
                 <outlet property="endpointTextField" destination="cUM-qq-sep" id="B9E-10-BaO"/>

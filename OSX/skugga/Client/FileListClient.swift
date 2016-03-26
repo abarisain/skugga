@@ -35,7 +35,7 @@ struct FileListClient
         http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
-        var getTask = manager.GET(Configuration.endpoint + ROUTE_LIST,
+        _ = manager.GET(Configuration.endpoint + ROUTE_LIST,
             parameters: nil,
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                 if let clientFiles = responseObject as? [AnyObject]
@@ -74,7 +74,7 @@ struct FileListClient
         http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
-        var getTask = manager.GET(Configuration.endpoint + file.url + "/" + file.deleteKey,
+        _ = manager.GET(Configuration.endpoint + file.url + "/" + file.deleteKey,
             parameters: nil,
             success: { (task: NSURLSessionDataTask!, responseObject: AnyObject!) -> Void in
                 success()

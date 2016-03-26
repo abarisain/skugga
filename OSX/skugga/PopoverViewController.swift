@@ -22,7 +22,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     override func awakeFromNib() {
         super.awakeFromNib()
         filesTableView.target = self
-        filesTableView.doubleAction = "tableDoubleClick"
+        filesTableView.doubleAction = #selector(PopoverViewController.tableDoubleClick)
     }
     
     @IBAction func menuButtonClick(sender: AnyObject)
@@ -44,8 +44,8 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     func tableDoubleClick()
     {
-        var row = filesTableView.clickedRow
-        var file = remoteFiles[row]
+        let row = filesTableView.clickedRow
+        let file = remoteFiles[row]
         NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url + Configuration.suffix)!)
     }
     
@@ -94,7 +94,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
 }
 
-class PopoverTitleView : NSView, NSDraggingDestination {
+class PopoverTitleView : NSView {
     var appDelegate: AppDelegate
     {
         get
