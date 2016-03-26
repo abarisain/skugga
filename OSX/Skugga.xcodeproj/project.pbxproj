@@ -11,6 +11,7 @@
 		510BE3B01A9135B1001C1AB0 /* ComparableDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510BE3AF1A9135B1001C1AB0 /* ComparableDate.swift */; };
 		511AB2BF1AB603FD008ADE7F /* AdvancedUploadPopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511AB2BE1AB603FD008ADE7F /* AdvancedUploadPopover.xib */; };
 		511AB2C11AB60BB4008ADE7F /* AdvancedUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511AB2C01AB60BB4008ADE7F /* AdvancedUploadViewController.swift */; };
+		5122879E1CA7088000CCEDC8 /* FilesystemEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5122879D1CA7088000CCEDC8 /* FilesystemEventListener.swift */; };
 		514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0051A880F2E0008F2CE /* SettingsWindow.swift */; };
 		514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0071A8812AB0008F2CE /* Configuration.swift */; };
 		518293C41A8D388A006531B0 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 518293C31A8D388A006531B0 /* icon.icns */; };
@@ -72,6 +73,7 @@
 		510BE3AF1A9135B1001C1AB0 /* ComparableDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComparableDate.swift; path = Extensions/ComparableDate.swift; sourceTree = "<group>"; };
 		511AB2BE1AB603FD008ADE7F /* AdvancedUploadPopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedUploadPopover.xib; sourceTree = "<group>"; };
 		511AB2C01AB60BB4008ADE7F /* AdvancedUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedUploadViewController.swift; sourceTree = "<group>"; };
+		5122879D1CA7088000CCEDC8 /* FilesystemEventListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesystemEventListener.swift; sourceTree = "<group>"; };
 		514CA0051A880F2E0008F2CE /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		514CA0071A8812AB0008F2CE /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		517870F51A8BFC7600C4DA04 /* Skugga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Skugga.entitlements; path = Skugga/Skugga.entitlements; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		5122879C1CA702F900CCEDC8 /* FSEvents */ = {
+			isa = PBXGroup;
+			children = (
+				5122879D1CA7088000CCEDC8 /* FilesystemEventListener.swift */,
+			);
+			name = FSEvents;
+			sourceTree = "<group>";
+		};
 		513C3E401A7D48E300E20F50 /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		51B34E5E1A7558BB00732395 /* skugga */ = {
 			isa = PBXGroup;
 			children = (
+				5122879C1CA702F900CCEDC8 /* FSEvents */,
 				510BE3AE1A9135A9001C1AB0 /* Extensions */,
 				51B4CCBB1A8A8340009DDA7A /* Cell */,
 				51F9177B1A8967540082D9AF /* Model */,
@@ -410,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51B4CCBD1A8A834D009DDA7A /* RemoteFileTableCell.swift in Sources */,
+				5122879E1CA7088000CCEDC8 /* FilesystemEventListener.swift in Sources */,
 				510BE3B01A9135B1001C1AB0 /* ComparableDate.swift in Sources */,
 				514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */,
 				514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */,
