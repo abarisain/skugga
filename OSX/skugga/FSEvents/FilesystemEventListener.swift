@@ -100,7 +100,8 @@ public class FilesystemEventListener {
         FSEventStreamScheduleWithRunLoop(eventStream!, runLoop, kCFRunLoopDefaultMode)
         FSEventStreamStart(eventStream!)
         
-        listening = true;
+        watchedPaths = paths
+        listening = true
     }
     
     func stopWatching() {
@@ -111,10 +112,11 @@ public class FilesystemEventListener {
         guard let eventStream = eventStream else { return }
         
         FSEventStreamStop(eventStream)
+        FSEventStreamUnscheduleFromRunLoop(eventStream, runLoop, kCFRunLoopDefaultMode)
         FSEventStreamInvalidate(eventStream)
         FSEventStreamRelease(eventStream)
         
-        listening = false;
+        listening = false
     }
     
     // MARK: Private methods
