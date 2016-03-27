@@ -20,7 +20,7 @@ public class DesktopScreenshotWatcher: FilesystemEventListenerDelegate {
     var screenshotExtension = ".png"
     
     init() {
-        fsEventListener.latency = 1
+        fsEventListener.latency = 2
         fsEventListener.delegate = self
         // TODO (arnaud): Read from screencapture https://github.com/abarisain/scrup/blob/2ffd01b52b8ada3e698d4aee7e863cb0351eb36c/src/DPAppDelegate.m#L118
         fsEventListener.watchedPaths = [screenshotFolder];
