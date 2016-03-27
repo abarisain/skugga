@@ -23,13 +23,15 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
     
     // MARK: Status variables
     
-    public private(set) var watchedPaths: [String] = []
-    
     public private(set) var listening: Bool = false
     
     public private(set) var lastEvent: FilesystemEvent?
     
     // MARK: Configuration variables
+    
+    public var watchedPaths: [String] = []
+    
+    public weak var delegate: FilesystemEventListenerDelegate?
     
     public var runLoop: CFRunLoop = CFRunLoopGetMain()
     
@@ -37,8 +39,6 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
     public var latency: CFTimeInterval = 5
     
     public var streamFlags: FSEventStreamCreateFlags = UInt32(kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagFileEvents)
-    
-    public weak var delegate: FilesystemEventListenerDelegate?
     
     // MARK: Private variables
     
@@ -56,13 +56,13 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
     
     // MARK: Public methods
     
-    func startWatching(paths: [String], sinceWhen: FSEventStreamEventId? = nil) {
+    func startWatching(sinceWhen: FSEventStreamEventId? = nil) {
         objc_sync_enter(self)
         defer { objc_sync_exit(self) }
         
         guard listening == false else { return }
         guard eventStream == nil else { return }
-        guard paths.count > 0 else { return }
+        guard watchedPaths.count > 0 else { return }
         
         let sinceWhen = sinceWhen ?? lastEvent?.id ?? FSEventStreamEventId(kFSEventStreamEventIdSinceNow)
         
@@ -98,7 +98,7 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
         eventStream = FSEventStreamCreate(kCFAllocatorDefault,
                                           eventCallback,
                                           &streamContext,
-                                          paths,
+                                          watchedPaths,
                                           sinceWhen,
                                           latency,
                                           streamFlags)
@@ -106,7 +106,6 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
         FSEventStreamScheduleWithRunLoop(eventStream!, runLoop, kCFRunLoopDefaultMode)
         FSEventStreamStart(eventStream!)
         
-        watchedPaths = paths
         listening = true
     }
     
