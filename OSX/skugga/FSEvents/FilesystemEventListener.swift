@@ -15,7 +15,11 @@ public struct FilesystemEvent {
     public var date: NSDate
 }
 
-public class FilesystemEventListener {
+public protocol FilesystemEventListenerDelegate: class {
+    func filesystemEventsOccurred(listener: FilesystemEventListener, events: [FilesystemEvent])
+}
+
+public class FilesystemEventListener: CustomDebugStringConvertible {
     
     // MARK: Status variables
     
@@ -33,6 +37,8 @@ public class FilesystemEventListener {
     public var latency: CFTimeInterval = 5
     
     public var streamFlags: FSEventStreamCreateFlags = UInt32(kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagFileEvents)
+    
+    public weak var delegate: FilesystemEventListenerDelegate?
     
     // MARK: Private variables
     
@@ -126,6 +132,10 @@ public class FilesystemEventListener {
         
         lastEvent = events.last
         
-        //TODO: Call the user
+        delegate?.filesystemEventsOccurred(self, events: events)
+    }
+    
+    public var debugDescription: String {
+        return "FilesystemEventListener: listening=\(listening), delegate=\(delegate), watchedPaths=\(watchedPaths)"
     }
 }
