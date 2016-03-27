@@ -8,6 +8,10 @@
 
 import Foundation
 
+public protocol DesktopScreenshotWatcherDelegate: class {
+    func desktopScreenshotCreated(path: String)
+}
+
 public class DesktopScreenshotWatcher: FilesystemEventListenerDelegate {
     
     let maxFileAge = 5.0
@@ -20,6 +24,8 @@ public class DesktopScreenshotWatcher: FilesystemEventListenerDelegate {
     
     //TODO (arnaud): Read the capture extension https://github.com/abarisain/scrup/blob/2ffd01b52b8ada3e698d4aee7e863cb0351eb36c/src/DPAppDelegate.m#L121
     var screenshotExtension = ".png"
+    
+    public weak var delegate: DesktopScreenshotWatcherDelegate?
     
     init() {
         fsEventListener.latency = 2
@@ -54,9 +60,6 @@ public class DesktopScreenshotWatcher: FilesystemEventListenerDelegate {
             // Ignore subfolders
             guard (event.path as NSString).stringByDeletingLastPathComponent == screenshotFolder else { continue }
             
-            //TODO: Remove this
-            print("DEBUG: Candidate file \(event) \((event.path as NSString).stringByDeletingLastPathComponent)")
-            
             do {
                 let attrs = try fileManager.attributesOfItemAtPath(event.path)
                 
@@ -69,8 +72,7 @@ public class DesktopScreenshotWatcher: FilesystemEventListenerDelegate {
                 guard let xattrs = attrs["NSFileExtendedAttributes"] as? [String : AnyObject] else { continue }
                 guard xattrs["com.apple.metadata:kMDItemIsScreenCapture"] != nil else { continue }
                 
-                //TODO: Remove this
-                print("DEBUG: Found a screenshot to upload! \(event.path)")
+                delegate?.desktopScreenshotCreated(event.path)
             } catch let error as NSError {
                 print("Error while reading file attributes: \(error.localizedDescription)")
             }

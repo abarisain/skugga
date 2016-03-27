@@ -12,7 +12,7 @@ let statusIconHeight: CGFloat = 18.0
 let statusIconWidth: CGFloat = 24.0
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination, NSUserNotificationCenterDelegate, AdvancedUploadViewDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDraggingDestination, NSUserNotificationCenterDelegate, AdvancedUploadViewDelegate, DesktopScreenshotWatcherDelegate {
     
     @IBOutlet weak var window: NSWindow!
 
@@ -63,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         
         //TODO : debug only, remove this
         desktopScreenshotWatcher.start()
+        desktopScreenshotWatcher.delegate = self
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
@@ -401,6 +402,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     @IBAction func menuRefreshFileList(sender: AnyObject)
     {
         refreshFileList()
+    }
+    
+    // MARK: Desktop Watcher methods
+    func desktopScreenshotCreated(path: String) {
+        let notification = NSUserNotification()
+        notification.title = "Skugga"
+        notification.subtitle = "Screenshot detected : \((path as NSString).lastPathComponent)"
+        notification.deliveryDate = NSDate()
+        notification.contentImage = NSImage.init(contentsOfFile: path)
+        
+        // Private API to have buttons on non-alert notifications
+        // I don't get why Apple doesn't want us to have buttons on notifications that go away, but keeps
+        // that for iTunes and Mail.app
+        notification.setValue(true, forKey: "_showsButtons")
+        
+        notification.actionButtonTitle = "Upload"
+        
+        self.notificationCenter.scheduleNotification(notification)
     }
 }
 
