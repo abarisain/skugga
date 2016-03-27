@@ -36,6 +36,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     var notificationCenter: NSUserNotificationCenter!
     
     var shownAdvancedUploadPopover: NSPopover?
+    
+    var desktopScreenshotWatcher: DesktopScreenshotWatcher = DesktopScreenshotWatcher()
 
     func applicationDidFinishLaunching(aNotification: NSNotification)
     {
@@ -58,6 +60,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
             object: RMSharedUserDefaults.standardUserDefaults())
         
         refreshFileList()
+        
+        //TODO : debug only, remove this
+        desktopScreenshotWatcher.start()
     }
 
     func applicationWillTerminate(aNotification: NSNotification)
