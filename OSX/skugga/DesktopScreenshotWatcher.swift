@@ -10,6 +10,8 @@ import Foundation
 
 public class DesktopScreenshotWatcher: FilesystemEventListenerDelegate {
     
+    let maxFileAge = 5.0
+    
     let fsEventListener = FilesystemEventListener()
     
     let fileManager = NSFileManager.defaultManager()
@@ -46,14 +48,32 @@ public class DesktopScreenshotWatcher: FilesystemEventListenerDelegate {
         
         for event in events {
             guard event.flags & renamedFlag != 0 else { continue }
-            // We get two events per screenshot. Ignore the xattrs one
-            guard event.flags & xattrsModifiedFlag == 0 else { continue }
+            // We get two events per screenshot. Ignore one
+            guard event.flags & xattrsModifiedFlag != 0 else { continue }
             guard event.path.hasSuffix(screenshotExtension) else { continue }
             // Ignore subfolders
             guard (event.path as NSString).stringByDeletingLastPathComponent == screenshotFolder else { continue }
             
             //TODO: Remove this
             print("DEBUG: Candidate file \(event) \((event.path as NSString).stringByDeletingLastPathComponent)")
+            
+            do {
+                let attrs = try fileManager.attributesOfItemAtPath(event.path)
+                
+                guard attrs[NSFileType] as? String == NSFileTypeRegular else { continue }
+                
+                // Exclude files that are too old
+                guard let modificationDate = attrs[NSFileModificationDate] as? NSDate else { continue }
+                guard modificationDate.compare(NSDate.init(timeIntervalSinceNow: -maxFileAge)) != .OrderedAscending else { continue }
+                
+                guard let xattrs = attrs["NSFileExtendedAttributes"] as? [String : AnyObject] else { continue }
+                guard xattrs["com.apple.metadata:kMDItemIsScreenCapture"] != nil else { continue }
+                
+                //TODO: Remove this
+                print("DEBUG: Found a screenshot to upload! \(event.path)")
+            } catch let error as NSError {
+                print("Error while reading file attributes: \(error.localizedDescription)")
+            }
         }
     }
 }
