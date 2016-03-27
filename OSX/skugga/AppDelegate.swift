@@ -347,9 +347,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification)
     {
-        if (notification.activationType == .ActionButtonClicked)
-        {
-            NSWorkspace.sharedWorkspace().openURL(NSURL(string: (notification.userInfo!["url"] as! NSString) as String)!)
+        guard notification.activationType == .ActionButtonClicked else { return }
+        guard let userInfo = notification.userInfo else { return }
+        
+        if let url = userInfo["url"] as? String {
+            guard let fileURL = NSURL(string: url) else { return }
+            
+            NSWorkspace.sharedWorkspace().openURL(fileURL)
+        } else if let filePath = userInfo["filePath"] as? String {
+            uploadURL(NSURL.fileURLWithPath(filePath))
         }
     }
     
@@ -411,6 +417,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
         notification.subtitle = "Screenshot detected : \((path as NSString).lastPathComponent)"
         notification.deliveryDate = NSDate()
         notification.contentImage = NSImage.init(contentsOfFile: path)
+        notification.userInfo = ["filePath": path]
         
         // Private API to have buttons on non-alert notifications
         // I don't get why Apple doesn't want us to have buttons on notifications that go away, but keeps
