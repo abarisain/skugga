@@ -28,12 +28,12 @@ class SettingsViewController : UITableViewController
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doneAction(sender: AnyObject)
+    @IBAction func doneAction(_ sender: AnyObject)
     {
         Configuration.endpoint = endpointTextField.text ?? ""
         Configuration.secret = secretTextField.text ?? ""
         Configuration.synchronize()
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

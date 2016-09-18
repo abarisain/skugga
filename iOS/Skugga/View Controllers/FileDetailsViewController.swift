@@ -27,33 +27,33 @@ class FileDetailsViewController : UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool)
+    override func viewWillAppear(_ animated: Bool)
     {
         if let remoteFile = remoteFile
         {
             navigationItem.title = remoteFile.filename
-            webView.loadRequest(NSURLRequest(URL: NSURL(string: Configuration.endpoint + remoteFile.url)!))
+            webView.loadRequest(URLRequest(url: URL(string: Configuration.endpoint + remoteFile.url)!))
         }
     }
     
-    @IBAction func shareAction(sender: AnyObject)
+    @IBAction func shareAction(_ sender: AnyObject)
     {
         if let remoteFile = remoteFile
         {
-            let popup = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            let popup = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             popup.addAction(UIAlertAction(title: "Open in Safari",
-                style: .Default,
+                style: .default,
                 handler: { (_) -> Void in
                     // Eat the return value, otherwise it won't compile. Yay swift :)
-                    _ = UIApplication.sharedApplication().openURL(NSURL(string: Configuration.endpoint + remoteFile.url)!)
+                    _ = UIApplication.shared.openURL(URL(string: Configuration.endpoint + remoteFile.url)!)
             }))
             popup.addAction(UIAlertAction(title: "Copy URL",
-                style: .Default,
+                style: .default,
                 handler: { (_) -> Void in
-                    UIPasteboard.generalPasteboard().string = Configuration.endpoint + remoteFile.url
+                    UIPasteboard.general.string = Configuration.endpoint + remoteFile.url
             }))
-            popup.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            presentViewController(popup, animated: true, completion: nil)
+            popup.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(popup, animated: true, completion: nil)
         }
     }
 }

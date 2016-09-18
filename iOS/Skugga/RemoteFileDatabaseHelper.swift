@@ -23,7 +23,7 @@ struct RemoteFileDatabaseHelper
         
         FileListClient().getFileList(saveFilesToDB, failure: { (error: NSError) -> () in
             NSLog("Error while refreshing files from server \(error), cause : \(error.userInfo)")
-            NSNotificationCenter.defaultCenter().postNotificationName(RemoteFilesChangedNotification, object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteFilesChangedNotification), object: nil)
         })
     }
     
@@ -35,7 +35,7 @@ struct RemoteFileDatabaseHelper
             
             if let results = fetchedResults
             {
-                return results.map({RemoteFile(fromNSManagedObject: $0)}).sort({$0.uploadDate > $1.uploadDate})
+                return results.map({RemoteFile(fromNSManagedObject: $0)}).sorted(by: {$0.uploadDate > $1.uploadDate})
             }
             else
             {
@@ -45,33 +45,33 @@ struct RemoteFileDatabaseHelper
         }
     }
     
-    private static func readFilesFromDB() -> ([NSManagedObject]?, NSError?)
+    fileprivate static func readFilesFromDB() -> ([NSManagedObject]?, NSError?)
     {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         
-        let fetchRequest = NSFetchRequest(entityName:"RemoteFile")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"RemoteFile")
         
         do {
-            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            let fetchedResults = try managedContext.fetch(fetchRequest) as? [NSManagedObject]
             return (fetchedResults, nil)
         } catch let error as NSError {
             return (nil, error)
         }
     }
     
-    private static func truncateFilesDB()
+    fileprivate static func truncateFilesDB()
     {
         let (fetchedResults, error) = readFilesFromDB()
         
         if let results = fetchedResults
         {
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let managedContext = appDelegate.managedObjectContext!
             
             for result in results
             {
-                managedContext.deleteObject(result)
+                managedContext.delete(result)
             }
             
             do {
@@ -86,14 +86,14 @@ struct RemoteFileDatabaseHelper
         }
     }
     
-    private static func saveFilesToDB(files: [RemoteFile])
+    fileprivate static func saveFilesToDB(_ files: [RemoteFile])
     {
         truncateFilesDB()
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         
-        let entity = NSEntityDescription.entityForName("RemoteFile", inManagedObjectContext: managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "RemoteFile", in: managedContext)
         
         for file in files
         {
@@ -106,6 +106,6 @@ struct RemoteFileDatabaseHelper
             NSLog("Could not save remote files \(error), cause : \(error.userInfo)")
         }
         
-        NSNotificationCenter.defaultCenter().postNotificationName(RemoteFilesChangedNotification, object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteFilesChangedNotification), object: nil)
     }
 }

@@ -20,38 +20,38 @@ private struct LocalCoreDataKeys
 struct RemoteFile
 {
     
-    static let dateFormatter: NSDateFormatter =
+    static let dateFormatter: DateFormatter =
     {
-        var formatter = NSDateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        var formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         return formatter
     }()
     
     var filename: String
-    var uploadDate: NSDate
+    var uploadDate: Date
     var url: String
     var deleteKey: String
     
-    init(fromNSDict dict: [NSObject: AnyObject])
+    init(fromNSDict dict: [AnyHashable: Any])
     {
         filename = dict["original"] as? String ?? "<unknown original name>"
-        uploadDate = RemoteFile.dateFormatter.dateFromString(dict["creation_time"] as? String ?? "") ?? NSDate()
+        uploadDate = RemoteFile.dateFormatter.date(from: dict["creation_time"] as? String ?? "") ?? Date()
         url = dict["name"] as! String
         deleteKey = dict["delete_key"] as! String
     }
     
     init(fromNSManagedObject managedObject: NSManagedObject)
     {
-        filename = managedObject.valueForKey(LocalCoreDataKeys.Filename) as! String
-        uploadDate = managedObject.valueForKey(LocalCoreDataKeys.UploadDate) as! NSDate
-        url = managedObject.valueForKey(LocalCoreDataKeys.Url) as! String
-        deleteKey = managedObject.valueForKey(LocalCoreDataKeys.DeleteKey) as! String
+        filename = managedObject.value(forKey: LocalCoreDataKeys.Filename) as! String
+        uploadDate = managedObject.value(forKey: LocalCoreDataKeys.UploadDate) as! Date
+        url = managedObject.value(forKey: LocalCoreDataKeys.Url) as! String
+        deleteKey = managedObject.value(forKey: LocalCoreDataKeys.DeleteKey) as! String
     }
     
-    func toNSManagedObject(context: NSManagedObjectContext, entity: NSEntityDescription) -> NSManagedObject
+    func toNSManagedObject(_ context: NSManagedObjectContext, entity: NSEntityDescription) -> NSManagedObject
     {
-        let managedObject = NSManagedObject(entity: entity, insertIntoManagedObjectContext: context)
+        let managedObject = NSManagedObject(entity: entity, insertInto: context)
         
         managedObject.setValue(filename, forKey: LocalCoreDataKeys.Filename)
         managedObject.setValue(uploadDate, forKey: LocalCoreDataKeys.UploadDate)

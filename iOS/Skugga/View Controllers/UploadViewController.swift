@@ -16,7 +16,7 @@ class UploadViewController : UIViewController
     @IBOutlet weak var filenameLabel: UILabel!
     
     var targetImage: UIImage?
-    var targetData: NSData?
+    var targetData: Data?
     var targetFilename: String?
     
     override func viewDidLoad()
@@ -25,7 +25,7 @@ class UploadViewController : UIViewController
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         backgroundImageView.image = targetImage
         filenameLabel.text = targetFilename
         progressView.progress = 0
@@ -40,26 +40,26 @@ class UploadViewController : UIViewController
     func startUpload()
     {
         do {
-            try UploadClient().uploadFile(targetData!,
-                filename: targetFilename ?? "iOS Image " + NSDate().description,
+            let _ = try UploadClient().uploadFile(targetData!,
+                filename: targetFilename ?? "iOS Image " + Date().description,
                 mimetype: "image/jpeg",
                 progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
-                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                    DispatchQueue.main.sync(execute: { () -> Void in
                         
                         self.progressView.progress = Float(Double(bytesSent) / Double(bytesToSend))
                     })
-                }, success: { (data: [NSObject : AnyObject]) -> Void in
+                }, success: { (data: [AnyHashable: Any]) -> Void in
                     
-                    var url = data["name"] as! NSString
-                    url = Configuration.endpoint + (url as String)
+                    var url = data["name"] as! String
+                    url = Configuration.endpoint + url
                     
-                    let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,
+                    let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,
                         handler: { (action: UIAlertAction!) -> () in
-                            UIPasteboard.generalPasteboard().string = url as String
-                            self.dismissViewControllerAnimated(true, completion: nil)
+                            UIPasteboard.general.string = url as String
+                            self.dismiss(animated: true, completion: nil)
                     }))
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                     
                     // Start refreshing the file list, and hope it will be fresh for the RemoteFile list view
                     RemoteFileDatabaseHelper.refreshFromServer()
@@ -72,11 +72,11 @@ class UploadViewController : UIViewController
         }
     }
     
-    func onFailure(error: NSError)
+    func onFailure(_ error: NSError)
     {
         
-        let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> () in self.dismissViewControllerAnimated(true, completion: nil) }))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) -> () in self.dismiss(animated: true, completion: nil) }))
+        self.present(alert, animated: true, completion: nil)
     }
 }

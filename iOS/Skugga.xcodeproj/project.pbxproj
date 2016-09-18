@@ -30,7 +30,6 @@
 		518EE2641A8F824800C3F35D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2631A8F824800C3F35D /* SettingsViewController.swift */; };
 		518EE2661A8F82B100C3F35D /* FileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2651A8F82B100C3F35D /* FileDetailsViewController.swift */; };
 		518EE2681A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2671A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift */; };
-		518EE26A1A8FA48F00C3F35D /* ComparableDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2691A8FA48F00C3F35D /* ComparableDate.swift */; };
 		518EE26D1A8FAA4C00C3F35D /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE26C1A8FAA4C00C3F35D /* UploadViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +83,6 @@
 		518EE2631A8F824800C3F35D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
 		518EE2651A8F82B100C3F35D /* FileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDetailsViewController.swift; path = "View Controllers/FileDetailsViewController.swift"; sourceTree = "<group>"; };
 		518EE2671A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteFileDatabaseHelper.swift; sourceTree = "<group>"; };
-		518EE2691A8FA48F00C3F35D /* ComparableDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComparableDate.swift; path = Extensions/ComparableDate.swift; sourceTree = "<group>"; };
 		518EE26C1A8FAA4C00C3F35D /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadViewController.swift; path = "View Controllers/UploadViewController.swift"; sourceTree = "<group>"; };
 		871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A3A4153D573289BB82C1C4CA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,7 +219,6 @@
 		518EE26B1A8FA49200C3F35D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				518EE2691A8FA48F00C3F35D /* ComparableDate.swift */,
 			);
 			name = Extensions;
 			path = ..;
@@ -284,12 +281,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = NamelessDev;
 				TargetAttributes = {
 					510A03331A8D61B1009FB815 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 5GB4T7ETDY;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -299,6 +297,7 @@
 					5165AC2C1A90EFF50087952D = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 5GB4T7ETDY;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -394,7 +393,6 @@
 				510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */,
 				518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */,
 				5165AC431A90F83E0087952D /* Configuration.swift in Sources */,
-				518EE26A1A8FA48F00C3F35D /* ComparableDate.swift in Sources */,
 				5184766D1A8F6A0D00EAB1F6 /* ClientConsts.swift in Sources */,
 				518EE2661A8F82B100C3F35D /* FileDetailsViewController.swift in Sources */,
 				510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */,
@@ -456,15 +454,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -499,8 +501,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -508,6 +512,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -517,6 +522,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -526,17 +532,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF14AF1925826C2F81E1A0E8 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Skugga/Skugga.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Skugga/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Skugga/skugga-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -544,17 +552,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Skugga/Skugga.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Skugga/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Skugga/skugga-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -579,10 +589,12 @@
 				);
 				INFOPLIST_FILE = Share/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.Skugga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Share/skugga-share-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -603,10 +615,12 @@
 				);
 				INFOPLIST_FILE = Share/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.Skugga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Share/skugga-share-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
