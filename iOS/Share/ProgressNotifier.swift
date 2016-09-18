@@ -66,7 +66,8 @@ class NotificationProgressNotifier: ProgressNotifier {
         content.title = "Image uploaded"
         content.body = "\(url)"
         content.sound = UNNotificationSound.default()
-        content.categoryIdentifier = "upload_success";
+        content.categoryIdentifier = "upload_success"
+        content.userInfo["url"] = url
         
         let request = UNNotificationRequest.init(identifier: UUID.init().uuidString, content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)

@@ -32,10 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             shouldPerformAdditionalDelegateHandling = false
         }
         
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { (result: Bool, error: Error?) in
-            
-        }
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options: [.sound, .alert, .badge]) { (result: Bool, error: Error?) in }
+        notificationCenter.setNotificationCategories(NotificationActionManager.notificationCategories())
         
         return shouldPerformAdditionalDelegateHandling
     }
@@ -151,6 +151,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if (response.actionIdentifier != UNNotificationDismissActionIdentifier && response.actionIdentifier != UNNotificationDefaultActionIdentifier) {
+            NotificationActionManager.performAction(identifier: response.actionIdentifier, userInfo: response.notification.request.content.userInfo)
+        }
+        
+        completionHandler()
     }
 }
 
