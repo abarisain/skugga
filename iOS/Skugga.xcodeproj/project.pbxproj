@@ -31,6 +31,7 @@
 		518EE2661A8F82B100C3F35D /* FileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2651A8F82B100C3F35D /* FileDetailsViewController.swift */; };
 		518EE2681A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2671A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift */; };
 		518EE26D1A8FAA4C00C3F35D /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE26C1A8FAA4C00C3F35D /* UploadViewController.swift */; };
+		51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		518EE2651A8F82B100C3F35D /* FileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDetailsViewController.swift; path = "View Controllers/FileDetailsViewController.swift"; sourceTree = "<group>"; };
 		518EE2671A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteFileDatabaseHelper.swift; sourceTree = "<group>"; };
 		518EE26C1A8FAA4C00C3F35D /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadViewController.swift; path = "View Controllers/UploadViewController.swift"; sourceTree = "<group>"; };
+		51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNotifier.swift; sourceTree = "<group>"; };
 		871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A3A4153D573289BB82C1C4CA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF14AF1925826C2F81E1A0E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				5165AC411A90F8040087952D /* Share.entitlements */,
 				5165AC311A90EFF50087952D /* ShareViewController.swift */,
+				51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */,
 				5165AC331A90EFF50087952D /* MainInterface.storyboard */,
 				5165AC2F1A90EFF50087952D /* Supporting Files */,
 			);
@@ -408,6 +411,7 @@
 				5165AC321A90EFF50087952D /* ShareViewController.swift in Sources */,
 				5165AC451A90F9300087952D /* ClientConsts.swift in Sources */,
 				5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */,
+				51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

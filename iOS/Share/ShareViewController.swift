@@ -9,6 +9,7 @@
 import UIKit
 import Social
 import MobileCoreServices
+import UserNotifications
 
 class ShareViewController: SLComposeServiceViewController {
 
@@ -64,52 +65,71 @@ class ShareViewController: SLComposeServiceViewController {
     
     func uploadAttachmentForType(_ attachment : NSItemProvider, type: String)
     {
-        /*attachment.loadItem(forTypeIdentifier: type,
-            options: nil,
-            completionHandler:
-            { (item: NSSecureCoding?, error: NSError!) -> Void in
-                if let urlItem = item as? URL
-                {
-                    let alert = UIAlertController(title: "Uploading...", message: "", preferredStyle: .alert)
-                   
-                    self.present(alert, animated: true, completion: nil)
-                    do {
-                        var innerError: NSError?
-                        
-                        try UploadClient().uploadFile(urlItem,
-                            progress: { (bytesSent: Int64, bytesToSend: Int64) -> Void in
-                                DispatchQueue.main.sync(execute: { () -> Void in
-                                    alert.message = NSString(format: "%d %%", Int((Double(bytesSent) / Double(bytesToSend))*100)) as String
-                                })
-                            }, success: { (data: [AnyHashable: Any]) -> Void in
-                                var url = data["name"] as! NSString
-                                url = Configuration.endpoint + (url as String)
-                                
-                                UIPasteboard.general.string = url as String
-                                self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
-                            }, failure: { (error: NSError) -> Void in
-                                innerError = error
-                        })
-                        
-                        if let innerError = innerError {
-                            throw innerError
-                        }
-                    } catch let error as NSError {
-                        NSLog("Failed to upload file \(error) \(error.userInfo)")
-                        alert.dismiss(animated: true, completion: { () -> Void in
-                            let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) -> () in self.extensionContext!.cancelRequest(withError: error) }))
-                            self.present(alert, animated: true, completion: nil)
-                        })
-                    } catch {}
-                }
-                else
-                {
-                    let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
-                    self.extensionContext!.cancelRequest(withError: cancelError)
-                }
+        UNUserNotificationCenter.current().getNotificationSettings { (settings: UNNotificationSettings) in
+            var backgroundUpload = false
+            
+            var progressNotifier: ProgressNotifier! = nil
+            
+            if (settings.alertSetting == .enabled)
+            {
+                backgroundUpload = true
+                progressNotifier = NotificationProgressNotifier(vc: self)
             }
-        )*/
+            else
+            {
+                progressNotifier = AlertProgressNotifier(vc: self)
+            }
+            
+            attachment.loadItem(forTypeIdentifier: type,
+                                options: nil,
+                                completionHandler:
+                { (item: NSSecureCoding?, error: Error?) -> Void in
+                    if let urlItem = item as? URL
+                    {
+                        progressNotifier.uploadStarted(itemURL: urlItem)
+                        
+                        do {
+                            var innerError: NSError?
+                            
+                            let _ = try UploadClient().uploadFile(urlItem,
+                                                                  progress: { (bytesSent: Int64, bytesToSend: Int64) -> Void in
+                                                                    DispatchQueue.main.sync(execute: { () -> Void in
+                                                                        progressNotifier.uploadProgress(percentage: Int((Double(bytesSent) / Double(bytesToSend))*100))
+                                                                    })
+                                }, success: { (data: [AnyHashable: Any]) -> Void in
+                                    var url = data["name"] as! String
+                                    url = Configuration.endpoint + url
+                                    
+                                    UIPasteboard.general.string = url
+                                    
+                                    progressNotifier.uploadSuccess(url: url)
+                                    
+                                    self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+                                    
+                                }, failure: { (error: NSError) -> Void in
+                                    innerError = error
+                            })
+                            
+                            if let innerError = innerError {
+                                throw innerError
+                            }
+                        } catch let error as NSError {
+                            NSLog("Failed to upload file \(error) \(error.userInfo)")
+                            progressNotifier.uploadFailed(error: error)
+                            
+                            if (backgroundUpload) {
+                                self.extensionContext!.cancelRequest(withError: error)
+                            }
+                        } catch {}
+                    }
+                    else
+                    {
+                        let cancelError = NSError(domain: NSCocoaErrorDomain, code: NSFileNoSuchFileError, userInfo: nil)
+                        self.extensionContext!.cancelRequest(withError: cancelError)
+                    }
+                }
+            )
+        }
     }
 
 }

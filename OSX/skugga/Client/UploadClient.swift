@@ -24,11 +24,11 @@ struct UploadClient
     
     func uploadFile(_ file: URL, progress:((_ bytesSent:Int64, _ bytesToSend:Int64) -> Void)?, success:@escaping ([AnyHashable: Any]) -> Void, failure:@escaping (NSError) -> Void) throws -> Bool
     {
-        return try uploadFile({ (data: AFMultipartFormData!) -> Void in
+        return try uploadFile({ (data: AFMultipartFormData?) -> Void in
                 do {
-                    try data.appendPart(withFileURL: file, name: "data")
+                    try data?.appendPart(withFileURL: file, name: "data")
                 } catch {}
-            } as! (AFMultipartFormData?) -> Void,
+            },
             filename: file.lastPathComponent, progress: progress, success: success, failure: failure)
     }
     
