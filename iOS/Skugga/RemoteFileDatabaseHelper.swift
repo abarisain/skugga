@@ -97,7 +97,7 @@ struct RemoteFileDatabaseHelper
         
         for file in files
         {
-            file.toNSManagedObject(managedContext, entity: entity!)
+            let _ = file.toNSManagedObject(managedContext, entity: entity!)
         }
         
         do {

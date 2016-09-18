@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 let UploadActionNotification = "fr.nlss.skugga.uploadaction"
 
@@ -22,16 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         var shouldPerformAdditionalDelegateHandling = true
         
+        // If a shortcut was launched, display its information and take the appropriate action
+        if let _ = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+            
+            doUploadAction = true
+            
+            // This will block "performActionForShortcutItem:completionHandler" from being called.
+            shouldPerformAdditionalDelegateHandling = false
+        }
         
-        if #available(iOS 9, *) {
-            // If a shortcut was launched, display its information and take the appropriate action
-            if let _ = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
-                
-                doUploadAction = true
-                
-                // This will block "performActionForShortcutItem:completionHandler" from being called.
-                shouldPerformAdditionalDelegateHandling = false
-            }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { (result: Bool, error: Error?) in
+            
         }
         
         return shouldPerformAdditionalDelegateHandling
