@@ -13,7 +13,7 @@ import UserNotifications
 let UploadActionNotification = "fr.nlss.skugga.uploadaction"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     
@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             shouldPerformAdditionalDelegateHandling = false
         }
         
+        UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { (result: Bool, error: Error?) in
             
         }
@@ -146,5 +147,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // MARK: - UNUserNotificationCenterDelegate
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
 }
 
