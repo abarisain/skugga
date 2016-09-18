@@ -86,7 +86,19 @@ class ShareViewController: SLComposeServiceViewController {
                 { (item: NSSecureCoding?, error: Error?) -> Void in
                     if let urlItem = item as? URL
                     {
-                        progressNotifier.uploadStarted(itemURL: urlItem)
+                        var tmpFileURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+                        tmpFileURL.appendPathComponent(UUID.init().uuidString + "." + urlItem.pathExtension)
+                        
+                        var attachmentURL: URL? = nil
+                        
+                        do {
+                            try FileManager.default.copyItem(at: urlItem, to: tmpFileURL)
+                            attachmentURL = tmpFileURL;
+                        } catch {
+                            print("Error while copying the image to a temporary directory: \(error)")
+                        }
+                        
+                        progressNotifier.uploadStarted(itemURL: attachmentURL)
                         
                         do {
                             var innerError: NSError?

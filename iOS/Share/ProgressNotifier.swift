@@ -27,6 +27,8 @@ class NotificationProgressNotifier: ProgressNotifier {
     
     var alert: UIAlertController?
     
+    var cachedItemURL: URL?
+    
     weak var viewController: UIViewController?
     
     required init(vc: UIViewController) {
@@ -34,6 +36,8 @@ class NotificationProgressNotifier: ProgressNotifier {
     }
     
     func uploadStarted(itemURL: URL?) {
+        cachedItemURL = itemURL
+        
         let content = UNMutableNotificationContent()
         content.body = "Uploading..."
         content.sound = nil
@@ -68,6 +72,7 @@ class NotificationProgressNotifier: ProgressNotifier {
         content.sound = UNNotificationSound.default()
         content.categoryIdentifier = "upload_success"
         content.userInfo["url"] = url
+        appendAttachment(content: content)
         
         let request = UNNotificationRequest.init(identifier: UUID.init().uuidString, content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)
@@ -82,11 +87,23 @@ class NotificationProgressNotifier: ProgressNotifier {
         content.title = "Couldn't upload image"
         content.body = "\(error)"
         content.sound = UNNotificationSound.default()
+        appendAttachment(content: content)
         
         let request = UNNotificationRequest.init(identifier: UUID.init().uuidString, content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)
         
         alert?.dismiss(animated: true, completion: nil)
+    }
+    
+    func appendAttachment(content: UNMutableNotificationContent) {
+        if let cachedItemURL = cachedItemURL {
+            do {
+                let attachment = try UNNotificationAttachment(identifier: "image", url: cachedItemURL, options: nil)
+                content.attachments = [attachment]
+            } catch {
+                print("Error while adding notification attachment \(error)")
+            }
+        }
     }
 }
 
