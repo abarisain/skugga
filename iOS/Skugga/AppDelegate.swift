@@ -73,7 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         // For now, this will only work if RemoteFileListViewController is visible.
-        NotificationCenter.default.post(name: Notification.Name(rawValue: UploadActionNotification), object: nil)
+        switch shortcutItem.type {
+        case "fr.nlss.Skugga.upload":
+            NotificationCenter.default.post(name: Notification.Name(rawValue: UploadActionNotification), object: nil)
+            break
+        case "fr.nlss.Skugga.upload-last":
+            PhotoHelper().uploadLastTakenPhoto()
+            break
+        default:
+            break
+        }
         
         completionHandler(true)
     }
