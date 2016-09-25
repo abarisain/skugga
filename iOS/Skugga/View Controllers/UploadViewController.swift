@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class UploadViewController : UIViewController
 {
@@ -60,6 +61,32 @@ class UploadViewController : UIViewController
                             self.dismiss(animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)
+                    
+                    let content = UNMutableNotificationContent()
+                    content.title = "Image uploaded"
+                    content.body = "\(url)"
+                    content.sound = UNNotificationSound.default()
+                    content.categoryIdentifier = "upload_success"
+                    content.userInfo["url"] = url
+                    
+                    if let targetData = self.targetData {
+                        do {
+                            
+                            var tmpFileURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+                            tmpFileURL.appendPathComponent(UUID.init().uuidString + ".jpg")
+                            
+                            try targetData.write(to: tmpFileURL)
+                            
+                            let attachment = try UNNotificationAttachment(identifier: "image", url: tmpFileURL, options: nil)
+                            content.attachments = [attachment]
+                            
+                        } catch {
+                            print("Unknown error while trying to add image attachment: \(error)")
+                        }
+                    }
+                    
+                    let request = UNNotificationRequest.init(identifier: UUID.init().uuidString, content: content, trigger: nil)
+                    UNUserNotificationCenter.current().add(request)
                     
                     // Start refreshing the file list, and hope it will be fresh for the RemoteFile list view
                     RemoteFileDatabaseHelper.refreshFromServer()

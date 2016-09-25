@@ -19,23 +19,20 @@ protocol ProgressNotifier {
     func uploadFailed(error: NSError)
 }
 
-class NotificationProgressNotifier: ProgressNotifier {
+class NotificationProgressNotifier: AlertProgressNotifier {
     
     static let notificationUploadIdentifier = "extension_upload"
     
     var alreadyNotifiedProgress = false
     
-    var alert: UIAlertController?
-    
     var cachedItemURL: URL?
     
-    weak var viewController: UIViewController?
-    
     required init(vc: UIViewController) {
-        viewController = vc
+        super.init(vc: vc)
     }
     
-    func uploadStarted(itemURL: URL?) {
+    override func uploadStarted(itemURL: URL?) {
+        super.uploadStarted(itemURL: itemURL)
         cachedItemURL = itemURL
         
         let content = UNMutableNotificationContent()
@@ -44,14 +41,11 @@ class NotificationProgressNotifier: ProgressNotifier {
         
         let request = UNNotificationRequest.init(identifier: NotificationProgressNotifier.notificationUploadIdentifier, content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)
-        
-        if let viewController = viewController {
-            alert = UIAlertController(title: "Uploading...", message: "", preferredStyle: .alert)
-            viewController.present(alert!, animated: true, completion: nil)
-        }
     }
     
-    func uploadProgress(percentage: Int) {
+    override func uploadProgress(percentage: Int) {
+        super.uploadProgress(percentage: percentage)
+        
         if (percentage >= 60 && !alreadyNotifiedProgress) {
             alreadyNotifiedProgress = true
             let content = UNMutableNotificationContent()
@@ -63,7 +57,9 @@ class NotificationProgressNotifier: ProgressNotifier {
         }
     }
     
-    func uploadSuccess(url: String) {
+    override func uploadSuccess(url: String) {
+        super.uploadSuccess(url: url)
+        
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [NotificationProgressNotifier.notificationUploadIdentifier])
         
         let content = UNMutableNotificationContent()
@@ -76,11 +72,10 @@ class NotificationProgressNotifier: ProgressNotifier {
         
         let request = UNNotificationRequest.init(identifier: UUID.init().uuidString, content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)
-        
-        alert?.dismiss(animated: true, completion: nil)
     }
     
-    func uploadFailed(error: NSError) {
+    override func uploadFailed(error: NSError) {
+        super.uploadFailed(error: error)
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [NotificationProgressNotifier.notificationUploadIdentifier])
         
         let content = UNMutableNotificationContent()
@@ -91,8 +86,6 @@ class NotificationProgressNotifier: ProgressNotifier {
         
         let request = UNNotificationRequest.init(identifier: UUID.init().uuidString, content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request)
-        
-        alert?.dismiss(animated: true, completion: nil)
     }
     
     func appendAttachment(content: UNMutableNotificationContent) {

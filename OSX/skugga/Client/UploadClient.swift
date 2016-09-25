@@ -16,9 +16,9 @@ struct UploadClient
 {
     func uploadFile(_ data: Data, filename: String, mimetype: String, progress:((_ bytesSent:Int64, _ bytesToSend:Int64) -> Void)?, success:@escaping ([AnyHashable: Any]) -> Void, failure:@escaping (NSError) -> Void) throws -> Bool
     {
-        return try uploadFile({ (formData: AFMultipartFormData!) -> Void in
-            formData.appendPart(withFileData: data, name: "data", fileName: filename, mimeType: mimetype)
-            } as! (AFMultipartFormData?) -> Void,
+        return try uploadFile({ (formData: AFMultipartFormData?) -> Void in
+            formData?.appendPart(withFileData: data, name: "data", fileName: filename, mimeType: mimetype)
+            },
             filename: filename, progress: progress, success: success, failure: failure)
     }
     
