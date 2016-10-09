@@ -148,7 +148,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     fileprivate func uploadURL(_ url: URL)
     {
         do {
-            try UploadClient().uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
+            let _ = try UploadClient().uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
                 self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)))
                 }, success: { (data: [AnyHashable: Any]) -> Void in
                     var url = data["name"] as! String

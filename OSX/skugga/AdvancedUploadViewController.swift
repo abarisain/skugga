@@ -15,7 +15,7 @@ class AdvancedUploadViewController : NSViewController
     {
         didSet
         {
-            filenameTextField.stringValue = fileToUpload.lastPathComponent ?? ""
+            filenameTextField.stringValue = fileToUpload.lastPathComponent 
         }
     }
     
