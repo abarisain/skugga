@@ -105,7 +105,7 @@ open class FilesystemEventListener: CustomDebugStringConvertible {
                                           latency,
                                           streamFlags)
         
-        FSEventStreamScheduleWithRunLoop(eventStream!, runLoop, CFRunLoopMode.defaultMode as! CFString)
+        FSEventStreamScheduleWithRunLoop(eventStream!, runLoop, CFRunLoopMode.defaultMode.rawValue)
         FSEventStreamStart(eventStream!)
         
         listening = true
