@@ -672,7 +672,6 @@
             <connections>
                 <outlet property="appTitleLabel" destination="HdQ-Kt-MnL" id="ipd-uT-8h8"/>
                 <outlet property="filesTableView" destination="Q2S-00-E8d" id="oIk-pU-6tb"/>
-                <outlet property="headerView" destination="HrY-6r-5Sb" id="H8u-fN-eEZ"/>
                 <outlet property="menuButton" destination="yRK-zs-Nyx" id="DbZ-4G-A3I"/>
                 <outlet property="view" destination="Itu-ES-1d3" id="wdU-gr-Vhb"/>
             </connections>
@@ -718,7 +717,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="372" height="331"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="4U6-Mc-mzW">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="331"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="59" rowSizeStyle="automatic" viewBased="YES" id="Q2S-00-E8d">
                                 <rect key="frame" x="0.0" y="0.0" width="372" height="331"/>
