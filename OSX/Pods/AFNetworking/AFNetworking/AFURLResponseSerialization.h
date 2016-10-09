@@ -1,5 +1,6 @@
 // AFURLResponseSerialization.h
-// Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+//
+// Copyright (c) 2013-2015 AFNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +23,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 /**
  The `AFURLResponseSerialization` protocol is adopted by an object that decodes data into a more useful object representation, according to details in the server response. Response serializers may additionally perform validation on the incoming response and data.
 
@@ -40,13 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The object decoded from the specified response data.
  */
-- (nullable id)responseObjectForResponse:(nullable NSURLResponse *)response
-                           data:(nullable NSData *)data
-                          error:(NSError * __nullable __autoreleasing *)error
-#ifdef NS_SWIFT_NOTHROW
-NS_SWIFT_NOTHROW
-#endif
-;
+- (id)responseObjectForResponse:(NSURLResponse *)response
+                           data:(NSData *)data
+                          error:(NSError *__autoreleasing *)error;
 
 @end
 
@@ -59,7 +54,7 @@ NS_SWIFT_NOTHROW
  */
 @interface AFHTTPResponseSerializer : NSObject <AFURLResponseSerialization>
 
-- (instancetype)init;
+- (instancetype) init;
 
 /**
  The string encoding used to serialize data received from the server, when no string encoding is specified by the response. `NSUTF8StringEncoding` by default.
@@ -80,12 +75,12 @@ NS_SWIFT_NOTHROW
 
  See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
  */
-@property (nonatomic, copy, nullable) NSIndexSet *acceptableStatusCodes;
+@property (nonatomic, copy) NSIndexSet *acceptableStatusCodes;
 
 /**
  The acceptable MIME types for responses. When non-`nil`, responses with a `Content-Type` with MIME types that do not intersect with the set will result in an error during validation.
  */
-@property (nonatomic, copy, nullable) NSSet *acceptableContentTypes;
+@property (nonatomic, copy) NSSet *acceptableContentTypes;
 
 /**
  Validates the specified response and data.
@@ -98,9 +93,9 @@ NS_SWIFT_NOTHROW
 
  @return `YES` if the response is valid, otherwise `NO`.
  */
-- (BOOL)validateResponse:(nullable NSHTTPURLResponse *)response
-                    data:(nullable NSData *)data
-                   error:(NSError * __nullable __autoreleasing *)error;
+- (BOOL)validateResponse:(NSHTTPURLResponse *)response
+                    data:(NSData *)data
+                   error:(NSError *__autoreleasing *)error;
 
 @end
 
@@ -118,7 +113,7 @@ NS_SWIFT_NOTHROW
  */
 @interface AFJSONResponseSerializer : AFHTTPResponseSerializer
 
-- (instancetype)init;
+- (instancetype) init;
 
 /**
  Options for reading the response JSON data and creating the Foundation objects. For possible values, see the `NSJSONSerialization` documentation section "NSJSONReadingOptions". `0` by default.
@@ -167,7 +162,7 @@ NS_SWIFT_NOTHROW
  */
 @interface AFXMLDocumentResponseSerializer : AFHTTPResponseSerializer
 
-- (instancetype)init;
+- (instancetype) init;
 
 /**
  Input and output options specifically intended for `NSXMLDocument` objects. For possible values, see the `NSJSONSerialization` documentation section "NSJSONReadingOptions". `0` by default.
@@ -196,7 +191,7 @@ NS_SWIFT_NOTHROW
  */
 @interface AFPropertyListResponseSerializer : AFHTTPResponseSerializer
 
-- (instancetype)init;
+- (instancetype) init;
 
 /**
  The property list format. Possible values are described in "NSPropertyListFormat".
@@ -290,7 +285,7 @@ NS_SWIFT_NOTHROW
  `AFURLResponseSerializationErrorDomain`
  AFURLResponseSerializer errors. Error codes for `AFURLResponseSerializationErrorDomain` correspond to codes in `NSURLErrorDomain`.
  */
-FOUNDATION_EXPORT NSString * const AFURLResponseSerializationErrorDomain;
+extern NSString * const AFURLResponseSerializationErrorDomain;
 
 /**
  ## User info dictionary keys
@@ -308,8 +303,8 @@ FOUNDATION_EXPORT NSString * const AFURLResponseSerializationErrorDomain;
  `AFNetworkingOperationFailingURLResponseDataErrorKey`
  The corresponding value is an `NSData` containing the original data of the operation associated with an error. This key is only present in the `AFURLResponseSerializationErrorDomain`.
  */
-FOUNDATION_EXPORT NSString * const AFNetworkingOperationFailingURLResponseErrorKey;
+extern NSString * const AFNetworkingOperationFailingURLResponseErrorKey;
 
-FOUNDATION_EXPORT NSString * const AFNetworkingOperationFailingURLResponseDataErrorKey;
+extern NSString * const AFNetworkingOperationFailingURLResponseDataErrorKey;
 
-NS_ASSUME_NONNULL_END
+
