@@ -17,16 +17,10 @@ class SettingsWindow : NSWindow
     @IBOutlet weak var secretTextField: NSSecureTextField!
     @IBOutlet weak var suffixTextField: NSTextField!
     
-    required override init(contentRect: NSRect, styleMask aStyle: Int, backing bufferingType: NSBackingStoreType, defer flag: Bool)
+    required override init(contentRect: NSRect, styleMask aStyle: NSWindowStyleMask, backing bufferingType: NSBackingStoreType, defer flag: Bool)
     {
         super.init(contentRect: contentRect, styleMask: aStyle, backing: bufferingType, defer: flag)
         //refreshFields()
-    }
-
-    // Required, but we don't care
-    required init?(coder: NSCoder)
-    {
-        super.init(coder: coder)
     }
     
     func refreshFields()
@@ -36,7 +30,7 @@ class SettingsWindow : NSWindow
         suffixTextField.stringValue = Configuration.suffix
     }
     
-    @IBAction func apply(sender: AnyObject)
+    @IBAction func apply(_ sender: AnyObject)
     {
         Configuration.endpoint = endpointTextField.stringValue
         Configuration.secret = secretTextField.stringValue

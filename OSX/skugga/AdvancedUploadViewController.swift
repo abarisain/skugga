@@ -11,7 +11,7 @@ import Cocoa
 
 class AdvancedUploadViewController : NSViewController
 {
-    internal var fileToUpload: NSURL!
+    internal var fileToUpload: URL!
     {
         didSet
         {
@@ -30,19 +30,19 @@ class AdvancedUploadViewController : NSViewController
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        let tokenizingSet = NSMutableCharacterSet.whitespaceAndNewlineCharacterSet()
-        tokenizingSet.formUnionWithCharacterSet(NSCharacterSet.punctuationCharacterSet())
-        tagsTokenField.tokenizingCharacterSet = tokenizingSet
+        let tokenizingSet = NSMutableCharacterSet.whitespaceAndNewline()
+        tokenizingSet.formUnion(with: CharacterSet.punctuationCharacters)
+        tagsTokenField.tokenizingCharacterSet = tokenizingSet as CharacterSet!
     }
     
     // MARK : IBActions
     
-    @IBAction func uploadClicked(sender: AnyObject)
+    @IBAction func uploadClicked(_ sender: AnyObject)
     {
         delegate?.dismissAdvancedUploadPopover()
     }
     
-    @IBAction func cancelClicked(sender: AnyObject)
+    @IBAction func cancelClicked(_ sender: AnyObject)
     {
         delegate?.dismissAdvancedUploadPopover()
     }
@@ -50,7 +50,7 @@ class AdvancedUploadViewController : NSViewController
 
 protocol AdvancedUploadViewDelegate: class
 {
-    func uploadURL(url: NSURL, filename: String, tags: String, ttl: String?, retina: Bool)
+    func uploadURL(_ url: URL, filename: String, tags: String, ttl: String?, retina: Bool)
     
     func dismissAdvancedUploadPopover()
 }

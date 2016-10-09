@@ -24,27 +24,27 @@ class RemoteFileTableCell: NSTableCellView, NSImageViewWebCacheDelegate
     
     var fileIcon: NSImage?
     
-    func updateWithRemoteFile(file: RemoteFile)
+    func updateWithRemoteFile(_ file: RemoteFile)
     {
         var fileType = (file.filename as NSString).pathExtension
         if (fileType.isEmpty)
         {
             fileType = LocalConsts.defaultFileType
         }
-        fileIcon = NSWorkspace.sharedWorkspace().iconForFileType(fileType)
+        fileIcon = NSWorkspace.shared().icon(forFileType: fileType)
         fileIcon?.size = NSSize(width: 40, height: 40)
         filename.stringValue = file.filename
-        uploadDate.stringValue = file.uploadDate.timeAgoSinceNow()
+        uploadDate.stringValue = (file.uploadDate as NSDate).timeAgoSinceNow()
         icon.image = fileIcon
         
-        icon.imageURL = NSURL(string: NSString(format: "%@%@?w=0&h=%.0f", Configuration.endpoint, file.url, icon.bounds.height == 0 ? 128 : icon.bounds.height) as String)!
+        icon.imageURL = URL(string: NSString(format: "%@%@?w=0&h=%.0f", Configuration.endpoint, file.url, icon.bounds.height == 0 ? 128 : icon.bounds.height) as String)!
     }
     
-    func imageView(imageView: NSImageView!, downloadImageSuccessed image: NSImage!, data: NSData!)
+    func imageView(_ imageView: NSImageView!, downloadImageSuccessed image: NSImage!, data: Data!)
     {
     }
     
-    func imageViewDownloadImageFailed(imageView: NSImageView!)
+    func imageViewDownloadImageFailed(_ imageView: NSImageView!)
     {
         icon.image = fileIcon
     }

@@ -12,33 +12,33 @@ public struct FilesystemEvent {
     public var id: FSEventStreamEventId
     public var path: String
     public var flags: FSEventStreamEventFlags
-    public var date: NSDate
+    public var date: Date
 }
 
 public protocol FilesystemEventListenerDelegate: class {
-    func filesystemEventsOccurred(listener: FilesystemEventListener, events: [FilesystemEvent])
+    func filesystemEventsOccurred(_ listener: FilesystemEventListener, events: [FilesystemEvent])
 }
 
-public class FilesystemEventListener: CustomDebugStringConvertible {
+open class FilesystemEventListener: CustomDebugStringConvertible {
     
     // MARK: Status variables
     
-    public private(set) var listening: Bool = false
+    open fileprivate(set) var listening: Bool = false
     
-    public private(set) var lastEvent: FilesystemEvent?
+    open fileprivate(set) var lastEvent: FilesystemEvent?
     
     // MARK: Configuration variables
     
-    public var watchedPaths: [String] = []
+    open var watchedPaths: [String] = []
     
-    public weak var delegate: FilesystemEventListenerDelegate?
+    open weak var delegate: FilesystemEventListenerDelegate?
     
-    public var runLoop: CFRunLoop = CFRunLoopGetMain()
+    open var runLoop: CFRunLoop = CFRunLoopGetMain()
     
     // Default latency is 5 seconds
-    public var latency: CFTimeInterval = 5
+    open var latency: CFTimeInterval = 5
     
-    public var streamFlags: FSEventStreamCreateFlags = UInt32(kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagFileEvents)
+    open var streamFlags: FSEventStreamCreateFlags = UInt32(kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagFileEvents)
     
     // MARK: Private variables
     
@@ -56,7 +56,7 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
     
     // MARK: Public methods
     
-    func startWatching(sinceWhen: FSEventStreamEventId? = nil) {
+    func startWatching(_ sinceWhen: FSEventStreamEventId? = nil) {
         objc_sync_enter(self)
         defer { objc_sync_exit(self) }
         
@@ -67,29 +67,31 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
         let sinceWhen = sinceWhen ?? lastEvent?.id ?? FSEventStreamEventId(kFSEventStreamEventIdSinceNow)
         
         var streamContext = FSEventStreamContext(version: 0,
-                                                 info: UnsafeMutablePointer<Void>(unsafeAddressOf(self)),
+                                                 info: UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
                                                  retain: nil,
                                                  release: nil,
                                                  copyDescription: nil)
         
         let eventCallback: FSEventStreamCallback = { (streamRef: ConstFSEventStreamRef,
-                                                      clientCallBackInfo: UnsafeMutablePointer<Void>,
+                                                      clientCallBackInfo: UnsafeMutableRawPointer?,
                                                       numEvents: Int,
-                                                      eventPaths: UnsafeMutablePointer<Void>,
-                                                      eventFlags: UnsafePointer<FSEventStreamEventFlags>,
-                                                      eventIds: UnsafePointer<FSEventStreamEventId>) in
+                                                      eventPaths: UnsafeMutableRawPointer,
+                                                      eventFlags: UnsafePointer<FSEventStreamEventFlags>?,
+                                                      eventIds: UnsafePointer<FSEventStreamEventId>?) in
             
-            let instance: FilesystemEventListener = unsafeBitCast(clientCallBackInfo, FilesystemEventListener.self)
+            guard let eventFlags = eventFlags, let eventIds = eventIds else { return }
             
-            let paths = unsafeBitCast(eventPaths, CFArray.self)
+            let instance: FilesystemEventListener = unsafeBitCast(clientCallBackInfo, to: FilesystemEventListener.self)
+            
+            let paths = unsafeBitCast(eventPaths, to: CFArray.self)
             
             var events: [FilesystemEvent] = []
             
             for i in 0..<CFArrayGetCount(paths) {
                 events.append(FilesystemEvent(id: eventIds[i],
-                    path: unsafeBitCast(CFArrayGetValueAtIndex(paths, i), CFString.self) as String,
+                    path: unsafeBitCast(CFArrayGetValueAtIndex(paths, i), to: CFString.self) as String,
                     flags: eventFlags[i],
-                    date: NSDate()))
+                    date: Date()))
             }
             
             instance.onEvents(events)
@@ -98,12 +100,12 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
         eventStream = FSEventStreamCreate(kCFAllocatorDefault,
                                           eventCallback,
                                           &streamContext,
-                                          watchedPaths,
+                                          watchedPaths as CFArray,
                                           sinceWhen,
                                           latency,
                                           streamFlags)
         
-        FSEventStreamScheduleWithRunLoop(eventStream!, runLoop, kCFRunLoopDefaultMode)
+        FSEventStreamScheduleWithRunLoop(eventStream!, runLoop, CFRunLoopMode.defaultMode as! CFString)
         FSEventStreamStart(eventStream!)
         
         listening = true
@@ -117,7 +119,7 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
         guard let eventStream = eventStream else { return }
         
         FSEventStreamStop(eventStream)
-        FSEventStreamUnscheduleFromRunLoop(eventStream, runLoop, kCFRunLoopDefaultMode)
+        FSEventStreamUnscheduleFromRunLoop(eventStream, runLoop, CFRunLoopMode.defaultMode as! CFString)
         FSEventStreamInvalidate(eventStream)
         FSEventStreamRelease(eventStream)
         
@@ -126,7 +128,7 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
     
     // MARK: Private methods
     
-    private func onEvents(events: [FilesystemEvent]) {
+    fileprivate func onEvents(_ events: [FilesystemEvent]) {
         guard events.count > 0 else { return }
         
         lastEvent = events.last
@@ -134,7 +136,7 @@ public class FilesystemEventListener: CustomDebugStringConvertible {
         delegate?.filesystemEventsOccurred(self, events: events)
     }
     
-    public var debugDescription: String {
+    open var debugDescription: String {
         return "FilesystemEventListener: listening=\(listening), delegate=\(delegate), watchedPaths=\(watchedPaths)"
     }
 }

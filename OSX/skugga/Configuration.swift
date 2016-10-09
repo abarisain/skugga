@@ -21,12 +21,12 @@ struct Configuration
     {
         get
         {
-            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.EndpointKey) ?? ""
+            return UserDefaults.standard.string(forKey: LocalConsts.EndpointKey) ?? ""
         }
         
         set
         {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.EndpointKey)
+            UserDefaults.standard.set(newValue, forKey: LocalConsts.EndpointKey)
         }
     }
     
@@ -34,12 +34,12 @@ struct Configuration
     {
         get
         {
-            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.SecretKey) ?? ""
+            return UserDefaults.standard.string(forKey: LocalConsts.SecretKey) ?? ""
         }
         
         set
         {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.SecretKey)
+            UserDefaults.standard.set(newValue, forKey: LocalConsts.SecretKey)
         }
     }
     
@@ -47,12 +47,12 @@ struct Configuration
     {
         get
         {
-            return NSUserDefaults.standardUserDefaults().stringForKey(LocalConsts.SuffixKey) ?? ""
+            return UserDefaults.standard.string(forKey: LocalConsts.SuffixKey) ?? ""
         }
         
         set
         {
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: LocalConsts.SuffixKey)
+            UserDefaults.standard.set(newValue, forKey: LocalConsts.SuffixKey)
         }
     }
 }

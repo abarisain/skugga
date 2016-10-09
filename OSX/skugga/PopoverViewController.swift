@@ -25,9 +25,9 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         filesTableView.doubleAction = #selector(PopoverViewController.tableDoubleClick)
     }
     
-    @IBAction func menuButtonClick(sender: AnyObject)
+    @IBAction func menuButtonClick(_ sender: AnyObject)
     {
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = NSApplication.shared().delegate as! AppDelegate
         appDelegate.showMenuFromView(menuButton, window: menuButton.window!)
     }
     
@@ -36,7 +36,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
         filesTableView.reloadData()
     }
     
-    func refreshWithRemoteFiles(files: [RemoteFile])
+    func refreshWithRemoteFiles(_ files: [RemoteFile])
     {
         remoteFiles = files
         filesTableView.reloadData()
@@ -46,19 +46,19 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     {
         let row = filesTableView.clickedRow
         let file = remoteFiles[row]
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url + Configuration.suffix)!)
+        NSWorkspace.shared().open(URL(string: Configuration.endpoint + file.url + Configuration.suffix)!)
     }
     
     // MARK : NSTableViewDataSource methods
     
-    func numberOfRowsInTableView(tableView: NSTableView) -> Int
+    func numberOfRows(in tableView: NSTableView) -> Int
     {
         return remoteFiles.count
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView?
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
     {
-        if let cell = tableView.makeViewWithIdentifier("remoteFileCell", owner: self) as? RemoteFileTableCell
+        if let cell = tableView.make(withIdentifier: "remoteFileCell", owner: self) as? RemoteFileTableCell
         {
             cell.updateWithRemoteFile(remoteFiles[row])
             return cell
@@ -68,25 +68,25 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     // MARK : Table menu methods
     
-    @IBAction func tableCopyLinkAction(sender: AnyObject)
+    @IBAction func tableCopyLinkAction(_ sender: AnyObject)
     {
         let file = remoteFiles[filesTableView.clickedRow]
-        let pasteboard = NSPasteboard.generalPasteboard()
+        let pasteboard = NSPasteboard.general()
         pasteboard.clearContents()
         pasteboard.setString(Configuration.endpoint + file.url + Configuration.suffix, forType: NSStringPboardType)
     }
     
-    @IBAction func tableOpenInBrowserAction(sender: AnyObject)
+    @IBAction func tableOpenInBrowserAction(_ sender: AnyObject)
     {
         let file = remoteFiles[filesTableView.clickedRow]
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string: Configuration.endpoint + file.url + Configuration.suffix)!)
+        NSWorkspace.shared().open(URL(string: Configuration.endpoint + file.url + Configuration.suffix)!)
     }
     
-    @IBAction func tableDeleteAction(sender: AnyObject)
+    @IBAction func tableDeleteAction(_ sender: AnyObject)
     {
         FileListClient().deleteFile(remoteFiles[filesTableView.clickedRow],
             success: { () -> () in
-                (NSApplication.sharedApplication().delegate as! AppDelegate).refreshFileList()
+                (NSApplication.shared().delegate as! AppDelegate).refreshFileList()
             }, failure: { (error: NSError) -> () in
                 NSLog("Failed to delete file")
         });
@@ -99,7 +99,7 @@ class PopoverTitleView : NSView {
     {
         get
         {
-            return NSApplication.sharedApplication().delegate as! AppDelegate
+            return NSApplication.shared().delegate as! AppDelegate
         }
     }
     
@@ -117,20 +117,20 @@ class PopoverTitleView : NSView {
     
     func setupDragAndDrop()
     {
-        registerForDraggedTypes([NSURLPboardType])
+        register(forDraggedTypes: [NSURLPboardType])
     }
     
-    override func draggingEntered(sender: NSDraggingInfo) -> NSDragOperation
+    override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation
     {
         return appDelegate.draggingEntered(sender)
     }
     
-    override func prepareForDragOperation(sender: NSDraggingInfo) -> Bool
+    override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool
     {
         return true
     }
     
-    override func performDragOperation(sender: NSDraggingInfo) -> Bool {
+    override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         return appDelegate.performDragOperation(sender)
     }
 }
