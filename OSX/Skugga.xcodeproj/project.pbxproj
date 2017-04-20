@@ -30,7 +30,8 @@
 		51D963F81A801293008F876E /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D963F71A801293008F876E /* UploadClient.swift */; };
 		51F917781A8963AC0082D9AF /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917771A8963AC0082D9AF /* FileListClient.swift */; };
 		51F9177A1A89674F0082D9AF /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F917791A89674F0082D9AF /* RemoteFile.swift */; };
-		A0E329238C028CAF496C0136 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA1B4497F954924F7AE0295 /* libPods.a */; };
+		AD2511B5813D5A532F2678D8 /* Pods_Skugga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07CBF28CD4E15FDA791AC9A /* Pods_Skugga.framework */; };
+		BE021219413212C90D85D96E /* Pods_Share.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D4DC30627A917750A38813 /* Pods_Share.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,9 +97,12 @@
 		51D963F71A801293008F876E /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = Client/UploadClient.swift; sourceTree = "<group>"; };
 		51F917771A8963AC0082D9AF /* FileListClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileListClient.swift; path = Client/FileListClient.swift; sourceTree = "<group>"; };
 		51F917791A89674F0082D9AF /* RemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFile.swift; path = Models/RemoteFile.swift; sourceTree = "<group>"; };
-		5DA1B4497F954924F7AE0295 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB993F6751274FA4EA9E8BF7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		FB43E6DF78E4D15A340D7EF1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		57313451FB42052E7D400EEC /* Pods-Skugga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skugga/Pods-Skugga.release.xcconfig"; sourceTree = "<group>"; };
+		77D4DC30627A917750A38813 /* Pods_Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Share.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D7A243A86291408F9D1B713 /* Pods-Share.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.release.xcconfig"; path = "Pods/Target Support Files/Pods-Share/Pods-Share.release.xcconfig"; sourceTree = "<group>"; };
+		96F679E805BFEA0C37DA019B /* Pods-Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Share/Pods-Share.debug.xcconfig"; sourceTree = "<group>"; };
+		99C973A564916C664488D64B /* Pods-Skugga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skugga/Pods-Skugga.debug.xcconfig"; sourceTree = "<group>"; };
+		F07CBF28CD4E15FDA791AC9A /* Pods_Skugga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skugga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51B7E4731A8D42C0009B17E9 /* RMSharedPreferences.framework in Frameworks */,
+				BE021219413212C90D85D96E /* Pods_Share.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,22 +119,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0E329238C028CAF496C0136 /* libPods.a in Frameworks */,
 				51B7E4771A8D4505009B17E9 /* RMSharedPreferences.framework in Frameworks */,
+				AD2511B5813D5A532F2678D8 /* Pods_Skugga.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4210816BDE7A863697F4548E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5DA1B4497F954924F7AE0295 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		510BE3AE1A9135A9001C1AB0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +181,8 @@
 				51B34E5E1A7558BB00732395 /* skugga */,
 				518293C01A8D388A006531B0 /* Share */,
 				51B34E5D1A7558BB00732395 /* Products */,
-				982DEC05982950B7C372E60B /* Pods */,
-				4210816BDE7A863697F4548E /* Frameworks */,
+				67FF1B8C3AA585ED2DC853E1 /* Pods */,
+				D4EBD4B6091036566DBF3218 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,13 +242,24 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		982DEC05982950B7C372E60B /* Pods */ = {
+		67FF1B8C3AA585ED2DC853E1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FB43E6DF78E4D15A340D7EF1 /* Pods.debug.xcconfig */,
-				CB993F6751274FA4EA9E8BF7 /* Pods.release.xcconfig */,
+				96F679E805BFEA0C37DA019B /* Pods-Share.debug.xcconfig */,
+				7D7A243A86291408F9D1B713 /* Pods-Share.release.xcconfig */,
+				99C973A564916C664488D64B /* Pods-Skugga.debug.xcconfig */,
+				57313451FB42052E7D400EEC /* Pods-Skugga.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D4EBD4B6091036566DBF3218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77D4DC30627A917750A38813 /* Pods_Share.framework */,
+				F07CBF28CD4E15FDA791AC9A /* Pods_Skugga.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +269,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 518293CD1A8D388A006531B0 /* Build configuration list for PBXNativeTarget "Share" */;
 			buildPhases = (
+				FC90A02E961F8473798B86AA /* [CP] Check Pods Manifest.lock */,
 				518293BB1A8D388A006531B0 /* Sources */,
 				518293BC1A8D388A006531B0 /* Frameworks */,
 				518293BD1A8D388A006531B0 /* Resources */,
+				4A66DC1DDE07159E2B746841 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,14 +288,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51B34E761A7558BB00732395 /* Build configuration list for PBXNativeTarget "Skugga" */;
 			buildPhases = (
-				85BDF98FBD41EB0F6F29CEE9 /* Check Pods Manifest.lock */,
+				1010302F753C262D595E97F7 /* [CP] Check Pods Manifest.lock */,
 				51B34E581A7558BB00732395 /* Sources */,
 				51B34E591A7558BB00732395 /* Frameworks */,
 				51B34E5A1A7558BB00732395 /* Resources */,
-				C86A742565EF63042499F46C /* Copy Pods Resources */,
 				517870F41A8BF79E00C4DA04 /* Embed App Extensions */,
 				51B7E4791A8D4505009B17E9 /* Embed Frameworks */,
-				8D1FCE7A98C0FB414CA2F241 /* Embed Pods Frameworks */,
+				07C736D059073296109235F9 /* [CP] Embed Pods Frameworks */,
+				751EE2C5AEFAD5F51E4DF4DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -378,49 +388,79 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		85BDF98FBD41EB0F6F29CEE9 /* Check Pods Manifest.lock */ = {
+		07C736D059073296109235F9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Skugga/Pods-Skugga-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8D1FCE7A98C0FB414CA2F241 /* Embed Pods Frameworks */ = {
+		1010302F753C262D595E97F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C86A742565EF63042499F46C /* Copy Pods Resources */ = {
+		4A66DC1DDE07159E2B746841 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Share/Pods-Share-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		751EE2C5AEFAD5F51E4DF4DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Skugga/Pods-Skugga-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC90A02E961F8473798B86AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -477,6 +517,7 @@
 /* Begin XCBuildConfiguration section */
 		518293CE1A8D388A006531B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96F679E805BFEA0C37DA019B /* Pods-Share.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -501,6 +542,7 @@
 		};
 		518293CF1A8D388A006531B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D7A243A86291408F9D1B713 /* Pods-Share.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -608,7 +650,7 @@
 		};
 		51B34E771A7558BB00732395 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB43E6DF78E4D15A340D7EF1 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 99C973A564916C664488D64B /* Pods-Skugga.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -633,7 +675,7 @@
 		};
 		51B34E781A7558BB00732395 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB993F6751274FA4EA9E8BF7 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 57313451FB42052E7D400EEC /* Pods-Skugga.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

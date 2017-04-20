@@ -1,0 +1,6 @@
+framework module Pods_Skugga {
+  umbrella header "Pods-Skugga-umbrella.h"
+
+  export *
+  module * { export * }
+}

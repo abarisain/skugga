@@ -10,3 +10,7 @@
 #endif
 #endif
 
+
+FOUNDATION_EXPORT double Pods_SkuggaVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SkuggaVersionString[];
+

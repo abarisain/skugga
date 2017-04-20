@@ -10,3 +10,8 @@
 #endif
 #endif
 
+#import "NSImageView+WebCache.h"
+
+FOUNDATION_EXPORT double OTWebImageVersionNumber;
+FOUNDATION_EXPORT const unsigned char OTWebImageVersionString[];
+

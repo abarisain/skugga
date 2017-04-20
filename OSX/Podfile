@@ -1,4 +1,20 @@
-source 'https://github.com/CocoaPods/Specs.git'
-pod 'AFNetworking', '~> 2.5'
-pod 'OTWebImage', :git => 'https://github.com/OpenFibers/OTWebImage.git'
-pod 'DateTools'
+# Uncomment the next line to define a global platform for your project
+platform :osx, '10.11'
+
+target 'Share' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Share
+
+end
+
+target 'Skugga' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Skugga
+	pod 'AFNetworking', '~> 2.5'
+	pod 'OTWebImage', :git => 'https://github.com/OpenFibers/OTWebImage.git'
+	pod 'DateTools'
+end
