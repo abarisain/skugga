@@ -11,6 +11,7 @@ private let ROUTE_SEND = "1.0/send"
 private let HEADER_FILENAME = "X-Upd-Orig-Filename"
 
 import Foundation
+import AFNetworking
 
 struct UploadClient
 {
@@ -39,14 +40,11 @@ struct UploadClient
         manager.setTaskDidSendBodyDataBlock({ (session: URLSession?, task: URLSessionTask?, bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) -> Void in
             progress?(totalBytesSent, totalBytesExpectedToSend)
         })
-        let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.none)
-        securityPolicy?.allowInvalidCertificates = true
-        manager.securityPolicy = securityPolicy
         
         var request: NSMutableURLRequest!
         request = AFHTTPRequestSerializer().multipartFormRequest(withMethod: "POST",
             urlString: Configuration.endpoint + ROUTE_SEND + "?name=" + filename.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
-            parameters: nil,
+            parameters: [:],
             constructingBodyWith: bodyBlock)
         
         request.addValue(filename, forHTTPHeaderField: HEADER_FILENAME)
@@ -80,7 +78,7 @@ struct UploadClient
             }
         )
         
-        uploadTask?.resume()
+        uploadTask.resume()
         
         return true
     }

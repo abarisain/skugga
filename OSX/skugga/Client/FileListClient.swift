@@ -9,6 +9,7 @@
 let ROUTE_LIST = "1.0/list"
 
 import Foundation
+import AFNetworking
 
 struct FileListClient
 {
@@ -16,10 +17,6 @@ struct FileListClient
     {
         
         let manager = AFHTTPSessionManager()
-        
-        let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.none)
-        securityPolicy?.allowInvalidCertificates = true
-        manager.securityPolicy = securityPolicy
         
         let secret = Configuration.secret
         if (!secret.isEmpty)
@@ -32,7 +29,7 @@ struct FileListClient
         }
         
         let http =  AFJSONResponseSerializer()
-        http?.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
+        http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
         _ = manager.get(Configuration.endpoint + ROUTE_LIST,
@@ -56,10 +53,6 @@ struct FileListClient
     {
         let manager = AFHTTPSessionManager()
         
-        let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.none)
-        securityPolicy?.allowInvalidCertificates = true
-        manager.securityPolicy = securityPolicy
-        
         let secret = Configuration.secret
         if (!secret.isEmpty)
         {
@@ -71,7 +64,7 @@ struct FileListClient
         }
         
         let http =  AFHTTPResponseSerializer()
-        http?.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
+        http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
         manager.responseSerializer = http
         
         _ = manager.get(Configuration.endpoint + file.url + "/" + file.deleteKey,
