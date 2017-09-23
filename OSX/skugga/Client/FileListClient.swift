@@ -6,8 +6,6 @@
 //
 //
 
-let ROUTE_LIST = "1.0/list"
-
 import Foundation
 import AFNetworking
 
@@ -38,28 +36,34 @@ struct FileListClient
     
     func deleteFile(_ file: RemoteFile, success:@escaping () -> (), failure:@escaping (NSError) -> ())
     {
-        let manager = AFHTTPSessionManager()
-        
-        let secret = Configuration.secret
-        if (!secret.isEmpty)
-        {
-            manager.requestSerializer.setValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
+        do {
+            var url = URL(string: Configuration.endpoint)
+            url?.appendPathComponent(file.url)
+            url?.appendPathComponent(file.deleteKey)
+            
+            var request: URLRequest
+            if let url = url {
+                request = URLRequest(url: url)
+                request.addSecret()
+            } else {
+                throw APIClientError.badURL
+            }
+            
+            URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
+                if err != nil {
+                    if let err = err as NSError? {
+                        failure(err)
+                    } else {
+                        failure(APIClientError.unknown.nsError)
+                    }
+                } else {
+                    success()
+                }
+            }).resume()
+        } catch let err as APIClientError {
+            failure(err.nsError)
+        } catch {
+            failure(APIClientError.unknown.nsError)
         }
-        else
-        {
-            manager.requestSerializer.setValue(nil, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
-        }
-        
-        let http =  AFHTTPResponseSerializer()
-        http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
-        manager.responseSerializer = http
-        
-        _ = manager.get(Configuration.endpoint + file.url + "/" + file.deleteKey,
-            parameters: nil,
-            success: { (task: URLSessionDataTask?, responseObject: Any?) -> Void in
-                success()
-            }, failure: { (task: URLSessionDataTask?, error: Error?) -> Void in
-                failure(error as NSError!)
-        })
     }
 }

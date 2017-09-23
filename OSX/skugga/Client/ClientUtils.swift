@@ -31,10 +31,12 @@ enum APIClientError: String, Error, LocalizedError {
 }
 
 extension URLRequest {
-    init(route: Route) throws {
+    init(route: Route?) throws {
         var url = URL(string: Configuration.endpoint)
         url?.appendPathComponent("1.0")
-        url?.appendPathComponent(route.rawValue)
+        if let route = route {
+            url?.appendPathComponent(route.rawValue)
+        }
         
         if let url = url {
             self.init(url: url)
@@ -48,4 +50,10 @@ extension URLRequest {
         }
     }
     
+    mutating func addSecret() {
+        let secret = Configuration.secret
+        if !secret.isEmpty {
+            self.setValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
+        }
+    }
 }
