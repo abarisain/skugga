@@ -56,6 +56,14 @@ struct RemoteFile: Codable
         }
     }
     
+    init(fromNSDict dict: [AnyHashable: Any])
+    {
+        filename = dict["original"] as? String ?? "<unknown original name>"
+        uploadDate = RemoteFile.dateFormatter.date(from: dict["creation_time"] as? String ?? "") ?? Date()
+        url = dict["name"] as! String
+        deleteKey = dict["delete_key"] as! String
+    }
+    
     init(fromNSManagedObject managedObject: NSManagedObject)
     {
         filename = managedObject.value(forKey: LocalCoreDataKeys.Filename) as! String

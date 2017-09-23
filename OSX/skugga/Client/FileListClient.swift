@@ -19,15 +19,15 @@ struct FileListClient
             let request = try URLRequest(route: .List)
             
             URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
-                print("ok")
-                
-                if let data = data {
-                    let files = try? JSONDecoder().decode(Array<RemoteFile>.self, from: data)
-                    print("\(files?.count ?? -1)")
+                if let data = data, let files = try? JSONDecoder().decode(Array<RemoteFile>.self, from: data) {
+                    success(files.sorted(by: {$0.uploadDate > $1.uploadDate}))
+                } else {
+                    if let err = err as NSError? {
+                        failure(err)
+                    } else {
+                        failure(APIClientError.unknown.nsError)
+                    }
                 }
-                
-                //let files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as! [AnyHashable: Any]))}).sorted(by: {$0.uploadDate > $1.uploadDate})
-                //success(files)
             }).resume()
         } catch let err as APIClientError {
             failure(err.nsError)
