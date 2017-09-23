@@ -17,7 +17,7 @@ private struct LocalCoreDataKeys
     static let DeleteKey = "deleteKey"
 }
 
-struct RemoteFile
+struct RemoteFile: Codable
 {
     
     static let dateFormatter: DateFormatter =
@@ -33,12 +33,27 @@ struct RemoteFile
     var url: String
     var deleteKey: String
     
-    init(fromNSDict dict: [AnyHashable: Any])
-    {
-        filename = dict["original"] as? String ?? "<unknown original name>"
-        uploadDate = RemoteFile.dateFormatter.date(from: dict["creation_time"] as? String ?? "") ?? Date()
-        url = dict["name"] as! String
-        deleteKey = dict["delete_key"] as! String
+    enum CodingKeys: String, CodingKey {
+        case filename = "original"
+        case uploadDate = "creation_time"
+        case url = "name"
+        case deleteKey = "delete_key"
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        filename = (try? values.decode(String.self, forKey: .filename)) ?? "<unknown original name>"
+        url = try values.decode(String.self, forKey: .url)
+        deleteKey = try values.decode(String.self, forKey: .deleteKey)
+        
+        let rawUploadDate = try? values.decode(String.self, forKey: .uploadDate)
+        if let rawUploadDate = rawUploadDate,
+            let parsedDate = RemoteFile.dateFormatter.date(from: rawUploadDate) {
+            uploadDate = parsedDate
+        } else {
+            uploadDate = Date()
+        }
     }
     
     init(fromNSManagedObject managedObject: NSManagedObject)

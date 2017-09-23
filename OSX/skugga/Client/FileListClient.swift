@@ -21,6 +21,11 @@ struct FileListClient
             URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
                 print("ok")
                 
+                if let data = data {
+                    let files = try? JSONDecoder().decode(Array<RemoteFile>.self, from: data)
+                    print("\(files?.count ?? -1)")
+                }
+                
                 //let files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as! [AnyHashable: Any]))}).sorted(by: {$0.uploadDate > $1.uploadDate})
                 //success(files)
             }).resume()
