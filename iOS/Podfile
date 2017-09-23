@@ -1,4 +1,20 @@
-source 'https://github.com/CocoaPods/Specs.git'
-pod 'AFNetworking', '~> 2.5'
-pod 'SDWebImage', '~> 3.7.1'
-pod 'DateTools'
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+
+target 'Share' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Share
+
+end
+
+target 'Skugga' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Skugga
+	pod 'AFNetworking', '~> 2.5'
+	pod 'SDWebImage', '~> 3.7.1'
+	pod 'DateTools'
+end
