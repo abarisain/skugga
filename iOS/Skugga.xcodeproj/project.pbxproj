@@ -34,6 +34,7 @@
 		518EE26D1A8FAA4C00C3F35D /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE26C1A8FAA4C00C3F35D /* UploadViewController.swift */; };
 		519D8CDD1D98177400F2D5D0 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519D8CDC1D98177400F2D5D0 /* PhotoHelper.swift */; };
 		519D8CE01D98177E00F2D5D0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519D8CDE1D98177E00F2D5D0 /* Photos.framework */; };
+		51CDCC731F76BB7E00A55C51 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC721F76BB7E00A55C51 /* Multipart.swift */; };
 		51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */; };
 		51F33B961D8F11DA0050BD6F /* NotificationActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		519D8CDC1D98177400F2D5D0 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoHelper.swift; sourceTree = "<group>"; };
 		519D8CDE1D98177E00F2D5D0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		51CDCC721F76BB7E00A55C51 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Multipart.swift; path = ../../OSX/skugga/Client/Multipart.swift; sourceTree = "<group>"; };
 		51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNotifier.swift; sourceTree = "<group>"; };
 		51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationActionManager.swift; sourceTree = "<group>"; };
 		A284E969B54150F2DAF7166D /* Pods-Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Share/Pods-Share.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				518476601A8F692E00EAB1F6 /* FileListClient.swift */,
 				518476611A8F692E00EAB1F6 /* UploadClient.swift */,
 				5177FF001F769D42002AED6C /* ClientUtils.swift */,
+				51CDCC721F76BB7E00A55C51 /* Multipart.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				5165AC431A90F83E0087952D /* Configuration.swift in Sources */,
 				5184766D1A8F6A0D00EAB1F6 /* ClientConsts.swift in Sources */,
 				519D8CDD1D98177400F2D5D0 /* PhotoHelper.swift in Sources */,
+				51CDCC731F76BB7E00A55C51 /* Multipart.swift in Sources */,
 				518EE2661A8F82B100C3F35D /* FileDetailsViewController.swift in Sources */,
 				510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */,
 				518EE2641A8F824800C3F35D /* SettingsViewController.swift in Sources */,
