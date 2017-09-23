@@ -8,26 +8,76 @@
 
 import Foundation
 
-private let linefeed = "\r\n"
+private let crlf = "\r\n"
 
 enum MultipartError: Error {
     case encodingError
+    case alreadyFinishedError
+    case notFinishedError
 }
 
 // Multipart data builder
 // The data must fit in RAM
 // Only UTF-8 is supported
-struct Multipart {
+public struct Multipart {
     let boundary = "skugga_" + UUID().uuidString
+    var finished = false
     var data = Data()
+    
+    mutating func addFile(name: String, filename: String, data fileData: Data) throws {
+        try appendBoundaryStart()
+        let safeName = Multipart.safeStringForDataParameter(name)
+        let safeFilename = Multipart.safeStringForDataParameter(filename)
+        try appendLine("Content-Disposition: form-data; name=\"\(safeName)\"; filename=\"\(safeFilename)\"")
+        try appendLine("Content-Type: application/octet-stream")
+        data += fileData
+    }
+    
+    mutating func finish() throws {
+        try appendBoundaryEnd()
+        finished = true
+    }
+    
+    func asRequest(url: URL) throws -> URLRequest {
+        if !finished {
+            throw MultipartError.notFinishedError
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue(String(data.count), forHTTPHeaderField: "Content-Length")
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.httpBody = data
+        return request
+    }
 }
 
 extension Multipart {
+    
+    mutating func appendBoundaryStart() throws {
+        try append(string: "--" + self.boundary + crlf)
+    }
+    
+    mutating func appendBoundaryEnd() throws {
+        try append(string: "--" + self.boundary + "--" + crlf)
+    }
+    
     mutating func appendLine(_ string: String) throws {
-        if let stringData = (string + linefeed).data(using: .utf8) {
+        try append(string: string + crlf)
+    }
+    
+    mutating func append(string: String) throws {
+        if finished {
+            throw MultipartError.alreadyFinishedError
+        }
+        
+        if let stringData = string.data(using: .utf8) {
             data += stringData
         } else {
             throw MultipartError.encodingError
         }
+    }
+    
+    static func safeStringForDataParameter(_ string: String) -> String {
+        return string.replacingOccurrences(of: "\"", with: "_")
     }
 }
