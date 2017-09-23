@@ -9,6 +9,8 @@
 import Foundation
 import UserNotifications
 
+@objc
+@objcMembers
 class UploadViewController : UIViewController
 {
     

@@ -9,6 +9,8 @@
 import UIKit
 import AssetsLibrary
 
+@objc
+@objcMembers
 class RemoteFileListViewController : UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIViewControllerPreviewingDelegate
 {
 
@@ -62,7 +64,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         // Dispose of any resources that can be recreated.
     }
 
-    func uploadShortcut()
+    @objc func uploadShortcut()
     {
         uploadAction(self)
     }
@@ -77,14 +79,14 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
         present(imagePicker, animated: true, completion: nil)
     }
 
-    func refreshData()
+    @objc func refreshData()
     {
         files = RemoteFileDatabaseHelper.cachedFiles
         tableView.reloadData()
         refreshControl?.endRefreshing()
     }
     
-    func dataRefreshFailed()
+    @objc func dataRefreshFailed()
     {
         refreshControl?.endRefreshing()
     }

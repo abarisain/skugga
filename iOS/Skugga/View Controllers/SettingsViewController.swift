@@ -8,6 +8,8 @@
 
 import Foundation
 
+@objc
+@objcMembers
 class SettingsViewController : UITableViewController
 {
     
