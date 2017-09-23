@@ -15,38 +15,20 @@ struct FileListClient
 {
     func getFileList(_ success:@escaping ([RemoteFile]) -> (), failure:@escaping (NSError) -> ())
     {
-        
-        let manager = AFHTTPSessionManager()
-        
-        let secret = Configuration.secret
-        if (!secret.isEmpty)
-        {
-            manager.requestSerializer.setValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
+        do {
+            let request = try URLRequest(route: .List)
+            
+            URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
+                print("ok")
+                
+                //let files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as! [AnyHashable: Any]))}).sorted(by: {$0.uploadDate > $1.uploadDate})
+                //success(files)
+            }).resume()
+        } catch let err as APIClientError {
+            failure(err.nsError)
+        } catch {
+            failure(APIClientError.unknown.nsError)
         }
-        else
-        {
-            manager.requestSerializer.setValue(nil, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
-        }
-        
-        let http =  AFJSONResponseSerializer()
-        http.acceptableContentTypes = NSSet(object: ("text/plain")) as Set<NSObject>
-        manager.responseSerializer = http
-        
-        _ = manager.get(Configuration.endpoint + ROUTE_LIST,
-            parameters: nil,
-            success: { (task: URLSessionDataTask?, responseObject: Any?) -> Void in
-                if let clientFiles = responseObject as? [AnyObject]
-                {
-                    let files: [RemoteFile] = clientFiles.map({RemoteFile(fromNSDict: ($0 as! [AnyHashable: Any]))}).sorted(by: {$0.uploadDate > $1.uploadDate})
-                    success(files)
-                }
-                else
-                {
-                    failure(NSError(domain: ClientConsts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while parsing JSON answer"]))
-                }
-            }, failure: { (task: URLSessionDataTask?, error: Error?) -> Void in
-                failure(error as NSError!)
-            })
     }
     
     func deleteFile(_ file: RemoteFile, success:@escaping () -> (), failure:@escaping (NSError) -> ())

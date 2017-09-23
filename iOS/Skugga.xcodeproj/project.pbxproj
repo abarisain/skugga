@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0F1CCE6A71141FFD9C6AB9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A4153D573289BB82C1C4CA /* libPods.a */; };
+		118BED3F11CD650EB7464869 /* Pods_Share.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12394152FE23D4C3A5F06186 /* Pods_Share.framework */; };
 		510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A03391A8D61B1009FB815 /* AppDelegate.swift */; };
 		510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 510A033B1A8D61B1009FB815 /* Skugga.xcdatamodeld */; };
 		510A03421A8D61B1009FB815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510A03401A8D61B1009FB815 /* Main.storyboard */; };
@@ -17,11 +17,12 @@
 		5165AC341A90EFF50087952D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5165AC331A90EFF50087952D /* MainInterface.storyboard */; };
 		5165AC371A90EFF50087952D /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5165AC2D1A90EFF50087952D /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5165AC3B1A90F03C0087952D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510A03431A8D61B1009FB815 /* Images.xcassets */; };
-		5165AC3D1A90F6B50087952D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5165AC3C1A90F6B50087952D /* libPods.a */; };
 		5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476611A8F692E00EAB1F6 /* UploadClient.swift */; };
 		5165AC431A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
 		5165AC441A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
 		5165AC451A90F9300087952D /* ClientConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */; };
+		5177FEFE1F76994C002AED6C /* Pods_Skugga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5177FEFF1F76994C002AED6C /* Pods_Skugga.framework */; };
+		5177FF011F769D42002AED6C /* ClientUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177FF001F769D42002AED6C /* ClientUtils.swift */; };
 		5184765E1A8F690F00EAB1F6 /* RemoteFileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */; };
 		518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476601A8F692E00EAB1F6 /* FileListClient.swift */; };
 		518476631A8F692E00EAB1F6 /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476611A8F692E00EAB1F6 /* UploadClient.swift */; };
@@ -62,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04ABE366DE23FCD97D46CFA1 /* Pods-Skugga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skugga/Pods-Skugga.debug.xcconfig"; sourceTree = "<group>"; };
+		12394152FE23D4C3A5F06186 /* Pods_Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Share.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D7D06D1BBE8158C7189C1C8 /* Pods-Skugga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skugga/Pods-Skugga.release.xcconfig"; sourceTree = "<group>"; };
 		510A03341A8D61B1009FB815 /* Skugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		510A03381A8D61B1009FB815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		510A03391A8D61B1009FB815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		5165AC401A90F7E10087952D /* Skugga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Skugga.entitlements; sourceTree = "<group>"; };
 		5165AC411A90F8040087952D /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Share.entitlements; sourceTree = "<group>"; };
 		5165AC421A90F83E0087952D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		5177FEFF1F76994C002AED6C /* Pods_Skugga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Skugga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5177FF001F769D42002AED6C /* ClientUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientUtils.swift; path = ../../OSX/skugga/Client/ClientUtils.swift; sourceTree = "<group>"; };
 		5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFileListViewController.swift; path = "View Controllers/RemoteFileListViewController.swift"; sourceTree = "<group>"; };
 		518476601A8F692E00EAB1F6 /* FileListClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileListClient.swift; path = ../../OSX/skugga/Client/FileListClient.swift; sourceTree = "<group>"; };
 		518476611A8F692E00EAB1F6 /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = ../../OSX/skugga/Client/UploadClient.swift; sourceTree = "<group>"; };
@@ -93,9 +99,9 @@
 		519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNotifier.swift; sourceTree = "<group>"; };
 		51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationActionManager.swift; sourceTree = "<group>"; };
-		871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		A3A4153D573289BB82C1C4CA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF14AF1925826C2F81E1A0E8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A284E969B54150F2DAF7166D /* Pods-Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Share/Pods-Share.debug.xcconfig"; sourceTree = "<group>"; };
+		BA80DEFE9667CDB48206958C /* Pods-Share.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.release.xcconfig"; path = "Pods/Target Support Files/Pods-Share/Pods-Share.release.xcconfig"; sourceTree = "<group>"; };
+		D3E37CF6DA189ACC5C9C5219 /* Pods_Skugga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skugga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5177FEFE1F76994C002AED6C /* Pods_Skugga.framework in Frameworks */,
 				519D8CE01D98177E00F2D5D0 /* Photos.framework in Frameworks */,
-				0B0F1CCE6A71141FFD9C6AB9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5165AC3D1A90F6B50087952D /* libPods.a in Frameworks */,
+				118BED3F11CD650EB7464869 /* Pods_Share.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,10 +128,12 @@
 		39F044ECC0875C55BE6C5FF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5177FEFF1F76994C002AED6C /* Pods_Skugga.framework */,
 				519D8CDE1D98177E00F2D5D0 /* Photos.framework */,
 				519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */,
 				5165AC3C1A90F6B50087952D /* libPods.a */,
-				A3A4153D573289BB82C1C4CA /* libPods.a */,
+				12394152FE23D4C3A5F06186 /* Pods_Share.framework */,
+				D3E37CF6DA189ACC5C9C5219 /* Pods_Skugga.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,8 +144,8 @@
 				510A03361A8D61B1009FB815 /* Skugga */,
 				5165AC2E1A90EFF50087952D /* Share */,
 				510A03351A8D61B1009FB815 /* Products */,
-				E276732787CE2AAA42CA0724 /* Pods */,
 				39F044ECC0875C55BE6C5FF1 /* Frameworks */,
+				E7952BACBC48E9530D04A328 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +227,7 @@
 				5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */,
 				518476601A8F692E00EAB1F6 /* FileListClient.swift */,
 				518476611A8F692E00EAB1F6 /* UploadClient.swift */,
+				5177FF001F769D42002AED6C /* ClientUtils.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -239,11 +248,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E276732787CE2AAA42CA0724 /* Pods */ = {
+		E7952BACBC48E9530D04A328 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BF14AF1925826C2F81E1A0E8 /* Pods.debug.xcconfig */,
-				871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */,
+				A284E969B54150F2DAF7166D /* Pods-Share.debug.xcconfig */,
+				BA80DEFE9667CDB48206958C /* Pods-Share.release.xcconfig */,
+				04ABE366DE23FCD97D46CFA1 /* Pods-Skugga.debug.xcconfig */,
+				1D7D06D1BBE8158C7189C1C8 /* Pods-Skugga.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -255,12 +266,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 510A03561A8D61B1009FB815 /* Build configuration list for PBXNativeTarget "Skugga" */;
 			buildPhases = (
-				53EDDC827DE2245305A6D5D8 /* Check Pods Manifest.lock */,
+				28407BB17FBF7EF83183198A /* [CP] Check Pods Manifest.lock */,
 				510A03301A8D61B1009FB815 /* Sources */,
 				510A03311A8D61B1009FB815 /* Frameworks */,
 				510A03321A8D61B1009FB815 /* Resources */,
-				DC3A158BB3603990541CF035 /* Copy Pods Resources */,
 				510A036E1A8D63EE009FB815 /* Embed App Extensions */,
+				EADA833B751EB62EBB643E96 /* [CP] Embed Pods Frameworks */,
+				094A856177858AB293CF5A37 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,9 +288,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5165AC381A90EFF50087952D /* Build configuration list for PBXNativeTarget "Share" */;
 			buildPhases = (
+				C50E1F4591ACF3203B133FE0 /* [CP] Check Pods Manifest.lock */,
 				5165AC291A90EFF50087952D /* Sources */,
 				5165AC2A1A90EFF50087952D /* Frameworks */,
 				5165AC2B1A90EFF50087952D /* Resources */,
+				35161D97C104F6D87CA2EB8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,34 +377,92 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		53EDDC827DE2245305A6D5D8 /* Check Pods Manifest.lock */ = {
+		094A856177858AB293CF5A37 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Skugga/Pods-Skugga-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC3A158BB3603990541CF035 /* Copy Pods Resources */ = {
+		28407BB17FBF7EF83183198A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Skugga-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35161D97C104F6D87CA2EB8F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Share/Pods-Share-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C50E1F4591ACF3203B133FE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Share-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EADA833B751EB62EBB643E96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Skugga/Pods-Skugga-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Skugga/Pods-Skugga-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -406,6 +478,7 @@
 				518EE2681A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift in Sources */,
 				518476661A8F694000EAB1F6 /* RemoteFile.swift in Sources */,
 				518476631A8F692E00EAB1F6 /* UploadClient.swift in Sources */,
+				5177FF011F769D42002AED6C /* ClientUtils.swift in Sources */,
 				510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */,
 				518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */,
 				5165AC431A90F83E0087952D /* Configuration.swift in Sources */,
@@ -548,7 +621,7 @@
 		};
 		510A03571A8D61B1009FB815 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF14AF1925826C2F81E1A0E8 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 04ABE366DE23FCD97D46CFA1 /* Pods-Skugga.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -568,7 +641,7 @@
 		};
 		510A03581A8D61B1009FB815 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 1D7D06D1BBE8158C7189C1C8 /* Pods-Skugga.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -588,7 +661,7 @@
 		};
 		5165AC391A90EFF50087952D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF14AF1925826C2F81E1A0E8 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A284E969B54150F2DAF7166D /* Pods-Share.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
@@ -618,7 +691,7 @@
 		};
 		5165AC3A1A90EFF50087952D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 871A2EFB1A4CACD9B844745F /* Pods.release.xcconfig */;
+			baseConfigurationReference = BA80DEFE9667CDB48206958C /* Pods-Share.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
