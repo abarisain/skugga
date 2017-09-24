@@ -8,13 +8,19 @@
 
 import Foundation
 
-enum APIClientError: String, Error, LocalizedError {
-    case unknown = "Unknown"
-    case badURL = "Bad URL"
-    case jsonParserError = "JSON Parsing error"
+enum APIClientError: Error, LocalizedError {
+    case unknown
+    case badURL
+    case jsonParserError
+    case httpError(code: Int)
     
     var errorDescription: String {
-        return self.rawValue
+        switch(self) {
+        case .unknown: return "Unknown"
+        case .badURL: return "Bad URL"
+        case .jsonParserError: return "JSON Parsing error"
+        case .httpError: return "Bad HTTP Status Code: \(self.code)"
+        }
     }
     
     var code: Int {
@@ -22,11 +28,12 @@ enum APIClientError: String, Error, LocalizedError {
         case .unknown: return -1
         case .badURL: return 1
         case .jsonParserError: return 2
+        case .httpError: return 3
         }
     }
     
     var nsError: NSError {
-        return NSError(domain: "skugga.apiclient.error", code: self.code, userInfo: [NSLocalizedDescriptionKey: self.rawValue.description])
+        return NSError(domain: "skugga.apiclient.error", code: self.code, userInfo: [NSLocalizedDescriptionKey: self.errorDescription ?? "Unknown"])
     }
 }
 
