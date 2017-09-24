@@ -74,7 +74,7 @@ extension URLRequest {
 extension URLResponse {
     func httpError() -> APIClientError? {
         if let statusCode = (self as? HTTPURLResponse)?.statusCode,
-            statusCode >= 200 && statusCode <= 299 {
+            statusCode < 200 || statusCode > 299 {
             return APIClientError.httpError(code: statusCode)
         }
         return nil
