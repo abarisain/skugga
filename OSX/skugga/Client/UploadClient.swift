@@ -11,7 +11,7 @@ private let HEADER_FILENAME = "X-Upd-Orig-Filename"
 import Foundation
 
 struct UploadClient
-{
+{ 
     func upload(file: URL,
                 progress:((Double) -> Void)?,
                 success:@escaping ([AnyHashable: Any]) -> Void,
@@ -35,6 +35,7 @@ struct UploadClient
     {
         var multipart = Multipart()
         try multipart.addFile(name: "data", filename: filename, mimetype: mimetype, data: data)
+        try multipart.finish()
         
         guard let baseURL = URL(route: .Send) else { throw APIClientError.badURL }
         guard var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else { throw APIClientError.badURL }
@@ -42,6 +43,7 @@ struct UploadClient
         guard let url = urlComponents.url else { throw APIClientError.badURL }
         
         var request = URLRequest(url: url)
+        request.httpMethod = "POST"
         request.addSecret()
         request.setValue(filename, forHTTPHeaderField: HEADER_FILENAME)
         request = try multipart.multipartRequestWith(request: request)
@@ -71,7 +73,7 @@ struct UploadClient
             } else {
                 failure(APIClientError.jsonParserError)
             }
-        }
+        }.resume()
         
         session.finishTasksAndInvalidate()
     }
