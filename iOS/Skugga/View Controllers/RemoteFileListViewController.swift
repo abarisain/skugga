@@ -81,14 +81,18 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
 
     @objc func refreshData()
     {
-        files = RemoteFileDatabaseHelper.cachedFiles
-        tableView.reloadData()
-        refreshControl?.endRefreshing()
+        DispatchQueue.main.async {
+            self.files = RemoteFileDatabaseHelper.cachedFiles
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     @objc func dataRefreshFailed()
     {
-        refreshControl?.endRefreshing()
+        DispatchQueue.main.async {
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     fileprivate func uploadImage(_ image: UIImage, data: Data, filename: String)
