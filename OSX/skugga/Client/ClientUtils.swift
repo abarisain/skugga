@@ -63,3 +63,12 @@ extension URLRequest {
         }
     }
 }
+
+extension URLResponse {
+    func isHTTPSuccessful() -> Bool {
+        if let statusCode = (self as? HTTPURLResponse)?.statusCode {
+            return statusCode >= 200 && statusCode <= 299
+        }
+        return false
+    }
+}
