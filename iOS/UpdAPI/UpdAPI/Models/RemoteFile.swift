@@ -83,4 +83,8 @@ public struct RemoteFile: Codable
         
         return managedObject
     }
+    
+    public func absoluteURL(baseURL: String) -> URL? {
+        return URL(string: baseURL)?.appendingPathComponent(self.url)
+    }
 }

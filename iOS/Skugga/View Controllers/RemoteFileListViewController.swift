@@ -217,8 +217,18 @@ class RemoteFileTableViewCell : UITableViewCell
     {
         filenameLabel.text = remoteFile.filename
         dateLabel.text = remoteFile.uploadDate.timeAgoSinceNow
-        //FIXME : Terrible, terrible method. FIX IT DAMNIT
-        fileImageView.sd_setImage(with: URL(string: Configuration.endpoint + remoteFile.url + "?w=0&h=96")!)
+        
+        var url = remoteFile.absoluteURL(baseURL: Configuration.endpoint)
+        if let baseURL = url {
+            var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
+            urlComponents?.queryItems = [
+                URLQueryItem(name: "w", value: "0"),
+                URLQueryItem(name: "h", value: "96"),
+            ]
+            url = urlComponents?.url
+        }
+        
+        fileImageView.sd_setImage(with: url)
     }
 }
 

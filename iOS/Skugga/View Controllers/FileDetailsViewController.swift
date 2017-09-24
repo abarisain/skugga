@@ -35,7 +35,10 @@ class FileDetailsViewController : UIViewController
         if let remoteFile = remoteFile
         {
             navigationItem.title = remoteFile.filename
-            webView.loadRequest(URLRequest(url: URL(string: Configuration.endpoint + remoteFile.url)!))
+            if let url = remoteFile.absoluteURL(baseURL: Configuration.endpoint) {
+                webView.loadRequest(URLRequest(url: url))
+                //TODO: Error
+            }
         }
     }
     
@@ -48,12 +51,17 @@ class FileDetailsViewController : UIViewController
                 style: .default,
                 handler: { (_) -> Void in
                     // Eat the return value, otherwise it won't compile. Yay swift :)
-                    _ = UIApplication.shared.openURL(URL(string: Configuration.endpoint + remoteFile.url)!)
+                    if let url = remoteFile.absoluteURL(baseURL: Configuration.endpoint) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        //TODO: Error
+                    }
             }))
             popup.addAction(UIAlertAction(title: "Copy URL",
                 style: .default,
                 handler: { (_) -> Void in
-                    UIPasteboard.general.string = Configuration.endpoint + remoteFile.url
+                    if let url = remoteFile.absoluteURL(baseURL: Configuration.endpoint) {
+                        UIPasteboard.general.string = url.absoluteString
+                    }
             }))
             popup.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             present(popup, animated: true, completion: nil)
