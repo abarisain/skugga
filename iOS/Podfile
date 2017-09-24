@@ -16,5 +16,5 @@ target 'Skugga' do
   # Pods for Skugga
 	pod 'AFNetworking', '~> 2.5'
 	pod 'SDWebImage', '~> 3.7.1'
-	pod 'DateTools'
+	pod 'DateToolsSwift'
 end

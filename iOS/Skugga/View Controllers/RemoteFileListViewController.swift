@@ -8,6 +8,7 @@
 
 import UIKit
 import AssetsLibrary
+import DateToolsSwift
 
 @objc
 @objcMembers
@@ -214,7 +215,7 @@ class RemoteFileTableViewCell : UITableViewCell
     func update(_ remoteFile : RemoteFile)
     {
         filenameLabel.text = remoteFile.filename
-        //dateLabel.text = (remoteFile.uploadDate as NSDate).timeAgoSinceNow()
+        dateLabel.text = remoteFile.uploadDate.timeAgoSinceNow
         //FIXME : Terrible, terrible method. FIX IT DAMNIT
         fileImageView.sd_setImage(with: URL(string: Configuration.endpoint + remoteFile.url + "?w=0&h=96")!)
     }
