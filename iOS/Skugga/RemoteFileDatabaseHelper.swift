@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UpdAPI
 
 /*!
  Notification that this helper will emit once the files have changed
@@ -21,7 +22,7 @@ struct RemoteFileDatabaseHelper
     static func refreshFromServer()
     {
         
-        FileListClient().getFileList(saveFilesToDB, failure: { (error: NSError) -> () in
+        FileListClient(configuration: Configuration.updApiConfiguration).getFileList(saveFilesToDB, failure: { (error: NSError) -> () in
             NSLog("Error while refreshing files from server \(error), cause : \(error.userInfo)")
             NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteFilesChangedNotification), object: nil)
         })

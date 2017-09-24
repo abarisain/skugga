@@ -10,6 +10,7 @@ import UIKit
 import Social
 import MobileCoreServices
 import UserNotifications
+import UpdAPI
 
 class ShareViewController: SLComposeServiceViewController {
 
@@ -103,7 +104,7 @@ class ShareViewController: SLComposeServiceViewController {
                         do {
                             var innerError: Error?
                             
-                            let _ = try UploadClient().upload(file: urlItem,
+                            let _ = try UploadClient(configuration: Configuration.updApiConfiguration).upload(file: urlItem,
                                                               progress: { (progress) in
                                                                 progressNotifier.uploadProgress(progress)
                             },

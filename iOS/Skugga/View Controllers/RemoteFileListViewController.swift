@@ -9,6 +9,7 @@
 import UIKit
 import AssetsLibrary
 import DateToolsSwift
+import UpdAPI
 
 @objc
 @objcMembers
@@ -148,7 +149,7 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     {
         if editingStyle == .delete
         {
-            FileListClient().deleteFile(files[(indexPath as NSIndexPath).row],
+            FileListClient(configuration: Configuration.updApiConfiguration).deleteFile(files[(indexPath as NSIndexPath).row],
                 success: { () -> () in
                     self.files.remove(at: (indexPath as NSIndexPath).row)
                     self.tableView.beginUpdates()

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		118BED3F11CD650EB7464869 /* Pods_Share.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12394152FE23D4C3A5F06186 /* Pods_Share.framework */; };
+		51056CEE1F78496700DE9960 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51618B1E1F78490700621790 /* UpdAPI.framework */; };
+		51056CEF1F78496B00DE9960 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51618B1E1F78490700621790 /* UpdAPI.framework */; };
 		510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A03391A8D61B1009FB815 /* AppDelegate.swift */; };
 		510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 510A033B1A8D61B1009FB815 /* Skugga.xcdatamodeld */; };
 		510A03421A8D61B1009FB815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510A03401A8D61B1009FB815 /* Main.storyboard */; };
@@ -17,33 +19,28 @@
 		5165AC341A90EFF50087952D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5165AC331A90EFF50087952D /* MainInterface.storyboard */; };
 		5165AC371A90EFF50087952D /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5165AC2D1A90EFF50087952D /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5165AC3B1A90F03C0087952D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510A03431A8D61B1009FB815 /* Images.xcassets */; };
-		5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476611A8F692E00EAB1F6 /* UploadClient.swift */; };
 		5165AC431A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
 		5165AC441A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
-		5165AC451A90F9300087952D /* ClientConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */; };
 		5177FEFE1F76994C002AED6C /* Pods_Skugga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5177FEFF1F76994C002AED6C /* Pods_Skugga.framework */; };
-		5177FF011F769D42002AED6C /* ClientUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177FF001F769D42002AED6C /* ClientUtils.swift */; };
 		5184765E1A8F690F00EAB1F6 /* RemoteFileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */; };
-		518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476601A8F692E00EAB1F6 /* FileListClient.swift */; };
-		518476631A8F692E00EAB1F6 /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476611A8F692E00EAB1F6 /* UploadClient.swift */; };
-		518476661A8F694000EAB1F6 /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518476651A8F694000EAB1F6 /* RemoteFile.swift */; };
-		5184766D1A8F6A0D00EAB1F6 /* ClientConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */; };
 		518EE2641A8F824800C3F35D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2631A8F824800C3F35D /* SettingsViewController.swift */; };
 		518EE2661A8F82B100C3F35D /* FileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2651A8F82B100C3F35D /* FileDetailsViewController.swift */; };
 		518EE2681A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE2671A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift */; };
 		518EE26D1A8FAA4C00C3F35D /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518EE26C1A8FAA4C00C3F35D /* UploadViewController.swift */; };
 		519D8CDD1D98177400F2D5D0 /* PhotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519D8CDC1D98177400F2D5D0 /* PhotoHelper.swift */; };
 		519D8CE01D98177E00F2D5D0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519D8CDE1D98177E00F2D5D0 /* Photos.framework */; };
-		51CDCC731F76BB7E00A55C51 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC721F76BB7E00A55C51 /* Multipart.swift */; };
-		51CDCC741F76CDBB00A55C51 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC721F76BB7E00A55C51 /* Multipart.swift */; };
-		51CDCC751F77A91100A55C51 /* ClientUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177FF001F769D42002AED6C /* ClientUtils.swift */; };
-		51CDCC771F77D04800A55C51 /* UploadedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC761F77D04800A55C51 /* UploadedFile.swift */; };
-		51CDCC781F77D05900A55C51 /* UploadedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC761F77D04800A55C51 /* UploadedFile.swift */; };
 		51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */; };
 		51F33B961D8F11DA0050BD6F /* NotificationActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		51618B1D1F78490700621790 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 51618B191F78490600621790 /* UpdAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 51618B0E1F78490600621790;
+			remoteInfo = UpdAPI;
+		};
 		5165AC351A90EFF50087952D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 510A032C1A8D61B1009FB815 /* Project object */;
@@ -78,6 +75,7 @@
 		510A03411A8D61B1009FB815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		510A03431A8D61B1009FB815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		510A03461A8D61B1009FB815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		51618B191F78490600621790 /* UpdAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UpdAPI.xcodeproj; path = UpdAPI/UpdAPI.xcodeproj; sourceTree = "<group>"; };
 		5165AC2D1A90EFF50087952D /* Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5165AC301A90EFF50087952D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5165AC311A90EFF50087952D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -88,13 +86,8 @@
 		5165AC411A90F8040087952D /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Share.entitlements; sourceTree = "<group>"; };
 		5165AC421A90F83E0087952D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		5177FEFF1F76994C002AED6C /* Pods_Skugga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Skugga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5177FF001F769D42002AED6C /* ClientUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClientUtils.swift; path = ../../OSX/skugga/Client/ClientUtils.swift; sourceTree = "<group>"; };
 		5184765D1A8F690F00EAB1F6 /* RemoteFileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFileListViewController.swift; path = "View Controllers/RemoteFileListViewController.swift"; sourceTree = "<group>"; };
-		518476601A8F692E00EAB1F6 /* FileListClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileListClient.swift; path = ../../OSX/skugga/Client/FileListClient.swift; sourceTree = "<group>"; };
-		518476611A8F692E00EAB1F6 /* UploadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadClient.swift; path = ../../OSX/skugga/Client/UploadClient.swift; sourceTree = "<group>"; };
-		518476651A8F694000EAB1F6 /* RemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteFile.swift; path = ../../OSX/skugga/Models/RemoteFile.swift; sourceTree = "<group>"; };
 		518476671A8F695E00EAB1F6 /* skugga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skugga-Bridging-Header.h"; sourceTree = "<group>"; };
-		5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientConsts.swift; path = ../../OSX/skugga/Client/ClientConsts.swift; sourceTree = "<group>"; };
 		518EE2631A8F824800C3F35D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "View Controllers/SettingsViewController.swift"; sourceTree = "<group>"; };
 		518EE2651A8F82B100C3F35D /* FileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDetailsViewController.swift; path = "View Controllers/FileDetailsViewController.swift"; sourceTree = "<group>"; };
 		518EE2671A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteFileDatabaseHelper.swift; sourceTree = "<group>"; };
@@ -102,8 +95,6 @@
 		519D8CDC1D98177400F2D5D0 /* PhotoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoHelper.swift; sourceTree = "<group>"; };
 		519D8CDE1D98177E00F2D5D0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
-		51CDCC721F76BB7E00A55C51 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Multipart.swift; path = ../../OSX/skugga/Client/Multipart.swift; sourceTree = "<group>"; };
-		51CDCC761F77D04800A55C51 /* UploadedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadedFile.swift; path = ../../OSX/skugga/Models/UploadedFile.swift; sourceTree = "<group>"; };
 		51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNotifier.swift; sourceTree = "<group>"; };
 		51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationActionManager.swift; sourceTree = "<group>"; };
 		A284E969B54150F2DAF7166D /* Pods-Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Share/Pods-Share.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51056CEE1F78496700DE9960 /* UpdAPI.framework in Frameworks */,
 				5177FEFE1F76994C002AED6C /* Pods_Skugga.framework in Frameworks */,
 				519D8CE01D98177E00F2D5D0 /* Photos.framework in Frameworks */,
 			);
@@ -125,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51056CEF1F78496B00DE9960 /* UpdAPI.framework in Frameworks */,
 				118BED3F11CD650EB7464869 /* Pods_Share.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +141,7 @@
 		510A032B1A8D61B1009FB815 = {
 			isa = PBXGroup;
 			children = (
+				51618B191F78490600621790 /* UpdAPI.xcodeproj */,
 				510A03361A8D61B1009FB815 /* Skugga */,
 				5165AC2E1A90EFF50087952D /* Share */,
 				510A03351A8D61B1009FB815 /* Products */,
@@ -170,8 +164,6 @@
 			children = (
 				5165AC401A90F7E10087952D /* Skugga.entitlements */,
 				518EE26B1A8FA49200C3F35D /* Extensions */,
-				518476641A8F693A00EAB1F6 /* Models */,
-				5184765F1A8F691700EAB1F6 /* Clients */,
 				5184765C1A8F68B600EAB1F6 /* View Controllers */,
 				510A03391A8D61B1009FB815 /* AppDelegate.swift */,
 				5165AC421A90F83E0087952D /* Configuration.swift */,
@@ -194,6 +186,14 @@
 				510A03381A8D61B1009FB815 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		51618B1A1F78490600621790 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				51618B1E1F78490700621790 /* UpdAPI.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		5165AC2E1A90EFF50087952D /* Share */ = {
@@ -226,27 +226,6 @@
 				518EE26C1A8FAA4C00C3F35D /* UploadViewController.swift */,
 			);
 			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		5184765F1A8F691700EAB1F6 /* Clients */ = {
-			isa = PBXGroup;
-			children = (
-				5184766C1A8F6A0D00EAB1F6 /* ClientConsts.swift */,
-				518476601A8F692E00EAB1F6 /* FileListClient.swift */,
-				518476611A8F692E00EAB1F6 /* UploadClient.swift */,
-				5177FF001F769D42002AED6C /* ClientUtils.swift */,
-				51CDCC721F76BB7E00A55C51 /* Multipart.swift */,
-			);
-			name = Clients;
-			sourceTree = "<group>";
-		};
-		518476641A8F693A00EAB1F6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				518476651A8F694000EAB1F6 /* RemoteFile.swift */,
-				51CDCC761F77D04800A55C51 /* UploadedFile.swift */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		518EE26B1A8FA49200C3F35D /* Extensions */ = {
@@ -355,6 +334,12 @@
 			mainGroup = 510A032B1A8D61B1009FB815;
 			productRefGroup = 510A03351A8D61B1009FB815 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 51618B1A1F78490600621790 /* Products */;
+					ProjectRef = 51618B191F78490600621790 /* UpdAPI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				510A03331A8D61B1009FB815 /* Skugga-iOS */,
@@ -362,6 +347,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		51618B1E1F78490700621790 /* UpdAPI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UpdAPI.framework;
+			remoteRef = 51618B1D1F78490700621790 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		510A03321A8D61B1009FB815 /* Resources */ = {
@@ -485,16 +480,9 @@
 				5184765E1A8F690F00EAB1F6 /* RemoteFileListViewController.swift in Sources */,
 				51F33B961D8F11DA0050BD6F /* NotificationActionManager.swift in Sources */,
 				518EE2681A8F95E000C3F35D /* RemoteFileDatabaseHelper.swift in Sources */,
-				518476661A8F694000EAB1F6 /* RemoteFile.swift in Sources */,
-				518476631A8F692E00EAB1F6 /* UploadClient.swift in Sources */,
-				5177FF011F769D42002AED6C /* ClientUtils.swift in Sources */,
 				510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */,
-				518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */,
 				5165AC431A90F83E0087952D /* Configuration.swift in Sources */,
-				51CDCC771F77D04800A55C51 /* UploadedFile.swift in Sources */,
-				5184766D1A8F6A0D00EAB1F6 /* ClientConsts.swift in Sources */,
 				519D8CDD1D98177400F2D5D0 /* PhotoHelper.swift in Sources */,
-				51CDCC731F76BB7E00A55C51 /* Multipart.swift in Sources */,
 				518EE2661A8F82B100C3F35D /* FileDetailsViewController.swift in Sources */,
 				510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */,
 				518EE2641A8F824800C3F35D /* SettingsViewController.swift in Sources */,
@@ -507,11 +495,6 @@
 			files = (
 				5165AC441A90F83E0087952D /* Configuration.swift in Sources */,
 				5165AC321A90EFF50087952D /* ShareViewController.swift in Sources */,
-				51CDCC741F76CDBB00A55C51 /* Multipart.swift in Sources */,
-				5165AC451A90F9300087952D /* ClientConsts.swift in Sources */,
-				51CDCC751F77A91100A55C51 /* ClientUtils.swift in Sources */,
-				5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */,
-				51CDCC781F77D05900A55C51 /* UploadedFile.swift in Sources */,
 				51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -636,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -655,9 +638,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Skugga/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.Skugga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Skugga/skugga-Bridging-Header.h";
@@ -676,9 +659,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Skugga/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.Skugga;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Skugga/skugga-Bridging-Header.h";
@@ -707,6 +690,7 @@
 					"${PODS_ROOT}/Headers/Public/AFNetworking",
 				);
 				INFOPLIST_FILE = Share/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.Skugga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -734,6 +718,7 @@
 					"${PODS_ROOT}/Headers/Public/AFNetworking",
 				);
 				INFOPLIST_FILE = Share/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.Skugga.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

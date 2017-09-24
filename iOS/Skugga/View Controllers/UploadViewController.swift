@@ -8,6 +8,7 @@
 
 import Foundation
 import UserNotifications
+import UpdAPI
 
 @objc
 @objcMembers
@@ -43,7 +44,7 @@ class UploadViewController : UIViewController
     func startUpload()
     {
         do {
-            let _ = try UploadClient().upload(data: targetData!,
+            let _ = try UploadClient(configuration: Configuration.updApiConfiguration).upload(data: targetData!,
                 filename: targetFilename ?? "iOS Image " + Date().description,
                 mimetype: "image/jpeg",
                 progress: { (progress: Double) in
