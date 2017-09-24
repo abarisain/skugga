@@ -37,6 +37,8 @@
 		51CDCC731F76BB7E00A55C51 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC721F76BB7E00A55C51 /* Multipart.swift */; };
 		51CDCC741F76CDBB00A55C51 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC721F76BB7E00A55C51 /* Multipart.swift */; };
 		51CDCC751F77A91100A55C51 /* ClientUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177FF001F769D42002AED6C /* ClientUtils.swift */; };
+		51CDCC771F77D04800A55C51 /* UploadedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC761F77D04800A55C51 /* UploadedFile.swift */; };
+		51CDCC781F77D05900A55C51 /* UploadedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC761F77D04800A55C51 /* UploadedFile.swift */; };
 		51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */; };
 		51F33B961D8F11DA0050BD6F /* NotificationActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +103,7 @@
 		519D8CDE1D98177E00F2D5D0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		51CDCC721F76BB7E00A55C51 /* Multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Multipart.swift; path = ../../OSX/skugga/Client/Multipart.swift; sourceTree = "<group>"; };
+		51CDCC761F77D04800A55C51 /* UploadedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadedFile.swift; path = ../../OSX/skugga/Models/UploadedFile.swift; sourceTree = "<group>"; };
 		51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNotifier.swift; sourceTree = "<group>"; };
 		51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationActionManager.swift; sourceTree = "<group>"; };
 		A284E969B54150F2DAF7166D /* Pods-Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Share/Pods-Share.debug.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				518476651A8F694000EAB1F6 /* RemoteFile.swift */,
+				51CDCC761F77D04800A55C51 /* UploadedFile.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -487,6 +491,7 @@
 				510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */,
 				518476621A8F692E00EAB1F6 /* FileListClient.swift in Sources */,
 				5165AC431A90F83E0087952D /* Configuration.swift in Sources */,
+				51CDCC771F77D04800A55C51 /* UploadedFile.swift in Sources */,
 				5184766D1A8F6A0D00EAB1F6 /* ClientConsts.swift in Sources */,
 				519D8CDD1D98177400F2D5D0 /* PhotoHelper.swift in Sources */,
 				51CDCC731F76BB7E00A55C51 /* Multipart.swift in Sources */,
@@ -506,6 +511,7 @@
 				5165AC451A90F9300087952D /* ClientConsts.swift in Sources */,
 				51CDCC751F77A91100A55C51 /* ClientUtils.swift in Sources */,
 				5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */,
+				51CDCC781F77D05900A55C51 /* UploadedFile.swift in Sources */,
 				51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
