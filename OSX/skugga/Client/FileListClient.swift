@@ -18,7 +18,7 @@ struct FileListClient
             
             URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
                 if let httpErr = response?.httpError() {
-                    failure(httpErr)
+                    failure(httpErr.nsError)
                     return
                 }
                 
@@ -57,7 +57,7 @@ struct FileListClient
             URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
                 
                 if let httpErr = response?.httpError() {
-                    failure(httpErr)
+                    failure(httpErr.nsError)
                     return
                 }
                 

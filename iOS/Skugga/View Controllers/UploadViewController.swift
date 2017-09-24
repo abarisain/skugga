@@ -48,9 +48,9 @@ class UploadViewController : UIViewController
                 mimetype: "image/jpeg",
                 progress: { (progress: Double) in
                     self.progressView.progress = Float(progress)
-                }, success: { (data: [AnyHashable: Any]) -> Void in
+                }, success: { (file) in
                     
-                    var url = data["name"] as! String
+                    var url = file.url
                     url = Configuration.endpoint + url
                     
                     let alert = UIAlertController(title: "Image uploaded!", message: "\(url) has been copied to your clipboard", preferredStyle: .alert)
