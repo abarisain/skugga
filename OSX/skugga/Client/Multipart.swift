@@ -20,16 +20,16 @@ enum MultipartError: Error {
 // The data must fit in RAM
 // Only UTF-8 is supported
 public struct Multipart {
-    let boundary = "skugga_" + UUID().uuidString
-    var finished = false
-    var data = Data()
+    private let boundary = "skugga_" + UUID().uuidString
+    private var finished = false
+    private var data = Data()
     
-    mutating func addFile(name: String, filename: String, data fileData: Data) throws {
+    mutating func addFile(name: String, filename: String, mimetype: String?, data fileData: Data) throws {
         try appendBoundaryStart()
         let safeName = Multipart.safeStringForDataParameter(name)
         let safeFilename = Multipart.safeStringForDataParameter(filename)
         try appendLine("Content-Disposition: form-data; name=\"\(safeName)\"; filename=\"\(safeFilename)\"")
-        try appendLine("Content-Type: application/octet-stream")
+        try appendLine("Content-Type: \(mimetype ?? "application/octet-stream")")
         data += fileData
     }
     
