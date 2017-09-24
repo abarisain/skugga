@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import AssetsLibrary
 import DateToolsSwift
 import UpdAPI
+import Photos
 
 @objc
 @objcMembers
@@ -168,18 +168,19 @@ class RemoteFileListViewController : UITableViewController, UIImagePickerControl
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any])
     {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let url = info[UIImagePickerControllerReferenceURL] as! URL
         
-        picker.dismiss(animated: true, completion: { () -> Void in
-            ALAssetsLibrary().asset(for: url, resultBlock: { (asset: ALAsset?) -> Void in
-                self.uploadImage(image, data: UIImageJPEGRepresentation(image, 1)!, filename: (asset!.defaultRepresentation().filename() as NSString).deletingPathExtension)
-            }, failureBlock: { (error: Error?) -> Void in
-                let error = error as? NSError
-                let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error?.userInfo)", preferredStyle: .alert)
+        picker.dismiss(animated: true) { () -> Void in
+            if let asset = info[UIImagePickerControllerPHAsset] as? PHAsset {
+                let filename = asset.value(forKey: "filename") as? String ?? "iOS Upload"
+                self.uploadImage(image,
+                                 data: UIImageJPEGRepresentation(image, 1)!,
+                                 filename: filename)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Couldn't upload image", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-            })
-        })
+            }
+        }
     }
     
     // MARK : UIViewControllerPreviewingDelegate
