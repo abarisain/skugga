@@ -103,23 +103,22 @@ class ShareViewController: SLComposeServiceViewController {
                         do {
                             var innerError: NSError?
                             
-                            let _ = try UploadClient().uploadFile(urlItem,
-                                                                  progress: { (bytesSent: Int64, bytesToSend: Int64) -> Void in
-                                                                    DispatchQueue.main.sync(execute: { () -> Void in
-                                                                        progressNotifier.uploadProgress(percentage: Int((Double(bytesSent) / Double(bytesToSend))*100))
-                                                                    })
-                                }, success: { (data: [AnyHashable: Any]) -> Void in
-                                    var url = data["name"] as! String
-                                    url = Configuration.endpoint + url
-                                    
-                                    UIPasteboard.general.string = url
-                                    
-                                    progressNotifier.uploadSuccess(url: url)
-                                    
-                                    self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
-                                    
-                                }, failure: { (error: NSError) -> Void in
-                                    innerError = error
+                            let _ = try UploadClient().upload(file: urlItem,
+                                                              progress: { (progress) in
+                                                                progressNotifier.uploadProgress(progress)
+                            },
+                                                              success: { (data: [AnyHashable: Any]) -> Void in
+                                                                var url = data["name"] as! String
+                                                                url = Configuration.endpoint + url
+                                                                
+                                                                UIPasteboard.general.string = url
+                                                                
+                                                                progressNotifier.uploadSuccess(url: url)
+                                                                
+                                                                self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
+                                                                
+                            }, failure: { (error: NSError) -> Void in
+                                innerError = error
                             })
                             
                             if let innerError = innerError {

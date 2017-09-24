@@ -43,14 +43,11 @@ class UploadViewController : UIViewController
     func startUpload()
     {
         do {
-            let _ = try UploadClient().uploadFile(targetData!,
+            let _ = try UploadClient().upload(data: targetData!,
                 filename: targetFilename ?? "iOS Image " + Date().description,
                 mimetype: "image/jpeg",
-                progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
-                    DispatchQueue.main.sync(execute: { () -> Void in
-                        
-                        self.progressView.progress = Float(Double(bytesSent) / Double(bytesToSend))
-                    })
+                progress: { (progress: Double) in
+                    self.progressView.progress = Float(progress)
                 }, success: { (data: [AnyHashable: Any]) -> Void in
                     
                     var url = data["name"] as! String

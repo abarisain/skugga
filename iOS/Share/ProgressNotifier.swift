@@ -13,7 +13,7 @@ import UserNotifications
 protocol ProgressNotifier {
     func uploadStarted(itemURL: URL?)
     
-    func uploadProgress(percentage: Int)
+    func uploadProgress(_ progress: Double)
     
     func uploadSuccess(url: String)
     
@@ -44,9 +44,9 @@ class NotificationProgressNotifier: AlertProgressNotifier {
         UNUserNotificationCenter.current().add(request)
     }
     
-    override func uploadProgress(percentage: Int) {
-        super.uploadProgress(percentage: percentage)
-        
+    override func uploadProgress(_ progress: Double) {
+        super.uploadProgress(progress)
+        let percentage = floor(progress)
         if (percentage >= 60 && !alreadyNotifiedProgress) {
             alreadyNotifiedProgress = true
             let content = UNMutableNotificationContent()
@@ -118,8 +118,8 @@ class AlertProgressNotifier: ProgressNotifier {
         }
     }
     
-    func uploadProgress(percentage: Int) {
-        alert?.message = NSString(format: "%d %%", percentage) as String
+    func uploadProgress(_ progress: Double) {
+        alert?.message = NSString(format: "%d %%", floor(progress*100)) as String
     }
     
     func uploadSuccess(url: String) {
