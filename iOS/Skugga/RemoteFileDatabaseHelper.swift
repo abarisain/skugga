@@ -89,24 +89,26 @@ struct RemoteFileDatabaseHelper
     
     fileprivate static func saveFilesToDB(_ files: [RemoteFile])
     {
-        truncateFilesDB()
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
-        
-        let entity = NSEntityDescription.entity(forEntityName: "RemoteFile", in: managedContext)
-        
-        for file in files
-        {
-            let _ = file.toNSManagedObject(managedContext, entity: entity!)
+        DispatchQueue.main.async {
+            truncateFilesDB()
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.managedObjectContext!
+            
+            let entity = NSEntityDescription.entity(forEntityName: "RemoteFile", in: managedContext)
+            
+            for file in files
+            {
+                let _ = file.toNSManagedObject(managedContext, entity: entity!)
+            }
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                NSLog("Could not save remote files \(error), cause : \(error.userInfo)")
+            }
+            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteFilesChangedNotification), object: nil)
         }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            NSLog("Could not save remote files \(error), cause : \(error.userInfo)")
-        }
-        
-        NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteFilesChangedNotification), object: nil)
     }
 }
