@@ -17,6 +17,11 @@ struct FileListClient
             let request = try URLRequest(route: .List)
             
             URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
+                if let httpErr = response?.httpError() {
+                    failure(httpErr)
+                    return
+                }
+                
                 if let data = data, let files = try? JSONDecoder().decode(Array<RemoteFile>.self, from: data) {
                     success(files.sorted(by: {$0.uploadDate > $1.uploadDate}))
                 } else {
@@ -51,7 +56,10 @@ struct FileListClient
             
             URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
                 
-                
+                if let httpErr = response?.httpError() {
+                    failure(httpErr)
+                    return
+                }
                 
                 if err != nil {
                     if let err = err as NSError? {
