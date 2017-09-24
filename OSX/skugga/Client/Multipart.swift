@@ -22,7 +22,8 @@ enum MultipartError: Error {
 public struct Multipart {
     private let boundary = "skugga_" + UUID().uuidString
     private var finished = false
-    private var data = Data()
+    
+    private(set) var data = Data()
     
     mutating func addFile(name: String, filename: String, mimetype: String?, data fileData: Data) throws {
         try appendBoundaryStart()
@@ -30,7 +31,9 @@ public struct Multipart {
         let safeFilename = Multipart.safeStringForDataParameter(filename)
         try appendLine("Content-Disposition: form-data; name=\"\(safeName)\"; filename=\"\(safeFilename)\"")
         try appendLine("Content-Type: \(mimetype ?? "application/octet-stream")")
+        try append(string: crlf) // Two line breaks are needed before sending the actual data
         data += fileData
+        try append(string: crlf)
     }
     
     mutating func finish() throws {
@@ -44,7 +47,6 @@ public struct Multipart {
         }
         
         var request = r
-        request.setValue(String(data.count), forHTTPHeaderField: "Content-Length")
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
         return request
