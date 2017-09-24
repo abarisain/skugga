@@ -71,7 +71,7 @@
 		04ABE366DE23FCD97D46CFA1 /* Pods-Skugga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skugga/Pods-Skugga.debug.xcconfig"; sourceTree = "<group>"; };
 		12394152FE23D4C3A5F06186 /* Pods_Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Share.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7D06D1BBE8158C7189C1C8 /* Pods-Skugga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skugga/Pods-Skugga.release.xcconfig"; sourceTree = "<group>"; };
-		510A03341A8D61B1009FB815 /* Skugga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skugga.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		510A03341A8D61B1009FB815 /* Skugga-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skugga-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		510A03381A8D61B1009FB815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		510A03391A8D61B1009FB815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		510A033C1A8D61B1009FB815 /* Skugga.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Skugga.xcdatamodel; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		510A03351A8D61B1009FB815 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				510A03341A8D61B1009FB815 /* Skugga.app */,
+				510A03341A8D61B1009FB815 /* Skugga-iOS.app */,
 				5165AC2D1A90EFF50087952D /* Share.appex */,
 			);
 			name = Products;
@@ -271,9 +271,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		510A03331A8D61B1009FB815 /* Skugga */ = {
+		510A03331A8D61B1009FB815 /* Skugga-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 510A03561A8D61B1009FB815 /* Build configuration list for PBXNativeTarget "Skugga" */;
+			buildConfigurationList = 510A03561A8D61B1009FB815 /* Build configuration list for PBXNativeTarget "Skugga-iOS" */;
 			buildPhases = (
 				28407BB17FBF7EF83183198A /* [CP] Check Pods Manifest.lock */,
 				510A03301A8D61B1009FB815 /* Sources */,
@@ -288,9 +288,9 @@
 			dependencies = (
 				5165AC361A90EFF50087952D /* PBXTargetDependency */,
 			);
-			name = Skugga;
+			name = "Skugga-iOS";
 			productName = Skugga;
-			productReference = 510A03341A8D61B1009FB815 /* Skugga.app */;
+			productReference = 510A03341A8D61B1009FB815 /* Skugga-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5165AC2C1A90EFF50087952D /* Share */ = {
@@ -344,7 +344,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 510A032F1A8D61B1009FB815 /* Build configuration list for PBXProject "Skugga" */;
+			buildConfigurationList = 510A032F1A8D61B1009FB815 /* Build configuration list for PBXProject "Skugga-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -357,7 +357,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				510A03331A8D61B1009FB815 /* Skugga */,
+				510A03331A8D61B1009FB815 /* Skugga-iOS */,
 				5165AC2C1A90EFF50087952D /* Share */,
 			);
 		};
@@ -748,7 +748,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		510A032F1A8D61B1009FB815 /* Build configuration list for PBXProject "Skugga" */ = {
+		510A032F1A8D61B1009FB815 /* Build configuration list for PBXProject "Skugga-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				510A03541A8D61B1009FB815 /* Debug */,
@@ -757,7 +757,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		510A03561A8D61B1009FB815 /* Build configuration list for PBXNativeTarget "Skugga" */ = {
+		510A03561A8D61B1009FB815 /* Build configuration list for PBXNativeTarget "Skugga-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				510A03571A8D61B1009FB815 /* Debug */,

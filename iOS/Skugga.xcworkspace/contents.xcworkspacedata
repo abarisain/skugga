@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Skugga.xcodeproj">
+      location = "group:/Users/arnaud/dev/perso/skugga/iOS/Skugga-iOS.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
