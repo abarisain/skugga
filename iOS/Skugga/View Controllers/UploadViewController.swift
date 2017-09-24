@@ -90,18 +90,18 @@ class UploadViewController : UIViewController
                     // Start refreshing the file list, and hope it will be fresh for the RemoteFile list view
                     RemoteFileDatabaseHelper.refreshFromServer()
                     
-                }, failure: { (error: NSError) -> Void in
+                }, failure: { (error: Error) -> Void in
                     self.onFailure(error)
             })
-        } catch let error as NSError {
+        } catch {
             self.onFailure(error)
         }
     }
     
-    func onFailure(_ error: NSError)
+    func onFailure(_ error: Error)
     {
-        
-        let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(error) \(error.userInfo)", preferredStyle: .alert)
+        let errorInfo = (error as? LocalizedError)?.errorDescription ?? "Unknown error"
+        let alert = UIAlertController(title: "Error", message: "Couldn't upload image : \(errorInfo)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) -> () in self.dismiss(animated: true, completion: nil) }))
         self.present(alert, animated: true, completion: nil)
     }

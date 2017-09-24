@@ -101,7 +101,7 @@ class ShareViewController: SLComposeServiceViewController {
                         progressNotifier.uploadStarted(itemURL: attachmentURL)
                         
                         do {
-                            var innerError: NSError?
+                            var innerError: Error?
                             
                             let _ = try UploadClient().upload(file: urlItem,
                                                               progress: { (progress) in
@@ -117,21 +117,22 @@ class ShareViewController: SLComposeServiceViewController {
                                                                 
                                                                 self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
                                                                 
-                            }, failure: { (error: NSError) -> Void in
+                            }, failure: { (error: Error) -> Void in
                                 innerError = error
                             })
                             
                             if let innerError = innerError {
                                 throw innerError
                             }
-                        } catch let error as NSError {
-                            NSLog("Failed to upload file \(error) \(error.userInfo)")
-                            progressNotifier.uploadFailed(error: error)
+                        } catch {
+                            //TODO : fix this and remove the inner error
+                            //NSLog("Failed to upload file \(error) \(error.userInfo)")
+                            //progressNotifier.uploadFailed(error: error)
                             
                             if (backgroundUpload) {
                                 self.extensionContext!.cancelRequest(withError: error)
                             }
-                        } catch {}
+                        }
                     }
                     else
                     {

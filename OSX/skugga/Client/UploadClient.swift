@@ -12,23 +12,10 @@ import Foundation
 
 struct UploadClient
 {
-    func upload(data: Data,
-                filename: String,
-                mimetype: String,
+    func upload(file: URL,
                 progress:((Double) -> Void)?,
                 success:@escaping ([AnyHashable: Any]) -> Void,
-                failure:@escaping (NSError) -> Void) throws
-    {
-        /*return try uploadFile({ (formData: AFMultipartFormData?) -> Void in
-            formData?.appendPart(withFileData: data, name: "data", fileName: filename, mimeType: mimetype)
-            },
-            filename: filename, progress: progress, success: success, failure: failure)*/
-        
-        return
-    }
-    
-    func upload(file: URL,
-                progress:((Double) -> Void)?, success:@escaping ([AnyHashable: Any]) -> Void, failure:@escaping (NSError) -> Void) throws
+                failure:@escaping (Error) -> Void) throws
     {
         return
 //        return try uploadFile({ (data: AFMultipartFormData?) -> Void in
@@ -66,6 +53,12 @@ struct UploadClient
         let session = URLSession(configuration: URLSessionConfiguration.default,
                                  delegate: delegate,
                                  delegateQueue: OperationQueue.main)
+        
+        session.dataTask(with: request) { (data: Data?, response: URLResponse?, err: Error?) in
+            guard let data = data else { failure(err ?? APIClientError.unknown); return }
+            
+            
+        }
         
         session.finishTasksAndInvalidate()
     }

@@ -50,6 +50,9 @@ struct FileListClient
             }
             
             URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, err: Error?) in
+                
+                
+                
                 if err != nil {
                     if let err = err as NSError? {
                         failure(err)
