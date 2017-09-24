@@ -30,13 +30,19 @@ enum APIClientError: String, Error, LocalizedError {
     }
 }
 
+extension URL {
+    init?(route: Route?) {
+        self.init(string: Configuration.endpoint)
+        self.appendPathComponent("1.0")
+        if let route = route {
+            self.appendPathComponent(route.rawValue)
+        }
+    }
+}
+
 extension URLRequest {
     init(route: Route?) throws {
-        var url = URL(string: Configuration.endpoint)
-        url?.appendPathComponent("1.0")
-        if let route = route {
-            url?.appendPathComponent(route.rawValue)
-        }
+        let url = URL(route: route)
         
         if let url = url {
             self.init(url: url)

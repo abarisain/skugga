@@ -6,28 +6,31 @@
 //
 //
 
-private let ROUTE_SEND = "1.0/send"
-
 private let HEADER_FILENAME = "X-Upd-Orig-Filename"
 
 import Foundation
 
-
 struct UploadClient
 {
-    func uploadFile(_ data: Data, filename: String, mimetype: String, progress:((_ bytesSent:Int64, _ bytesToSend:Int64) -> Void)?, success:@escaping ([AnyHashable: Any]) -> Void, failure:@escaping (NSError) -> Void) throws -> Bool
+    func upload(data: Data,
+                filename: String,
+                mimetype: String,
+                progress:((_ bytesSent:Int64, _ bytesToSend:Int64) -> Void)?,
+                success:@escaping ([AnyHashable: Any]) -> Void,
+                failure:@escaping (NSError) -> Void) throws
     {
         /*return try uploadFile({ (formData: AFMultipartFormData?) -> Void in
             formData?.appendPart(withFileData: data, name: "data", fileName: filename, mimeType: mimetype)
             },
             filename: filename, progress: progress, success: success, failure: failure)*/
         
-        return false
+        return
     }
     
-    func uploadFile(_ file: URL, progress:((_ bytesSent:Int64, _ bytesToSend:Int64) -> Void)?, success:@escaping ([AnyHashable: Any]) -> Void, failure:@escaping (NSError) -> Void) throws -> Bool
+    func upload(file: URL,
+                progress:((Float) -> Void)?, success:@escaping ([AnyHashable: Any]) -> Void, failure:@escaping (NSError) -> Void) throws
     {
-        return false
+        return
 //        return try uploadFile({ (data: AFMultipartFormData?) -> Void in
 //                do {
 //                    try data?.appendPart(withFileURL: file, name: "data")
@@ -36,54 +39,49 @@ struct UploadClient
 //            filename: file.lastPathComponent, progress: progress, success: success, failure: failure)
     }
     
-    fileprivate func uploadFile(_ bodyBlock:@escaping (_ data: Any?) -> Void, filename: String, progress:((_ bytesSent:Int64, _ bytesToSend:Int64) -> Void)?, success:@escaping ([AnyHashable: Any]) -> Void, failure:@escaping (NSError) -> Void) throws -> Bool
+    func upload(data: Data,
+                filename: String,
+                mimetype: String?,
+                progress:((Double) -> Void)?,
+                success:@escaping ([AnyHashable: Any]) -> Void,
+                failure:@escaping (Error) -> Void) throws
     {
-        return false
-//        let manager = AFHTTPSessionManager()
-//
-//        manager.setTaskDidSendBodyDataBlock({ (session: URLSession?, task: URLSessionTask?, bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) -> Void in
-//            progress?(totalBytesSent, totalBytesExpectedToSend)
-//        })
-//
-//        var request: NSMutableURLRequest!
-//        request = AFHTTPRequestSerializer().multipartFormRequest(withMethod: "POST",
-//            urlString: Configuration.endpoint + ROUTE_SEND + "?name=" + filename.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
-//            parameters: [:],
-//            constructingBodyWith: bodyBlock)
-//
-//        request.addValue(filename, forHTTPHeaderField: HEADER_FILENAME)
-//
-//        let secret = Configuration.secret
-//        if (!secret.isEmpty)
-//        {
-//            request.addValue(secret, forHTTPHeaderField: ClientConsts.SECRET_KEY_HEADER)
-//        }
-//
-//        let uploadTask = manager.uploadTask(withStreamedRequest: request as URLRequest!,
-//            progress: nil,
-//            completionHandler: { (response: URLResponse?, responseObject: Any?, error: Error?) -> Void in
-//                if let error = error
-//                {
-//                    failure(error as NSError)
-//                }
-//                else
-//                {
-//                    let httpResponse = response as! HTTPURLResponse
-//                    if (httpResponse.statusCode == 200)
-//                    {
-//                        success(responseObject as! Dictionary)
-//                    }
-//                    else
-//                    {
-//                        failure(NSError(domain: ClientConsts.CLIENT_ERROR_DOMAIN, code: 1, userInfo: ["": "Error while uploading file", "statusCode": httpResponse.statusCode]))
-//                    }
-//                }
-//
-//            }
-//        )
-//
-//        uploadTask.resume()
-//
-//        return true
+        var multipart = Multipart()
+        try multipart.addFile(name: "data", filename: filename, mimetype: mimetype, data: data)
+        
+        guard let baseURL = URL(route: .Send) else { throw APIClientError.badURL }
+        guard var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: false) else { throw APIClientError.badURL }
+        urlComponents.queryItems = [URLQueryItem(name: "name", value: filename)]
+        guard let url = urlComponents.url else { throw APIClientError.badURL }
+        
+        var request = URLRequest(url: url)
+        request.addSecret()
+        request.setValue(filename, forHTTPHeaderField: HEADER_FILENAME)
+        request = try multipart.multipartRequestWith(request: request)
+
+        let progressCallback = progress ?? {(_) in }
+        
+        let delegate = URLSessionProgressDelegate(progressCallback: progressCallback)
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default,
+                                 delegate: delegate,
+                                 delegateQueue: OperationQueue.main)
+        
+        session.finishTasksAndInvalidate()
     }
+}
+
+@objc
+class URLSessionProgressDelegate: NSObject, URLSessionTaskDelegate {
+    
+    let progressCallback: (_ progressPercentage: Double) -> Void
+    
+    init(progressCallback c: @escaping(_ progressPercentage: Double) -> Void) {
+        self.progressCallback = c;
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        progressCallback(Double(totalBytesSent / totalBytesExpectedToSend))
+    }
+    
 }

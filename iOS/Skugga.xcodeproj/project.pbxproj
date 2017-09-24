@@ -36,6 +36,7 @@
 		519D8CE01D98177E00F2D5D0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519D8CDE1D98177E00F2D5D0 /* Photos.framework */; };
 		51CDCC731F76BB7E00A55C51 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC721F76BB7E00A55C51 /* Multipart.swift */; };
 		51CDCC741F76CDBB00A55C51 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CDCC721F76BB7E00A55C51 /* Multipart.swift */; };
+		51CDCC751F77A91100A55C51 /* ClientUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177FF001F769D42002AED6C /* ClientUtils.swift */; };
 		51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */; };
 		51F33B961D8F11DA0050BD6F /* NotificationActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */; };
 /* End PBXBuildFile section */
@@ -503,6 +504,7 @@
 				5165AC321A90EFF50087952D /* ShareViewController.swift in Sources */,
 				51CDCC741F76CDBB00A55C51 /* Multipart.swift in Sources */,
 				5165AC451A90F9300087952D /* ClientConsts.swift in Sources */,
+				51CDCC751F77A91100A55C51 /* ClientUtils.swift in Sources */,
 				5165AC3E1A90F6BC0087952D /* UploadClient.swift in Sources */,
 				51F33B941D8EEFDA0050BD6F /* ProgressNotifier.swift in Sources */,
 			);

@@ -14,4 +14,5 @@ public struct ClientConsts
 
 enum Route: String {
     case List = "list"
+    case Send = "send"
 }
