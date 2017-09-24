@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_SkuggaVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_SkuggaVersionString[];
+FOUNDATION_EXPORT double Pods_Skugga_iOSVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Skugga_iOSVersionString[];
 
