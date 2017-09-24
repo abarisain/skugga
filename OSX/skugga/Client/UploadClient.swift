@@ -30,7 +30,7 @@ struct UploadClient
                 filename: String,
                 mimetype: String?,
                 progress:((Double) -> Void)?,
-                success:@escaping ([AnyHashable: Any]) -> Void,
+                success:@escaping (UploadedFile) -> Void,
                 failure:@escaping (Error) -> Void) throws
     {
         var multipart = Multipart()
@@ -55,9 +55,22 @@ struct UploadClient
                                  delegateQueue: OperationQueue.main)
         
         session.dataTask(with: request) { (data: Data?, response: URLResponse?, err: Error?) in
-            guard let data = data else { failure(err ?? APIClientError.unknown); return }
+            if let err = err {
+                failure(err)
+                return
+            }
             
+            if let httpErr = response?.httpError() {
+                failure(httpErr)
+                return
+            }
             
+            if let data = data,
+                let file = try? JSONDecoder().decode(UploadedFile.self, from: data) {
+                success(file);
+            } else {
+                failure(APIClientError.jsonParserError)
+            }
         }
         
         session.finishTasksAndInvalidate()

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct UploadedFile: Codable {
+    let url: String
+    
+    enum CodingKeys: String, CodingKey {
+        case url = "name"
+    }
+}
