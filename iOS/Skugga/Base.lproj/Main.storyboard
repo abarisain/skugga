@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         <!--Settings-->
         <scene sceneID="Zjb-Gr-aP5">
             <objects>
-                <tableViewController storyboardIdentifier="SettingsViewController" id="rsc-5l-3EA" customClass="SettingsViewController" customModule="Skugga" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsViewController" id="rsc-5l-3EA" customClass="SettingsViewController" customModule="Skugga_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jXm-27-5mZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,13 +136,13 @@
         <!--Files-->
         <scene sceneID="s8n-Kr-zCL">
             <objects>
-                <tableViewController id="OIe-bE-XRt" customClass="RemoteFileListViewController" customModule="Skugga" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="OIe-bE-XRt" customClass="RemoteFileListViewController" customModule="Skugga_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="IHA-C6-weh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FileCell" rowHeight="64" id="c7F-o2-ct9" customClass="RemoteFileTableViewCell" customModule="Skugga" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FileCell" rowHeight="64" id="c7F-o2-ct9" customClass="RemoteFileTableViewCell" customModule="Skugga_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c7F-o2-ct9" id="nAW-iQ-rhi">
@@ -245,7 +244,7 @@
         <!--Uploading...-->
         <scene sceneID="nnT-EH-a3c">
             <objects>
-                <viewController id="7EU-Sf-1fv" customClass="UploadViewController" customModule="Skugga" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7EU-Sf-1fv" customClass="UploadViewController" customModule="Skugga_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0em-vR-S7Q"/>
                         <viewControllerLayoutGuide type="bottom" id="5dW-dL-PRc"/>
@@ -258,26 +257,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbl-Ft-1TC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="107"/>
+                                <rect key="frame" x="24" y="74" width="327" height="37"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CkB-jk-GmI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="327" height="37"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LB9-Xe-BAI">
-                                            <rect key="frame" x="0.0" y="105" width="375" height="2"/>
+                                            <rect key="frame" x="0.0" y="35" width="327" height="2"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="wtZ-cx-7ye"/>
                                             </constraints>
                                         </progressView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Z28-Tf-OEb">
-                                            <rect key="frame" x="8" y="77" width="20" height="20"/>
+                                            <rect key="frame" x="8" y="8" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="1Ya-zz-N7q"/>
                                                 <constraint firstAttribute="height" constant="20" id="SZc-u3-lEg"/>
                                             </constraints>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNI-Go-C7y">
-                                            <rect key="frame" x="8" y="76" width="359" height="21"/>
+                                            <rect key="frame" x="8" y="8" width="311" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="hCb-nx-TV1"/>
                                             </constraints>
@@ -287,30 +286,36 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="LB9-Xe-BAI" secondAttribute="trailing" id="4sf-F2-fHj"/>
-                                        <constraint firstItem="Z28-Tf-OEb" firstAttribute="top" secondItem="CkB-jk-GmI" secondAttribute="topMargin" constant="69" id="7No-sz-26Z"/>
-                                        <constraint firstItem="Z28-Tf-OEb" firstAttribute="leading" secondItem="CkB-jk-GmI" secondAttribute="leadingMargin" id="BJE-f0-A4O"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="fNI-Go-C7y" secondAttribute="trailing" id="Ni1-JZ-Xpa"/>
-                                        <constraint firstItem="fNI-Go-C7y" firstAttribute="leading" secondItem="CkB-jk-GmI" secondAttribute="leadingMargin" id="RmO-El-UuV"/>
+                                        <constraint firstItem="fNI-Go-C7y" firstAttribute="leading" secondItem="CkB-jk-GmI" secondAttribute="leading" constant="8" id="7r0-IR-P2v"/>
+                                        <constraint firstItem="Z28-Tf-OEb" firstAttribute="leading" secondItem="CkB-jk-GmI" secondAttribute="leading" constant="8" id="9DX-bi-SwS"/>
+                                        <constraint firstItem="fNI-Go-C7y" firstAttribute="top" secondItem="CkB-jk-GmI" secondAttribute="top" constant="8" id="FcK-Mb-yl9"/>
+                                        <constraint firstItem="Z28-Tf-OEb" firstAttribute="top" secondItem="CkB-jk-GmI" secondAttribute="top" constant="8" id="RCf-e9-9hq"/>
                                         <constraint firstItem="LB9-Xe-BAI" firstAttribute="leading" secondItem="CkB-jk-GmI" secondAttribute="leading" id="Z1c-dd-5r6"/>
+                                        <constraint firstAttribute="trailing" secondItem="fNI-Go-C7y" secondAttribute="trailing" constant="8" id="oHq-59-AGb"/>
                                         <constraint firstAttribute="bottom" secondItem="LB9-Xe-BAI" secondAttribute="bottom" id="tU4-k9-m9W"/>
-                                        <constraint firstItem="fNI-Go-C7y" firstAttribute="top" secondItem="CkB-jk-GmI" secondAttribute="topMargin" constant="68" id="yBc-Bb-Uqo"/>
                                     </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="TBE-IT-gsg"/>
+                                    <constraint firstAttribute="height" constant="37" id="69P-Mf-Lps"/>
                                 </constraints>
                                 <blurEffect style="light"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5dW-dL-PRc" firstAttribute="top" secondItem="B5m-r4-cZo" secondAttribute="bottom" id="KHZ-8n-R0V"/>
                             <constraint firstItem="B5m-r4-cZo" firstAttribute="leading" secondItem="apW-Mz-v7j" secondAttribute="leading" id="L04-XK-h8m"/>
-                            <constraint firstItem="mbl-Ft-1TC" firstAttribute="leading" secondItem="apW-Mz-v7j" secondAttribute="leading" id="OM3-2o-QLo"/>
+                            <constraint firstItem="mbl-Ft-1TC" firstAttribute="top" secondItem="0em-vR-S7Q" secondAttribute="bottom" constant="10" id="PPH-S2-MjG"/>
                             <constraint firstAttribute="trailing" secondItem="B5m-r4-cZo" secondAttribute="trailing" id="RKc-YA-HBa"/>
                             <constraint firstItem="B5m-r4-cZo" firstAttribute="top" secondItem="apW-Mz-v7j" secondAttribute="top" id="XJe-iG-Nhf"/>
-                            <constraint firstItem="mbl-Ft-1TC" firstAttribute="top" secondItem="apW-Mz-v7j" secondAttribute="topMargin" id="ePC-WM-xJE"/>
-                            <constraint firstAttribute="trailing" secondItem="mbl-Ft-1TC" secondAttribute="trailing" id="l2r-DI-J8R"/>
+                            <constraint firstItem="mbl-Ft-1TC" firstAttribute="leading" secondItem="apW-Mz-v7j" secondAttribute="leadingMargin" constant="8" id="dBl-ey-cjL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mbl-Ft-1TC" secondAttribute="trailing" constant="8" id="j6v-JN-rC2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Uploading..." id="gQx-xS-zer"/>
@@ -322,12 +327,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQ8-LZ-AXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="1174"/>
+            <point key="canvasLocation" x="937.5" y="1173.5"/>
         </scene>
         <!--File-->
         <scene sceneID="jgy-er-2R3">
             <objects>
-                <viewController storyboardIdentifier="FileDetailsViewController" id="fpg-85-lTc" customClass="FileDetailsViewController" customModule="Skugga" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FileDetailsViewController" id="fpg-85-lTc" customClass="FileDetailsViewController" customModule="Skugga_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M1L-c7-MXr"/>
                         <viewControllerLayoutGuide type="bottom" id="SmM-zk-RVg"/>
