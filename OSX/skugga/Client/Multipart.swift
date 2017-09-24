@@ -38,12 +38,12 @@ public struct Multipart {
         finished = true
     }
     
-    func asRequest(url: URL) throws -> URLRequest {
+    func multipartRequestWith(request r: URLRequest) throws -> URLRequest {
         if !finished {
             throw MultipartError.notFinishedError
         }
         
-        var request = URLRequest(url: url)
+        var request = r
         request.setValue(String(data.count), forHTTPHeaderField: "Content-Length")
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
