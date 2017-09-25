@@ -1,0 +1,19 @@
+target 'Skugga-iOS' do
+  use_frameworks!
+  platform :ios, '10.0'
+  workspace 'Skugga'
+  xcodeproj 'iOS/Skugga-iOS.xcodeproj'
+
+  pod 'SDWebImage', '~> 3.7.1'
+  pod 'DateToolsSwift'
+end
+
+target 'Skugga-macOS' do
+  use_frameworks!
+  platform :osx, '10.11'
+  workspace 'Skugga'
+  xcodeproj 'macOS/Skugga-macOS.xcodeproj'
+
+  pod 'OTWebImage', :git => 'https://github.com/OpenFibers/OTWebImage.git'
+  pod 'DateToolsSwift'
+end
