@@ -12,8 +12,8 @@
 		511AB2C11AB60BB4008ADE7F /* AdvancedUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511AB2C01AB60BB4008ADE7F /* AdvancedUploadViewController.swift */; };
 		512287A01CA71DF500CCEDC8 /* FilesystemEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5122879F1CA71DF500CCEDC8 /* FilesystemEventListener.swift */; };
 		512287A21CA7D70100CCEDC8 /* DesktopScreenshotWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512287A11CA7D70100CCEDC8 /* DesktopScreenshotWatcher.swift */; };
-		5126B1381F79274D00258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1391F79274D00258230 /* UpdAPI.framework */; };
-		5126B13A1F79275300258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B13B1F79275300258230 /* UpdAPI.framework */; };
+		5126B15B1F79299600258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B13D1F79286F00258230 /* UpdAPI.framework */; };
+		5126B15C1F7929A500258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B13D1F79286F00258230 /* UpdAPI.framework */; };
 		514CA0061A880F2E0008F2CE /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0051A880F2E0008F2CE /* SettingsWindow.swift */; };
 		514CA0081A8812AB0008F2CE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514CA0071A8812AB0008F2CE /* Configuration.swift */; };
 		518293C41A8D388A006531B0 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 518293C31A8D388A006531B0 /* icon.icns */; };
@@ -75,6 +75,9 @@
 		512287A11CA7D70100CCEDC8 /* DesktopScreenshotWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesktopScreenshotWatcher.swift; sourceTree = "<group>"; };
 		5126B1391F79274D00258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5126B13B1F79275300258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126B13D1F79286F00258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126B1541F79292900258230 /* UpdAPI_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126B1561F79292F00258230 /* UpdAPI_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		514CA0051A880F2E0008F2CE /* SettingsWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		514CA0071A8812AB0008F2CE /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		517870F51A8BFC7600C4DA04 /* Skugga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Skugga.entitlements; path = Skugga/Skugga.entitlements; sourceTree = "<group>"; };
@@ -102,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5126B13A1F79275300258230 /* UpdAPI.framework in Frameworks */,
+				5126B15B1F79299600258230 /* UpdAPI.framework in Frameworks */,
 				51B7E4731A8D42C0009B17E9 /* RMSharedPreferences.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5126B1381F79274D00258230 /* UpdAPI.framework in Frameworks */,
+				5126B15C1F7929A500258230 /* UpdAPI.framework in Frameworks */,
 				51B7E4771A8D4505009B17E9 /* RMSharedPreferences.framework in Frameworks */,
 				B598E530E659D70595EF24AD /* Pods_Skugga_macOS.framework in Frameworks */,
 			);
@@ -132,6 +135,9 @@
 		406F98E0E5C8CBE7AAD1B06F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5126B1561F79292F00258230 /* UpdAPI_macOS.framework */,
+				5126B1541F79292900258230 /* UpdAPI_macOS.framework */,
+				5126B13D1F79286F00258230 /* UpdAPI.framework */,
 				5126B13B1F79275300258230 /* UpdAPI.framework */,
 				5126B1391F79274D00258230 /* UpdAPI.framework */,
 				D14247645F8CEEE34911CE91 /* Pods_Skugga_macOS.framework */,

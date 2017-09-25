@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "51618B0D1F78490600621790"
-               BuildableName = "UpdAPI.framework"
-               BlueprintName = "UpdAPI"
+               BuildableName = "UpdAPI_iOS.framework"
+               BlueprintName = "UpdAPI-iOS"
                ReferencedContainer = "container:UpdAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -48,8 +48,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "51618B0D1F78490600621790"
-            BuildableName = "UpdAPI.framework"
-            BlueprintName = "UpdAPI"
+            BuildableName = "UpdAPI_iOS.framework"
+            BlueprintName = "UpdAPI-iOS"
             ReferencedContainer = "container:UpdAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "51618B0D1F78490600621790"
-            BuildableName = "UpdAPI.framework"
-            BlueprintName = "UpdAPI"
+            BuildableName = "UpdAPI_iOS.framework"
+            BlueprintName = "UpdAPI-iOS"
             ReferencedContainer = "container:UpdAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

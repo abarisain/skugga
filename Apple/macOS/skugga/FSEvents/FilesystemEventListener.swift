@@ -72,14 +72,12 @@ open class FilesystemEventListener: CustomDebugStringConvertible {
                                                  release: nil,
                                                  copyDescription: nil)
         
-        let eventCallback: FSEventStreamCallback = { (streamRef: ConstFSEventStreamRef,
-                                                      clientCallBackInfo: UnsafeMutableRawPointer?,
-                                                      numEvents: Int,
-                                                      eventPaths: UnsafeMutableRawPointer,
-                                                      eventFlags: UnsafePointer<FSEventStreamEventFlags>?,
-                                                      eventIds: UnsafePointer<FSEventStreamEventId>?) in
-            
-            guard let eventFlags = eventFlags, let eventIds = eventIds else { return }
+        let eventCallback: FSEventStreamCallback = { (streamRef,
+                                                      clientCallBackInfo,
+                                                      numEvents,
+                                                      eventPaths,
+                                                      eventFlags,
+                                                      eventIds) in
             
             let instance: FilesystemEventListener = unsafeBitCast(clientCallBackInfo, to: FilesystemEventListener.self)
             
@@ -137,6 +135,6 @@ open class FilesystemEventListener: CustomDebugStringConvertible {
     }
     
     open var debugDescription: String {
-        return "FilesystemEventListener: listening=\(listening), delegate=\(delegate), watchedPaths=\(watchedPaths)"
+        return "FilesystemEventListener: listening=\(listening), delegate=\(String(describing: delegate)), watchedPaths=\(watchedPaths)"
     }
 }

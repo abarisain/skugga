@@ -9,6 +9,8 @@
 import Foundation
 import Cocoa
 import OTWebImage
+import UpdAPI
+import DateToolsSwift
 
 private struct LocalConsts
 {
@@ -35,7 +37,7 @@ class RemoteFileTableCell: NSTableCellView, NSImageViewWebCacheDelegate
         fileIcon = NSWorkspace.shared().icon(forFileType: fileType)
         fileIcon?.size = NSSize(width: 40, height: 40)
         filename.stringValue = file.filename
-        uploadDate.stringValue = (file.uploadDate as NSDate).timeAgoSinceNow()
+        uploadDate.stringValue = file.uploadDate.timeAgoSinceNow
         icon.image = fileIcon
         
         icon.imageURL = URL(string: NSString(format: "%@%@?w=0&h=%.0f", Configuration.endpoint, file.url, icon.bounds.height == 0 ? 128 : icon.bounds.height) as String)!

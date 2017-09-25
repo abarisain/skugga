@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import UpdAPI
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -125,7 +127,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     
     func refreshFileList()
     {
-        FileListClient().getFileList({ (files: [RemoteFile]) -> () in
+        FileListClient(configuration: Configuration.updApiConfiguration).getFileList({ (files: [RemoteFile]) -> () in
             if let controller = self.popover.contentViewController as? PopoverViewController
             {
                 controller.refreshWithRemoteFiles(files)
@@ -148,7 +150,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSDragging
     fileprivate func uploadURL(_ url: URL)
     {
         do {
-            let _ = try UploadClient().uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
+            let _ = try UploadClient(configuration: Configuration.updApiConfiguration).uploadFile(url, progress: { (bytesSent:Int64, bytesToSend:Int64) -> Void in
                 self.drawStatusIconForProgress(Float(Double(bytesSent) / Double(bytesToSend)))
                 }, success: { (data: [AnyHashable: Any]) -> Void in
                     var url = data["name"] as! String

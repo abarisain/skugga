@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UpdAPI
 
 private struct LocalConsts
 {
@@ -53,6 +54,14 @@ struct Configuration
         set
         {
             UserDefaults.standard.set(newValue, forKey: LocalConsts.SuffixKey)
+        }
+    }
+    
+    static var updApiConfiguration: UpdAPIConfiguration
+    {
+        get
+        {
+            return UpdAPIConfiguration(endpoint: self.endpoint, secret: self.secret)
         }
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import UpdAPI
 
 class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate
 {
@@ -84,7 +85,7 @@ class PopoverViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     @IBAction func tableDeleteAction(_ sender: AnyObject)
     {
-        FileListClient().deleteFile(remoteFiles[filesTableView.clickedRow],
+        FileListClient(configuration: Configuration.updApiConfiguration).deleteFile(remoteFiles[filesTableView.clickedRow],
             success: { () -> () in
                 (NSApplication.shared().delegate as! AppDelegate).refreshFileList()
             }, failure: { (error: NSError) -> () in

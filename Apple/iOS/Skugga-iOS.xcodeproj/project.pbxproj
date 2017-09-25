@@ -13,8 +13,8 @@
 		510A03421A8D61B1009FB815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510A03401A8D61B1009FB815 /* Main.storyboard */; };
 		510A03441A8D61B1009FB815 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510A03431A8D61B1009FB815 /* Images.xcassets */; };
 		510A03471A8D61B1009FB815 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510A03451A8D61B1009FB815 /* LaunchScreen.xib */; };
-		5126B1351F79258E00258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1361F79258E00258230 /* UpdAPI.framework */; };
-		5126B1371F79259300258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1361F79258E00258230 /* UpdAPI.framework */; };
+		5126B15D1F7929AD00258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B15E1F7929AD00258230 /* UpdAPI.framework */; };
+		5126B15F1F7929B300258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1601F7929B300258230 /* UpdAPI.framework */; };
 		5165AC321A90EFF50087952D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC311A90EFF50087952D /* ShareViewController.swift */; };
 		5165AC341A90EFF50087952D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5165AC331A90EFF50087952D /* MainInterface.storyboard */; };
 		5165AC371A90EFF50087952D /* Share-iOS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5165AC2D1A90EFF50087952D /* Share-iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -66,6 +66,10 @@
 		510A03431A8D61B1009FB815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		510A03461A8D61B1009FB815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5126B1361F79258E00258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126B1581F79293B00258230 /* UpdAPI_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126B15A1F79293F00258230 /* UpdAPI_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126B15E1F7929AD00258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5126B1601F7929B300258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5165AC2D1A90EFF50087952D /* Share-iOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Share-iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5165AC301A90EFF50087952D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5165AC311A90EFF50087952D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5126B1351F79258E00258230 /* UpdAPI.framework in Frameworks */,
+				5126B15F1F7929B300258230 /* UpdAPI.framework in Frameworks */,
 				519D8CE01D98177E00F2D5D0 /* Photos.framework in Frameworks */,
 				293FEE8C48A2F7FD1316AF39 /* Pods_Skugga_iOS.framework in Frameworks */,
 			);
@@ -105,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5126B1371F79259300258230 /* UpdAPI.framework in Frameworks */,
+				5126B15D1F7929AD00258230 /* UpdAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +119,10 @@
 		39F044ECC0875C55BE6C5FF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5126B1601F7929B300258230 /* UpdAPI.framework */,
+				5126B15E1F7929AD00258230 /* UpdAPI.framework */,
+				5126B15A1F79293F00258230 /* UpdAPI_iOS.framework */,
+				5126B1581F79293B00258230 /* UpdAPI_iOS.framework */,
 				5126B1361F79258E00258230 /* UpdAPI.framework */,
 				519D8CDE1D98177E00F2D5D0 /* Photos.framework */,
 				519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */,

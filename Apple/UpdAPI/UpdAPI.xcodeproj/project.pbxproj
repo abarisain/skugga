@@ -15,6 +15,14 @@
 		51056CF51F784A2800DE9960 /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CEB1F78494800DE9960 /* RemoteFile.swift */; };
 		51056CF61F784A2800DE9960 /* UploadedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CEC1F78494800DE9960 /* UploadedFile.swift */; };
 		51056CF81F784B0100DE9960 /* UpdAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CF71F784B0100DE9960 /* UpdAPIConfiguration.swift */; };
+		5126B14B1F79290F00258230 /* ClientConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CE51F78494200DE9960 /* ClientConsts.swift */; };
+		5126B14C1F79291100258230 /* ClientUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CE61F78494200DE9960 /* ClientUtils.swift */; };
+		5126B14D1F79291200258230 /* FileListClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CE71F78494200DE9960 /* FileListClient.swift */; };
+		5126B14E1F79291400258230 /* Multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CE81F78494200DE9960 /* Multipart.swift */; };
+		5126B14F1F79291500258230 /* UploadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CE91F78494200DE9960 /* UploadClient.swift */; };
+		5126B1501F79291700258230 /* RemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CEB1F78494800DE9960 /* RemoteFile.swift */; };
+		5126B1511F79291900258230 /* UploadedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CEC1F78494800DE9960 /* UploadedFile.swift */; };
+		5126B1521F79291B00258230 /* UpdAPIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51056CF71F784B0100DE9960 /* UpdAPIConfiguration.swift */; };
 		51618B131F78490600621790 /* UpdAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 51618B111F78490600621790 /* UpdAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -27,12 +35,20 @@
 		51056CEB1F78494800DE9960 /* RemoteFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFile.swift; sourceTree = "<group>"; };
 		51056CEC1F78494800DE9960 /* UploadedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadedFile.swift; sourceTree = "<group>"; };
 		51056CF71F784B0100DE9960 /* UpdAPIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdAPIConfiguration.swift; sourceTree = "<group>"; };
+		5126B1431F7928F800258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51618B0E1F78490600621790 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51618B111F78490600621790 /* UpdAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdAPI.h; sourceTree = "<group>"; };
 		51618B121F78490600621790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5126B13F1F7928F800258230 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51618B0A1F78490600621790 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				51618B0E1F78490600621790 /* UpdAPI.framework */,
+				5126B1431F7928F800258230 /* UpdAPI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +112,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5126B1401F7928F800258230 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51618B0B1F78490600621790 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,9 +130,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		51618B0D1F78490600621790 /* UpdAPI */ = {
+		5126B1421F7928F800258230 /* UpdAPI-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 51618B161F78490600621790 /* Build configuration list for PBXNativeTarget "UpdAPI" */;
+			buildConfigurationList = 5126B1481F7928F800258230 /* Build configuration list for PBXNativeTarget "UpdAPI-macOS" */;
+			buildPhases = (
+				5126B13E1F7928F800258230 /* Sources */,
+				5126B13F1F7928F800258230 /* Frameworks */,
+				5126B1401F7928F800258230 /* Headers */,
+				5126B1411F7928F800258230 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UpdAPI-macOS";
+			productName = "UpdAPI-macOS";
+			productReference = 5126B1431F7928F800258230 /* UpdAPI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		51618B0D1F78490600621790 /* UpdAPI-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51618B161F78490600621790 /* Build configuration list for PBXNativeTarget "UpdAPI-iOS" */;
 			buildPhases = (
 				51618B091F78490600621790 /* Sources */,
 				51618B0A1F78490600621790 /* Frameworks */,
@@ -119,7 +161,7 @@
 			);
 			dependencies = (
 			);
-			name = UpdAPI;
+			name = "UpdAPI-iOS";
 			productName = UpdAPI;
 			productReference = 51618B0E1F78490600621790 /* UpdAPI.framework */;
 			productType = "com.apple.product-type.framework";
@@ -133,6 +175,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = NamelessDev;
 				TargetAttributes = {
+					5126B1421F7928F800258230 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 					51618B0D1F78490600621790 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -151,12 +197,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				51618B0D1F78490600621790 /* UpdAPI */,
+				51618B0D1F78490600621790 /* UpdAPI-iOS */,
+				5126B1421F7928F800258230 /* UpdAPI-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5126B1411F7928F800258230 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51618B0C1F78490600621790 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,6 +221,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5126B13E1F7928F800258230 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5126B14E1F79291400258230 /* Multipart.swift in Sources */,
+				5126B1501F79291700258230 /* RemoteFile.swift in Sources */,
+				5126B14F1F79291500258230 /* UploadClient.swift in Sources */,
+				5126B14C1F79291100258230 /* ClientUtils.swift in Sources */,
+				5126B14B1F79290F00258230 /* ClientConsts.swift in Sources */,
+				5126B1511F79291900258230 /* UploadedFile.swift in Sources */,
+				5126B14D1F79291200258230 /* FileListClient.swift in Sources */,
+				5126B1521F79291B00258230 /* UpdAPIConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		51618B091F78490600621790 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -185,6 +254,56 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		5126B1491F7928F800258230 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5GB4T7ETDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = UpdAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.UpdAPI;
+				PRODUCT_NAME = UpdAPI;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		5126B14A1F7928F800258230 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5GB4T7ETDY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = UpdAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.UpdAPI;
+				PRODUCT_NAME = UpdAPI;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		51618B141F78490600621790 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -314,7 +433,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.UpdAPI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UpdAPI;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -337,7 +456,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.UpdAPI;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = UpdAPI;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -347,6 +466,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5126B1481F7928F800258230 /* Build configuration list for PBXNativeTarget "UpdAPI-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5126B1491F7928F800258230 /* Debug */,
+				5126B14A1F7928F800258230 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		51618B081F78490600621790 /* Build configuration list for PBXProject "UpdAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -356,7 +484,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		51618B161F78490600621790 /* Build configuration list for PBXNativeTarget "UpdAPI" */ = {
+		51618B161F78490600621790 /* Build configuration list for PBXNativeTarget "UpdAPI-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				51618B171F78490600621790 /* Debug */,
