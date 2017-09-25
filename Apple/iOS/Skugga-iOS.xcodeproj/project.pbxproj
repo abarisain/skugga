@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		293FEE8C48A2F7FD1316AF39 /* Pods_Skugga_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70832541BD16836AD5AD824B /* Pods_Skugga_iOS.framework */; };
 		510A033A1A8D61B1009FB815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A03391A8D61B1009FB815 /* AppDelegate.swift */; };
 		510A033D1A8D61B1009FB815 /* Skugga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 510A033B1A8D61B1009FB815 /* Skugga.xcdatamodeld */; };
 		510A03421A8D61B1009FB815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510A03401A8D61B1009FB815 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1051D0F6D646FBE714BFCFE3 /* Pods-Skugga-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga-iOS.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Skugga-iOS/Pods-Skugga-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		510A03341A8D61B1009FB815 /* Skugga-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skugga-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		510A03381A8D61B1009FB815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		510A03391A8D61B1009FB815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,8 @@
 		519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		51F33B931D8EEFDA0050BD6F /* ProgressNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressNotifier.swift; sourceTree = "<group>"; };
 		51F33B951D8F11DA0050BD6F /* NotificationActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationActionManager.swift; sourceTree = "<group>"; };
+		70832541BD16836AD5AD824B /* Pods_Skugga_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skugga_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B27D3F37433042C3217E25DD /* Pods-Skugga-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skugga-iOS.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Skugga-iOS/Pods-Skugga-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			files = (
 				5126B1351F79258E00258230 /* UpdAPI.framework in Frameworks */,
 				519D8CE01D98177E00F2D5D0 /* Photos.framework in Frameworks */,
+				293FEE8C48A2F7FD1316AF39 /* Pods_Skugga_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +119,7 @@
 				519D8CDE1D98177E00F2D5D0 /* Photos.framework */,
 				519D8CDF1D98177E00F2D5D0 /* PhotosUI.framework */,
 				5165AC3C1A90F6B50087952D /* libPods.a */,
+				70832541BD16836AD5AD824B /* Pods_Skugga_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 				5165AC2E1A90EFF50087952D /* Share */,
 				510A03351A8D61B1009FB815 /* Products */,
 				39F044ECC0875C55BE6C5FF1 /* Frameworks */,
+				D09CEF091BF1124C5685FA4E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +213,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D09CEF091BF1124C5685FA4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B27D3F37433042C3217E25DD /* Pods-Skugga-iOS.debug.xcconfig */,
+				1051D0F6D646FBE714BFCFE3 /* Pods-Skugga-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,10 +229,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 510A03561A8D61B1009FB815 /* Build configuration list for PBXNativeTarget "Skugga-iOS" */;
 			buildPhases = (
+				0D64F395DFDF8236D52DA247 /* [CP] Check Pods Manifest.lock */,
 				510A03301A8D61B1009FB815 /* Sources */,
 				510A03311A8D61B1009FB815 /* Frameworks */,
 				510A03321A8D61B1009FB815 /* Resources */,
 				510A036E1A8D63EE009FB815 /* Embed App Extensions */,
+				4272639CFB41BE48C362D45A /* [CP] Embed Pods Frameworks */,
+				A46AE6EFFDEF298C53C89E8D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -317,6 +336,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D64F395DFDF8236D52DA247 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Skugga-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4272639CFB41BE48C362D45A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-Skugga-iOS/Pods-Skugga-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DateToolsSwift-iOS/DateToolsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateToolsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Skugga-iOS/Pods-Skugga-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A46AE6EFFDEF298C53C89E8D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Skugga-iOS/Pods-Skugga-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		510A03301A8D61B1009FB815 /* Sources */ = {
@@ -477,6 +552,7 @@
 		};
 		510A03571A8D61B1009FB815 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B27D3F37433042C3217E25DD /* Pods-Skugga-iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -497,6 +573,7 @@
 		};
 		510A03581A8D61B1009FB815 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1051D0F6D646FBE714BFCFE3 /* Pods-Skugga-iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

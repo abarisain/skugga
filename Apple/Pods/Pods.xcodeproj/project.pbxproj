@@ -1,0 +1,1501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		017006C81AAC80BB862EB23BE565BD7D /* OTFileCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C9F2D77BA3325838133DF234FCBE5E /* OTFileCacheManager.m */; };
+		07F3419F7E31D3F4AA49671BB3490462 /* OTHTTPRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 651581C6CB5C91EADC09C5E689BDFE16 /* OTHTTPRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0C309474332C99B7909A9DB76B65408F /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 362C0D69A84371A0654B97E101A6DE36 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10DA2E90775967E669FE0E770AEEBD4B /* Integer+DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3EDABC2275B136C0FF0CB01B1C939A /* Integer+DateTools.swift */; };
+		1375B11641149131226F08E9D01CD08E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F2513A6DFEA6140BCF63CF430FE32 /* Enums.swift */; };
+		16771290AFBCFEEC0B839E4E9333EAAD /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8413A017FC63BF8A9F1CB5D5B09603C0 /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A843BFE86E52EB42053543FFFDBC71E /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD6457137CE0DC728F5D2FF35C095DC3 /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1BE6157E1D78D3EB1180FD8086EB945C /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2716940F841C5BF96EB455CF7E61176F /* UIView+WebCacheOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1DA40A4B662AA8B2E9DB9D0393FEA4B5 /* TimePeriodCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15A27FB07CA9790E0164BCB98CC3507 /* TimePeriodCollection.swift */; };
+		1E4B5450A5305D41F8E97FBAAB33746F /* Date+Inits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B838DC06A8C6D257AD707F21E094810 /* Date+Inits.swift */; };
+		22D06B6119CE120EE8AFEE070640DD79 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C30731A203923133C7FFAF6A4DE00F6 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23EF93623528FCB039122D4B4BDEF68E /* SDWebImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8460A4D8DB882EE5E6C0B96665F1B71C /* SDWebImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		242C9E1E8B9F597B52267A506A575385 /* TimeChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4095F40466CD468F31D20DD2627B0BC /* TimeChunk.swift */; };
+		28557A997ABC98207F6C46F72B1293CC /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852AAA7ED909FB67F52C8FDC94C5183 /* Date+Format.swift */; };
+		2BDEE9F82DAE9D17136F5AABF206A371 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749AF92A670BECF269093ECF091349FD /* TimePeriodChain.swift */; };
+		2EA4B644EAE3A93661C93323126794B0 /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF07B72FB34C54A842004E4260E490B /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F6A47C4D01167125B2530E4E2B16716 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E94A1C0FCB5750A73B1577D237EBFB4 /* Cocoa.framework */; };
+		35E319AECD44D52213920B166A235AF1 /* Pods-Skugga-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2953452D218912609116DF39EC5CBBD /* Pods-Skugga-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39C35AC0C4AAD41808579CB66108A37B /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B556130B37F9A52D075553F5DDAAEC /* Date+Components.swift */; };
+		3B6993E43C43B2B4853BA4F2276FD4AF /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10A1AEEF132D91EDC9C607FC38A286DB /* DateTools.bundle */; };
+		3CDB8A9B6CB13F5DE5A0422320BE9D06 /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = B62DCCE5126D0B5349A60B5692622D7C /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4194FED866FFD22E242B62C2981C8BBA /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B424D4C817B5779E51BCD1ADFA1F78 /* TimePeriod.swift */; };
+		44B545559421345ED5681F2E5638F9FE /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AF358B164034AC6D295696D87872CD /* SDWebImageDownloaderOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		479703B059FF466DE37474DB0EE72D05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E620E9961091F74498C245179E047727 /* Constants.swift */; };
+		49CD23A28C982362A2C9E57CCD57244D /* Date+Comparators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DEF942D60646F22FC409D19F3647EB /* Date+Comparators.swift */; };
+		4AF23A5F81E68FEB19AD2F2AB824714B /* OTWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 83948D00E036AD9CBA899D8932B8817D /* OTWebImage-dummy.m */; };
+		4E2DFF56CE358E6CF36A91F5EFC070E1 /* Pods-Skugga-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A0A7FAEB1B71CE7F51ADDAB9560C6D1 /* Pods-Skugga-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		501E82E5BCFF66769B7DDAD55FC06654 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B689FE698CE2FC0D2C62481589BE1E /* Date+TimeAgo.swift */; };
+		54F005EADF28643C2F70C43ECCB5ACE4 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AC03AC8A753C533D8EC62B73EA79F8C0 /* UIImageView+HighlightedWebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5624FCF397BD2A9F9E450B467DE36452 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC1C431AE199A9F87864753FB2543D8 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		57F25DF7F0EDE60D0D1303090F3C73B0 /* TimeChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4095F40466CD468F31D20DD2627B0BC /* TimeChunk.swift */; };
+		592F3CD7F2D42E298CF31B0360606BB0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4F2513A6DFEA6140BCF63CF430FE32 /* Enums.swift */; };
+		59A8CDF9B2D0A30141755352FF20F8D1 /* Date+Comparators.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DEF942D60646F22FC409D19F3647EB /* Date+Comparators.swift */; };
+		5C372EE0B5911089CE4AA0EBDC7384F5 /* Pods-Skugga-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B782210B4281975AE7A060196C97909B /* Pods-Skugga-macOS-dummy.m */; };
+		5E2330C709B329748292A43B1010564B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D28AB8F24B4962360DDB5CBB9BCD2E3 /* ImageIO.framework */; };
+		611EE6EBC9D05DB223DF7C4A875A84B4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = F217F8C7BC078D935C0A6687F87736E7 /* NSData+ImageContentType.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6386C3C6EE9AAA617EEF356285BC60E6 /* Date+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B1915882C34B485A669A99387F6D5 /* Date+Bundle.swift */; };
+		6A633F64DA4DECD4A6C3223051A2B8A2 /* OTWebImageDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A924DB5CC7DEC467AB1577DB83D02B /* OTWebImageDownloadRequest.m */; };
+		6CE1CBF5B52AB6C456ECEA1394115B44 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C7DE5211C8F3D3BBDBD2B94259C7B05 /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D7129AD7BBAD7214A73E16CDB271259 /* OTWebImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F1DEFFE5C5A69659DD0DB985EF292EF /* OTWebImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7312AE01AEDB50DEE35A70A1F1A8C1E0 /* Date+Manipulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076FEC3B1FA61A77871ED597C1CD3492 /* Date+Manipulations.swift */; };
+		736CF75D739F2CD0E14ADDB5A2247874 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17A997E7DD31415BEF903B667CB1F8D /* Foundation.framework */; };
+		75110DF4D04A16332288EAFDDC892BF6 /* TimePeriodGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C91D7BF7AF98279DA788026E9C3A20A /* TimePeriodGroup.swift */; };
+		77DC9F6BBF7651D0D28A4020D572FCDF /* Date+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B1915882C34B485A669A99387F6D5 /* Date+Bundle.swift */; };
+		7B8155A7880754A2707D8FF5C3B0D277 /* Date+Manipulations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076FEC3B1FA61A77871ED597C1CD3492 /* Date+Manipulations.swift */; };
+		7BE236929950223ABF6E1A9EBB07FEDA /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EBE1ECF9861BA658845656BFCD15F /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7C39F6865EA651A351811D3B62C72D2C /* DateToolsSwift-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB18812E0381B354423E8F946558481 /* DateToolsSwift-iOS-dummy.m */; };
+		7D5C668E407831CEB41D0D93BDD29370 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C303373935D79624FD544629719A7879 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		840A0D439FD6C5CB593522A776CA4E9C /* TimePeriodGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C91D7BF7AF98279DA788026E9C3A20A /* TimePeriodGroup.swift */; };
+		87656327AF228F092464FF753CD1D239 /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B399D49C48F35E439DD7E35FB1C76B3C /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88D68BF1ADB004771DA8E4DA285FCDCB /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 700AF6240255D4D9A13D05469369F06F /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CAB5B108B735E430A3A4CE0FC6DD5F2 /* TimePeriodChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749AF92A670BECF269093ECF091349FD /* TimePeriodChain.swift */; };
+		8EFB6530AF61CE4B5F4912AB36E151C0 /* Date+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B556130B37F9A52D075553F5DDAAEC /* Date+Components.swift */; };
+		904F43AE7B2CB234B37934EAE92FD74C /* Date+Inits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B838DC06A8C6D257AD707F21E094810 /* Date+Inits.swift */; };
+		91D067C4358969678E263D2BB1FE078F /* Pods-Skugga-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B62DFAD31B2B8C6D42C1341B862B035F /* Pods-Skugga-iOS-dummy.m */; };
+		93A11CA8EC95AFD8FA4BBBB0677B6E6B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E94A1C0FCB5750A73B1577D237EBFB4 /* Cocoa.framework */; };
+		95D48F8FC40C4D61960DE876FEDA159E /* NSImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E66E89611B631B2C6A10543BB81F9D7E /* NSImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A8AB08A026C01D21D3FD6E0488DD807 /* SDWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = A4F14B76E2EA4EA090E6CF3FA7E19B21 /* SDWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0076C741B4BC0395A2E18B7794DBD8F /* Integer+DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3EDABC2275B136C0FF0CB01B1C939A /* Integer+DateTools.swift */; };
+		A135E9B11E0345BE32391FA565BB5395 /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95A6C4D9C84C70A9C7E1B8CBDDA667 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3F46914EECE0B2F30CE80C6E8D305C0 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E14CD4D8F7AE8FB3ACD025F8B35D276D /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A993DE8790BD9D4C0EDF26114F2B7B87 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9622021683B47A5096F7D258C6BF9E /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AD5093A4E6C8C5176EAD2CF817DB74BF /* OTFileCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E2A558FFBD2114B60A077D06E6FA146 /* OTFileCacheManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BAF332840F41096A66A244D284B13E82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17A997E7DD31415BEF903B667CB1F8D /* Foundation.framework */; };
+		BB2660BFC249FE6717A0BA11BE87B594 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17A997E7DD31415BEF903B667CB1F8D /* Foundation.framework */; };
+		BD9083CF68853CF0BEE06B689FFAF352 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B424D4C817B5779E51BCD1ADFA1F78 /* TimePeriod.swift */; };
+		C57342EFEEADF09A0F7BC646A78B54A2 /* Date+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B689FE698CE2FC0D2C62481589BE1E /* Date+TimeAgo.swift */; };
+		C95AA175A8D51E3AC22D8BFA8577B861 /* DateToolsSwift-macOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E9B6496F4CE0D3A864D924FE208DDC /* DateToolsSwift-macOS-dummy.m */; };
+		CAD337356CCB67D5CD25EDEC6DC1DEFE /* TimePeriodCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15A27FB07CA9790E0164BCB98CC3507 /* TimePeriodCollection.swift */; };
+		CBEF1F8519657A1454952FCFA099106C /* OTHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B2AE07B4C73F5FF170BBC878DA2BFB /* OTHTTPRequest.m */; };
+		CD91C5553B47506FF05A1D304EDC26B4 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE2102DF1B4DC27D77F5628F1BAA0D5 /* SDWebImage-dummy.m */; };
+		DA6ADD91CEA31BF03FF6FC317CD1F8F9 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 10A1AEEF132D91EDC9C607FC38A286DB /* DateTools.bundle */; };
+		DD31F29D3EA55ECCA6FE5C9E47CF55A0 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6986D7D3AF2F86923E349F70C21E724 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DECAE3AF8B61EA6D12097C19BF20E49E /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 417F0161780D4550777CE51C2E8967F4 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E296FC56533D990828AA681792AD5A22 /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C5565A1824A06D8E7E0C740B1D0CFFE /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E63699EED35577B356513D554A62D978 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FFB835ED9EAAAF6755387F7F6052CA /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		ECBE9378AE1074F867A2589C2C1F7069 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E94A1C0FCB5750A73B1577D237EBFB4 /* Cocoa.framework */; };
+		ED4316A83F71973DBC0474DC17FE527E /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB6E958AD0C5D503D072CF3E6D4BC0 /* UIImage+GIF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EE45C56C638165FCF48E164E111C563A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E620E9961091F74498C245179E047727 /* Constants.swift */; };
+		EE87A106FB0C084D11A5C0F4E1E2C19E /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852AAA7ED909FB67F52C8FDC94C5183 /* Date+Format.swift */; };
+		F39AC55A9D4FA3D09E3C9A0522A8E20A /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A0B9BFC3A3B9FEF7B2A68FDFEBBE3BF4 /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F52EEF6C7214915957F693CCFE478CA3 /* DateToolsSwift-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA4B6F636E2F61BF2C0EE1FF283A6F5F /* DateToolsSwift-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F63582AB4DA8D10DFC6EB68B2003A749 /* OTWebImageDownloadRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FE6E443A8E678787D4DCBF5C24C3808 /* OTWebImageDownloadRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F799DFF1FC7DD67C4E662EB8EE88B849 /* DateToolsSwift-macOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 851B45EBED6F17C5C7CF523388C2DFE1 /* DateToolsSwift-macOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7D687566C3D1FBA205D296E29D2ADAF /* NSImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BC5EFFD256AC81165B828E78DCF43 /* NSImageView+WebCache.m */; };
+		FABBF299E6189CC3CE58DA5F3C6613BB /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B9C51989C792F82BF61382D0AEC6F6 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAE711E944334E23138F5A59877E637C /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C229CD8B3D70FB8CB4D70E8B4F5A6F8 /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC3DA92D354BD9C0BE0B19C1F459E532 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 28807FECFFD197B2F56815DE7A01FAD1 /* SDWebImageCompat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C38A299A8F8D443B24166D6C7EB5F32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0018CA5F91C7EADBBE0913F07A54B6D5;
+			remoteInfo = OTWebImage;
+		};
+		39B23B4A62856B13AA465EBCAB985AAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5121913F820968C628512F87FE1B223A;
+			remoteInfo = "DateToolsSwift-iOS";
+		};
+		C86107D50579AFA784838229F494B70D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5543DDBB65A3EDDC1FB9CA786E5C928;
+			remoteInfo = "DateToolsSwift-macOS";
+		};
+		D706A64D6C065D3D9CA5163E22C17262 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88332530F9657BA66FE7C064D41A9B3C;
+			remoteInfo = SDWebImage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0231BA8C2053ABD7F9C8394D63E800AE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../DateToolsSwift-macOS/Info.plist"; sourceTree = "<group>"; };
+		076FEC3B1FA61A77871ED597C1CD3492 /* Date+Manipulations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Manipulations.swift"; path = "DateToolsSwift/DateTools/Date+Manipulations.swift"; sourceTree = "<group>"; };
+		08252E4FD3778881930F49B140ED6E45 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		083A4B8F994B5B4159D45F4E0D071CDB /* DateToolsSwift-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "DateToolsSwift-iOS.modulemap"; sourceTree = "<group>"; };
+		09DAF83D68E052FF4E4D384AAE71F815 /* DateToolsSwift-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "DateToolsSwift-iOS.xcconfig"; sourceTree = "<group>"; };
+		0B4EBE1ECF9861BA658845656BFCD15F /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
+		0C30731A203923133C7FFAF6A4DE00F6 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
+		0F1DEFFE5C5A69659DD0DB985EF292EF /* OTWebImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OTWebImage-umbrella.h"; sourceTree = "<group>"; };
+		10A1AEEF132D91EDC9C607FC38A286DB /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateToolsSwift/DateTools/DateTools.bundle; sourceTree = "<group>"; };
+		118D8B9D1EE1E5C93EA0F59802C04BD6 /* DateToolsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DateToolsSwift.framework; path = "DateToolsSwift-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13C0A0E18A79E2342D9D323B2779E61B /* Pods-Skugga-macOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Skugga-macOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		16CD28C8BCE478266F13A7DAAB4BD052 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17A924DB5CC7DEC467AB1577DB83D02B /* OTWebImageDownloadRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTWebImageDownloadRequest.m; path = OTWebImage/OTWebImageDownloadRequest.m; sourceTree = "<group>"; };
+		1C5565A1824A06D8E7E0C740B1D0CFFE /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
+		1EF6C8D5C97394B79D899CD1F3CE6FBC /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
+		256B52BA0C1F5BA9CA19F6D39F3A888C /* Pods-Skugga-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Skugga-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		26758277C249AF0E4F3FFAE55613C9A7 /* Pods-Skugga-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Skugga-iOS-frameworks.sh"; sourceTree = "<group>"; };
+		2716940F841C5BF96EB455CF7E61176F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		28807FECFFD197B2F56815DE7A01FAD1 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
+		2A0A7FAEB1B71CE7F51ADDAB9560C6D1 /* Pods-Skugga-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Skugga-macOS-umbrella.h"; sourceTree = "<group>"; };
+		2C62E889E19DA1869DB531526235CF01 /* DateToolsSwift-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "DateToolsSwift-macOS.modulemap"; path = "../DateToolsSwift-macOS/DateToolsSwift-macOS.modulemap"; sourceTree = "<group>"; };
+		2CF07B72FB34C54A842004E4260E490B /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
+		2D28AB8F24B4962360DDB5CBB9BCD2E3 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		2E95A6C4D9C84C70A9C7E1B8CBDDA667 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		33AF358B164034AC6D295696D87872CD /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		33E3DD1CB69B5A8CCB971A8D59180225 /* Pods-Skugga-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Skugga-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		362C0D69A84371A0654B97E101A6DE36 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
+		3945E5405AA3F9791E96B621D971A69C /* Pods-Skugga-macOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Skugga-macOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		394D376D177EC50EBCB521E2ACB06365 /* DateToolsSwift-macOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "DateToolsSwift-macOS.xcconfig"; path = "../DateToolsSwift-macOS/DateToolsSwift-macOS.xcconfig"; sourceTree = "<group>"; };
+		39F950A218D69F74958C63D35E5D9F5C /* DateToolsSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DateToolsSwift.framework; path = "DateToolsSwift-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E94A1C0FCB5750A73B1577D237EBFB4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		3FE6E443A8E678787D4DCBF5C24C3808 /* OTWebImageDownloadRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTWebImageDownloadRequest.h; path = OTWebImage/OTWebImageDownloadRequest.h; sourceTree = "<group>"; };
+		409FF38DA8176C6479CA5001C33AE0E5 /* DateToolsSwift-macOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DateToolsSwift-macOS-prefix.pch"; path = "../DateToolsSwift-macOS/DateToolsSwift-macOS-prefix.pch"; sourceTree = "<group>"; };
+		417F0161780D4550777CE51C2E8967F4 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		43B689FE698CE2FC0D2C62481589BE1E /* Date+TimeAgo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+TimeAgo.swift"; path = "DateToolsSwift/DateTools/Date+TimeAgo.swift"; sourceTree = "<group>"; };
+		43FFB835ED9EAAAF6755387F7F6052CA /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
+		44B556130B37F9A52D075553F5DDAAEC /* Date+Components.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Components.swift"; path = "DateToolsSwift/DateTools/Date+Components.swift"; sourceTree = "<group>"; };
+		46BFF65B6FE2A52F2F872C57AE83F8F0 /* Pods-Skugga-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Skugga-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4704E4F8BB44F956E6AA8ED66D208D46 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SDWebImage.modulemap; sourceTree = "<group>"; };
+		4B9622021683B47A5096F7D258C6BF9E /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
+		547FEB431530377EDC1E12CC2F58362A /* Pods-Skugga-iOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Skugga-iOS-resources.sh"; sourceTree = "<group>"; };
+		56EFBBA91FBD3BFAE8DEA4FCE0806F0C /* Pods-Skugga-macOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Skugga-macOS-frameworks.sh"; sourceTree = "<group>"; };
+		5ADB6E958AD0C5D503D072CF3E6D4BC0 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
+		5E3B1915882C34B485A669A99387F6D5 /* Date+Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Bundle.swift"; path = "DateToolsSwift/DateTools/Date+Bundle.swift"; sourceTree = "<group>"; };
+		60C9F2D77BA3325838133DF234FCBE5E /* OTFileCacheManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTFileCacheManager.m; path = OTWebImage/OTFileCacheManager/OTFileCacheManager.m; sourceTree = "<group>"; };
+		651581C6CB5C91EADC09C5E689BDFE16 /* OTHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTHTTPRequest.h; path = OTWebImage/OTHTTPRequest/OTHTTPRequest.h; sourceTree = "<group>"; };
+		6B3BC5EFFD256AC81165B828E78DCF43 /* NSImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImageView+WebCache.m"; path = "OTWebImage/NSImageView+WebCache.m"; sourceTree = "<group>"; };
+		6C7DE5211C8F3D3BBDBD2B94259C7B05 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		6E2A558FFBD2114B60A077D06E6FA146 /* OTFileCacheManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OTFileCacheManager.h; path = OTWebImage/OTFileCacheManager/OTFileCacheManager.h; sourceTree = "<group>"; };
+		700AF6240255D4D9A13D05469369F06F /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		749AF92A670BECF269093ECF091349FD /* TimePeriodChain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimePeriodChain.swift; path = DateToolsSwift/DateTools/TimePeriodChain.swift; sourceTree = "<group>"; };
+		7A5BFB7BF88D2989DBAFA22BF5202AE3 /* Pods_Skugga_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Skugga_iOS.framework; path = "Pods-Skugga-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C91D7BF7AF98279DA788026E9C3A20A /* TimePeriodGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimePeriodGroup.swift; path = DateToolsSwift/DateTools/TimePeriodGroup.swift; sourceTree = "<group>"; };
+		83948D00E036AD9CBA899D8932B8817D /* OTWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OTWebImage-dummy.m"; sourceTree = "<group>"; };
+		8413A017FC63BF8A9F1CB5D5B09603C0 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
+		8460A4D8DB882EE5E6C0B96665F1B71C /* SDWebImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-umbrella.h"; sourceTree = "<group>"; };
+		851B45EBED6F17C5C7CF523388C2DFE1 /* DateToolsSwift-macOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DateToolsSwift-macOS-umbrella.h"; path = "../DateToolsSwift-macOS/DateToolsSwift-macOS-umbrella.h"; sourceTree = "<group>"; };
+		87170E0A7C65D9A2276DE1DFCA4CDE60 /* Pods_Skugga_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Skugga_macOS.framework; path = "Pods-Skugga-macOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88B424D4C817B5779E51BCD1ADFA1F78 /* TimePeriod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimePeriod.swift; path = DateToolsSwift/DateTools/TimePeriod.swift; sourceTree = "<group>"; };
+		8B838DC06A8C6D257AD707F21E094810 /* Date+Inits.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Inits.swift"; path = "DateToolsSwift/DateTools/Date+Inits.swift"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		941C09E8F958B86360988A90F190610B /* Pods-Skugga-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Skugga-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		9911BCAD5406240092F4627B138AB6E2 /* OTWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OTWebImage.framework; path = OTWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A3EDABC2275B136C0FF0CB01B1C939A /* Integer+DateTools.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Integer+DateTools.swift"; path = "DateToolsSwift/DateTools/Integer+DateTools.swift"; sourceTree = "<group>"; };
+		9C229CD8B3D70FB8CB4D70E8B4F5A6F8 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		9CB18812E0381B354423E8F946558481 /* DateToolsSwift-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DateToolsSwift-iOS-dummy.m"; sourceTree = "<group>"; };
+		A0B9BFC3A3B9FEF7B2A68FDFEBBE3BF4 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		A4F14B76E2EA4EA090E6CF3FA7E19B21 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
+		A852AAA7ED909FB67F52C8FDC94C5183 /* Date+Format.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Format.swift"; path = "DateToolsSwift/DateTools/Date+Format.swift"; sourceTree = "<group>"; };
+		A8E9B6496F4CE0D3A864D924FE208DDC /* DateToolsSwift-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DateToolsSwift-macOS-dummy.m"; path = "../DateToolsSwift-macOS/DateToolsSwift-macOS-dummy.m"; sourceTree = "<group>"; };
+		AC03AC8A753C533D8EC62B73EA79F8C0 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		AC7F7619C16876357916BAD4437A1AB8 /* Pods-Skugga-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Skugga-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B17A997E7DD31415BEF903B667CB1F8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B399D49C48F35E439DD7E35FB1C76B3C /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
+		B62DCCE5126D0B5349A60B5692622D7C /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		B62DFAD31B2B8C6D42C1341B862B035F /* Pods-Skugga-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Skugga-iOS-dummy.m"; sourceTree = "<group>"; };
+		B6A3AAE2B22BD52D3E6AABDE620CD41E /* OTWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OTWebImage.xcconfig; sourceTree = "<group>"; };
+		B782210B4281975AE7A060196C97909B /* Pods-Skugga-macOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Skugga-macOS-dummy.m"; sourceTree = "<group>"; };
+		B8DEF942D60646F22FC409D19F3647EB /* Date+Comparators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Comparators.swift"; path = "DateToolsSwift/DateTools/Date+Comparators.swift"; sourceTree = "<group>"; };
+		BA4B6F636E2F61BF2C0EE1FF283A6F5F /* DateToolsSwift-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateToolsSwift-iOS-umbrella.h"; sourceTree = "<group>"; };
+		BCE2102DF1B4DC27D77F5628F1BAA0D5 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
+		C2B2AE07B4C73F5FF170BBC878DA2BFB /* OTHTTPRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OTHTTPRequest.m; path = OTWebImage/OTHTTPRequest/OTHTTPRequest.m; sourceTree = "<group>"; };
+		C303373935D79624FD544629719A7879 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
+		C6986D7D3AF2F86923E349F70C21E724 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
+		C767DB6ADFE214D643557332D24CF67F /* Pods-Skugga-macOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Skugga-macOS-resources.sh"; sourceTree = "<group>"; };
+		C89314E70017DACC28A8E3DC1BB930C2 /* OTWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = OTWebImage.modulemap; sourceTree = "<group>"; };
+		C957AAB8AF4278B2BDDF7472D43D2B04 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0DCFD1CFF6B57E02B7FE486BCA06E1E /* Pods-Skugga-macOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Skugga-macOS.modulemap"; sourceTree = "<group>"; };
+		D8B9C51989C792F82BF61382D0AEC6F6 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
+		DB8B5476905B729CC522FBC50CE9A749 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E14CD4D8F7AE8FB3ACD025F8B35D276D /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		E27E44D0D01FB19C5746367B21D941B7 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
+		E620E9961091F74498C245179E047727 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = DateToolsSwift/DateTools/Constants.swift; sourceTree = "<group>"; };
+		E66E89611B631B2C6A10543BB81F9D7E /* NSImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSImageView+WebCache.h"; path = "OTWebImage/NSImageView+WebCache.h"; sourceTree = "<group>"; };
+		F157932C0FB7443446CB1129FDD6D602 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F15A27FB07CA9790E0164BCB98CC3507 /* TimePeriodCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimePeriodCollection.swift; path = DateToolsSwift/DateTools/TimePeriodCollection.swift; sourceTree = "<group>"; };
+		F217F8C7BC078D935C0A6687F87736E7 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		F2953452D218912609116DF39EC5CBBD /* Pods-Skugga-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Skugga-iOS-umbrella.h"; sourceTree = "<group>"; };
+		F347F7AD5F40C4EF278F9256F93F56EF /* DateToolsSwift-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DateToolsSwift-iOS-prefix.pch"; sourceTree = "<group>"; };
+		F4095F40466CD468F31D20DD2627B0BC /* TimeChunk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimeChunk.swift; path = DateToolsSwift/DateTools/TimeChunk.swift; sourceTree = "<group>"; };
+		F50EB06934C1ED59CC458ABC9BE938A9 /* Pods-Skugga-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Skugga-iOS.modulemap"; sourceTree = "<group>"; };
+		F80265FE0B398066400BD9AA13D8AD8C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA237CA83CFEFB75BA1C6553DDDD8033 /* Pods-Skugga-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Skugga-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		FB4F2513A6DFEA6140BCF63CF430FE32 /* Enums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = DateToolsSwift/DateTools/Enums.swift; sourceTree = "<group>"; };
+		FCF091FF1F4C28C648510EBD27507846 /* OTWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OTWebImage-prefix.pch"; sourceTree = "<group>"; };
+		FD6457137CE0DC728F5D2FF35C095DC3 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
+		FDC1C431AE199A9F87864753FB2543D8 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27EA3EDCB9B6401D5B3169C281ACF43C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBE9378AE1074F867A2589C2C1F7069 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4584025512A3189397B0C62AE9C294D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAF332840F41096A66A244D284B13E82 /* Foundation.framework in Frameworks */,
+				5E2330C709B329748292A43B1010564B /* ImageIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		507397F87A00221DE557313CE6599E7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F6A47C4D01167125B2530E4E2B16716 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83A815D8D8BCBD28359647DC797E76A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93A11CA8EC95AFD8FA4BBBB0677B6E6B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB6F910F958BC316BB17C06B00DD8E7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2660BFC249FE6717A0BA11BE87B594 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E32DB1CA95DFC518DD05BCE2E8890800 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				736CF75D739F2CD0E14ADDB5A2247874 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01DCA5242C14083A2280227D0C658E19 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26183642D88E4A376E891E3103F2609D /* DateToolsSwift */,
+				10E2EDE262F1E354677F23DBE91E4944 /* OTWebImage */,
+				B15CC0F782C510284DFBBAAF61BC5B6C /* SDWebImage */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		072362F43226A710DF8026D05E3F877F /* Pods-Skugga-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				F80265FE0B398066400BD9AA13D8AD8C /* Info.plist */,
+				D0DCFD1CFF6B57E02B7FE486BCA06E1E /* Pods-Skugga-macOS.modulemap */,
+				13C0A0E18A79E2342D9D323B2779E61B /* Pods-Skugga-macOS-acknowledgements.markdown */,
+				3945E5405AA3F9791E96B621D971A69C /* Pods-Skugga-macOS-acknowledgements.plist */,
+				B782210B4281975AE7A060196C97909B /* Pods-Skugga-macOS-dummy.m */,
+				56EFBBA91FBD3BFAE8DEA4FCE0806F0C /* Pods-Skugga-macOS-frameworks.sh */,
+				C767DB6ADFE214D643557332D24CF67F /* Pods-Skugga-macOS-resources.sh */,
+				2A0A7FAEB1B71CE7F51ADDAB9560C6D1 /* Pods-Skugga-macOS-umbrella.h */,
+				33E3DD1CB69B5A8CCB971A8D59180225 /* Pods-Skugga-macOS.debug.xcconfig */,
+				FA237CA83CFEFB75BA1C6553DDDD8033 /* Pods-Skugga-macOS.release.xcconfig */,
+			);
+			name = "Pods-Skugga-macOS";
+			path = "Target Support Files/Pods-Skugga-macOS";
+			sourceTree = "<group>";
+		};
+		10E2EDE262F1E354677F23DBE91E4944 /* OTWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				E66E89611B631B2C6A10543BB81F9D7E /* NSImageView+WebCache.h */,
+				6B3BC5EFFD256AC81165B828E78DCF43 /* NSImageView+WebCache.m */,
+				6E2A558FFBD2114B60A077D06E6FA146 /* OTFileCacheManager.h */,
+				60C9F2D77BA3325838133DF234FCBE5E /* OTFileCacheManager.m */,
+				651581C6CB5C91EADC09C5E689BDFE16 /* OTHTTPRequest.h */,
+				C2B2AE07B4C73F5FF170BBC878DA2BFB /* OTHTTPRequest.m */,
+				3FE6E443A8E678787D4DCBF5C24C3808 /* OTWebImageDownloadRequest.h */,
+				17A924DB5CC7DEC467AB1577DB83D02B /* OTWebImageDownloadRequest.m */,
+				FE52CAF8D62C986E2724C55C4476CA85 /* Support Files */,
+			);
+			name = OTWebImage;
+			path = OTWebImage;
+			sourceTree = "<group>";
+		};
+		14199ECDEEDDEEFDE7F409CDEF36BA9E /* Pods-Skugga-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F157932C0FB7443446CB1129FDD6D602 /* Info.plist */,
+				F50EB06934C1ED59CC458ABC9BE938A9 /* Pods-Skugga-iOS.modulemap */,
+				46BFF65B6FE2A52F2F872C57AE83F8F0 /* Pods-Skugga-iOS-acknowledgements.markdown */,
+				941C09E8F958B86360988A90F190610B /* Pods-Skugga-iOS-acknowledgements.plist */,
+				B62DFAD31B2B8C6D42C1341B862B035F /* Pods-Skugga-iOS-dummy.m */,
+				26758277C249AF0E4F3FFAE55613C9A7 /* Pods-Skugga-iOS-frameworks.sh */,
+				547FEB431530377EDC1E12CC2F58362A /* Pods-Skugga-iOS-resources.sh */,
+				F2953452D218912609116DF39EC5CBBD /* Pods-Skugga-iOS-umbrella.h */,
+				AC7F7619C16876357916BAD4437A1AB8 /* Pods-Skugga-iOS.debug.xcconfig */,
+				256B52BA0C1F5BA9CA19F6D39F3A888C /* Pods-Skugga-iOS.release.xcconfig */,
+			);
+			name = "Pods-Skugga-iOS";
+			path = "Target Support Files/Pods-Skugga-iOS";
+			sourceTree = "<group>";
+		};
+		1E00CE53BFE5EB27072932B384C9BCEB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				08252E4FD3778881930F49B140ED6E45 /* Info.plist */,
+				4704E4F8BB44F956E6AA8ED66D208D46 /* SDWebImage.modulemap */,
+				1EF6C8D5C97394B79D899CD1F3CE6FBC /* SDWebImage.xcconfig */,
+				BCE2102DF1B4DC27D77F5628F1BAA0D5 /* SDWebImage-dummy.m */,
+				E27E44D0D01FB19C5746367B21D941B7 /* SDWebImage-prefix.pch */,
+				8460A4D8DB882EE5E6C0B96665F1B71C /* SDWebImage-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SDWebImage";
+			sourceTree = "<group>";
+		};
+		26183642D88E4A376E891E3103F2609D /* DateToolsSwift */ = {
+			isa = PBXGroup;
+			children = (
+				E620E9961091F74498C245179E047727 /* Constants.swift */,
+				5E3B1915882C34B485A669A99387F6D5 /* Date+Bundle.swift */,
+				B8DEF942D60646F22FC409D19F3647EB /* Date+Comparators.swift */,
+				44B556130B37F9A52D075553F5DDAAEC /* Date+Components.swift */,
+				A852AAA7ED909FB67F52C8FDC94C5183 /* Date+Format.swift */,
+				8B838DC06A8C6D257AD707F21E094810 /* Date+Inits.swift */,
+				076FEC3B1FA61A77871ED597C1CD3492 /* Date+Manipulations.swift */,
+				43B689FE698CE2FC0D2C62481589BE1E /* Date+TimeAgo.swift */,
+				FB4F2513A6DFEA6140BCF63CF430FE32 /* Enums.swift */,
+				9A3EDABC2275B136C0FF0CB01B1C939A /* Integer+DateTools.swift */,
+				F4095F40466CD468F31D20DD2627B0BC /* TimeChunk.swift */,
+				88B424D4C817B5779E51BCD1ADFA1F78 /* TimePeriod.swift */,
+				749AF92A670BECF269093ECF091349FD /* TimePeriodChain.swift */,
+				F15A27FB07CA9790E0164BCB98CC3507 /* TimePeriodCollection.swift */,
+				7C91D7BF7AF98279DA788026E9C3A20A /* TimePeriodGroup.swift */,
+				98D540EBC9A093A6FBEB15091B5FD7B8 /* Resources */,
+				C943588A099AEF5816A54A904932F7C2 /* Support Files */,
+			);
+			name = DateToolsSwift;
+			path = DateToolsSwift;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BFEF163CB0C80F5BE6FDC6A6BD227D67 /* Frameworks */,
+				01DCA5242C14083A2280227D0C658E19 /* Pods */,
+				BC3A33AD4A299D2A4D8A493BE6FC7E3E /* Products */,
+				8ED240E27BEC0CD75CC2EB41121012B3 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8ED240E27BEC0CD75CC2EB41121012B3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				14199ECDEEDDEEFDE7F409CDEF36BA9E /* Pods-Skugga-iOS */,
+				072362F43226A710DF8026D05E3F877F /* Pods-Skugga-macOS */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		98D540EBC9A093A6FBEB15091B5FD7B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10A1AEEF132D91EDC9C607FC38A286DB /* DateTools.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		B15CC0F782C510284DFBBAAF61BC5B6C /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				B9A5B689BA5030A55D9AD40868E7B9A9 /* Core */,
+				1E00CE53BFE5EB27072932B384C9BCEB /* Support Files */,
+			);
+			name = SDWebImage;
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		B9A5B689BA5030A55D9AD40868E7B9A9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2E95A6C4D9C84C70A9C7E1B8CBDDA667 /* NSData+ImageContentType.h */,
+				F217F8C7BC078D935C0A6687F87736E7 /* NSData+ImageContentType.m */,
+				1C5565A1824A06D8E7E0C740B1D0CFFE /* SDImageCache.h */,
+				4B9622021683B47A5096F7D258C6BF9E /* SDImageCache.m */,
+				362C0D69A84371A0654B97E101A6DE36 /* SDWebImageCompat.h */,
+				28807FECFFD197B2F56815DE7A01FAD1 /* SDWebImageCompat.m */,
+				A4F14B76E2EA4EA090E6CF3FA7E19B21 /* SDWebImageDecoder.h */,
+				FD6457137CE0DC728F5D2FF35C095DC3 /* SDWebImageDecoder.m */,
+				8413A017FC63BF8A9F1CB5D5B09603C0 /* SDWebImageDownloader.h */,
+				C303373935D79624FD544629719A7879 /* SDWebImageDownloader.m */,
+				A0B9BFC3A3B9FEF7B2A68FDFEBBE3BF4 /* SDWebImageDownloaderOperation.h */,
+				33AF358B164034AC6D295696D87872CD /* SDWebImageDownloaderOperation.m */,
+				2CF07B72FB34C54A842004E4260E490B /* SDWebImageManager.h */,
+				C6986D7D3AF2F86923E349F70C21E724 /* SDWebImageManager.m */,
+				0C30731A203923133C7FFAF6A4DE00F6 /* SDWebImageOperation.h */,
+				6C7DE5211C8F3D3BBDBD2B94259C7B05 /* SDWebImagePrefetcher.h */,
+				417F0161780D4550777CE51C2E8967F4 /* SDWebImagePrefetcher.m */,
+				B399D49C48F35E439DD7E35FB1C76B3C /* UIButton+WebCache.h */,
+				43FFB835ED9EAAAF6755387F7F6052CA /* UIButton+WebCache.m */,
+				D8B9C51989C792F82BF61382D0AEC6F6 /* UIImage+GIF.h */,
+				5ADB6E958AD0C5D503D072CF3E6D4BC0 /* UIImage+GIF.m */,
+				B62DCCE5126D0B5349A60B5692622D7C /* UIImage+MultiFormat.h */,
+				0B4EBE1ECF9861BA658845656BFCD15F /* UIImage+MultiFormat.m */,
+				9C229CD8B3D70FB8CB4D70E8B4F5A6F8 /* UIImageView+HighlightedWebCache.h */,
+				AC03AC8A753C533D8EC62B73EA79F8C0 /* UIImageView+HighlightedWebCache.m */,
+				700AF6240255D4D9A13D05469369F06F /* UIImageView+WebCache.h */,
+				FDC1C431AE199A9F87864753FB2543D8 /* UIImageView+WebCache.m */,
+				E14CD4D8F7AE8FB3ACD025F8B35D276D /* UIView+WebCacheOperation.h */,
+				2716940F841C5BF96EB455CF7E61176F /* UIView+WebCacheOperation.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		BC3A33AD4A299D2A4D8A493BE6FC7E3E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				118D8B9D1EE1E5C93EA0F59802C04BD6 /* DateToolsSwift.framework */,
+				39F950A218D69F74958C63D35E5D9F5C /* DateToolsSwift.framework */,
+				9911BCAD5406240092F4627B138AB6E2 /* OTWebImage.framework */,
+				7A5BFB7BF88D2989DBAFA22BF5202AE3 /* Pods_Skugga_iOS.framework */,
+				87170E0A7C65D9A2276DE1DFCA4CDE60 /* Pods_Skugga_macOS.framework */,
+				C957AAB8AF4278B2BDDF7472D43D2B04 /* SDWebImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFEF163CB0C80F5BE6FDC6A6BD227D67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F61F8E1CD6566DFF3134C30D1F0BDA96 /* iOS */,
+				CEBEEDEFCB356A17E064CD27D3699A62 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C943588A099AEF5816A54A904932F7C2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				083A4B8F994B5B4159D45F4E0D071CDB /* DateToolsSwift-iOS.modulemap */,
+				09DAF83D68E052FF4E4D384AAE71F815 /* DateToolsSwift-iOS.xcconfig */,
+				9CB18812E0381B354423E8F946558481 /* DateToolsSwift-iOS-dummy.m */,
+				F347F7AD5F40C4EF278F9256F93F56EF /* DateToolsSwift-iOS-prefix.pch */,
+				BA4B6F636E2F61BF2C0EE1FF283A6F5F /* DateToolsSwift-iOS-umbrella.h */,
+				2C62E889E19DA1869DB531526235CF01 /* DateToolsSwift-macOS.modulemap */,
+				394D376D177EC50EBCB521E2ACB06365 /* DateToolsSwift-macOS.xcconfig */,
+				A8E9B6496F4CE0D3A864D924FE208DDC /* DateToolsSwift-macOS-dummy.m */,
+				409FF38DA8176C6479CA5001C33AE0E5 /* DateToolsSwift-macOS-prefix.pch */,
+				851B45EBED6F17C5C7CF523388C2DFE1 /* DateToolsSwift-macOS-umbrella.h */,
+				0231BA8C2053ABD7F9C8394D63E800AE /* Info.plist */,
+				DB8B5476905B729CC522FBC50CE9A749 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DateToolsSwift-iOS";
+			sourceTree = "<group>";
+		};
+		CEBEEDEFCB356A17E064CD27D3699A62 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				3E94A1C0FCB5750A73B1577D237EBFB4 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		F61F8E1CD6566DFF3134C30D1F0BDA96 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B17A997E7DD31415BEF903B667CB1F8D /* Foundation.framework */,
+				2D28AB8F24B4962360DDB5CBB9BCD2E3 /* ImageIO.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FE52CAF8D62C986E2724C55C4476CA85 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				16CD28C8BCE478266F13A7DAAB4BD052 /* Info.plist */,
+				C89314E70017DACC28A8E3DC1BB930C2 /* OTWebImage.modulemap */,
+				B6A3AAE2B22BD52D3E6AABDE620CD41E /* OTWebImage.xcconfig */,
+				83948D00E036AD9CBA899D8932B8817D /* OTWebImage-dummy.m */,
+				FCF091FF1F4C28C648510EBD27507846 /* OTWebImage-prefix.pch */,
+				0F1DEFFE5C5A69659DD0DB985EF292EF /* OTWebImage-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OTWebImage";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0A9534CC51F78CDFDBBDEEBE2CA3AE6D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95D48F8FC40C4D61960DE876FEDA159E /* NSImageView+WebCache.h in Headers */,
+				AD5093A4E6C8C5176EAD2CF817DB74BF /* OTFileCacheManager.h in Headers */,
+				07F3419F7E31D3F4AA49671BB3490462 /* OTHTTPRequest.h in Headers */,
+				6D7129AD7BBAD7214A73E16CDB271259 /* OTWebImage-umbrella.h in Headers */,
+				F63582AB4DA8D10DFC6EB68B2003A749 /* OTWebImageDownloadRequest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6B32E3325C4979885BB89F852F1CD5B5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F799DFF1FC7DD67C4E662EB8EE88B849 /* DateToolsSwift-macOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90A9E7CB842E19F8C95F194FC139602C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A135E9B11E0345BE32391FA565BB5395 /* NSData+ImageContentType.h in Headers */,
+				E296FC56533D990828AA681792AD5A22 /* SDImageCache.h in Headers */,
+				23EF93623528FCB039122D4B4BDEF68E /* SDWebImage-umbrella.h in Headers */,
+				0C309474332C99B7909A9DB76B65408F /* SDWebImageCompat.h in Headers */,
+				9A8AB08A026C01D21D3FD6E0488DD807 /* SDWebImageDecoder.h in Headers */,
+				16771290AFBCFEEC0B839E4E9333EAAD /* SDWebImageDownloader.h in Headers */,
+				F39AC55A9D4FA3D09E3C9A0522A8E20A /* SDWebImageDownloaderOperation.h in Headers */,
+				2EA4B644EAE3A93661C93323126794B0 /* SDWebImageManager.h in Headers */,
+				22D06B6119CE120EE8AFEE070640DD79 /* SDWebImageOperation.h in Headers */,
+				6CE1CBF5B52AB6C456ECEA1394115B44 /* SDWebImagePrefetcher.h in Headers */,
+				87656327AF228F092464FF753CD1D239 /* UIButton+WebCache.h in Headers */,
+				FABBF299E6189CC3CE58DA5F3C6613BB /* UIImage+GIF.h in Headers */,
+				3CDB8A9B6CB13F5DE5A0422320BE9D06 /* UIImage+MultiFormat.h in Headers */,
+				FAE711E944334E23138F5A59877E637C /* UIImageView+HighlightedWebCache.h in Headers */,
+				88D68BF1ADB004771DA8E4DA285FCDCB /* UIImageView+WebCache.h in Headers */,
+				A3F46914EECE0B2F30CE80C6E8D305C0 /* UIView+WebCacheOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B63DA1A65B0B0FEC2CDBADB6D8C5C705 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F52EEF6C7214915957F693CCFE478CA3 /* DateToolsSwift-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6DDDF261BF8C3013499F409237E5958 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35E319AECD44D52213920B166A235AF1 /* Pods-Skugga-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1DBCECCB593A4EF02DFC5A4D27F585B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2DFF56CE358E6CF36A91F5EFC070E1 /* Pods-Skugga-macOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0018CA5F91C7EADBBE0913F07A54B6D5 /* OTWebImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7AFF2A84F0BE628D33FAB5C84367B41 /* Build configuration list for PBXNativeTarget "OTWebImage" */;
+			buildPhases = (
+				D577F939E1257EECB59EBF731AAFF4C3 /* Sources */,
+				83A815D8D8BCBD28359647DC797E76A2 /* Frameworks */,
+				0A9534CC51F78CDFDBBDEEBE2CA3AE6D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OTWebImage;
+			productName = OTWebImage;
+			productReference = 9911BCAD5406240092F4627B138AB6E2 /* OTWebImage.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1E951143F6A14C57CEDF2E605CD17BB2 /* Pods-Skugga-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76A645F1AB175D1EC280E0D3E6F53859 /* Build configuration list for PBXNativeTarget "Pods-Skugga-iOS" */;
+			buildPhases = (
+				62E6103A57DC6E89A5E6847CF8EA10BB /* Sources */,
+				AB6F910F958BC316BB17C06B00DD8E7B /* Frameworks */,
+				C6DDDF261BF8C3013499F409237E5958 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E407748A9132C74905E9A73A0D679856 /* PBXTargetDependency */,
+				1A8BFE3B89926C105BEAEB136D6ED4AF /* PBXTargetDependency */,
+			);
+			name = "Pods-Skugga-iOS";
+			productName = "Pods-Skugga-iOS";
+			productReference = 7A5BFB7BF88D2989DBAFA22BF5202AE3 /* Pods_Skugga_iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5121913F820968C628512F87FE1B223A /* DateToolsSwift-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6296CB4C6A287C70365201C66C2DA88 /* Build configuration list for PBXNativeTarget "DateToolsSwift-iOS" */;
+			buildPhases = (
+				CC24B2CDDDA3C88623C263264C4990CE /* Sources */,
+				E32DB1CA95DFC518DD05BCE2E8890800 /* Frameworks */,
+				605CB2226EC065599CAAB20564B5D2F1 /* Resources */,
+				B63DA1A65B0B0FEC2CDBADB6D8C5C705 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DateToolsSwift-iOS";
+			productName = "DateToolsSwift-iOS";
+			productReference = 118D8B9D1EE1E5C93EA0F59802C04BD6 /* DateToolsSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		88332530F9657BA66FE7C064D41A9B3C /* SDWebImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF2559C2DB0C7483BE50F73BDD8C9343 /* Build configuration list for PBXNativeTarget "SDWebImage" */;
+			buildPhases = (
+				A2F311C85AA1A7E45DF9D687E9DE92C1 /* Sources */,
+				4584025512A3189397B0C62AE9C294D9 /* Frameworks */,
+				90A9E7CB842E19F8C95F194FC139602C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDWebImage;
+			productName = SDWebImage;
+			productReference = C957AAB8AF4278B2BDDF7472D43D2B04 /* SDWebImage.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B4DDD26A896D7D209BF34D5379937DB1 /* Pods-Skugga-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 745C47ADD19F2C350B4502B8F935FFF1 /* Build configuration list for PBXNativeTarget "Pods-Skugga-macOS" */;
+			buildPhases = (
+				55E48104706F2A9A5FE6F80C1BEC9C5D /* Sources */,
+				507397F87A00221DE557313CE6599E7C /* Frameworks */,
+				F1DBCECCB593A4EF02DFC5A4D27F585B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DE2409FA70BE8A9FC49ED3B7E7FC420 /* PBXTargetDependency */,
+				D3E0DA00481196270773125F32AE330F /* PBXTargetDependency */,
+			);
+			name = "Pods-Skugga-macOS";
+			productName = "Pods-Skugga-macOS";
+			productReference = 87170E0A7C65D9A2276DE1DFCA4CDE60 /* Pods_Skugga_macOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B5543DDBB65A3EDDC1FB9CA786E5C928 /* DateToolsSwift-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C92A9056581A1E4FC32930D07BBB19DF /* Build configuration list for PBXNativeTarget "DateToolsSwift-macOS" */;
+			buildPhases = (
+				CE95C48D9A735ACCD4B4D097DE4DAF44 /* Sources */,
+				27EA3EDCB9B6401D5B3169C281ACF43C /* Frameworks */,
+				000E869EB4BD8A33211E152B197B0B1E /* Resources */,
+				6B32E3325C4979885BB89F852F1CD5B5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DateToolsSwift-macOS";
+			productName = "DateToolsSwift-macOS";
+			productReference = 39F950A218D69F74958C63D35E5D9F5C /* DateToolsSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = BC3A33AD4A299D2A4D8A493BE6FC7E3E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5121913F820968C628512F87FE1B223A /* DateToolsSwift-iOS */,
+				B5543DDBB65A3EDDC1FB9CA786E5C928 /* DateToolsSwift-macOS */,
+				0018CA5F91C7EADBBE0913F07A54B6D5 /* OTWebImage */,
+				1E951143F6A14C57CEDF2E605CD17BB2 /* Pods-Skugga-iOS */,
+				B4DDD26A896D7D209BF34D5379937DB1 /* Pods-Skugga-macOS */,
+				88332530F9657BA66FE7C064D41A9B3C /* SDWebImage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		000E869EB4BD8A33211E152B197B0B1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B6993E43C43B2B4853BA4F2276FD4AF /* DateTools.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		605CB2226EC065599CAAB20564B5D2F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA6ADD91CEA31BF03FF6FC317CD1F8F9 /* DateTools.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		55E48104706F2A9A5FE6F80C1BEC9C5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C372EE0B5911089CE4AA0EBDC7384F5 /* Pods-Skugga-macOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62E6103A57DC6E89A5E6847CF8EA10BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91D067C4358969678E263D2BB1FE078F /* Pods-Skugga-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2F311C85AA1A7E45DF9D687E9DE92C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				611EE6EBC9D05DB223DF7C4A875A84B4 /* NSData+ImageContentType.m in Sources */,
+				A993DE8790BD9D4C0EDF26114F2B7B87 /* SDImageCache.m in Sources */,
+				CD91C5553B47506FF05A1D304EDC26B4 /* SDWebImage-dummy.m in Sources */,
+				FC3DA92D354BD9C0BE0B19C1F459E532 /* SDWebImageCompat.m in Sources */,
+				1A843BFE86E52EB42053543FFFDBC71E /* SDWebImageDecoder.m in Sources */,
+				7D5C668E407831CEB41D0D93BDD29370 /* SDWebImageDownloader.m in Sources */,
+				44B545559421345ED5681F2E5638F9FE /* SDWebImageDownloaderOperation.m in Sources */,
+				DD31F29D3EA55ECCA6FE5C9E47CF55A0 /* SDWebImageManager.m in Sources */,
+				DECAE3AF8B61EA6D12097C19BF20E49E /* SDWebImagePrefetcher.m in Sources */,
+				E63699EED35577B356513D554A62D978 /* UIButton+WebCache.m in Sources */,
+				ED4316A83F71973DBC0474DC17FE527E /* UIImage+GIF.m in Sources */,
+				7BE236929950223ABF6E1A9EBB07FEDA /* UIImage+MultiFormat.m in Sources */,
+				54F005EADF28643C2F70C43ECCB5ACE4 /* UIImageView+HighlightedWebCache.m in Sources */,
+				5624FCF397BD2A9F9E450B467DE36452 /* UIImageView+WebCache.m in Sources */,
+				1BE6157E1D78D3EB1180FD8086EB945C /* UIView+WebCacheOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC24B2CDDDA3C88623C263264C4990CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				479703B059FF466DE37474DB0EE72D05 /* Constants.swift in Sources */,
+				6386C3C6EE9AAA617EEF356285BC60E6 /* Date+Bundle.swift in Sources */,
+				59A8CDF9B2D0A30141755352FF20F8D1 /* Date+Comparators.swift in Sources */,
+				39C35AC0C4AAD41808579CB66108A37B /* Date+Components.swift in Sources */,
+				28557A997ABC98207F6C46F72B1293CC /* Date+Format.swift in Sources */,
+				904F43AE7B2CB234B37934EAE92FD74C /* Date+Inits.swift in Sources */,
+				7B8155A7880754A2707D8FF5C3B0D277 /* Date+Manipulations.swift in Sources */,
+				501E82E5BCFF66769B7DDAD55FC06654 /* Date+TimeAgo.swift in Sources */,
+				7C39F6865EA651A351811D3B62C72D2C /* DateToolsSwift-iOS-dummy.m in Sources */,
+				1375B11641149131226F08E9D01CD08E /* Enums.swift in Sources */,
+				10DA2E90775967E669FE0E770AEEBD4B /* Integer+DateTools.swift in Sources */,
+				57F25DF7F0EDE60D0D1303090F3C73B0 /* TimeChunk.swift in Sources */,
+				4194FED866FFD22E242B62C2981C8BBA /* TimePeriod.swift in Sources */,
+				2BDEE9F82DAE9D17136F5AABF206A371 /* TimePeriodChain.swift in Sources */,
+				1DA40A4B662AA8B2E9DB9D0393FEA4B5 /* TimePeriodCollection.swift in Sources */,
+				75110DF4D04A16332288EAFDDC892BF6 /* TimePeriodGroup.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE95C48D9A735ACCD4B4D097DE4DAF44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE45C56C638165FCF48E164E111C563A /* Constants.swift in Sources */,
+				77DC9F6BBF7651D0D28A4020D572FCDF /* Date+Bundle.swift in Sources */,
+				49CD23A28C982362A2C9E57CCD57244D /* Date+Comparators.swift in Sources */,
+				8EFB6530AF61CE4B5F4912AB36E151C0 /* Date+Components.swift in Sources */,
+				EE87A106FB0C084D11A5C0F4E1E2C19E /* Date+Format.swift in Sources */,
+				1E4B5450A5305D41F8E97FBAAB33746F /* Date+Inits.swift in Sources */,
+				7312AE01AEDB50DEE35A70A1F1A8C1E0 /* Date+Manipulations.swift in Sources */,
+				C57342EFEEADF09A0F7BC646A78B54A2 /* Date+TimeAgo.swift in Sources */,
+				C95AA175A8D51E3AC22D8BFA8577B861 /* DateToolsSwift-macOS-dummy.m in Sources */,
+				592F3CD7F2D42E298CF31B0360606BB0 /* Enums.swift in Sources */,
+				A0076C741B4BC0395A2E18B7794DBD8F /* Integer+DateTools.swift in Sources */,
+				242C9E1E8B9F597B52267A506A575385 /* TimeChunk.swift in Sources */,
+				BD9083CF68853CF0BEE06B689FFAF352 /* TimePeriod.swift in Sources */,
+				8CAB5B108B735E430A3A4CE0FC6DD5F2 /* TimePeriodChain.swift in Sources */,
+				CAD337356CCB67D5CD25EDEC6DC1DEFE /* TimePeriodCollection.swift in Sources */,
+				840A0D439FD6C5CB593522A776CA4E9C /* TimePeriodGroup.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D577F939E1257EECB59EBF731AAFF4C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D687566C3D1FBA205D296E29D2ADAF /* NSImageView+WebCache.m in Sources */,
+				017006C81AAC80BB862EB23BE565BD7D /* OTFileCacheManager.m in Sources */,
+				CBEF1F8519657A1454952FCFA099106C /* OTHTTPRequest.m in Sources */,
+				4AF23A5F81E68FEB19AD2F2AB824714B /* OTWebImage-dummy.m in Sources */,
+				6A633F64DA4DECD4A6C3223051A2B8A2 /* OTWebImageDownloadRequest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A8BFE3B89926C105BEAEB136D6ED4AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			target = 88332530F9657BA66FE7C064D41A9B3C /* SDWebImage */;
+			targetProxy = D706A64D6C065D3D9CA5163E22C17262 /* PBXContainerItemProxy */;
+		};
+		2DE2409FA70BE8A9FC49ED3B7E7FC420 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "DateToolsSwift-macOS";
+			target = B5543DDBB65A3EDDC1FB9CA786E5C928 /* DateToolsSwift-macOS */;
+			targetProxy = C86107D50579AFA784838229F494B70D /* PBXContainerItemProxy */;
+		};
+		D3E0DA00481196270773125F32AE330F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OTWebImage;
+			target = 0018CA5F91C7EADBBE0913F07A54B6D5 /* OTWebImage */;
+			targetProxy = 1C38A299A8F8D443B24166D6C7EB5F32 /* PBXContainerItemProxy */;
+		};
+		E407748A9132C74905E9A73A0D679856 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "DateToolsSwift-iOS";
+			target = 5121913F820968C628512F87FE1B223A /* DateToolsSwift-iOS */;
+			targetProxy = 39B23B4A62856B13AA465EBCAB985AAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		20AE23BAA385D28483FC2FD32E8147EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26811B1155C3878561E590C64098731D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC7F7619C16876357916BAD4437A1AB8 /* Pods-Skugga-iOS.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Skugga-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Skugga-iOS/Pods-Skugga-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Skugga_iOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2E41F3C4966510BB4760E86F9FD860FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09DAF83D68E052FF4E4D384AAE71F815 /* DateToolsSwift-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DateToolsSwift-iOS/DateToolsSwift-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateToolsSwift-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DateToolsSwift-iOS/DateToolsSwift-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DateToolsSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5870C08EEB0DD3DAF0FBD62A0D5E4A08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EF6C8D5C97394B79D899CD1F3CE6FBC /* SDWebImage.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SDWebImage/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SDWebImage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6172748D52294344326DAAEB2EA3AC52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A3AAE2B22BD52D3E6AABDE620CD41E /* OTWebImage.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OTWebImage/OTWebImage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OTWebImage/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/OTWebImage/OTWebImage.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = OTWebImage;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		726F5CE6EEB962712D3B50DA448FA9E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 394D376D177EC50EBCB521E2ACB06365 /* DateToolsSwift-macOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DateToolsSwift-macOS/DateToolsSwift-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateToolsSwift-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/DateToolsSwift-macOS/DateToolsSwift-macOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DateToolsSwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		98FABC07595AF47257F4AC1153C01534 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33E3DD1CB69B5A8CCB971A8D59180225 /* Pods-Skugga-macOS.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Skugga-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-Skugga-macOS/Pods-Skugga-macOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Skugga_macOS;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BAEED4F9E8D7DEC9F092D0A2F6D0D45D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA237CA83CFEFB75BA1C6553DDDD8033 /* Pods-Skugga-macOS.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Skugga-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-Skugga-macOS/Pods-Skugga-macOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Skugga_macOS;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C3A01B0D93111D70F4CB663A3FC1C6BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09DAF83D68E052FF4E4D384AAE71F815 /* DateToolsSwift-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DateToolsSwift-iOS/DateToolsSwift-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateToolsSwift-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DateToolsSwift-iOS/DateToolsSwift-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DateToolsSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C940E63D4CCA0B3CE1C12B83D5D66CC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 394D376D177EC50EBCB521E2ACB06365 /* DateToolsSwift-macOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DateToolsSwift-macOS/DateToolsSwift-macOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DateToolsSwift-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/DateToolsSwift-macOS/DateToolsSwift-macOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DateToolsSwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D8CFA9D78884CA6A3476C0AAECCA872E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EF6C8D5C97394B79D899CD1F3CE6FBC /* SDWebImage.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SDWebImage/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SDWebImage/SDWebImage.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SDWebImage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DB397FE5F77BE823D7212E882B2A39E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E01E1DE86847688FB381A587C7B4F5C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 256B52BA0C1F5BA9CA19F6D39F3A888C /* Pods-Skugga-iOS.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Skugga-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Skugga-iOS/Pods-Skugga-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Skugga_iOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E686DAAD3D2FDBECDF0735643FF46F34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A3AAE2B22BD52D3E6AABDE620CD41E /* OTWebImage.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OTWebImage/OTWebImage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/OTWebImage/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MODULEMAP_FILE = "Target Support Files/OTWebImage/OTWebImage.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = OTWebImage;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB397FE5F77BE823D7212E882B2A39E6 /* Debug */,
+				20AE23BAA385D28483FC2FD32E8147EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		745C47ADD19F2C350B4502B8F935FFF1 /* Build configuration list for PBXNativeTarget "Pods-Skugga-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98FABC07595AF47257F4AC1153C01534 /* Debug */,
+				BAEED4F9E8D7DEC9F092D0A2F6D0D45D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76A645F1AB175D1EC280E0D3E6F53859 /* Build configuration list for PBXNativeTarget "Pods-Skugga-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26811B1155C3878561E590C64098731D /* Debug */,
+				E01E1DE86847688FB381A587C7B4F5C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7AFF2A84F0BE628D33FAB5C84367B41 /* Build configuration list for PBXNativeTarget "OTWebImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E686DAAD3D2FDBECDF0735643FF46F34 /* Debug */,
+				6172748D52294344326DAAEB2EA3AC52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C92A9056581A1E4FC32930D07BBB19DF /* Build configuration list for PBXNativeTarget "DateToolsSwift-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				726F5CE6EEB962712D3B50DA448FA9E4 /* Debug */,
+				C940E63D4CCA0B3CE1C12B83D5D66CC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6296CB4C6A287C70365201C66C2DA88 /* Build configuration list for PBXNativeTarget "DateToolsSwift-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3A01B0D93111D70F4CB663A3FC1C6BD /* Debug */,
+				2E41F3C4966510BB4760E86F9FD860FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF2559C2DB0C7483BE50F73BDD8C9343 /* Build configuration list for PBXNativeTarget "SDWebImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5870C08EEB0DD3DAF0FBD62A0D5E4A08 /* Debug */,
+				D8CFA9D78884CA6A3476C0AAECCA872E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

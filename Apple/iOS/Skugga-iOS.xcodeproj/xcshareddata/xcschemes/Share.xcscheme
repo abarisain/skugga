@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5165AC2C1A90EFF50087952D"
-               BuildableName = "Share.appex"
-               BlueprintName = "Share"
+               BuildableName = "Share-iOS.appex"
+               BlueprintName = "Share-iOS"
                ReferencedContainer = "container:Skugga-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -49,8 +49,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5165AC2C1A90EFF50087952D"
-            BuildableName = "Share.appex"
-            BlueprintName = "Share"
+            BuildableName = "Share-iOS.appex"
+            BlueprintName = "Share-iOS"
             ReferencedContainer = "container:Skugga-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
