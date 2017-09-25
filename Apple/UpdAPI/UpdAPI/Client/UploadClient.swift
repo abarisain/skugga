@@ -1,4 +1,4 @@
-
+//
 //  UploadWebservice.swift
 //  skugga
 //
@@ -23,6 +23,7 @@ public struct UploadClient
                 success:@escaping ([AnyHashable: Any]) -> Void,
                 failure:@escaping (Error) -> Void) throws
     {
+        //TODO: Fix this
         return
 //        return try uploadFile({ (data: AFMultipartFormData?) -> Void in
 //                do {
