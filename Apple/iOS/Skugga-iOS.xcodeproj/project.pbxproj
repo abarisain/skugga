@@ -16,7 +16,7 @@
 		5126B1371F79259300258230 /* UpdAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5126B1361F79258E00258230 /* UpdAPI.framework */; };
 		5165AC321A90EFF50087952D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC311A90EFF50087952D /* ShareViewController.swift */; };
 		5165AC341A90EFF50087952D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5165AC331A90EFF50087952D /* MainInterface.storyboard */; };
-		5165AC371A90EFF50087952D /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5165AC2D1A90EFF50087952D /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5165AC371A90EFF50087952D /* Share-iOS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5165AC2D1A90EFF50087952D /* Share-iOS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5165AC3B1A90F03C0087952D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510A03431A8D61B1009FB815 /* Images.xcassets */; };
 		5165AC431A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
 		5165AC441A90F83E0087952D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5165AC421A90F83E0087952D /* Configuration.swift */; };
@@ -48,7 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5165AC371A90EFF50087952D /* Share.appex in Embed App Extensions */,
+				5165AC371A90EFF50087952D /* Share-iOS.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,7 +64,7 @@
 		510A03431A8D61B1009FB815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		510A03461A8D61B1009FB815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5126B1361F79258E00258230 /* UpdAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5165AC2D1A90EFF50087952D /* Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5165AC2D1A90EFF50087952D /* Share-iOS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Share-iOS.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5165AC301A90EFF50087952D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5165AC311A90EFF50087952D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		5165AC331A90EFF50087952D /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				510A03341A8D61B1009FB815 /* Skugga-iOS.app */,
-				5165AC2D1A90EFF50087952D /* Share.appex */,
+				5165AC2D1A90EFF50087952D /* Share-iOS.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,9 +228,9 @@
 			productReference = 510A03341A8D61B1009FB815 /* Skugga-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5165AC2C1A90EFF50087952D /* Share */ = {
+		5165AC2C1A90EFF50087952D /* Share-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5165AC381A90EFF50087952D /* Build configuration list for PBXNativeTarget "Share" */;
+			buildConfigurationList = 5165AC381A90EFF50087952D /* Build configuration list for PBXNativeTarget "Share-iOS" */;
 			buildPhases = (
 				5165AC291A90EFF50087952D /* Sources */,
 				5165AC2A1A90EFF50087952D /* Frameworks */,
@@ -240,9 +240,9 @@
 			);
 			dependencies = (
 			);
-			name = Share;
+			name = "Share-iOS";
 			productName = Share;
-			productReference = 5165AC2D1A90EFF50087952D /* Share.appex */;
+			productReference = 5165AC2D1A90EFF50087952D /* Share-iOS.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -291,7 +291,7 @@
 			projectRoot = "";
 			targets = (
 				510A03331A8D61B1009FB815 /* Skugga-iOS */,
-				5165AC2C1A90EFF50087952D /* Share */,
+				5165AC2C1A90EFF50087952D /* Share-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -351,7 +351,7 @@
 /* Begin PBXTargetDependency section */
 		5165AC361A90EFF50087952D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5165AC2C1A90EFF50087952D /* Share */;
+			target = 5165AC2C1A90EFF50087952D /* Share-iOS */;
 			targetProxy = 5165AC351A90EFF50087952D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -536,7 +536,7 @@
 				INFOPLIST_FILE = Share/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.Skugga.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.Skugga.Share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -563,7 +563,7 @@
 				INFOPLIST_FILE = Share/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.nlss.Skugga.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.nlss.Skugga.Share;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -594,7 +594,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5165AC381A90EFF50087952D /* Build configuration list for PBXNativeTarget "Share" */ = {
+		5165AC381A90EFF50087952D /* Build configuration list for PBXNativeTarget "Share-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5165AC391A90EFF50087952D /* Debug */,
